@@ -371,6 +371,7 @@
 
     <div class="row" style="margin-top:20px">
       <button class="btn green" id="btn-refazer-erros">Treinar só os erros</button>
+      <button class="btn" id="btn-enviar-resultado" style="background:linear-gradient(135deg,#25d366,#128c7e)">📲 Enviar resultado ao instrutor</button>
       <button class="btn" id="btn-novo">Novo simulado</button>
       <button class="btn ghost" id="btn-ver-hist">Ver histórico</button>
     </div>
@@ -381,6 +382,8 @@
     <h1>Histórico e desempenho</h1>
     <p class="lead">Salvo apenas neste navegador (não enviamos dados para nenhum servidor).</p>
     <div class="card" id="hist-stats"></div>
+    <h2><span class="dot"></span>Boletim por matéria (acumulado)</h2>
+    <div class="card" id="hist-boletim"></div>
     <h2><span class="dot"></span>Simulados realizados</h2>
     <div id="hist-list"></div>
     <div class="row" style="margin-top:16px">
@@ -473,8 +476,12 @@ const CONFIG = {
   // @ do Instagram, com ou sem @ (o app monta o link automaticamente)
   instagram: "@instrutor.olair",
 
-  // WhatsApp com DDI+DDD, só números (ex.: "5527999999999"). "" = oculta o botão.
-  whatsapp: "",
+  // WhatsApp com DDI+DDD, só números (ex.: "5527999998888"). "" = oculta o botão do perfil.
+  whatsapp: "5527996110148",
+
+  // WhatsApp que RECEBE os resultados dos simulados (DDI+DDD+número, só dígitos).
+  // Se ficar "", o botão "Enviar resultado" copia a mensagem para o aluno colar.
+  whatsappInstrutor: "5527996110148",
 
   // Link de pagamento / contribuição — cole o seu aqui.
   // Ex.: "https://mpago.la/xxxxxx" (Mercado Pago, PagSeguro, Stripe, Ko-fi, PicPay...)
@@ -1894,7 +1901,7 @@ function finalizar(auto) {
   st.hist = st.hist || [];
   st.hist.unshift({
     data: new Date().toISOString(), rotulo: qz.rotulo, total, acertos, duracao, aprovado, need,
-    ritmo: S.ritmo, nome: S.nome
+    ritmo: S.ritmo, nome: S.nome, porCat
   });
   st.hist = st.hist.slice(0, 60);
   saveStore(st);
@@ -1962,6 +1969,110 @@ $('#btn-refazer-erros').onclick = () => {
 };
 $('#btn-novo').onclick = () => { show('home'); S.quiz = null; S.modo = null; $$('.modo').forEach(b => b.setAttribute('aria-pressed', 'false')); $('#setup').hidden = true; };
 $('#btn-ver-hist').onclick = () => { renderHistory(); show('history'); };
+$('#btn-enviar-resultado').onclick = enviarResultado;
+
+
+/* ================= BOLETIM ACUMULADO ================= */
+function acumuladoPorMateria() {
+  const st = loadStore();
+  const acc = {};
+  (st.hist || []).forEach(h => {
+    if (!h.porCat) return;
+    Object.keys(h.porCat).forEach(c => {
+      acc[c] = acc[c] || { ok: 0, total: 0 };
+      acc[c].ok += h.porCat[c].ok;
+      acc[c].total += h.porCat[c].total;
+    });
+  });
+  return acc;
+}
+function renderBoletim() {
+  const box = $('#hist-boletim');
+  if (!box) return;
+  const acc = acumuladoPorMateria();
+  const chaves = Object.keys(acc);
+  if (!chaves.length) {
+    box.innerHTML = `<div class="empty">O boletim aparece depois do primeiro simulado. Ele soma o desempenho de todas as matérias ao longo do tempo.</div>`;
+    return;
+  }
+  const linhas = chaves
+    .map(c => ({ c, ...acc[c], p: pct(acc[c].ok, acc[c].total) }))
+    .sort((a, b) => a.p - b.p);
+
+  const fracas = linhas.filter(l => l.p < 67);
+  let html = linhas.map(l => `<div class="subj-row">
+      <span class="nm">${CATS[l.c] ? CATS[l.c].curto : l.c}</span>
+      <span class="track"><i style="width:${l.p}%;background:linear-gradient(90deg,${l.p < 67 ? '#ef4444' : (l.p < 85 ? '#f59e0b' : '#22c55e')},#14b8a6)"></i></span>
+      <span class="vl">${l.ok}/${l.total}</span>
+    </div>`).join('');
+
+  html += `<p class="hint" style="margin-top:14px">${fracas.length
+    ? '⚠️ Ponto(s) de atenção: <b>' + fracas.map(l => (CATS[l.c] ? CATS[l.c].curto : l.c) + ' (' + l.p + '%)').join(', ') + '</b>. Vale refazer simulados só dessas matérias.'
+    : '✔ Todas as matérias acima de 67% de acerto. Continue assim e faça o simulado geral cronometrado.'}</p>`;
+  box.innerHTML = html;
+}
+
+/* ================= ENVIAR RESULTADO AO INSTRUTOR ================= */
+function montarMensagemResultado() {
+  const r = S.ultimoResultado;
+  if (!r) return '';
+  const st = loadStore();
+  const nome = (S.nome || st.nome || '').trim() || '(nome não informado)';
+  const data = new Date().toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
+  const materias = Object.keys(r.porCat).map(c =>
+    `${CATS[c] ? CATS[c].curto : c}: ${r.porCat[c].ok}/${r.porCat[c].total}`).join(' · ');
+  const erros = [];
+  r.itens.forEach((item, i) => {
+    const resp = r.respostas[i];
+    if (resp === null || !item.opts[resp].ok) erros.push('• ' + item.q.t + ' [' + (CATS[item.q.cat] ? CATS[item.q.cat].curto : item.q.cat) + ']');
+  });
+
+  let txt = `*Resultado de simulado — Simulado Instrutor Olair*\n\n`;
+  txt += `Aluno: ${nome}\n`;
+  txt += `Simulado: ${r.rotulo}\n`;
+  txt += `Data: ${data}\n`;
+  txt += `Nota: *${r.acertos}/${r.total}* (${pct(r.acertos, r.total)}%) · ${r.aprovado ? 'APROVADO' : 'abaixo da meta de ' + r.need}\n`;
+  txt += `Tempo: ${Math.floor(r.duracao / 60)}min\n`;
+  txt += `Desempenho: ${materias}\n`;
+  if (erros.length && erros.length <= 12) {
+    txt += `\nQuestões erradas:\n${erros.join('\n')}\n`;
+  } else if (erros.length) {
+    txt += `\nErrou ${erros.length} questões (lista completa no app).\n`;
+  }
+  txt += `\nEnviado pelo app Simulado Instrutor Olair.`;
+  return txt;
+}
+
+function enviarResultado() {
+  const txt = montarMensagemResultado();
+  if (!txt) return;
+  const c = typeof CONFIG !== 'undefined' ? CONFIG : {};
+  const num = String(c.whatsappInstrutor || '').replace(/\D/g, '');
+  const abrir = () => {
+    if (num) window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(txt), '_blank');
+    else copiarTexto(txt, 'Resultado copiado! Cole no WhatsApp do instrutor.');
+  };
+  const nomeVazio = !((S.nome || loadStore().nome || '').trim());
+  if (nomeVazio) {
+    const n = prompt('Digite seu nome para enviar ao instrutor:');
+    if (n === null) return;
+    if (n.trim()) { S.nome = n.trim(); const st = loadStore(); st.nome = S.nome; saveStore(st); }
+  }
+  abrir();
+}
+function copiarTexto(txt, msg) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(() => aviso(msg)).catch(() => prompt('Copie o resultado:', txt));
+  } else { prompt('Copie o resultado:', txt); }
+}
+function aviso(msg) {
+  const d = document.createElement('div');
+  d.textContent = msg;
+  d.style.cssText = 'position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#22c55e;color:#052e16;' +
+    'font-weight:800;font-size:13.5px;padding:12px 20px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.4);z-index:999';
+  document.body.appendChild(d);
+  setTimeout(() => d.remove(), 2600);
+}
 
 /* ================= HISTÓRICO ================= */
 function renderHistory() {
@@ -1973,6 +2084,7 @@ function renderHistory() {
   if (!h.length) {
     stats.innerHTML = `<div class="empty">Nenhum simulado registrado ainda. Comece pelo <b>simulado geral</b> na tela inicial.</div>`;
     $('#hist-list').innerHTML = '';
+    renderBoletim();
     return;
   }
   const totQ = h.reduce((s, x) => s + x.total, 0);
@@ -1984,6 +2096,7 @@ function renderHistory() {
       <div class="kpi">Aproveitamento geral<b>${pct(totA, totQ)}%</b></div>
       <div class="kpi">Aprovações<b>${aprox}/${h.length}</b></div>
     </div>`;
+  renderBoletim();
   $('#hist-list').innerHTML = h.map(x => {
     const d = new Date(x.data);
     const data = d.toLocaleDateString('pt-BR') + ' às ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
@@ -1991,7 +2104,7 @@ function renderHistory() {
       <span class="pill ${x.aprovado ? 'ok' : 'no'}">${x.acertos}/${x.total}</span>
       <div style="flex:1">
         <div class="nm">${x.rotulo}</div>
-        <div class="meta">${data} · ${x.ritmo === 'prova' ? 'modo prova' : 'modo estudo'} · ${Math.floor(x.duracao / 60)}min${x.nome ? ' · ' + x.nome : ''}</div>
+        <div class="meta">${data} · ${x.ritmo === 'prova' ? 'modo prova' : 'modo estudo'} · ${Math.floor(x.duracao / 60)}min · meta ${x.need || minAcertos(x.total)} acertos${x.nome ? ' · ' + x.nome : ''}</div>
       </div>
     </div>`;
   }).join('');
@@ -2208,6 +2321,12 @@ function abrirAcesso() {
   const valor = apoiar.valorSugerido || '';
   const link = apoiar.linkPagamento || '';
   const ig = apoiar.instagram ? igUrl(apoiar.instagram) : '';
+  const wa = String(apoiar.whatsappInstrutor || '').replace(/\D/g, '');
+  const msgWa = 'Olá, Instrutor Olair! Já fiz meus simulados gratuitos e quero liberar o acesso.\n\n' +
+    'Fiz a contribuição' + (valor ? ' de ' + valor : '') + ' e segue o comprovante.\n' +
+    'Nome do aluno: ' + ((S.nome || '').trim() || '(escreva seu nome)') + '\n' +
+    'Aguardando o código de liberação. Obrigado!';
+  const waLink = wa ? 'https://wa.me/' + wa + '?text=' + encodeURIComponent(msgWa) : '';
 
   box.innerHTML = `
     <div class="bloqueio-box">
@@ -2223,7 +2342,8 @@ function abrirAcesso() {
             ${pix ? `<div class="pix-linha"><code>${escapeHtml(pix)}</code><button class="btn ghost sm" id="btn-pix-copia">Copiar Pix</button></div>` : ''}
             ${link ? `<div style="margin-top:8px"><a class="btn green sm" style="text-decoration:none;display:inline-block" href="${escapeAttr(link)}" target="_blank" rel="noopener">Pagar online</a></div>` : ''}
           </div>
-          <div class="passo"><b>2.</b> Envie o comprovante${ig ? ` pelo Instagram <a href="${ig}" target="_blank" rel="noopener">@${escapeHtml(igUser(apoiar.instagram))}</a>` : ''}${apoiar.whatsapp ? ' ou pelo WhatsApp' : ''}.</div>
+          <div class="passo"><b>2.</b> Envie o comprovante${ig ? ` pelo Instagram <a href="${ig}" target="_blank" rel="noopener">@${escapeHtml(igUser(apoiar.instagram))}</a>` : ''}${wa ? ' ou pelo WhatsApp' : ''}.
+            ${wa ? `<div style="margin-top:9px"><a class="btn green sm" style="text-decoration:none;display:inline-block;background:linear-gradient(135deg,#25d366,#128c7e)" href="${waLink}" target="_blank" rel="noopener">Enviar comprovante no WhatsApp</a></div>` : ''}</div>
           <div class="passo"><b>3.</b> Você recebe o <b>código de liberação</b> e digita abaixo.</div>
         </div>
         <div class="codigo-box">
@@ -2399,5 +2519,5 @@ function escapeAttr(t) { return escapeHtml(t); }
 })();
 
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a59183b01de5ae3c',t:'MTc5NDQ0NDMzMQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a59183b01de5ae3c',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
