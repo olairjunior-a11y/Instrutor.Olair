@@ -1,0 +1,2403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulado Instrutor Olair — Simulados de trânsito para Primeira Habilitação e Cursos Especializados</title>
+<meta name="description" content="Simulados de trânsito para primeira habilitação e cursos especializados (coletivo, escolar, MOPP, cargas indivisíveis e emergência), com correção comentada e base no CTB e nas resoluções do CONTRAN. Instrutor Olair Junior.">
+<meta property="og:title" content="Simulado Instrutor Olair — Simulados de trânsito">
+<meta property="og:description" content="Treine para a prova teórica do DETRAN: simulado geral, por matéria e cursos especializados, com correção comentada.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f1720">
+<style>
+  :root{
+    --bg:#0f1720; --bg2:#161f2b; --card:#1c2634; --card2:#223041;
+    --line:#2c3a4d; --txt:#eaf1f8; --muted:#9fb0c4;
+    --blue:#3b82f6; --blue-d:#1d4ed8; --green:#22c55e; --green-d:#15803d;
+    --amber:#f59e0b; --red:#ef4444; --violet:#8b5cf6; --teal:#14b8a6;
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%, #1b3a5c 0%, transparent 60%),
+               radial-gradient(900px 500px at 0% 100%, #123027 0%, transparent 55%),
+               var(--bg);
+    color:var(--txt); min-height:100vh; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px 64px}
+  /* topbar */
+  .topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(15,23,32,.82);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:960px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .brand{display:flex;gap:10px;align-items:center;margin-right:auto}
+  .brand .logo{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:20px;
+    background:linear-gradient(140deg,#f59e0b,#ef4444);box-shadow:0 6px 18px rgba(239,68,68,.25)}
+  .brand strong{display:block;font-size:15px;letter-spacing:.2px}
+  .brand small{display:block;color:var(--muted);font-size:11px}
+  .nav{display:flex;gap:6px;background:var(--card);padding:4px;border-radius:12px;border:1px solid var(--line)}
+  .nav-btn{background:transparent;border:0;color:var(--muted);font-size:13px;font-weight:600;
+    padding:8px 12px;border-radius:9px;cursor:pointer}
+  .nav-btn:hover{color:var(--txt)}
+  .nav-btn.active{background:var(--blue);color:#fff}
+  /* views */
+  .view{display:none;animation:fade .25s ease}
+  .view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h1{font-size:26px;line-height:1.2;margin:18px 0 8px}
+  h2{font-size:17px;margin:26px 0 12px;display:flex;align-items:center;gap:8px}
+  h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+  p.lead{color:var(--muted);margin:0 0 18px;font-size:14px;line-height:1.6}
+  .hero{background:linear-gradient(150deg,rgba(59,130,246,.16),rgba(20,184,166,.10));
+    border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-top:18px}
+  .hero h1{margin-top:0}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .badge{font-size:11px;font-weight:700;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.07);
+    border:1px solid var(--line);color:var(--muted)}
+  .badge.b-green{color:#86efac;border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.12)}
+  .badge.b-blue{color:#93c5fd;border-color:rgba(59,130,246,.35);background:rgba(59,130,246,.12)}
+  /* inputs */
+  label.field{display:block;font-size:12px;font-weight:700;color:var(--muted);margin:0 0 6px;text-transform:uppercase;letter-spacing:.6px}
+  input[type=text]{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);
+    background:var(--card2);color:var(--txt);font-size:15px;outline:none}
+  input[type=text]:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,.18)}
+  /* cards */
+  .grid{display:grid;gap:12px}
+  .grid.c3{grid-template-columns:repeat(3,1fr)}
+  .grid.c2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:720px){.grid.c3,.grid.c2{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .modo{cursor:pointer;text-align:left;color:var(--txt);transition:transform .15s,border-color .15s,background .15s;
+    font-family:inherit;display:flex;flex-direction:column;gap:6px}
+  .modo:hover{transform:translateY(-2px);border-color:var(--blue);background:var(--card2)}
+  .modo .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px;margin-bottom:6px}
+  .modo b{font-size:15px}
+  .modo span{font-size:12.5px;color:var(--muted);line-height:1.5}
+  .modo[aria-pressed=true]{border-color:var(--blue);background:linear-gradient(160deg,rgba(59,130,246,.18),var(--card2));box-shadow:0 0 0 1px var(--blue) inset}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{font-family:inherit;cursor:pointer;font-size:13px;font-weight:600;padding:10px 14px;border-radius:999px;
+    border:1px solid var(--line);background:var(--card);color:var(--muted)}
+  .chip:hover{color:var(--txt);border-color:var(--blue)}
+  .chip[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:#fff}
+  .btn{font-family:inherit;cursor:pointer;border:0;border-radius:12px;padding:14px 20px;font-size:15px;font-weight:700;
+    background:var(--blue);color:#fff;transition:filter .15s,transform .1s}
+  .btn:hover{filter:brightness(1.08)}
+  .btn:active{transform:scale(.99)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .btn.green{background:var(--green)}
+  .btn.ghost{background:var(--card2);color:var(--txt);border:1px solid var(--line)}
+  .btn.sm{padding:10px 14px;font-size:13px;border-radius:10px}
+  .btn.wide{width:100%}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .spread{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  /* setup */
+  #setup{margin-top:8px}
+  .setup-box{margin-top:10px}
+  .hint{font-size:12.5px;color:var(--muted);line-height:1.6}
+  hr.sep{border:0;border-top:1px dashed var(--line);margin:20px 0}
+  /* quiz */
+  .quiz-top{position:sticky;top:0;z-index:20;background:rgba(15,23,32,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:16px}
+  .quiz-meta{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);font-weight:700}
+  .timer{font-variant-numeric:tabular-nums;padding:5px 10px;border-radius:999px;background:var(--card2);border:1px solid var(--line);color:var(--txt)}
+  .timer.warn{color:#fca5a5;border-color:rgba(239,68,68,.5);background:rgba(239,68,68,.12)}
+  .bar{height:7px;border-radius:999px;background:var(--card2);margin-top:10px;overflow:hidden}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--teal));border-radius:999px;transition:width .3s}
+  .qtag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+    padding:5px 10px;border-radius:999px;background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3);margin-bottom:12px}
+  .qtext{font-size:18px;line-height:1.5;font-weight:600;margin:0 0 18px}
+  .opts{display:flex;flex-direction:column;gap:10px}
+  .opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font-family:inherit;cursor:pointer;
+    background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px;color:var(--txt);font-size:14.5px;line-height:1.45}
+  .opt:hover{border-color:var(--blue);background:var(--card2)}
+  .opt .k{flex:0 0 26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:12.5px;font-weight:800;
+    background:var(--card2);border:1px solid var(--line);color:var(--muted)}
+  .opt.sel{border-color:var(--blue);background:rgba(59,130,246,.12)}
+  .opt.sel .k{background:var(--blue);border-color:var(--blue);color:#fff}
+  .opt.ok{border-color:var(--green);background:rgba(34,197,94,.12)}
+  .opt.ok .k{background:var(--green);border-color:var(--green);color:#052e16}
+  .opt.no{border-color:var(--red);background:rgba(239,68,68,.12)}
+  .opt.no .k{background:var(--red);border-color:var(--red);color:#fff}
+  .feedback{margin-top:14px;border-radius:13px;padding:14px;font-size:13.5px;line-height:1.6;border:1px solid var(--line);background:var(--card2)}
+  .feedback b{display:block;margin-bottom:4px}
+  .feedback.ok{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.08)}
+  .feedback.no{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08)}
+  .feedback .ref{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+  .quiz-foot{display:flex;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap}
+  /* result */
+  .score-wrap{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .score{--p:0;width:132px;height:132px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
+    background:conic-gradient(var(--green) calc(var(--p)*1%), #26313f 0);position:relative}
+  .score::before{content:"";position:absolute;inset:11px;border-radius:50%;background:var(--bg2)}
+  .score span{position:relative;font-size:26px;font-weight:800}
+  .score small{position:relative;display:block;font-size:11px;color:var(--muted);text-align:center;font-weight:700}
+  .verdict{font-size:20px;font-weight:800;margin:0 0 6px}
+  .verdict.ok{color:#4ade80}
+  .verdict.no{color:#fca5a5}
+  .kpis{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px}
+  .kpi{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  .kpi b{display:block;font-size:19px;color:var(--txt);text-transform:none;letter-spacing:0;margin-top:2px}
+  .subj{margin-top:6px}
+  .subj-row{display:flex;align-items:center;gap:10px;margin:9px 0;font-size:13px}
+  .subj-row .nm{flex:0 0 168px;color:var(--muted);font-weight:600}
+  .subj-row .track{flex:1;height:9px;border-radius:999px;background:var(--card2);overflow:hidden}
+  .subj-row .track i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+  .subj-row .vl{flex:0 0 46px;text-align:right;font-weight:800;font-size:12.5px}
+  @media(max-width:560px){.subj-row .nm{flex-basis:110px;font-size:12px}}
+  .rev{border-left:3px solid var(--red);padding:12px 14px;border-radius:0 12px 12px 0;background:var(--card);margin:10px 0;font-size:13.7px;line-height:1.55}
+  .rev .rq{font-weight:700;margin-bottom:6px;display:block}
+  .rev .ra{font-size:13px;color:#86efac;margin-top:6px}
+  .rev .rx{font-size:12.5px;color:var(--muted);margin-top:4px}
+  /* history */
+  .hist-item{display:flex;gap:14px;align-items:center;padding:13px 14px;border:1px solid var(--line);border-radius:13px;
+    background:var(--card);margin-bottom:9px;font-size:13.5px}
+  .hist-item .pill{font-weight:800;font-size:12.5px;padding:5px 10px;border-radius:999px;flex:0 0 auto}
+  .hist-item .pill.ok{background:rgba(34,197,94,.16);color:#86efac}
+  .hist-item .pill.no{background:rgba(239,68,68,.16);color:#fca5a5}
+  .hist-item .meta{color:var(--muted);font-size:12px;margin-top:3px}
+  .hist-item .nm{font-weight:700}
+  .empty{color:var(--muted);font-size:14px;padding:22px;border:1px dashed var(--line);border-radius:13px;text-align:center}
+  /* legislação */
+  .acc{border:1px solid var(--line);border-radius:13px;background:var(--card);margin-bottom:10px;overflow:hidden}
+  .acc summary{cursor:pointer;padding:14px 16px;font-weight:700;font-size:14.5px;list-style:none;display:flex;gap:10px;align-items:center}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary::before{content:"▸";color:var(--blue);font-size:13px}
+  .acc[open] summary::before{content:"▾"}
+  .acc .body{padding:0 16px 16px;font-size:13.6px;line-height:1.65;color:#cddaea}
+  .acc .body ul{margin:8px 0 0;padding-left:20px}
+  .acc .body li{margin-bottom:7px}
+  .acc .body strong{color:#fff}
+  .note{font-size:12.5px;color:var(--muted);line-height:1.6;border-left:3px solid var(--amber);padding:10px 14px;
+    background:rgba(245,158,11,.08);border-radius:0 12px 12px 0;margin:16px 0}
+  .foot{text-align:center;color:#6b7d92;font-size:11.5px;margin-top:36px;line-height:1.7}
+  /* acesso / bloqueio */
+  .bloqueio-wrap{max-width:640px;margin:26px auto 0;text-align:center}
+  .bloqueio-ico{font-size:40px;line-height:1}
+  .passos{display:grid;gap:10px;text-align:left;margin:16px 0}
+  .passo{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px;font-size:13.6px;line-height:1.6}
+  .pix-linha{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
+  .pix-linha code{background:var(--card2);border:1px solid var(--line);padding:8px 10px;border-radius:9px;font-size:13px;color:#fcd34d}
+  .codigo-box{background:var(--card2);border:1px solid var(--line);border-radius:13px;padding:15px;text-align:left;margin-top:6px}
+  #selo-acesso{user-select:none}
+  .perfil-acesso{margin-top:10px}
+
+  /* perfil do instrutor */
+  #card-perfil{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;
+    background:linear-gradient(150deg,rgba(59,130,246,.10),rgba(20,184,166,.07));
+    border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-top:14px}
+  .avatar{width:74px;height:74px;border-radius:50%;flex:0 0 auto;overflow:hidden;display:grid;place-items:center;
+    background:linear-gradient(140deg,#3b82f6,#14b8a6);color:#fff;font-weight:800;font-size:26px;letter-spacing:1px;
+    box-shadow:0 6px 18px rgba(59,130,246,.28)}
+  .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .perfil-info{flex:1;min-width:220px}
+  .perfil-info .nm{font-size:18px;font-weight:800;margin:0 0 2px}
+  .perfil-info .fn{font-size:12.5px;color:#93c5fd;font-weight:700;margin:0 0 8px}
+  .perfil-info .bio{font-size:13.4px;color:#cddaea;line-height:1.6;margin:0 0 10px}
+  .perfil-info .bio a{color:#93c5fd;font-weight:600;text-decoration:none;border-bottom:1px dotted rgba(147,197,253,.45)}
+  .perfil-info .bio a:hover{color:#bfdbfe;border-bottom-style:solid}
+  .cred{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .cred span{font-size:11px;font-weight:700;padding:5px 9px;border-radius:999px;background:rgba(20,184,166,.14);
+    border:1px solid rgba(20,184,166,.32);color:#5eead4}
+  .perfil-links{display:flex;gap:8px;flex-wrap:wrap}
+  .ref-grid{display:grid;gap:10px}
+  .ref-item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px;font-size:13.4px;line-height:1.6}
+  .ref-item .rf-aluno{font-size:11.5px;font-weight:800;color:#93c5fd;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+  .ref-item .rf-res{display:inline-block;margin-top:8px;font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;
+    background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.32);color:#86efac}
+
+  /* personalização / apoio */
+  #card-apoio{margin-top:14px;background:linear-gradient(150deg,rgba(245,158,11,.10),rgba(34,197,94,.07));
+    border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .apoio-in{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .apoio-in .ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:20px;flex:0 0 auto}
+  .apoio-in b{font-size:14.5px}
+  .foot a{color:#93c5fd;text-decoration:none;font-weight:600}
+  .foot a:hover{text-decoration:underline}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🚦</div>
+      <div>
+        <strong>Simulado Instrutor Olair</strong>
+        <small>por Olair Junior</small>
+      </div>
+    </div>
+    <span id="selo-acesso" class="badge" hidden></span>
+    <nav class="nav" aria-label="Navegação principal">
+      <button class="nav-btn active" data-nav="home">Início</button>
+      <button class="nav-btn" data-nav="history">Histórico</button>
+      <button class="nav-btn" data-nav="legis">Atualizações</button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ================= HOME ================= -->
+  <section id="view-home" class="view active">
+    <div class="hero">
+      <h1>Vai tirar a 1ª habilitação? Treine aqui.</h1>
+      <p class="lead">Simulados com correção comentada e base legal, no formato do exame teórico do DETRAN:
+       30 questões de múltipla escolha, mínimo de 20 acertos para aprovação.</p>
+      <div>
+        <label class="field" for="inp-nome">Seu nome (opcional, aparece no histórico)</label>
+        <input type="text" id="inp-nome" placeholder="Ex.: Ana Souza" autocomplete="name" maxlength="40">
+      </div>
+      <div class="badges">
+        <span class="badge b-green">✔ Res. CONTRAN 1.020/2025</span>
+        <span class="badge b-blue">✔ Lei 14.071/2020 (20/30/40 pontos)</span>
+        <span class="badge">✔ CTB atualizado</span>
+        <span class="badge" id="badge-total">✔ — questões</span>
+      </div>
+      <div id="card-perfil" hidden></div>
+      <div id="card-apoio" hidden></div>
+    </div>
+
+    <h2><span class="dot"></span>Escolha o tipo de simulado</h2>
+    <div class="grid c3">
+      <button class="card modo" data-modo="geral" aria-pressed="false">
+        <span class="ico" style="background:rgba(59,130,246,.18)">🎯</span>
+        <b>Simulado geral</b>
+        <span>Questões variadas das 5 matérias do curso teórico, como no exame oficial.</span>
+      </button>
+      <button class="card modo" data-modo="materia" aria-pressed="false">
+        <span class="ico" style="background:rgba(34,197,94,.18)">📚</span>
+        <b>Por matéria</b>
+        <span>Foque em Legislação, Direção Defensiva, Primeiros Socorros, Meio Ambiente ou Mecânica.</span>
+      </button>
+      <button class="card modo" data-modo="curso" aria-pressed="false">
+        <span class="ico" style="background:rgba(139,92,246,.18)">🚌</span>
+        <b>Cursos especializados</b>
+        <span>Coletivo, escolar, MOPP, cargas indivisíveis e veículos de emergência.</span>
+      </button>
+    </div>
+
+    <div id="setup" hidden>
+      <hr class="sep">
+      <div class="spread">
+        <h2 style="margin:0"><span class="dot"></span><span id="setup-title">Configurar</span></h2>
+        <button class="btn ghost sm" id="btn-limpar-modo">Trocar tipo</button>
+      </div>
+
+      <div class="setup-box" id="box-materias" hidden>
+        <label class="field">Matéria</label>
+        <div class="chips" id="chips-materias"></div>
+      </div>
+
+      <div class="setup-box" id="box-cursos" hidden>
+        <label class="field">Curso especializado</label>
+        <div class="chips" id="chips-cursos"></div>
+      </div>
+
+      <div class="setup-box">
+        <label class="field">Quantidade de questões</label>
+        <div class="chips" id="chips-qtd">
+          <button class="chip" data-qtd="10">10</button>
+          <button class="chip" data-qtd="20">20</button>
+          <button class="chip" data-qtd="30" aria-pressed="true">30 (exame)</button>
+          <button class="chip" data-qtd="40">40</button>
+        </div>
+      </div>
+
+      <div class="setup-box">
+        <label class="field">Ritmo</label>
+        <div class="chips" id="chips-ritmo">
+          <button class="chip" data-ritmo="prova" aria-pressed="true">Prova cronometrada</button>
+          <button class="chip" data-ritmo="estudo">Estudo (correção na hora)</button>
+        </div>
+        <p class="hint" id="ritmo-hint" style="margin-top:10px"></p>
+      </div>
+
+      <div class="row" style="margin-top:18px">
+        <button class="btn green" id="btn-comecar">Começar simulado</button>
+        <span class="hint" id="setup-info"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QUIZ ================= -->
+  <section id="view-quiz" class="view">
+    <div class="quiz-top">
+      <div class="quiz-meta">
+        <span id="quiz-progress">Questão 1 de 30</span>
+        <span class="timer" id="quiz-timer">--:--</span>
+      </div>
+      <div class="bar"><i id="quiz-bar" style="width:0%"></i></div>
+    </div>
+    <div class="card">
+      <span class="qtag" id="quiz-tag">Legislação</span>
+      <p class="qtext" id="quiz-q">—</p>
+      <div class="opts" id="quiz-opts"></div>
+      <div id="quiz-feedback"></div>
+    </div>
+    <div class="quiz-foot">
+      <button class="btn ghost" id="btn-anterior">← Anterior</button>
+      <div class="row">
+        <button class="btn ghost" id="btn-finalizar">Finalizar</button>
+        <button class="btn" id="btn-proxima">Próxima →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESULT ================= -->
+  <section id="view-result" class="view">
+    <h1 id="res-title">Resultado</h1>
+    <div class="card">
+      <div class="score-wrap">
+        <div class="score" id="res-score"><div><span id="res-pct">0%</span><small id="res-frac">0/30</small></div></div>
+        <div style="flex:1;min-width:220px">
+          <p class="verdict" id="res-verdict">—</p>
+          <p class="hint" id="res-msg"></p>
+          <div class="kpis">
+            <div class="kpi">Acertos<b id="res-hit">0</b></div>
+            <div class="kpi">Erros<b id="res-miss">0</b></div>
+            <div class="kpi">Tempo<b id="res-time">0min</b></div>
+            <div class="kpi">Aproveitamento<b id="res-pct2">0%</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2><span class="dot"></span>Desempenho por matéria</h2>
+    <div class="card subj" id="res-subjects"></div>
+
+    <h2><span class="dot"></span>Revisão das questões erradas</h2>
+    <div id="res-review"></div>
+
+    <div class="row" style="margin-top:20px">
+      <button class="btn green" id="btn-refazer-erros">Treinar só os erros</button>
+      <button class="btn" id="btn-novo">Novo simulado</button>
+      <button class="btn ghost" id="btn-ver-hist">Ver histórico</button>
+    </div>
+  </section>
+
+  <!-- ================= HISTÓRICO ================= -->
+  <section id="view-history" class="view">
+    <h1>Histórico e desempenho</h1>
+    <p class="lead">Salvo apenas neste navegador (não enviamos dados para nenhum servidor).</p>
+    <div class="card" id="hist-stats"></div>
+    <h2><span class="dot"></span>Simulados realizados</h2>
+    <div id="hist-list"></div>
+    <div class="row" style="margin-top:16px">
+      <button class="btn ghost sm" id="btn-limpar-hist">Apagar histórico</button>
+    </div>
+  </section>
+
+  <!-- ================= LEGISLAÇÃO ================= -->
+  <section id="view-legis" class="view">
+    <h1>O que mudou no trânsito brasileiro</h1>
+    <p class="lead">Resumo das normas que mais caem nas provas e que mudaram recentemente — é o que você precisa saber para não estudar por material velho.</p>
+    <div id="legis-acc"></div>
+    <div class="note">
+      <strong>Aviso:</strong> este app é material de estudo independente, sem vínculo com DETRAN, SENATRAN ou CONTRAN.
+      O exame oficial é aplicado pelo DETRAN do seu estado, com base no Banco Nacional de Questões da SENATRAN.
+      Sempre confirme prazos e taxas no site do DETRAN da sua UF.
+    </div>
+  </section>
+
+  <!-- ================= ACESSO / BLOQUEIO ================= -->
+  <section id="view-bloqueio" class="view">
+    <div class="bloqueio-wrap" id="bloqueio-conteudo"></div>
+  </section>
+
+  <p class="foot">
+    <span id="foot-creditos">Simulado Instrutor Olair</span><br>
+    <span id="foot-nome">Simulado Instrutor Olair</span> · Conteúdo baseado no CTB (Lei 9.503/1997), na Lei 14.071/2020 e nas resoluções do CONTRAN.<br>
+    Referência normativa: novembro de 2026 · <span id="foot-versao">Banco de questões v1.0</span> · Material de estudo independente, sem vínculo com DETRAN, SENATRAN ou CONTRAN.
+  </p>
+</div>
+<script>
+/* =========================================================
+   ⚙️  CONFIGURAÇÃO — EDITE APENAS ESTE BLOCO
+   Tudo o que você mudar aqui aparece no app.
+   Deixe "" (vazio) no que NÃO quiser exibir.
+   ========================================================= */
+const CONFIG = {
+  /* ---------- IDENTIDADE DO APLICATIVO ---------- */
+  // Nome curto que aparece na aba e no cabeçalho
+  nomeApp: "Simulado Instrutor Olair",
+
+  // Título completo da aba do navegador (SEO / compartilhamento)
+  tituloAba: "Simulado Instrutor Olair — Simulados de trânsito para Primeira Habilitação e Cursos Especializados",
+
+  // Subtítulo exibido embaixo do nome no cabeçalho
+  subtitulo: "1ª habilitação e cursos especializados",
+
+  // Emoji do logo (ex.: "🚦", "🚗", "🎓", "🛣️")
+  logo: "🚦",
+
+  /* ---------- PERFIL DO INSTRUTOR ---------- */
+  // Nome que aparece no card de perfil e no crédito do rodapé
+  nome: "Olair Junior",
+
+  // Como você quer ser identificado no rodapé
+  creditoRodape: "Instrutor Olair Junior",
+
+  // Sua função / título profissional
+  funcao: "Instrutor de trânsito autônomo",
+
+  // Cidade / estado
+  cidade: "Aracruz — ES",
+
+  // Apresentação (aceita links no formato [texto](https://link)). Deixe "" para ocultar.
+  bio: "Instrutor de trânsito credenciado junto ao DETRAN-ES e já habilitado como instrutor autônomo pela SENATRAN, através do aplicativo CNH Brasil ([link do app](https://play.google.com/store/apps/details?id=br.gov.serpro.cnhe)). Já tendo atuado como examinador de trânsito e instrutor em vários CFCs. Especializado na preparação de alunos para a primeira habilitação e para os cursos especializados. Este simulado reúne questões atualizadas conforme o CTB e as resoluções do CONTRAN.",
+
+  // FOTO DE PERFIL — três opções:
+  //   1) ""                          -> mostra as iniciais (ex.: OJ)
+  //   2) "foto-perfil.jpg"           -> arquivo na mesma pasta do HTML
+  //   3) "https://..." ou "data:..." -> link ou imagem em base64
+  fotoPerfil: "data:image/jpeg;base64,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",
+
+  /* ---------- CREDENCIAIS (chips abaixo da bio) ---------- */
+  // Cada item é uma linha. Deixe a lista vazia [] para não aparecer.
+  credenciais: [
+    "Credenciado DETRAN-ES",
+    "Instrutor autônomo — SENATRAN",
+    "Examinador de trânsito",
+    "Experiência em CFCs"
+  ],
+
+  /* ---------- REFERÊNCIAS DE TRABALHO (depoimentos) ---------- */
+  // Deixe a lista vazia [] para ocultar a seção.
+  referencias: [
+    // { aluno: "Ana P.", texto: "Estudei só pelo simulado por duas semanas e passei de primeira na prova teórica.", resultado: "Aprovada na 1ª tentativa" },
+    // { aluno: "Carlos M.", texto: "As questões de direção defensiva explicam o porquê da resposta, isso fez diferença.", resultado: "Aprovado — categoria B" }
+  ],
+
+  /* ---------- CONTATO E APOIO ---------- */
+  // @ do Instagram, com ou sem @ (o app monta o link automaticamente)
+  instagram: "@instrutor.olair",
+
+  // WhatsApp com DDI+DDD, só números (ex.: "5527999999999"). "" = oculta o botão.
+  whatsapp: "",
+
+  // Link de pagamento / contribuição — cole o seu aqui.
+  // Ex.: "https://mpago.la/xxxxxx" (Mercado Pago, PagSeguro, Stripe, Ko-fi, PicPay...)
+  linkPagamento: "",
+
+  // Chave Pix para contribuição
+  chavePix: "olairjunior@gmail.com",
+
+  // Valor sugerido exibido no card de apoio ("" para não exibir)
+  valorSugerido: "R$ 20,00",
+
+  // Texto do botão de contribuição
+  textoBotaoApoio: "Apoiar o projeto",
+
+  // Mensagem do card de apoio
+  mensagem: "Este app é gratuito e feito de forma independente. Se ele te ajudou a estudar, você pode apoiar o projeto.",
+
+  // Quando true, mostra o painel "Apoie o projeto" na tela inicial
+  mostrarApoio: true,
+
+  // Quando true, mostra o card de perfil na tela inicial
+  mostrarPerfil: true,
+
+  /* ---------- CONTROLE DE ACESSO ---------- */
+  // Liga o limite de simulados gratuitos e a liberação por código
+  bloqueioAtivo: true,
+
+  // Quantos simulados o aluno pode fazer antes de apoiar o projeto
+  simuladosGratis: 3,
+
+  // Quantos dias de acesso o código de liberação concede
+  diasAcesso: 30,
+
+  // Chave usada para validar os códigos. NÃO publique nem troque depois de distribuir códigos.
+  // Para gerar códigos, use o arquivo gerador-codigos.html (mantenha-o só com você).
+  segredoAcesso: "OLAIRSENATRAN-2026-ARACRUZ",
+
+  // Texto da tela de bloqueio
+  mensagemBloqueio: "Você já utilizou seus simulados gratuitos. Para continuar treinando por mais 30 dias, faça uma contribuição via Pix e receba seu código de liberação.",
+
+  /* ---------- VERSÃO DO BANCO DE QUESTÕES ---------- */
+  // Atualize a cada revisão do conteúdo (aparece no rodapé)
+  bancoVersao: "1.0"
+};
+/* ====== fim da configuração — não precisa mexer abaixo ====== */
+/* =========================================================
+   SimulaTrânsito BR — Banco de questões (base)
+   Formato: Q(categoria, enunciado, [alternativas], índice correto, comentário, referência)
+   Categorias: L=Legislação, D=Direção Defensiva, P=Primeiros Socorros,
+               M=Meio Ambiente e Cidadania, V=Veículos/Mecânica
+   ========================================================= */
+const QB = [];
+function Q(cat, t, o, c, ex, ref) { QB.push({ cat, t, o, c, ex, ref }); }
+
+/* ---------------- LEGISLAÇÃO DE TRÂNSITO ---------------- */
+Q('L', 'Qual é a idade mínima para se habilitar nas categorias A e B?',
+  ['16 anos', '18 anos', '21 anos', '20 anos'], 1,
+  'A habilitação nas categorias A e B exige 18 anos completos. Para as categorias C, D e E e para conduzir veículos de transporte coletivo, escolar, emergência ou produtos perigosos a idade mínima é 21 anos.',
+  'art. 140, I, CTB / art. 145, I, CTB');
+
+Q('L', 'Qual a validade do exame de aptidão física e mental (exame médico) para condutor com menos de 50 anos?',
+  ['5 anos', '3 anos', '10 anos', '2 anos'], 2,
+  'Desde a Lei 14.071/2020, a validade é de 10 anos para condutores com menos de 50 anos, 5 anos dos 50 aos 70 anos e 3 anos a partir dos 70 anos.',
+  'art. 147, § 2º, CTB');
+
+Q('L', 'Para condutor com 70 anos ou mais, a validade do exame de aptidão física e mental é de:',
+  ['5 anos', '10 anos', '2 anos', '3 anos'], 3,
+  'A partir dos 70 anos a reavaliação médica passa a ser feita a cada 3 anos, por causa do maior risco envolvido na condução nessa faixa etária.',
+  'art. 147, § 2º, CTB');
+
+Q('L', 'O limite de pontos que provoca a suspensão do direito de dirigir, em 12 meses, para condutor com uma infração gravíssima é:',
+  ['20 pontos', '30 pontos', '40 pontos', '14 pontos'], 1,
+  'Regra escalonada da Lei 14.071/2020: 20 pontos com duas ou mais gravíssimas, 30 pontos com uma gravíssima e 40 pontos sem nenhuma gravíssima.',
+  'art. 261, I, CTB');
+
+Q('L', 'Condutor com duas ou mais infrações gravíssimas nos últimos 12 meses passa a ter suspensão do direito de dirigir ao atingir:',
+  ['14 pontos', '20 pontos', '30 pontos', '40 pontos'], 1,
+  'Com duas ou mais gravíssimas o limite cai para 20 pontos. A suspensão só é aplicada após processo administrativo, com direito a defesa.',
+  'art. 261, I, alínea a, CTB');
+
+Q('L', 'Qualquer condutor que exerça atividade remunerada (EAR na CNH) tem limite de pontos fixo em:',
+  ['20 pontos', '30 pontos', '40 pontos', '10 pontos'], 2,
+  'Para o motorista profissional, com EAR registrado na CNH, o limite é sempre 40 pontos, independentemente da natureza das infrações.',
+  'art. 261, § 2º, CTB');
+
+Q('L', 'Qual a velocidade máxima permitida, quando não houver sinalização, em via urbana de trânsito rápido?',
+  ['60 km/h', '70 km/h', '80 km/h', '100 km/h'], 2,
+  'Na ausência de sinalização: 80 km/h em vias de trânsito rápido, 60 km/h nas arteriais, 40 km/h nas coletoras e 30 km/h nas locais.',
+  'art. 61, I, CTB');
+
+Q('L', 'Em via urbana local, sem sinalização, a velocidade máxima é de:',
+  ['30 km/h', '40 km/h', '50 km/h', '60 km/h'], 0,
+  'Via local é aquela destinada apenas ao acesso às áreas restritas, com 30 km/h como velocidade máxima na falta de sinalização.',
+  'art. 61, I, alínea d, CTB');
+
+Q('L', 'Em uma via urbana coletora sem placas de regulamentação de velocidade, o limite máximo é:',
+  ['30 km/h', '40 km/h', '60 km/h', '80 km/h'], 1,
+  'A via coletora serve para distribuir o tráfego entre as vias locais e as arteriais, com limite de 40 km/h quando não sinalizada.',
+  'art. 61, I, alínea c, CTB');
+
+Q('L', 'Em rodovia de pista dupla, sem sinalização, a velocidade máxima para automóveis é normalmente de:',
+  ['100 km/h', '110 km/h', '120 km/h', '90 km/h'], 1,
+  'Rodovia de pista dupla permite 110 km/h para automóveis; em pista simples o limite é 100 km/h.',
+  'art. 61, II, CTB');
+
+Q('L', 'Em estrada (via rural não pavimentada) não sinalizada, a velocidade máxima é:',
+  ['60 km/h', '80 km/h', '40 km/h', '100 km/h'], 0,
+  'O CTB fixa 60 km/h para estradas não sinalizadas, por causa da superfície instável e da maior imprevisibilidade.',
+  'art. 61, II, alínea c, CTB');
+
+Q('L', 'A velocidade mínima em uma via não poderá ser inferior a:',
+  ['10 km/h', 'metade da velocidade máxima estabelecida para a via', 'um terço da velocidade máxima', '30 km/h'], 1,
+  'Transitar com velocidade inferior à metade da máxima da pista, sem justificativa, é infração média, pois dificulta a fluidez e aumenta risco de colisão traseira.',
+  'art. 62 e art. 219, CTB');
+
+Q('L', 'Avançar o sinal vermelho do semáforo é infração de natureza:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima'], 3,
+  'Avançar a luz vermelha é infração gravíssima (7 pontos) e está entre as condutas que mais provocam colisões em cruzamentos.',
+  'art. 208, CTB');
+
+Q('L', 'Deixar de usar o cinto de segurança é infração de natureza:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima'], 2,
+  'Não usar o cinto é infração grave (5 pontos), cometida pelo condutor e por cada passageiro transportado sem o dispositivo.',
+  'art. 167, CTB');
+
+Q('L', 'Dirigir sob influência de álcool (art. 165) sujeita o condutor a:',
+  ['Advertência por escrito', 'Infração média e multa simples', 'Infração gravíssima, multa multiplicada por 10 e suspensão do direito de dirigir por 12 meses', 'Apenas retenção do veículo'], 2,
+  'Além da multa gravíssima multiplicada por dez e da suspensão por 12 meses, há retenção do veículo até apresentação de condutor habilitado e recolhimento da CNH.',
+  'art. 165, CTB');
+
+Q('L', 'Recusar-se a fazer o teste do bafômetro ou o exame clínico:',
+  ['Não gera penalidade', 'Gera as mesmas penalidades da direção sob influência de álcool', 'Gera apenas advertência', 'Gera multa leve'], 1,
+  'A recusa é equiparada à embriaguez (art. 165-A): infração gravíssima, multa multiplicada por dez, suspensão por 12 meses e retenção do veículo.',
+  'art. 165-A, CTB');
+
+Q('L', 'A concentração de álcool no ar alveolar que caracteriza o crime de trânsito do art. 306 é igual ou superior a:',
+  ['0,05 mg/L', '0,30 mg/L', '0,80 mg/L', '1,00 mg/L'], 1,
+  'A partir de 0,30 mg de álcool por litro de ar alveolar (ou 6 decigramas por litro de sangue) a conduta deixa de ser apenas infração administrativa e passa a ser crime.',
+  'art. 306, § 1º, CTB');
+
+Q('L', 'Crianças com menos de 10 anos de idade devem ser transportadas:',
+  ['No banco dianteiro, com cinto', 'No colo de um adulto', 'No banco traseiro, com o dispositivo de retenção adequado à idade', 'Em qualquer assento, sem restrição'], 2,
+  'Menores de 10 anos devem ir no banco traseiro, com o dispositivo de retenção adequado (bebê conforto, cadeirinha, assento de elevação ou cinto).',
+  'art. 168, CTB e Res. CONTRAN 819/2021');
+
+Q('L', 'Transportar criança sem o dispositivo de retenção adequado é infração:',
+  ['Média, com multa', 'Grave, com multa', 'Gravíssima, com multa e retenção do veículo', 'Leve, com advertência'], 2,
+  'A conduta é gravíssima (7 pontos), com multa e retenção do veículo até a regularização.',
+  'art. 168, CTB');
+
+Q('L', 'O uso do extintor de incêndio em automóveis de passeio:',
+  ['É obrigatório em todo o país', 'Deixou de ser obrigatório para automóveis, mas continua obrigatório em veículos de transporte coletivo, de carga e de emergência', 'É obrigatório apenas em rodovias federais', 'É proibido'], 1,
+  'Desde 2015 o extintor deixou de ser equipamento obrigatório para automóveis; segue obrigatório em veículos de transporte coletivo, de carga, escolar e de emergência.',
+  'Res. CONTRAN 556/2015');
+
+Q('L', 'Ao ultrapassar um ciclista, o condutor deve manter distância lateral mínima de:',
+  ['0,50 m', '1,00 m', '1,50 m', '3,00 m'], 2,
+  'A distância lateral mínima de 1,5 m reduz o efeito de deslocamento de ar e o risco de o ciclista perder o equilíbrio.',
+  'art. 201, CTB');
+
+Q('L', 'Em uma rotatória sem sinalização, a preferência de passagem é:',
+  ['De quem entra na rotatória', 'De quem já está circulando na rotatória', 'Do veículo maior', 'Do veículo que vem pela esquerda'], 1,
+  'A regra é dar preferência a quem já está circulando na rotatória; quem entra deve aguardar espaço seguro.',
+  'art. 29, III, b, CTB');
+
+Q('L', 'Em cruzamento não sinalizado, a preferência de passagem é:',
+  ['Do veículo de maior porte', 'Do veículo mais rápido', 'De quem vem pela direita', 'De quem segue em frente'], 2,
+  'Na ausência de sinalização, a preferência é de quem vem pela direita; em rotatória, de quem já está nela.',
+  'art. 29, III, c, CTB');
+
+Q('L', 'Veículo de emergência com sirene e luz vermelha intermitente em serviço urgente:',
+  ['Deve aguardar o sinal verde como os demais', 'Tem prioridade de passagem, devendo os demais condutores e pedestres liberar o caminho', 'Só tem prioridade em rodovias', 'Tem prioridade apenas se estiver em comboio'], 1,
+  'A prioridade é absoluta quando o veículo está identificado e em serviço urgente; os demais devem reduzir, encostar e liberar a via.',
+  'art. 29, VII, CTB');
+
+Q('L', 'Sobre a preferência do pedestre, é correto afirmar que:',
+  ['O pedestre deve sempre ceder aos veículos', 'O pedestre tem prioridade nas faixas a ele destinadas e na travessia já iniciada', 'A prioridade só vale se houver guarda de trânsito', 'Pedestres só têm prioridade em faixas com semáforo'], 1,
+  'O trânsito é direito de todos e o pedestre tem prioridade na faixa e quando já iniciou a travessia, mesmo sem semáforo.',
+  'art. 29, X, e art. 70, CTB');
+
+Q('L', 'O farol baixo é obrigatório durante o dia:',
+  ['Em qualquer via urbana', 'Em rodovias de pista simples fora do perímetro urbano, para veículos sem luz de rodagem diurna', 'Apenas para motocicletas', 'Apenas em dias de chuva'], 1,
+  'Após a Lei 14.071/2020, o farol baixo de dia é exigido em rodovias de pista simples fora do perímetro urbano, valendo a dispensa para veículos com luz de rodagem diurna (DRL). Em túneis o uso é sempre obrigatório.',
+  'art. 40, I, CTB');
+
+Q('L', 'Motocicletas, motonetas e ciclomotores devem trafegar:',
+  ['Com farol apagado durante o dia', 'Com farol aceso, dia e noite', 'Com pisca-alerta acionado', 'Somente com farol alto'], 1,
+  'O farol aceso permanentemente é equipamento de segurança e condição para a circulação desses veículos, aumentando a visualização pelos demais condutores.',
+  'art. 40, § 2º, CTB');
+
+Q('L', 'Sobre o transporte de passageiro em motocicleta, é correto afirmar:',  ['Menor de 10 anos pode ir no tanque', 'O passageiro deve ter no mínimo 10 anos, usar capacete e apoiar os pés nos pedais', 'Crianças de qualquer idade podem ser transportadas', 'Não há regra de idade'], 1,
+  'É vedado transportar menor de 10 anos em motocicleta; condutor e passageiro devem usar capacete com viseira ou óculos de proteção.',
+  'art. 244 e art. 54, CTB');
+
+Q('L', 'Conduzir motocicleta sem capacete de segurança configura infração:',
+  ['Média', 'Grave', 'Gravíssima, com multa e suspensão do direito de dirigir', 'Leve'], 2,
+  'A conduta é gravíssima, com multa, suspensão do direito de dirigir e recolhimento da CNH, pela gravidade das lesões em caso de sinistro.',
+  'art. 244, I, CTB');
+
+Q('L', 'Estacionar em vaga reservada para pessoa com deficiência sem credencial é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima'], 3,
+  'Além da infração gravíssima com multa, o veículo pode ser removido, por se tratar de vaga de uso exclusivo garantido por lei.',
+  'art. 181, XX, CTB');
+
+Q('L', 'Dirigir veículo sem possuir CNH ou PPD é infração:',
+  ['Grave', 'Gravíssima, com multa multiplicada por três', 'Leve', 'Média'], 1,
+  'A infração do art. 162, I, é gravíssima com multa multiplicada por três e retenção do veículo; se houver reincidência, há também suspensão de 6 meses a 1 ano.',
+  'art. 162, I, CTB');
+
+Q('L', 'Quando a CNH está vencida há mais de 30 dias, a conduta de dirigir é:',
+  ['Infração leve', 'Mera irregularidade sem penalidade', 'Infração gravíssima, com multa e retenção do veículo', 'Infração média'], 2,
+  'Dirigir com CNH vencida há mais de 30 dias é infração gravíssima, com multa e retenção do veículo até a apresentação de condutor habilitado.',
+  'art. 162, III, CTB');
+
+Q('L', 'A Permissão para Dirigir (PPD) tem validade de um ano e será cancelada se o condutor:',
+  ['Cometer qualquer infração leve', 'Cometer infração gravíssima, grave ou for reincidente em média', 'Tiver o veículo roubado', 'Mudar de estado'], 1,
+  'É o período de experiência: qualquer gravíssima, grave ou reincidência em média cancela a permissão, e o condutor deverá reiniciar o processo.',
+  'art. 148, § 3º, CTB');
+
+Q('L', 'Excesso de velocidade superior a 50% da máxima permitida configura:',
+  ['Infração média', 'Infração grave', 'Infração gravíssima com multa multiplicada por três e suspensão do direito de dirigir', 'Apenas advertência'], 2,
+  'Até 20% acima do limite é infração média; entre 20% e 50% é grave; acima de 50% é gravíssima, com multa triplicada e suspensão.',
+  'art. 218, CTB');
+
+Q('L', 'Transitar na contramão de direção em via de duplo sentido de circulação é infração:',
+  ['Média', 'Grave', 'Gravíssima', 'Leve'], 2,
+  'A contramão é uma das condutas mais letais no trânsito e é classificada como infração gravíssima.',
+  'art. 186, I, CTB');
+
+Q('L', 'Ultrapassar pela contramão em faixa de pedestres ou em linha contínua amarela é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima'], 3,
+  'A ultrapassagem nesses locais é gravíssima porque retira a previsibilidade do trânsito e atinge diretamente usuários vulneráveis.',
+  'art. 203, I e II, CTB');
+
+Q('L', 'Após a Lei 14.071/2020, o prazo para concluir o processo de primeira habilitação:',
+  ['Continua em 12 meses', 'Passou a ser de 24 meses', 'Deixou de existir, o processo tem validade indeterminada', 'É de 6 meses'], 2,
+  'A Res. CONTRAN 1.020/2025 extinguiu o prazo de 12 meses para conclusão das etapas do processo de habilitação.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('L', 'No exame teórico oficial do DETRAN, o candidato é aprovado quando:',
+  ['Acerte 21 das 30 questões', 'Acerte 20 das 30 questões', 'Acerte 15 das 30 questões', 'Acerte todas as questões'], 1,
+  'Com a Res. CONTRAN 1.020/2025, o exame tem 30 questões e exige no mínimo 20 acertos, com tempo de prova ampliado para 60 minutos.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('L', 'Sobre o curso teórico para a primeira habilitação, a Res. CONTRAN 1.020/2025 estabeleceu:',
+  ['Manutenção das 45 horas-aula obrigatórias', 'Fim da carga horária obrigatória, com foco na aprovação em avaliação de conteúdo', 'Proibição do ensino a distância', 'Que só a autoescola pode oferecer o curso'], 1,
+  'A carga horária fixa foi eliminada e o curso pode ser feito presencialmente ou a distância, inclusive em plataforma oficial gratuita (CNH do Brasil).',
+  'Res. CONTRAN 1.020/2025');
+
+Q('L', 'A carga horária mínima de aulas práticas de direção para a primeira habilitação passou a ser de:',
+  ['20 horas-aula', '10 horas-aula', '2 horas-aula', '5 horas-aula'], 2,
+  'A redução de 20 para 2 horas-aula é uma das principais mudanças de 2025; a avaliação prática continua obrigatória em todas as categorias.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('L', 'Sobre a validade dos cursos especializados (MOPP, coletivo, escolar, cargas indivisíveis), a Res. CONTRAN 1.020/2025 definiu que:',
+  ['A validade passou a ser de 2 anos', 'A validade continua de 5 anos', 'Deixou de existir prazo geral de validade', 'A validade passou a ser de 10 anos'], 2,
+  'O prazo geral de validade de 5 anos foi extinto. A capacitação continua obrigatória, mas sem renovação periódica automática.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('L', 'Quem pode dar aulas práticas de direção com a nova regulamentação?',
+  ['Somente instrutores de autoescola', 'Autoescolas e instrutores autônomos autorizados pelo DETRAN', 'Qualquer condutor habilitado há 5 anos', 'Somente o DETRAN'], 1,
+  'Foi criada a figura do instrutor autônomo credenciado, que precisa de autorização do órgão estadual e certidão negativa de antecedentes criminais.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('L', 'A CNH Digital, com a mesma validade jurídica do documento físico, é acessada por meio de:',
+  ['Aplicativo CNH do Brasil', 'Carteira Digital de Trânsito (CDT)', 'Portal do DETRAN apenas', 'Não existe CNH Digital'], 1,
+  'A CNH Digital fica disponível na Carteira Digital de Trânsito (CDT) e tem validade em todo o território nacional, aceita inclusive em fiscalizações.',
+  'Res. CONTRAN 754/2018');
+
+Q('L', 'O exame toxicológico é exigido para condutores das categorias:',
+  ['A e B', 'B e C', 'C, D e E', 'Somente para transporte escolar'], 2,
+  'Condutores das categorias C, D e E (veículos de carga e coletivos) devem comprovar exame toxicológico periódico; a exigência não se aplica às categorias A e B.',
+  'Lei 13.103/2015 e art. 148-A, CTB');
+
+Q('L', 'Quem tem competência para normatizar o trânsito em âmbito nacional?',
+  ['Os municípios', 'O CONTRAN', 'Os DETRAN estaduais', 'A Polícia Rodoviária Federal'], 1,
+  'O CONTRAN é o órgão máximo normativo e consultivo do Sistema Nacional de Trânsito; os DETRAN executam e fiscalizam no estado.',
+  'art. 12, CTB');
+
+Q('L', 'A JARI (Junta Administrativa de Recursos de Infrações) é responsável por:',
+  ['Julgar recursos de infrações em primeira instância', 'Aplicar multas de trânsito', 'Registrar veículos', 'Aplicar o exame de direção'], 0,
+  'A JARI julga os recursos em primeira instância; na segunda instância, a decisão cabe ao CETRAN estadual.',
+  'art. 16 e art. 17, CTB');
+
+Q('L', 'Não sendo identificado o condutor infrator em uma multa, a penalidade:',
+  ['É aplicada a todos os condutores do veículo', 'Recai sobre o proprietário, que responde pela infração', 'É anulada automaticamente', 'É convertida em advertência'], 1,
+  'A responsabilidade pela infração é do condutor, mas se não houver identificação no prazo de 30 dias, o proprietário assume a penalidade.',
+  'art. 257, §§ 2º e 7º, CTB');
+
+Q('L', 'Para adicionar a categoria C, o condutor precisa, entre outros requisitos:',
+  ['Ter 18 anos e 3 meses de carteira', 'Ter a categoria B e não ter cometido infração grave ou gravíssima nos últimos 12 meses', 'Ser sócio de uma autoescola', 'Ter veículo próprio'], 1,
+  'A adição de categoria exige aptidão médica e psicológica, ausência de infrações graves/gravíssimas recentes e aprovação nos exames específicos.',
+  'art. 145, III, CTB');
+
+Q('L', 'Qual destas NÃO é uma penalidade prevista no CTB para infrações administrativas?',
+  ['Advertência por escrito', 'Multa', 'Suspensão do direito de dirigir', 'Pena de reclusão para infração leve'], 3,
+  'As penalidades do art. 256 são: advertência, multa, suspensão do direito de dirigir, cassação da CNH, frequência a curso de reciclagem e participação em ações educativas.',
+  'art. 256, CTB');
+
+Q('L', 'A suspensão do direito de dirigir, quando aplicada, tem duração de:',
+  ['2 meses a 6 meses', '6 meses a 1 ano, podendo chegar a 8 meses a 2 anos em caso de reincidência', '1 a 3 meses', '5 anos'], 1,
+  'O prazo mínimo é de 6 meses e máximo de 1 ano; na reincidência em 12 meses, aplica-se de 8 meses a 2 anos.',
+  'art. 261, § 1º, CTB');
+
+Q('L', 'Após cumprir suspensão do direito de dirigir, o condutor deve:',
+  ['Nada, apenas voltar a dirigir', 'Realizar curso de reciclagem e aprovar novo exame teórico', 'Trocar o veículo', 'Refazer as aulas práticas'], 1,
+  'A suspensão somente é encerrada após cumprimento do prazo, curso de reciclagem e aprovação em novo exame de conteúdo.',
+  'art. 268, III, e art. 261, CTB');
+
+Q('L', 'Ao se aproximar de faixa de pedestres não sinalizada, o condutor deve:',
+  ['Acelerar para liberar o cruzamento', 'Buzinar ao pedestre', 'Reduzir a velocidade e dar preferência ao pedestre que sinalizou ou iniciou a travessia', 'Manter a velocidade se não houver semáforo'], 2,
+  'A preferência do pedestre é uma regra geral de circulação, independente de semáforo ou faixa pintada.',
+  'art. 70 e art. 29, X, CTB');
+
+Q('L', 'O condutor que se envolver em sinistro com vítima está obrigado a:',
+  ['Apenas registrar o fato no seu seguro', 'Prestar ou providenciar socorro à vítima, quando possível, e comunicar a ocorrência à autoridade', 'Deixar o local imediatamente para não causar transtorno', 'Trocar dados apenas se a vítima pedir'], 1,
+  'A omissão de socorro é infração gravíssima e pode caracterizar crime; o local deve ser preservado e a autoridade de trânsito acionada.',
+  'art. 176, CTB e art. 304, CTB');
+
+Q('L', 'Deixar de prestar socorro à vítima do acidente, podendo fazê-lo, configura:',
+  ['Infração leve', 'Infração gravíssima e possível crime de omissão de socorro', 'Apenas dever moral', 'Infração média se houver testemunhas'], 1,
+  'É infração gravíssima, com multa e suspensão do direito de dirigir, e pode configurar crime do art. 304 do CTB.',
+  'art. 176, I, e art. 304, CTB');
+
+Q('L', 'A circulação de veículos de tração animal nas vias urbanas é:',
+  ['Sempre permitida', 'Permitida desde que o condutor use capacete', 'Sujeita a regulamentação municipal, podendo ser restringida', 'Proibida em todo o território nacional'], 2,
+  'O CTB permite ao município regular a circulação de veículos de propulsão humana e animal conforme a conveniência do tráfego.',
+  'art. 24, IV, CTB');
+
+Q('L', 'A sinalização de regulamentação (R-1 a R-40) tem como função:',
+  ['Apenas orientar caminhos', 'Informar serviços auxiliares', 'Impor obrigações, proibições ou restrições', 'Identificar rodovias'], 2,
+  'As placas de regulamentação impõem obrigações e restrições, cujo desrespeito é infração de trânsito.',
+  'art. 87, I, CTB');
+
+Q('L', 'Placa com orla circular vermelha e fundo branco é, tipicamente, de:',
+  ['Advertência', 'Regulamentação', 'Indicação de destino', 'Obras'], 1,
+  'Círculo com borda vermelha é placas de regulamentação (ex.: R-1 Proibido ultrapassar, R-6a Proibido estacionar).',
+  'art. 87, I, CTB / Manual de Sinalização');
+
+Q('L', 'Um acostamento, salvo exceções, deve ser utilizado para:',
+  ['Ultrapassagem rápida', 'Estacionamento de veículos', 'Situações de emergência, como pane ou mal súbito', 'Parada para ir ao banheiro'], 2,
+  'Transitar pelo acostamento é infração; ele serve para emergências e pode ser usado por pedestres e ciclistas quando não houver espaço apropriado.',
+  'art. 193, CTB');
+
+Q('L', 'Transitar pela faixa exclusiva de transporte coletivo é:',
+  ['Permitido a qualquer veículo entre 10h e 16h', 'Infração, salvo nas exceções expressamente previstas na regulamentação', 'Permitido a motocicletas', 'Permitido se não houver ônibus'], 1,
+  'A faixa exclusiva é reservada a veículos autorizados dentro do horário indicado; o uso indevido é infração de natureza grave ou gravíssima conforme a hipótese.',
+  'art. 184, CTB');
+
+Q('L', 'A placa PARE é uma sinalização de:',
+  ['Advertência do tipo emergência', 'Regulamentação, que obriga a parada total do veículo', 'Indicação de serviço auxiliar', 'Sinalização temporária de obras'], 1,
+  'A R-1 obriga a parada total antes da linha de retenção, com verificação de fluxo, mesmo que a pista esteja livre.',
+  'art. 87, I, CTB');
+
+Q('L', 'Conduzir veículo com placa ilegível ou mal posicionada é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima'], 2,
+  'É infração grave, com multa, pois dificulta a identificação do veículo e a responsabilização em casos de fraude ou evasão.',
+  'art. 230, VI, CTB');
+
+Q('L', 'Quem pode entrar com recurso de multa em primeira instância?',
+  ['Somente o proprietário', 'O proprietário, o condutor autuado ou seu representante, no prazo indicado na notificação', 'Somente advogado com procuração', 'Qualquer pessoa'], 1,
+  'Pode recorrer o infrator, o proprietário e o real condutor, por escrito, junto à JARI, dentro do prazo da notificação.',
+  'art. 16 e art. 285, CTB');
+
+Q('L', 'A identificação do condutor infrator (real infrator) deve ser feita:',
+  ['Apenas em multas gravíssimas', 'No prazo de 30 dias da notificação, sob pena de a multa ser lançada ao proprietário', 'Em qualquer prazo', 'Somente para veículos de pessoa jurídica'], 1,
+  'O prazo é de 30 dias a contar da notificação da autuação. Para veículos de empresas, é obrigatória a indicação do condutor.',
+  'art. 257, §§ 4º a 8º, CTB');
+
+Q('L', 'O uso do celular ao volante, segurando o aparelho, é infração:',
+  ['Leve', 'Média', 'Gravíssima', 'Grave'], 2,
+  'Manusear o celular conduzindo é infração gravíssima (7 pontos), pois aumenta o tempo de reação em níveis comparáveis à embriaguez.',
+  'art. 252, parágrafo único, CTB');
+
+Q('L', 'A validade da CNH para condutor com 55 anos é de:',
+  ['10 anos', '5 anos', '3 anos', '2 anos'], 1,
+  'Dos 50 aos 70 anos, o exame físico e mental é refeito a cada 5 anos, e a CNH é renovada nesse prazo.',
+  'art. 147, § 2º, CTB');
+
+Q('L', 'O condutor de veículo de transporte de produtos perigosos deve ter curso especializado e:',
+  ['Categoria B', 'Categoria C ou superior, habilitação adequada ao veículo e curso MOPP', 'Apenas categoria A', 'Somente curso de direção defensiva'], 1,
+  'Além da categoria adequada ao veículo, exige-se o curso especializado (MOPP/CETPP) registrado na CNH e os equipamentos definidos pela regulamentação.',
+  'art. 145, IV, CTB e Res. CONTRAN 1.020/2025');
+
+Q('L', 'O condutor de transporte escolar deve ter, no mínimo:',
+  ['18 anos e categoria B', '21 anos, categoria D, curso especializado, conduta compatível e aprovação em exame específico', '21 anos e categoria B', 'Categoria A apenas'], 1,
+  'São requisitos: 21 anos, categoria D, curso de transporte escolar, inexistência de antecedentes criminais e exame toxicológico em dia.',
+  'art. 138, CTB');
+
+Q('L', 'A infração de trânsito prescreve, para efeito de aplicação da penalidade de multa, normalmente em:',
+  ['1 ano', '2 anos', '3 anos', '5 anos'], 1,
+  'A prescrição da penalidade de multa ocorre, em regra, em 2 anos; se a notificação não sai em até 30 dias, o processo pode ser arquivado.',
+  'art. 281 e Res. CONTRAN 623/2016');
+
+Q('L', 'Ao sinal PARE do agente de trânsito, o condutor deve:',
+  ['Reduzir e seguir se não houver veículos', 'Parar o veículo e cumprir a ordem do agente', 'Buzinar para alertar', 'Acelerar para liberar a via'], 1,
+  'O agente de trânsito é hierarquicamente superior às demais formas de sinalização e sua ordem deve ser obedecida de imediato.',
+  'art. 80, parágrafo único, CTB');
+
+Q('L', 'A ordem de prevalência da sinalização é, do maior para o menor:',
+  ['Placas, semáforo, agente, marcas viárias', 'Agente de trânsito, semáforo, placas, marcas viárias', 'Marcas viárias, placas, agente, semáforo', 'Semáforo, agente, marcas viárias, placas'], 1,
+  'Primeiro as ordens do agente, depois as indicações do semáforo, as ordens das placas e, por fim, as marcas viárias.',
+  'art. 89, CTB');
+
+/* ---------------- DIREÇÃO DEFENSIVA ---------------- */
+Q('D', 'A direção defensiva pode ser definida como:',
+  ['Conduzir sempre abaixo da velocidade mínima', 'Dirigir de modo a evitar sinistros, apesar das ações incorretas dos outros e das condições adversas', 'Trocar de faixa constantemente para evitar bloqueios', 'Deixar o veículo na garagem em dias de chuva'], 1,
+  'Direção defensiva é o conjunto de medidas que antecipam o risco, protegendo o condutor e os demais usuários da via.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'NÃO é considerada uma condição adversa de trânsito:',
+  ['Luz', 'Tempo', 'Veículo em bom estado de manutenção', 'Via'], 2,
+  'As condições adversas clássicas são luz, tempo, via, trânsito, veículo e condutor. O veículo em bom estado reduz o risco, não o aumenta.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'A distância de seguimento do veículo à frente, em condições normais, deve ser de, no mínimo:',
+  ['1 segundo', '2 segundos', '5 segundos', '1 metro'], 1,
+  'A regra dos dois segundos equivale a contar 2 segundos entre a passagem dos dois veículos por um mesmo ponto de referência.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em chuva forte, a distância de seguimento deve:',
+  ['Ser mantida igual', 'Ser reduzida', 'Ser aumentada, pois a distância de frenagem cresce', 'Deixar de existir'], 2,
+  'Com a pista molhada, o tempo de frenagem aumenta e o campo de visão diminui: a distância deve ser ampliada, em regra dobrada.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Aquaplanagem (ou hidroplanagem) ocorre quando:',
+  ['O pneu fura em alta velocidade', 'Uma película de água se forma entre o pneu e a pista, fazendo o veículo perder a aderência', 'O freio trava as rodas', 'O veículo atinge velocidade superior a 120 km/h'], 1,
+  'Com a aderência perdida, o veículo segue pela inércia: nada de frear ou esterçar de forma brusca.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Ao perceber aquaplanagem, a atitude correta do condutor é:',
+  ['Frear com força', 'Acelerar para vencer a lâmina de água', 'Tirar o pé do acelerador, manter o volante firme e esperar recuperar a aderência', 'Girar o volante para o lado oposto'], 2,
+  'Sem frear e sem esterçar, o pneu volta a encostar no asfalto e a aderência é recuperada gradualmente.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em caso de derrapagem em curva, a técnica recomendada é:',
+  ['Frear bruscamente e virar ao contrário', 'Esterçar o volante no mesmo sentido da derrapagem e aliviar o acelerador', 'Acelerar ao máximo', 'Puxar o freio de estacionamento'], 1,
+  'Esterçar no sentido da derrapagem alinha o veículo à trajetória e evita o rodízio; a aceleração agrava o fenômeno.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Ao dirigir sob neblina, o condutor deve:',
+  ['Usar farol alto', 'Usar farol baixo, reduzir a velocidade e aumentar a distância de seguimento', 'Ligar o pisca-alerta e manter a velocidade', 'Desligar as luzes para evitar ofuscamento'], 1,
+  'O farol alto reflete nas partículas e piora a visão; o farol baixo ilumina sem ofuscar, e a velocidade menor compensa o campo visual reduzido.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Ao ser ofuscado pelo farol alto de outro veículo, o condutor deve:',
+  ['Fechar os olhos por instantes', 'Olhar para o farol para avaliar a distância', 'Não olhar diretamente para o farol, reduzir a velocidade e usar como referência a borda direita da pista', 'Aumentar a velocidade para passar rápido'], 2,
+  'Desviar o olhar para a direita da pista evita o ofuscamento e mantém o veículo em trajetória segura.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Antes de mudar de faixa, o procedimento seguro é:',
+  ['Usar apenas o espelho retrovisor interno', 'Espelhos, sinalização e verificação do ponto cego com giro parcial da cabeça', 'Acelerar para abrir espaço', 'Buzinar e mudar'], 1,
+  'Os retrovisores não cobrem o ponto cego; a conferência direta é indispensável antes de qualquer deslocamento lateral.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Sobre a ultrapassagem, é correto afirmar:',
+  ['Pode ser feita em qualquer local, desde que com pressa', 'Deve ser feita pela esquerda, com visibilidade suficiente e sinalização antecipada', 'Deve ser feita sempre pela direita em rodovias', 'É permitida sobre ponte e faixa contínua'], 1,
+  'A ultrapassagem exige visibilidade, sinalização de seta e espaço suficiente; pela direita só quando o veículo da frente indicar conversão à esquerda.',
+  'art. 29, IX, e art. 199, CTB');
+
+Q('D', 'Ao ultrapassar um veículo longo, o condutor deve:',
+  ['Permanecer ao lado do veículo em caso de dúvida', 'Concluir a ultrapassagem com rapidez e só retornar à faixa quando vir o veículo ultrapassado nos espelhos', 'Obedecer ao motorista do caminhão', 'Buzinar três vezes'], 1,
+  'Veículos longos têm grandes pontos cegos e tempo de frenagem maior; retornar à faixa sem enxergar todo o veículo é fator de sinistros graves.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em veículo com freios ABS, em uma frenagem de emergência, o correto é:',
+  ['Bombear o pedal', 'Pressionar o pedal com firmeza e manter a pressão, dirigindo para desviar do obstáculo', 'Puxar o freio de mão', 'Desligar o motor'], 1,
+  'O ABS evita o travamento das rodas e permite manter o controle direcional; o bombear do pedal é técnica para freios comuns.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em descida longa de serra, o condutor deve:',
+  ['Usar ponto morto para economizar combustível', 'Desligar o motor', 'Usar marcha reduzida, aproveitando o freio motor', 'Frear continuamente o tempo todo'], 2,
+  'Descer em ponto morto é infração e provoca superaquecimento dos freios; a marcha reduzida usa o freio motor como auxiliar.',
+  'art. 252, XI, CTB');
+
+Q('D', 'A calibragem dos pneus deve ser verificada:',
+  ['Com os pneus quentes, após viagem', 'Com os pneus frios, seguindo a recomendação do fabricante', 'Somente quando houver vibração no volante', 'Uma vez por ano'], 1,
+  'Pneus quentes elevam a pressão e mascaram a medição real; a calibragem a frio garante a aderência e a durabilidade corretas.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'A profundidade mínima dos sulcos dos pneus, medida pelo TWI, é de:',
+  ['0,5 mm', '1,0 mm', '1,6 mm', '3,0 mm'], 2,
+  'Abaixo de 1,6 mm o pneu é considerado em mau estado de conservação, o que é infração grave e multiplica o risco de aquaplanagem.',
+  'art. 230, XVIII, CTB');
+
+Q('D', 'A fadiga ao volante é perigosa porque:',
+  ['Aumenta a atenção', 'Reduz a atenção, os reflexos e a capacidade de julgamento', 'Não influencia a condução', 'Melhora a visão periférica'], 1,
+  'A fadiga provoca microsonos e reduz o tempo de reação; a única solução é parar em local seguro e descansar.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'O consumo de álcool antes de dirigir:',
+  ['Melhora os reflexos', 'Reduz reflexos, prejudica a percepção de distância e aumenta o risco de morte', 'Só é problema em grande quantidade', 'Afeta somente motoristas inexperientes'], 1,
+  'O álcool é depressor do sistema nervoso: diminui a coordenação, a visão periférica e a autocrítica, e multiplica o risco de sinistros.',
+  'art. 165, CTB');
+
+Q('D', 'Medicamentos que indicam sonolência na bula:',
+  ['Podem ser combinados com direção sem risco', 'Exigem cautela: muitas vezes o condutor não deve dirigir após o uso', 'Afetam apenas idosos', 'Só causam sono em jejum'], 1,
+  'A combinação de medicamentos com efeito sedativo e direção é fator de sinistro e pode configurar condução sem condições de segurança.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Ao dirigir à noite, o campo visual do condutor é reduzido, por isso:',
+  ['Deve-se manter a velocidade máxima da via', 'Deve-se reduzir a velocidade e aumentar a distância de seguimento', 'Deve-se usar apenas farol alto em qualquer situação', 'Deve-se dirigir mais próximo do veículo da frente'], 1,
+  'A noite reduz a percepção de obstáculos, pedestres e animais; velocidade compatível e distância maior são as medidas essenciais.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'O condutor que tem o sol na horizontal, à frente, deve:',
+  ['Reduzir a velocidade, manter o para-brisa limpo e usar o quebra-sol', 'Acelerar', 'Usar óculos escuros à noite', 'Seguir muito perto do veículo da frente para usar a sombra'], 0,
+  'A baixa visibilidade por ofuscamento solar exige redução de velocidade e maior distância, pois frenagens à frente podem ser vistas tarde.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em caso de pneu que fura durante a condução, o correto é:',
+  ['Frear bruscamente', 'Segurar o volante firme, aliviar o acelerador e reduzir gradativamente até parar em local seguro', 'Virar o volante para o lado do furo', 'Acelerar para tentar vencer'], 1,
+  'A frenagem brusca com pneu furado provoca perda de controle e rodízio; a redução gradual é a técnica segura.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Ao parar em uma rodovia por pane, o primeiro procedimento de segurança é:',
+  ['Deixar o veículo na pista com alerta ligado e seguir a pé', 'Tirar o veículo da pista, acionar o pisca-alerta e sinalizar com o triângulo conforme a distância de segurança', 'Tentar reparar no meio da faixa de rolamento', 'Desligar todas as luzes'], 1,
+  'A sinalização do local com triângulo e pisca-alerta evita a colisão traseira, que é a mais frequente nessa situação.',
+  'art. 203, XI / Res. CONTRAN 789/2020');
+
+Q('D', 'Ao passar por um ônibus parado no ponto, próximo à calçada, o condutor deve:',
+  ['Acelerar e passar rápido', 'Buzinar para alertar passageiros', 'Reduzir a velocidade e ficar atento a pedestres que podem atravessar à frente do ônibus', 'Ultrapassar pelo acostamento'], 2,
+  'O ônibus oculta pedestres: a redução de velocidade cria margem de reação para quem entra na pista de repente.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Ao ultrapassar ou acompanhar motocicletas, é importante:',
+  ['Mantê-las sempre na área cega lateral pelo menor tempo possível', 'Ocupar o corredor entre os carros', 'Acelerar para que fiquem para trás', 'Buzinar insistentemente'], 0,
+  'A moto é o usuário mais exposto: minimize o tempo ao lado dela, respeite a distância lateral e não invada o corredor.',
+  'art. 201, CTB');
+
+Q('D', 'O uso do cinto de segurança deve ser:',
+  ['Somente pelo condutor', 'Por todos os ocupantes, em todos os assentos e trechos', 'Apenas em rodovias', 'Opcional no banco traseiro'], 1,
+  'O cinto é individual e obrigatório para todos os ocupantes; sem ele, a projeção do corpo em uma colisão é praticamente inevitável.',
+  'art. 65 e art. 167, CTB');
+
+Q('D', 'O apoio de cabeça deve estar posicionado:',
+  ['Na altura do queixo', 'Com a parte superior alinhada ao topo da cabeça, o mais próximo possível', 'Totalmente baixo', 'Não influencia em segurança'], 1,
+  'Bem ajustado, o apoio de cabeça reduz o efeito chicote nas colisões traseiras e diminui lesões na coluna cervical.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'A força centrífuga em uma curva é maior:',
+  ['Quanto maior a velocidade e menos fechada a curva', 'Quanto menor a velocidade', 'Quanto maior o peso do condutor', 'Quanto maior o número de faixas'], 0,
+  'A força centrífuga cresce com o quadrado da velocidade: o correto é reduzir a velocidade antes de entrar na curva.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'A frenagem deve ser iniciada preferencialmente:',
+  ['Dentro da curva, com força total', 'Antes da curva, em linha reta', 'Depois da saída da curva', 'Somente no meio da curva'], 1,
+  'Frear dentro da curva reduz a aderência disponível para a esterçada; o ideal é reduzir antes e manter velocidade constante na curva.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em um veículo carregado, a distância de frenagem:',
+  ['Diminui', 'Permanece igual', 'Aumenta, principalmente em descidas', 'Independe da carga'], 2,
+  'A massa maior amplia a energia cinética: a frenagem exige mais espaço, sobretudo em declives.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Sobre o transporte de carga no porta-malas, é correto:',
+  ['Deixar objetos soltos para facilitar o acesso', 'Fixar a carga e não exceder a capacidade do veículo', 'Transportar acima do limite, se a viagem for curta', 'Usar o para-brisa como apoio'], 1,
+  'Carga solta projeta-se para frente em uma frenagem e pode ferir os ocupantes; transportar carga acima da capacidade é infração.',
+  'art. 230, IX, CTB');
+
+Q('D', 'O condutor que usa calçado que não se firma nos pedais:',
+  ['Está apenas em desacordo com o estilo', 'Comete infração média, com risco de acelerar ou frear de forma involuntária', 'Não comete infração', 'Comete infração grave'], 1,
+  'É infração média conduzir com calçado que não permita firmeza nos pedais ou com apenas um braço disponível para o volante.',
+  'art. 252, IV e V, CTB');
+
+Q('D', 'Ao atravessar passagem de nível (cruzamento com linha férrea), o correto é:',
+  ['Atravessar rapidamente sem parar', 'Parar antes, olhar e ouvir, e só atravessar quando seguro', 'Parar exatamente sobre os trilhos', 'Estacionar antes da cancela'], 1,
+  'O trem não desvia nem para em tempo: a parada obrigatória antes dos trilhos evita sinistros fatais.',
+  'art. 30 e art. 211, CTB');
+
+Q('D', 'O condutor que estiver em situação de pressa deve:',
+  ['Compensar com velocidade e ultrapassagens arrojadas', 'Manter a velocidade compatível e controlar a ansiedade, pois pressa aumenta o risco', 'Buzinar aos demais', 'Usar o acostamento'], 1,
+  'Pressa e impulsividade levam a decisões precipitadas; a direção defensiva inclui administrar as próprias emoções.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'O que caracteriza a chamada direção preventiva em relação ao comportamento dos outros usuários?',
+  ['Confiar que todos seguirão as regras', 'Antecipar manobras e erros dos demais, mantendo margem de segurança', 'Reagir com agressividade', 'Manter a prioridade sempre'], 1,
+  'Prevenir é assumir que o outro pode errar e preparar uma resposta com antecedência.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'O uso de fones de ouvido durante a condução é:',
+  ['Permitido em vias urbanas', 'Infração grave, pois isola o condutor da realidade do trânsito', 'Permitido se o volume for baixo', 'Incentivado para reduzir estresse'], 1,
+  'O som isolado mascara sirenes, buzinas e ruídos do veículo; a conduta é infração grave do CTB.',
+  'art. 252, § 1º, CTB');
+
+Q('D', 'Sobre o efeito do cansaço no tempo de reação, é correto:',
+  ['Não há influência', 'O tempo de reação aumenta, elevando a distância percorrida antes da frenagem', 'O tempo de reação diminui', 'Só afeta quem tem síndrome de burnout'], 1,
+  'Mais tempo de reação significa metros a mais até o freio agir, principalmente em rodovias longas.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em relação aos demais usuários vulneráveis (pedestres, ciclistas e motociclistas), o condutor deve:',
+  ['Considerar que eles sempre param', 'Reduzir a velocidade e aumentar a distância lateral, respeitando a hierarquia da via', 'Buzinar para anunciar sua presença', 'Ocupar a faixa exclusiva deles'], 1,
+  'A hierarquia da mobilidade coloca o mais vulnerável em primeiro lugar na proteção.',
+  'art. 29, § 3º, CTB');
+
+Q('D', 'Quando o veículo da frente freia de forma brusca, o principal risco é:',
+  ['Colisão traseira, evitável com distância de seguimento adequada', 'Danos elétricos', 'Alinhamento das rodas', 'Desgaste do embrague'], 0,
+  'A colisão traseira é responsabilidade em regra de quem vem atrás, por não manter distância segura.',
+  'art. 30, CTB');
+
+Q('D', 'A técnica do "vejo e sou visto" tem como objetivo:',
+  ['Aumentar a performance do veículo', 'Garantir que o condutor veja outros usuários e seja percebido por eles', 'Ignorar o uso dos faróis', 'Usar apenas o retrovisor interno'], 1,
+  'Farol aceso, sinalização e checagem de espelhos aumentam a visibilidade recíproca, reduzindo sinistros em interseções.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'NÃO deve ser feito durante uma ultrapassagem:',
+  ['Sinalizar antecipadamente', 'Verificar a distância do veículo que vem em sentido contrário', 'Ultrapassar em cima de uma faixa de pedestres ou de linha contínua', 'Completar a manobra com segurança'], 2,
+  'Ultrapassar em faixa de pedestres, em linha contínua, em curvas, pontes e viadutos é proibido e é infração gravíssima.',
+  'art. 33 e art. 203, CTB');
+
+Q('D', 'A estabilidade do veículo em curva é reduzida quando:',
+  ['Os pneus estão calibrados corretamente', 'A carga está mal distribuída e alta', 'O condutor reduz antes da curva', 'O veículo está com amortecedores em ordem'], 1,
+  'Carga alta altera o centro de gravidade e pode causar tombamento, especialmente em vans e caminhões.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Ao inverter o sentido de direção em uma via, o condutor deve:',
+  ['Fazer em qualquer ponto, desde que rápido', 'Sinalizar, escolher local permitido e garantir visibilidade e espaço', 'Usar a calçada como apoio', 'Contar com a paciência dos demais'], 1,
+  'A conversão deve ser feita apenas onde permitida, com sinalização antecipada e sem obrigar outros condutores a frear bruscamente.',
+  'art. 41, CTB');
+
+Q('D', 'O tempo total de parada de um veículo é composto por:',
+  ['Apenas o tempo de frenagem', 'Tempo de reação do condutor mais tempo de frenagem', 'Apenas a distância percorrida', 'Tempo de reação apenas'], 1,
+  'Antes do freio atuar, o veículo percorre metros cruciais: reduzir velocidade encurta as duas parcelas.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Dirigir com o para-brisa sujo ou com escassez de água no limpador:',
+  ['Não influencia a segurança', 'Compromete a visibilidade e pode levar o condutor a perder a noção da via', 'Melhora a visão no sol', 'É permitido em trajetos curtos'], 1,
+  'Sujeira, manchas de chuva e sol frontal combinam-se para reduzir a visão a dimensões críticas.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em relação a ultrapassagem de ciclistas em vias de mão dupla, o correto é:',
+  ['Passar próximo para evitar colisões frontais', 'Aguardar espaço seguro, manter 1,5 m de distância lateral e só ultrapassar quando houver visibilidade', 'Buzinar e ultrapassar rapidamente', 'Exigir que o ciclista pare'], 1,
+  'É melhor perder segundos do que causar um sinistro; a distância lateral mínima é regra legal.',
+  'art. 201, CTB');
+/* =========================================================
+   SimulaTrânsito BR — Questões: Primeiros Socorros, Meio Ambiente,
+   Veículos/Mecânica e CURSOS ESPECIALIZADOS
+   Categorias especiais: COL, ESC, MOPP, CIN, EME
+   ========================================================= */
+
+/* ---------------- PRIMEIROS SOCORROS ---------------- */
+Q('P', 'Na avaliação inicial de uma vítima de sinistro de trânsito, a primeira providência é:',
+  ['Remover a vítima imediatamente do veículo', 'Garantir a segurança do local, sinalizando a via antes de se aproximar', 'Oferecer água à vítima', 'Procurar documentos da vítima'], 1,
+  'Sem segurança da cena, o socorrista se torna uma segunda vítima. Sinalizar e desligar o motor do veículo acidentado vem antes de qualquer atendimento.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'O número nacional para acionar o SAMU é:',
+  ['190', '192', '193', '199'], 1,
+  'O SAMU atende pelo 192, o Corpo de Bombeiros pelo 193 e a Polícia Militar pelo 190. Em rodovias federais, a PRF atende pelo 191.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'A vítima inconsciente que respira deve ser posicionada preferencialmente em:',
+  ['Decúbito dorsal com a cabeça elevada', 'Posição lateral de segurança, se não houver suspeita de trauma de coluna', 'Sentada', 'De bruços com o rosto para baixo'], 1,
+  'A posição lateral de segurança mantém as vias aéreas livres e evita aspiração de vômito, desde que não haja suspeita de lesão na coluna.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Em vítima de trauma com suspeita de lesão na coluna cervical, o correto é:',
+  ['Mover a vítima rapidamente para o acostamento', 'Não movimentar a vítima, salvo risco iminente, e estabilizar a cabeça', 'Sentar a vítima imediatamente', 'Girar a cabeça para verificar lesões'], 1,
+  'Movimentação inadequada pode agravar lesão medular e causar paralisia permanente. Só se move em risco de vida imediato (fogo, explosão, afogamento).',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'A sequência básica de atendimento a uma vítima é:',
+  ['Ver, ouvir, chamar, correr', 'Segurança da cena, verificar consciência e respiração, acionar o socorro e iniciar o atendimento', 'Remover o capacete sempre primeiro', 'Dar água e aguardar'], 1,
+  'Avaliar segurança, responsividade, respiração e chamar ajuda especializada são os passos que organizam o atendimento e evitam erros.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Para conter uma hemorragia externa em um membro, deve-se:',
+  ['Aplicar torniquete em todos os casos', 'Comprimir o local com pano limpo e, se possível, elevar o membro', 'Lavar com álcool', 'Aplicar gelo na ferida aberta'], 1,
+  'A compressão direta é a medida mais eficaz. O torniquete é recurso extremo, quando há risco de morte por hemorragia incontrolável.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Em caso de queimadura por incêndio no veículo, o correto é:',
+  ['Passar manteiga ou pasta de dente', 'Resfriar a área com água corrente em temperatura ambiente e cobrir com pano limpo', 'Estourar as bolhas', 'Aplicar pomada antes de resfriar'], 1,
+  'Resfriar reduz a progressão da lesão térmica; produtos caseiros contaminam a ferida e dificultam o atendimento médico.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Sobre a remoção do capacete de um motociclista acidentado:',
+  ['Deve ser feita sempre e imediatamente', 'Só deve ser feita por pessoa treinada, ou quando impossibilitar a respiração, com estabilização da cabeça', 'Nunca deve ser removido', 'Deve ser feita girando a cabeça'], 1,
+  'A retirada inadequada pode agravar lesão cervical. Se a vítima respira e está consciente, aguarde o socorro especializado.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Uma vítima em parada cardiorrespiratória deve receber compressões torácicas:',
+  ['A cada 5 segundos', 'Em ritmo de 100 a 120 compressões por minuto, no centro do tórax', 'Somente após 10 minutos', 'Apenas em crianças'], 1,
+  'Compressões fortes e rápidas no centro do tórax mantêm a circulação até a chegada do desfibrilador ou do socorro especializado.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'A pessoa que se apresenta como "socorrista" deve:',
+  ['Entrar na via sem sinalizar', 'Identificar-se, avaliar a segurança e informar o que vai fazer à vítima consciente', 'Movimentar todos os acidentados', 'Recusar ajuda de leigos'], 1,
+  'A comunicação reduz o pânico e organiza o atendimento. O socorrista assume a liderança da cena com calma e clareza.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Em caso de vítima com objeto encravado no corpo, o correto é:',
+  ['Retirar o objeto imediatamente', 'Não retirar o objeto e imobilizá-lo até o atendimento especializado', 'Empurrar o objeto para dentro', 'Lavar com água sanitária'], 1,
+  'A retirada pode provocar hemorragia grave; o objeto deve ser estabilizado com curativo ao redor.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'No atendimento a uma vítima de sinistro, o condutor envolvido deve prioritariamente:',
+  ['Discutir responsabilidades com a outra parte', 'Sinalizar o local, acionar socorro e preservar a cena para a perícia', 'Fotografar e publicar nas redes sociais', 'Deixar a vítima sozinha para chamar a polícia'], 1,
+  'Sinalizar evita novos sinistros; acionar socorro salva vidas; preservar o local permite a apuração das causas.',
+  'art. 176, CTB');
+
+/* ---------------- MEIO AMBIENTE E CIDADANIA ---------------- */
+Q('M', 'A principal fonte de poluição do ar nas grandes cidades brasileiras é:',
+  ['As indústrias', 'Os veículos automotores', 'A queima de lixo doméstico', 'Os aeroportos'], 1,
+  'A frota veicular é responsável pela maior parte das emissões urbanas de gases e material particulado, com impacto direto na saúde respiratória.',
+  'Res. CONTRAN 789/2020 / CONAMA');
+
+Q('M', 'O catalisador tem a função de:',
+  ['Aumentar a potência do motor', 'Reduzir a emissão de gases poluentes, transformando-os em substâncias menos nocivas', 'Diminuir o consumo de combustível em 50%', 'Filtrar o óleo do motor'], 1,
+  'O catalisador converte hidrocarbonetos, monóxido de carbono e óxidos de nitrogênio em substâncias menos tóxicas.',
+  'Res. CONAMA 18/1986');
+
+Q('M', 'A manutenção preventiva do veículo contribui para o meio ambiente porque:',
+  ['Aumenta a velocidade máxima', 'Reduz o consumo de combustível e a emissão de poluentes', 'Permite usar combustível de menor qualidade', 'Elimina a necessidade de inspeção veicular'], 1,
+  'Motor regulado, pneus calibrados e filtros limpos reduzem o consumo e a emissão de gases de efeito estufa.',
+  'Res. CONTRAN 789/2020');
+
+Q('M', 'O descarte de óleo lubrificante usado deve ser feito:',
+  ['Na rede de esgoto', 'Em postos ou pontos de coleta autorizados, nunca no solo ou na água', 'No lixo comum', 'Enterrado em terreno próprio'], 1,
+  'Um litro de óleo pode contaminar grande volume de água; a logística reversa do óleo é obrigatória (Res. CONAMA 362/2005).',
+  'Res. CONAMA 362/2005');
+
+Q('M', 'A poluição sonora provocada por veículos:',
+  ['Não tem relação com a saúde', 'Pode causar estresse, insônia e perda auditiva, sendo objeto de controle legal', 'É permitida em vias urbanas', 'Só importa em ambiente industrial'], 1,
+  'Escapamentos adulterados e o uso abusivo de buzina são infrações e afetam diretamente a qualidade de vida urbana.',
+  'art. 227 e art. 230, XI, CTB');
+
+Q('M', 'Cidadania no trânsito significa:',
+  ['Garantir apenas a própria segurança', 'Reconhecer o direito de todos e priorizar a proteção da vida', 'Ignorar as regras para ganhar tempo', 'Delegar tudo ao poder público'], 1,
+  'O CTB define o trânsito como direito de todos, com prioridade absoluta para a vida e responsabilidade compartilhada pela segurança.',
+  'art. 1º e art. 2º, CTB');
+
+Q('M', 'Em relação à acessibilidade, o uso da vaga reservada para idosos e pessoas com deficiência é:',
+  ['Uma cortesia', 'Um direito garantido por lei, restrito a quem possui credencial', 'Facultativo em horário de pouco movimento', 'Permitido se não houver outro local'], 1,
+  'A reserva de vagas é política de inclusão; o uso indevido é infração gravíssima e gera remoção do veículo.',
+  'art. 181, XX, CTB / Estatuto da Pessoa com Deficiência');
+
+Q('M', 'Compartilhar a via com ciclistas e pedestres exige do condutor:',
+  ['Aumento de velocidade para reduzir a exposição', 'Redução de velocidade, distância lateral e paciência', 'Uso constante de buzina', 'Prioridade absoluta sobre eles'], 1,
+  'A convivência segura depende de dividir o espaço, não disputar: o vulnerável tem prioridade e deve ser protegido.',
+  'art. 29, § 3º, CTB');
+
+Q('M', 'O uso do ar-condicionado no veículo:',
+  ['Não afeta o consumo', 'Aumenta o consumo de combustível e deve ser usado com critério', 'Reduz a emissão de poluentes', 'Substitui a manutenção do motor'], 1,
+  'O compressor do ar-condicionado exige potência do motor. Em baixa velocidade, vidros abertos podem ser mais econômicos.',
+  'Res. CONTRAN 789/2020');
+
+Q('M', 'A "direção econômica" inclui:',
+  ['Acelerar e frear de forma brusca', 'Acelerar progressivamente, usar marcha adequada e antecipar frenagens', 'Manter o motor em alta rotação', 'Usar o ponto morto nas descidas'], 1,
+  'Acelerar gradualmente, antecipar frenagens e escolher a marcha correta reduzem consumo, emissões e desgaste do veículo.',
+  'Res. CONTRAN 789/2020');
+
+/* ---------------- VEÍCULOS / MECÂNICA ---------------- */
+Q('V', 'A luz de advertência vermelha de temperatura do motor acesa indica que o condutor deve:',
+  ['Continuar o trajeto e verificar depois', 'Parar em local seguro o quanto antes e verificar o sistema de arrefecimento', 'Acelerar para resfriar o motor', 'Desligar apenas as luzes'], 1,
+  'Superaquecimento pode causar danos graves ao motor. Parar, desligar e aguardar a temperatura cair é a atitude correta.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'A luz indicadora com símbolo de óleo acesa com o motor em funcionamento:',
+  ['Indica que o óleo está novo', 'Indica baixa pressão de óleo e exige parada imediata', 'Indica que é hora de trocar o pneu', 'Pode ser ignorada'], 1,
+  'Baixa pressão de óleo significa lubrificação insuficiente e risco de fusão do motor; o veículo deve ser parado e verificado.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'O sistema ABS tem como principal função:',
+  ['Aumentar a potência do motor', 'Evitar o travamento das rodas na frenagem, mantendo o controle da direção', 'Reduzir o desgaste dos pneus', 'Melhorar o som do escapamento'], 1,
+  'Ao impedir o bloqueio das rodas, o ABS permite dirigir durante a frenagem de emergência.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'A verificação do nível de água do radiador deve ser feita:',
+  ['Com o motor quente e ligado', 'Com o motor frio, abrindo a tampa com cuidado', 'Somente em oficinas', 'Nunca é necessária'], 1,
+  'Abrir o sistema pressurizado quente provoca queimaduras graves, por isso a verificação ocorre com o motor frio.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'O desgaste irregular dos pneus pode indicar:',
+  ['Problema de alinhamento, balanceamento ou suspensão', 'Excesso de combustível', 'Falha no vidro elétrico', 'Uso correto do veículo'], 0,
+  'Desgaste em apenas um lado ou em uma faixa aponta problemas de geometria e suspensão, que aumentam o risco de sinistros.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'A função do sistema de escapamento em relação à poluição é:',
+  ['Apenas reduzir ruído', 'Conduzir os gases e reduzir ruído, atuando com o catalisador no controle de emissões', 'Aumentar a velocidade', 'Resfriar o motor'], 1,
+  'Além de reduzir ruído, o escapamento integra o controle de emissões junto com o catalisador e os sensores do motor.',
+  'art. 227, CTB');
+
+Q('V', 'Antes de iniciar uma viagem, deve-se verificar:',
+  ['Somente o combustível', 'Pneus, freios, luzes, fluidos, palhetas e equipamentos obrigatórios', 'Apenas a documento do veículo', 'Nada, se o carro for novo'], 1,
+  'A checagem pré-viagem evita a maioria das pane: é a base da direção defensiva preventiva.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'O pisca-alerta deve ser utilizado:',
+  ['Para estacionar em local proibido', 'Em imobilização de emergência do veículo, para alertar os demais condutores', 'Em qualquer ultrapassagem', 'Em dias de sol forte'], 1,
+  'O pisca-alerta sinaliza imobilização de emergência, como pane ou sinistro, nunca como substituto de estacionamento regular.',
+  'art. 39 e art. 181, CTB');
+
+Q('V', 'O equipamento obrigatório "kit de primeiros socorros" em veículos de transporte escolar e coletivo:',
+  ['Foi extinto para todos os veículos', 'É exigido por norma para veículos de transporte coletivo, escolar e de emergência', 'Não existe no Brasil', 'É opcional'], 1,
+  'Itens como extintor, kit de primeiros socorros, triângulo e tacógrafo (quando aplicável) seguem obrigatórios para as categorias de transporte descritas.',
+  'art. 105, CTB');
+
+Q('V', 'A direção hidráulica ou elétrica com falha:',
+  ['Apenas aumenta o esforço no volante, exigindo mais cuidado ao esterçar', 'Trava o veículo por completo', 'É irrelevante', 'Aumenta a velocidade do veículo'], 0,
+  'Sem assistência, o volante fica pesado; o condutor deve reduzir a velocidade e dirigir ao local seguro mais próximo.',
+  'Res. CONTRAN 789/2020');
+
+/* ================= CURSOS ESPECIALIZADOS ================= */
+
+/* ---- TRANSPORTE COLETIVO DE PASSAGEIROS (COL) ---- */
+Q('COL', 'A categoria mínima de CNH exigida para conduzir veículo de transporte coletivo de passageiros é:',
+  ['B', 'C', 'D', 'E'], 2,
+  'O art. 143, IV, do CTB exige categoria D para veículos de transporte de passageiros com mais de 8 lugares, além do curso especializado.',
+  'art. 143, IV, CTB');
+
+Q('COL', 'Para matrícula no curso de transporte coletivo de passageiros, o requisito é:',
+  ['Ter 18 anos e categoria A', 'Ter 21 anos e estar habilitado na categoria D', 'Ter 25 anos', 'Não há requisitos'], 1,
+  'São requisitos idade mínima de 21 anos, habilitação na categoria D e aptidão em exame toxicológico.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('COL', 'O curso de formação para condutores de transporte coletivo tem carga horária de referência de:',
+  ['16 horas-aula', '30 horas-aula', '50 horas-aula', '100 horas-aula'], 2,
+  'A estrutura de referência é de 50 horas-aula para formação e 16 horas-aula para atualização/reciclagem.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('COL', 'Sobre a validade dos cursos especializados após a Res. CONTRAN 1.020/2025:',
+  ['Continua obrigatória renovação a cada 5 anos', 'Deixou de existir prazo geral de validade, mantendo-se a obrigatoriedade da capacitação', 'Passou a valer por 2 anos', 'Não é mais exigido nenhum curso'], 1,
+  'A norma extinguiu o prazo geral de validade dos cursos especializados, mas manteve a exigência da capacitação registrada na CNH Digital/RENACH.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('COL', 'O condutor de transporte coletivo, ao se aproximar do ponto de parada, deve:',
+  ['Acelerar para chegar antes do horário', 'Reduzir a velocidade, sinalizar a manobra e parar junto ao meio-fio', 'Parar na segunda faixa, para facilitar a saída', 'Permanecer no ponto abrindo a porta apenas quando houver passageiros'], 1,
+  'A parada junto ao meio-fio e a sinalização antecipada reduzem o risco de pedestres serem surpreendidos no desembarque.',
+  'art. 39 e art. 29, CTB');
+
+Q('COL', 'Sobre o embarque de passageiros com mobilidade reduzida, o condutor deve:',
+  ['Exigir que aprendam a subir sozinhos, para não atrasar a viagem', 'Aguardar com paciência, garantir tempo e segurança e oferecer a ajuda necessária', 'Pedir que outro passageiro resolva', 'Seguir viagem se houver atraso'], 1,
+  'A acessibilidade é direito do usuário e a espera respeitosa integra a postura profissional do condutor.',
+  'Lei 13.146/2015 e art. 11, Res. CONTRAN 789/2020');
+
+Q('COL', 'O uso do cinto de segurança pelo condutor de ônibus urbano:',
+  ['É dispensado em qualquer veículo coletivo', 'É obrigatório quando o veículo possui o dispositivo instalado', 'Só existe em ônibus rodoviários', 'Substitui o extintor'], 1,
+  'O cinto é exigível sempre que o veículo estiver equipado com ele; a dispensa legal não alcança o condutor.',
+  'art. 65, CTB');
+
+Q('COL', 'Ao transportar passageiros, o condutor pode exceder a velocidade máxima da via:',
+  ['Sim, se estiver atrasado na tabela de horários', 'Não, jamais: o excesso de velocidade é a principal causa de sinistros fatais em coletivos', 'Sim, em faixas exclusivas', 'Sim, em vias arteriais urbanas'], 1,
+  'O motorista profissional responde pelo veículo e pelos passageiros; o excesso de velocidade é uma das principais causas de tombamento.',
+  'art. 218, CTB');
+
+Q('COL', 'Em relação ao embarque e desembarque, é proibido ao condutor de coletivo:',
+  ['Parar no ponto autorizado', 'Abrir a porta com o veículo em movimento', 'Aguardar idosos pagarem a passagem', 'Sinalizar a parada'], 1,
+  'Abrir porta em movimento pode lançar passageiros à via; a operação deve ocorrer com o veículo totalmente parado.',
+  'Res. CONTRAN 789/2020');
+
+Q('COL', 'Sobre a carga de passageiros, o condutor deve:',
+  ['Permitir passageiros em pé, mesmo acima da capacidade', 'Respeitar a lotação máxima indicada no documento do veículo', 'Ignorar a lotação, por ser responsabilidade da empresa', 'Permitir passageiros no compartimento de carga'], 1,
+  'Ultrapassar a lotação é infração e aumenta o risco em curvas, frenagens e evacuações.',
+  'art. 230, X, CTB');
+
+Q('COL', 'Em caso de sinistro com o coletivo, a prioridade do condutor é:',
+  ['Registrar fotos e chamar o advogado da empresa', 'Garantir a segurança dos passageiros, evacuar se necessário e acionar o socorro', 'Continuar a viagem', 'Colocar a culpa no outro veículo'], 1,
+  'Evacuação segura, sinalização e socorro são ações prioritárias de proteção da vida.',
+  'art. 176, CTB');
+
+Q('COL', 'A direção defensiva no transporte coletivo considera especialmente:',
+  ['Apenas o desempenho do motor', 'A presença de usuários vulneráveis, passageiros em pé e a necessidade de frenagens suaves', 'A pontualidade em primeiro lugar', 'O uso do celular além do retrovisor'], 1,
+  'A condução suave e antecipada é fundamental com passageiros em pé, idosos e crianças, evitando quedas no interior do veículo.',
+  'Res. CONTRAN 789/2020');
+
+Q('COL', 'O condutor pode utilizar o celular durante o serviço de transporte coletivo?',
+  ['Sim, em baixas velocidades', 'Não: o uso é infração gravíssima e proibido durante a condução', 'Apenas para contato com a empresa', 'Sim, entre paradas'], 1,
+  'Manusear o celular conduzindo veículo coletivo é infração gravíssima e multiplica o risco de lesões graves em massa de usuários.',
+  'art. 252, parágrafo único, CTB');
+
+/* ---- TRANSPORTE ESCOLAR (ESC) ---- */
+Q('ESC', 'Requisito de idade e categoria para o condutor de transporte escolar:',
+  ['18 anos e categoria B', '21 anos e categoria D', '21 anos e categoria C', '23 anos e categoria E'], 1,
+  'Além da categoria D e idade mínima de 21 anos, o condutor deve ter curso de transporte escolar e conduta compatível.',
+  'art. 138, CTB');
+
+Q('ESC', 'Entre os requisitos do condutor de transporte escolar, está:',
+  ['Possuir antecedentes criminais', 'Não ter cometido infração grave ou gravíssima, nem ser reincidente em média nos últimos 12 meses', 'Ter veículo próprio', 'Ter mais de 30 anos'], 1,
+  'O histórico do prontuário é avaliado como proteção às crianças; infrações graves recentes impedem a habilitação no curso.',
+  'art. 138, III, CTB');
+
+Q('ESC', 'A fila única de veículos escolares no ponto de embarque tem a finalidade de:',
+  ['Aumentar o tempo de embarque', 'Organizar o acesso das crianças e criar espaço de segurança para desembarque', 'Permitir corridas', 'Garantir prioridade a automóveis'], 1,
+  'Na fila única o segundo veículo aguarda com adesivos/apresentação: a ordem organiza o embarque e protege os escolares.',
+  'Res. CONTRAN 789/2020');
+
+Q('ESC', 'A cor do veículo de transporte escolar no Brasil é:',
+  ['Amarela, com faixa preta contínua e identificações obrigatórias', 'Branca com detalhes azuis', 'Qualquer cor, se identificar "escolar"', 'Verde com faixa branca'], 0,
+  'O padrão amarelo com faixa preta horizontal e inscrições "ESCOLAR" identifica o veículo e melhora a percepção dos demais condutores.',
+  'art. 136, CTB');
+
+Q('ESC', 'No transporte escolar, o número de crianças não pode exceder:',
+  ['A lotação indicada no documento do veículo', '10 crianças', 'Dez por cada adulto a bordo', 'A capacidade física só é relevante no rodoviário'], 0,
+  'A lotação não pode ser excedida e cada ocupante deve ter assento com cinto de segurança, conforme a regulamentação.',
+  'art. 230, X, CTB');
+
+Q('ESC', 'O veículo de transporte escolar deve ter, obrigatoriamente:',
+  ['Vídeo e internet', 'Extintor, kit de primeiros socorros, tacógrafo (quando exigido) e equipamentos de sinalização', 'Som potente', 'Pneus com sulcos mínimos de 0,5 mm'], 1,
+  'A lista de equipamentos obrigatórios se aplica integralmente, com vistoria anual para manutenção da autorização.',
+  'art. 105 e art. 136, CTB');
+
+Q('ESC', 'Ao se aproximar de um veículo escolar parado embarque/desembarque, os outros condutores devem:',
+  ['Acelerar e passar antes das crianças descerem', 'Reduzir a velocidade e parar se necessário, dando prioridade às crianças', 'Buzinar para que desçam mais rápido', 'Ultrapassar pelo acostamento'], 1,
+  'A prioridade das crianças no embarque escolar é regra de segurança viária; avançar por cima da operação é infração.',
+  'art. 204, CTB');
+
+Q('ESC', 'O veículo escolar deve ser submetido a vistoria:',
+  ['Uma única vez, na compra', 'Periodicamente, conforme o órgão de trânsito, e sempre que houver alteração das condições de segurança', 'Só quando há acidente', 'Nunca, se estiver em uso regular'], 1,
+  'A vistoria semestral ou anual, conforme a regulação estadual, comprova as condições de segurança e o cumprimento dos equipamentos.',
+  'art. 136, CTB / Res. CONTRAN 789/2020');
+
+Q('ESC', 'Sobre a supervisão dos escolares durante o transporte, cabe ao acompanhante/monitor:',
+  ['Organizar o embarque, auxiliar no assento e usar cinto em todas as crianças', 'Deixar as crianças decidirem sobre o cinto', 'Ficar no veículo sem interagir', 'Sentar no lugar de qualquer criança'], 0,
+  'A supervisão ativa (e o uso correto dos dispositivos de retenção) é obrigação do transportador e reduz lesões e quedas.',
+  'art. 168, CTB');
+
+Q('ESC', 'O condutor de transporte escolar que deixar a criança em local diferente do combinado com os responsáveis:',
+  ['Não comete falta', 'Age com imprudência, sujeitando as crianças a risco e o condutor a responsabilização', 'Pode fazer isso quando atrasar', 'Deve pedir autorização à criança'], 1,
+  'A entrega fora do ponto autorizado expõe a criança a risco e contraria as responsabilidades legalmente assumidas pelo transportador.',
+  'art. 138 e art. 136, CTB');
+
+Q('ESC', 'Quanto ao comportamento em pontos de embarque:',
+  ['O condutor pode estacionar na esquina e aguardar', 'O veículo deve estacionar em local permitido, próximo ao ponto, sem bloquear a visibilidade', 'Pode parar a qualquer momento em fila dupla', 'Pode aguardar na faixa de pedestres'], 1,
+  'Estacionar em esquina, faixa ou bloqueando visibilidade aumenta o risco de atropelamento de escolares.',
+  'art. 181, CTB');
+
+Q('ESC', 'Em relação ao uso do cinto e ao número de ocupantes no banco, o transporte escolar deve:',
+  ['Acomodar crianças no colo', 'Garantir assento e cinto individual por ocupante, respeitando a capacidade do veículo', 'Usar apenas um cinto para duas crianças pequenas', 'Dispensar o cinto em trajetos curtos'], 1,
+  'Cada ocupante deve ter seu próprio assento e cinto; a vedação evita lesões em massas de crianças.',
+  'art. 65 e art. 138, CTB');
+
+Q('ESC', 'O curso de formação para transporte escolar tem carga horária de referência de:',
+  ['16 horas-aula', '30 horas-aula', '50 horas-aula', '80 horas-aula'], 2,
+  'A carga de referência é de 50 horas-aula, dividida em módulos de legislação, direção defensiva, primeiros socorros e relacionamento interpessoal.',
+  'Res. CONTRAN 1.020/2025');
+
+/* ---- MOPP / PRODUTOS PERIGOSOS (MOPP) ---- */
+Q('MOPP', 'O curso MOPP (hoje também denominado CETPP) é exigido para condutores de veículos que transportam:',
+  ['Qualquer tipo de carga', 'Produtos classificados como perigosos, conforme a regulamentação de transporte', 'Somente combustíveis', 'Apenas explosivos'], 1,
+  'A capacitação é obrigatória para todo transporte rodoviário de cargas classificadas como perigosas, com riscos à saúde, ao meio ambiente e à segurança.',
+  'art. 145, IV, CTB e Res. CONTRAN 1.020/2025');
+
+Q('MOPP', 'A sinalização veicular para transporte de produtos perigosos, no Brasil, baseia-se em:',
+  ['Painéis de segurança (laranja) com número da ONU e número de risco, além dos rótulos de risco', 'Apenas adesivos coloridos sem padronização', 'Bandeiras brancas', 'Luzes azuis intermitentes'], 0,
+  'O painel laranja com número de risco (superior) e número da ONU (inferior) informa rapidamente a natureza do produto aos socorristas.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Em caso de vazamento de produto perigoso, a primeira ação do condutor é:',
+  ['Desligar o motor, afastar-se, sinalizar a via e isolar a área, acionando o socorro especializado', 'Tentar conter o vazamento com água', 'Acender fósforo para verificar o produto', 'Remover a etiqueta de risco'], 0,
+  'Afastar, sinalizar e isolar evita a exposição de terceiros; a compatibilidade do produto define os procedimentos de emergência.',
+  'FISPQ / Res. ANTT 5.947/2021');
+
+Q('MOPP', 'A FISPQ (ficha de informações de segurança) tem como função:',
+  ['Indicar o preço do transporte', 'Apresentar informações sobre perigos, primeiros socorros, combate a incêndio e manuseio do produto', 'Registrar a CNH do condutor', 'Substituir a nota fiscal'], 1,
+  'A ficha de dados de segurança acompanha a operação e orienta condutor, socorristas e fiscais em emergências.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'O veículo com carga perigosa deve portar equipamentos de emergência, entre eles:',
+  ['Cones ou sinalizadores, extintor de classe adequada, lanternas e materiais de contenção', 'Apenas o triângulo', 'Somente colete refletivo', 'Nenhum equipamento, se a viagem for curta'], 0,
+  'O kit de emergência é definido por regulamentação específica e depende da carga; o extintor é obrigatório nesses veículos.',
+  'art. 105, CTB / Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Sobre a circulação de veículos de transporte de produtos perigosos, é correto:',
+  ['Não existem restrições de horário nem de rota', 'Podem existir restrições de circulação em áreas urbanas, túneis e horários de grande movimento', 'Podem estacionar em qualquer local', 'Podem transportar passageiros se houver espaço'], 1,
+  'Normas municipais e federais podem restringir rotas e horários; o condutor deve consultar as exigências locais da viagem.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Um veículo com carga de material inflamável apresenta, na etiqueta de risco, o número 3. Isso significa:',
+  ['Classe 3 — líquidos inflamáveis', 'Classe 3 — gases', 'Classe 3 — oxidantes', 'Classe 3 — corrosivos'], 0,
+  'A classe 3 corresponde a líquidos inflamáveis, como a gasolina; cada classe tem procedimentos e combate a incêndio específicos.',
+  'Nações Unidas — Classes de risco / Res. ANTT');
+
+Q('MOPP', 'Em caso de incêndio com combustível, deve-se:',
+  ['Jogar água em jato forte', 'Usar extintor adequado (pó químico ou espuma), afastar-se e acionar o Corpo de Bombeiros', 'Abrir o capô sem cuidados', 'Aguardar para ver o que acontece'], 1,
+  'Água em jato pode espalhar líquido inflamável; o agente extintor correto e a evacuação são essenciais.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Sobre o transporte de oxigênio líquido e gases, é correto afirmar:',
+  ['São produtos da classe 2, com cuidados específicos de ventilação e distância de fontes de calor', 'Podem ser transportados sem qualquer restrição', 'São classificados como classe 9', 'Não exigem capacitação do condutor'], 0,
+  'Gases (classe 2), inclusive oxidantes, exigem procedimentos próprios contra superaquecimento e risco de combustão acelerada.',
+  'Nações Unidas — Classes de risco');
+
+Q('MOPP', 'O condutor habilitado no MOPP deve ter, no mínimo:',
+  ['Categoria A e 18 anos', 'Categoria B, 21 anos e curso especializado válido', 'Categoria C ou superior, 21 anos e curso especializado', 'Categoria E e 30 anos'], 2,
+  'O condutor deve possuir a categoria compatível com o veículo utilizado e o curso especializado registrado na CNH Digital.',
+  'art. 145, IV, CTB');
+
+Q('MOPP', 'A documentação da viagem de carga perigosa inclui:',
+  ['Apenas a CNH', 'Documento fiscal da carga, informações de segurança e certificados do veículo e do condutor', 'Somente o seguro', 'Nada, se a carga for nacional'], 1,
+  'Fiscalização verifica nota fiscal, informações de segurança e certificação do condutor e do veículo.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'A capacitação especializada para produtos perigosos, após a Res. CONTRAN 1.020/2025:',
+  ['Deixou de ser exigida', 'Continua obrigatória, sem prazo geral de validade', 'Passou a exigir renovação anual', 'Foi substituída pelo curso de direção defensiva'], 1,
+  'A obrigatoriedade da capacitação foi mantida; o que se extinguiu foi o prazo geral de validade de 5 anos.',
+  'Res. CONTRAN 1.020/2025');
+
+/* ---- CARGAS INDIVISÍVEIS (CIN) ---- */
+Q('CIN', 'Carga indivisível é aquela que:',
+  ['Pode ser fracionada para atender o limite de peso', 'Não pode ser dividida sem perda de suas características ou viabilidade, exigindo veículo/combinação especial', 'Tem peso inferior a 1 tonelada', 'Só pode ser transportada em carretas totalmente fechadas'], 1,
+  'Cargas indivisíveis, excedentes ou especiais exigem autorização específica e o curso de condutor especializado.',
+  'art. 3º, I, e Res. CONTRAN 882/2021');
+
+Q('CIN', 'O documento que autoriza a circulação de veículo com dimensões ou peso acima dos limites é:',
+  ['AET — Autorização Especial de Trânsito', 'DUT', 'CRLV', 'CNH especial'], 0,
+  'A AET é emitida pelo órgão competente com validade, percurso e horários definidos, e deve ser transportada no veículo.',
+  'Res. CONTRAN 882/2021');
+
+Q('CIN', 'A sinalização de combinação de veículos com carga excedente em largura/profundidade inclui:',
+  ['Bandeiras azuis', 'Faixas retrorrefletivas, placas de sinalização e, quando exigido, veículo de escolta', 'Uma única luz vermelha no teto', 'Apenas o pisca-alerta'], 1,
+  'Faixas e placas refletivas identificam o excesso lateral, dianteiro e traseiro; a escolta é exigida em muitos percursos.',
+  'Res. CONTRAN 882/2021');
+
+Q('CIN', 'Para conduzir veículo de transporte de carga indivisível, o condutor deve:',
+  ['Ter categoria B e 18 anos', 'Ter categoria C ou superior, 21 anos e curso especializado', 'Ter somente o curso MOPP', 'Ter categoria A'], 1,
+  'Exige-se categoria compatível, idade mínima de 21 anos e curso para cargas indivisíveis e outras objeto de regulamentação específica.',
+  'art. 145, IV, CTB / Res. CONTRAN 1.020/2025');
+
+Q('CIN', 'O estado de conservação dos pneus em combinações longas é crítico porque:',
+  ['O peso pode causar sobrecarga e estouro, com perda total do controle', 'Não afeta o desempenho', 'Só influencia o consumo', 'É exigência apenas estética'], 0,
+  'Combinações com excesso de peso têm maior carga por pneu; a inspeção antes da viagem é obrigatória e prevista em norma.',
+  'Res. CONTRAN 882/2021');
+
+Q('CIN', 'Em manobras com veículo longo, o condutor deve:',
+  ['Confiar apenas nos espelhos', 'Verificar pontos cegos, usar sinalização e, quando necessário, apoio externo para manobras', 'Manobrar sempre em alta velocidade', 'Ignorar a sinalização de outros veículos'], 1,
+  'Veículos longos têm raio de giro amplo e pontos cegos extensos: sinalizar e, se preciso, contar com auxílio é padrão de segurança.',
+  'Res. CONTRAN 882/2021');
+
+Q('CIN', 'Sobre peso total bruto (PBT) e capacidade de tração, o condutor deve:',
+  ['Exceder limites, se a viagem for urgente', 'Respeitar os limites do veículo e da AET, sob risco de sobrecarga e perda de estabilidade', 'Ignorar os limites em vias rurais', 'Transportar acima do limite em trechos curtos'], 1,
+  'Excesso de peso é infração, compromete freios e suspensão e pode causar tombamento e danos estruturais à via.',
+  'art. 231, CTB');
+
+Q('CIN', 'Ao transportar carga que excede a largura do veículo, é obrigatório:',
+  ['Apenas avisar o destinatário', 'Sinalizar com faixas refletivas e placas, conforme as dimensões excedentes e a AET', 'Usar apenas o farol alto', 'Nenhum procedimento'], 1,
+  'Excesso lateral, frontal e traseiro exige sinalização padronizada e, em muitos casos, veículo de escolta.',
+  'Res. CONTRAN 882/2021');
+
+Q('CIN', 'A estabilidade de uma combinação de veículos em curva é reduzida por:',
+  ['Carga alta, mal distribuída e velocidade excessiva', 'Pneus calibrados', 'Baixa velocidade', 'Peso concentrado no eixo traseiro do cavalo'], 0,
+  'Centro de gravidade alto e velocidade em curva são a combinação típica de tombamento em cargas indivisíveis.',
+  'Res. CONTRAN 882/2021');
+
+Q('CIN', 'Guindastes móveis e veículos especiais que transitam na via:',
+  ['Não precisam de capacitação específica', 'Sujeitam-se à exigência do curso de carga indivisível e demais normas aplicáveis', 'Só precisam do MOPP', 'Dispensam AET em qualquer situação'], 1,
+  'A regulamentação estende a exigência do curso de carga indivisível aos condutores de guindastes móveis facultados a transitar na via.',
+  'Res. CONTRAN 1.020/2025');
+
+/* ---- VEÍCULOS DE EMERGÊNCIA (EME) ---- */
+Q('EME', 'São considerados veículos de emergência, para efeito de prioridade de trânsito:',
+  ['Ambulâncias, veículos de bombeiros e de polícia, quando em serviço urgente', 'Qualquer veículo com adesivo', 'Apenas caminhões de carga', 'Somente veículos oficiais em qualquer situação'], 0,
+  'A prioridade decorre da natureza do serviço urgente e da sinalização sonora e luminosa, não da simples identificação.',
+  'art. 29, VII, CTB');
+
+Q('EME', 'Os dispositivos de alarme dos veículos de emergência são:',
+  ['Luz vermelha intermitente e sirene', 'Luz azul intermitente e buzina comum', 'Pisca-alerta e farol alto', 'Somente a sirene'], 0,
+  'A combinação de luz vermelha intermitente e sirene identifica o veículo em serviço urgente e sinaliza a prioridade de passagem.',
+  'art. 29, VII, CTB');
+
+Q('EME', 'Ao ouvir a sirene de uma ambulância, o condutor deve:',
+  ['Frear bruscamente no meio da faixa', 'Reduzir a velocidade, encostar à direita e liberar a passagem, sem bloquear cruzamentos', 'Acelerar para acompanhar a ambulância', 'Parar sobre a faixa de pedestres'], 1,
+  'Manobrar para a direita de forma previsível libera o corredor de emergência e evita colisões.',
+  'art. 29, VII, CTB');
+
+Q('EME', 'Seguir um veículo de emergência aproveitando a passagem aberta é:',
+  ['Permitido, se o condutor estiver com pressa', 'Infração grave, com multa, por uso indevido da prioridade', 'Permitido em rodovias', 'Permitido para motocicletas'], 1,
+  'Aproveitar a passagem aberta por veículo de emergência é infração grave, pois usa em benefício próprio uma prioridade destinada a salvar vidas.',
+  'art. 189, CTB');
+
+Q('EME', 'O curso para condutores de veículos de emergência exige, entre os requisitos:',
+  ['18 anos e categoria B', '21 anos e categoria compatível com o veículo conduzido', 'Apenas curso de direção defensiva', '30 anos e categoria E'], 1,
+  'Além da categoria compatível, exige-se idade mínima de 21 anos e o curso especializado registrado na CNH.',
+  'Res. CONTRAN 1.020/2025');
+
+Q('EME', 'Em condução de emergência, a prioridade de passagem:',
+  ['Dispensa o condutor de adotar cuidados, pois ele nunca responde por infrações', 'Não dispensa a adoção de medidas de segurança e não afasta a responsabilidade do condutor', 'Permite trafegar em qualquer velocidade', 'Autoriza ultrapassagem em qualquer local'], 1,
+  'A prioridade é de passagem, não autorização para imprudência: o condutor continua responsável pela segurança da operação.',
+  'art. 29, VII, CTB');
+
+Q('EME', 'A direção defensiva em veículos de emergência deve considerar:',
+  ['Apenas a rapidez do atendimento', 'Rapidez com segurança, sinalização sonora e luminosa, e atenção redobrada a cruzamentos e pedestres', 'O uso de velocidade máxima em qualquer via', 'A dispensa de cinto de segurança'], 1,
+  'A urgência amplia o risco: sinalizar, reduzir em cruzamentos e antecipar o comportamento dos demais é essencial.',
+  'Res. CONTRAN 789/2020');
+
+Q('EME', 'O cinto de segurança em veículos de emergência:',
+  ['Pode ser dispensado', 'Deve ser usado por todos os ocupantes quando o veículo estiver equipado', 'É substituído pela sirene', 'Só é obrigatório na rodovia'], 1,
+  'A urgência não dispensa o cinto: ele protege a equipe e permite conduzir com segurança em manobras mais dinâmicas.',
+  'art. 65, CTB');
+
+Q('EME', 'Sobre o transporte de pacientes no veículo de emergência, o condutor deve:',
+  ['Conduzir de forma suave, antecipando frenagens e curvas para não agravar o quadro do paciente', 'Acelerar ao máximo sempre', 'Preferir manobras bruscas para ganhar tempo', 'Desconsiderar a sinalização de trânsito'], 0,
+  'A condução suave protege o paciente e a equipe; manobras bruscas agravam lesões e podem causar sinistros.',
+  'Res. CONTRAN 789/2020');
+
+Q('EME', 'Ao se aproximar de um cruzamento com sinal vermelho, o condutor de veículo de emergência em serviço urgente deve:',
+  ['Avançar sem verificar, pois tem prioridade', 'Reduzir a velocidade, confirmar que os demais perceberam a sirene e atravessar com segurança', 'Buzinar e acelerar', 'Desligar a sirene para não incomodar'], 1,
+  'Reduzir antes do cruzamento e confirmar a percepção dos outros condutores evita colisões; a prioridade exige confirmação visual.',
+  'art. 29, VII, CTB');
+
+Q('EME', 'O condutor de veículo de emergência deve conhecer:',
+  ['Apenas as vias principais da cidade', 'As vias, a localização de hospitais e os protocolos de acionamento e sinalização', 'Somente o itinerário diário', 'Nada além das regras básicas'], 1,
+  'O conhecimento das vias e dos protocolos reduz o tempo-resposta e evita manobras improvisadas.',
+  'Res. CONTRAN 789/2020');
+
+Q('EME', 'É correto afirmar sobre o uso da sirene:',
+  ['Deve ser usada continuamente em qualquer deslocamento', 'Deve ser usada em serviço urgente e pode ser restringida por normas locais (ex.: à noite em áreas hospitalares)', 'É proibida em serviço urgente', 'Pode ser usada em estacionamento'], 1,
+  'A sirene identifica o serviço urgente; normas locais podem restringir seu uso em horários e locais para reduzir impacto sonoro, mantendo a luz intermitente.',
+  'art. 29, VII, CTB');
+/* =========================================================
+   SimulaTrânsito BR — aplicação (SPA, sem dependências)
+   ========================================================= */
+
+const CATS = {
+  L:    { nome: 'Legislação de Trânsito',            curto: 'Legislação',        base: true,  cor: '#3b82f6' },
+  D:    { nome: 'Direção Defensiva',                 curto: 'Direção Defensiva', base: true,  cor: '#14b8a6' },
+  P:    { nome: 'Primeiros Socorros',                curto: 'Primeiros Socorros',base: true,  cor: '#ef4444' },
+  M:    { nome: 'Meio Ambiente e Cidadania',         curto: 'Meio Ambiente',     base: true,  cor: '#22c55e' },
+  V:    { nome: 'Veículos e Mecânica Básica',        curto: 'Mecânica',          base: true,  cor: '#f59e0b' },
+  COL:  { nome: 'Transporte Coletivo de Passageiros',curto: 'Coletivo',          base: false, cor: '#8b5cf6' },
+  ESC:  { nome: 'Transporte Escolar',                curto: 'Escolar',           base: false, cor: '#eab308' },
+  MOPP: { nome: 'Produtos Perigosos (MOPP)',         curto: 'MOPP',              base: false, cor: '#f97316' },
+  CIN:  { nome: 'Cargas Indivisíveis',               curto: 'Cargas Indivisíveis',base: false, cor: '#0ea5e9' },
+  EME:  { nome: 'Veículos de Emergência',            curto: 'Emergência',        base: false, cor: '#f43f5e' }
+};
+const BASE_CATS = ['L', 'D', 'P', 'M', 'V'];
+const CURSO_CATS = ['COL', 'ESC', 'MOPP', 'CIN', 'EME'];
+const STORE_KEY = 'simulatrafico.br.v1';
+
+/* -------- estado -------- */
+const S = {
+  nome: '',
+  modo: null,          // 'geral' | 'materia' | 'curso'
+  catSel: 'L',
+  cursoSel: 'COL',
+  qtd: 30,
+  ritmo: 'prova',
+  quiz: null,          // { itens:[], respostas:[], idx, fim, inicio, tempoLimite, duracao }
+  ultimoResultado: null
+};
+
+/* -------- helpers -------- */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const shuffle = a => { const r = a.slice(); for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
+const sample = (arr, n) => shuffle(arr).slice(0, n);
+const fmtTime = s => { s = Math.max(0, Math.round(s)); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); };
+const pct = (a, b) => b ? Math.round((a / b) * 100) : 0;
+const minAcertos = qtd => Math.ceil((qtd * 2) / 3);
+
+function loadStore() {
+  try { return JSON.parse(localStorage.getItem(STORE_KEY)) || { nome: '', hist: [] }; }
+  catch (e) { return { nome: '', hist: [] }; }
+}
+function saveStore(d) { try { localStorage.setItem(STORE_KEY, JSON.stringify(d)); } catch (e) {} }
+
+/* -------- navegação -------- */
+function show(view) {
+  $$('.view').forEach(v => v.classList.remove('active'));
+  $('#view-' + view).classList.add('active');
+  $$('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.nav === view));
+  try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {}
+}
+$$('.nav-btn').forEach(b => b.addEventListener('click', () => {
+  const v = b.dataset.nav;
+  if (S.quiz && $('#view-quiz').classList.contains('active') && v !== 'quiz') {
+    if (!confirm('Sair do simulado em andamento? O progresso não respondido será perdido.')) return;
+    clearInterval(timerId); S.quiz = null;
+  }
+  if (v === 'history') renderHistory();
+  if (v === 'home') { /* mantém setup */ }
+  show(v);
+}));
+
+/* ================= HOME / SETUP ================= */
+function renderChips() {
+  $('#chips-materias').innerHTML = BASE_CATS.map(c =>
+    `<button class="chip" data-cat="${c}" aria-pressed="${S.catSel === c}">${CATS[c].nome}</button>`).join('');
+  $('#chips-cursos').innerHTML = CURSO_CATS.map(c =>
+    `<button class="chip" data-curso="${c}" aria-pressed="${S.cursoSel === c}">${CATS[c].nome}</button>`).join('');
+
+  $$('#chips-materias .chip').forEach(b => b.onclick = () => { S.catSel = b.dataset.cat; renderChips(); updateSetupInfo(); });
+  $$('#chips-cursos .chip').forEach(b => b.onclick = () => { S.cursoSel = b.dataset.curso; renderChips(); updateSetupInfo(); });
+  $$('#chips-qtd .chip').forEach(b => {
+    b.setAttribute('aria-pressed', String(Number(b.dataset.qtd) === S.qtd));
+    b.onclick = () => { S.qtd = Number(b.dataset.qtd); renderChips(); updateSetupInfo(); };
+  });
+  $$('#chips-ritmo .chip').forEach(b => {
+    b.setAttribute('aria-pressed', String(b.dataset.ritmo === S.ritmo));
+    b.onclick = () => { S.ritmo = b.dataset.ritmo; renderChips(); updateSetupInfo(); };
+  });
+}
+
+function updateSetupInfo() {
+  const pool = poolSize();
+  const alvo = Math.min(S.qtd, pool);
+  const need = minAcertos(alvo);
+  $('#ritmo-hint').textContent = S.ritmo === 'prova'
+    ? `Modo prova: cronômetro de ${alvo * 2} minutos, alternativas podem ser revistas e a correção sai no final — como no DETRAN.`
+    : 'Modo estudo: a resposta é corrigida na hora, com comentário e base legal. Cronômetro conta o tempo, sem pressão.';
+  $('#setup-info').textContent = `${alvo} questões disponíveis · aprovação a partir de ${need} acertos`;
+  const label = S.modo === 'geral' ? 'Simulado geral'
+    : S.modo === 'materia' ? 'Simulado · ' + CATS[S.catSel].nome
+    : 'Simulado · ' + CATS[S.cursoSel].nome;
+  $('#setup-title').textContent = label;
+}
+
+function poolSize() {
+  if (S.modo === 'geral') return QB.filter(q => BASE_CATS.includes(q.cat)).length;
+  if (S.modo === 'materia') return QB.filter(q => q.cat === S.catSel).length;
+  if (S.modo === 'curso') { const c = QB.filter(q => q.cat === S.cursoSel).length; const b = QB.filter(q => BASE_CATS.includes(q.cat)).length; return c + b; }
+  return QB.length;
+}
+
+$$('.modo').forEach(btn => btn.onclick = () => {
+  S.modo = btn.dataset.modo;
+  $$('.modo').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+  $('#setup').hidden = false;
+  const isMat = S.modo === 'materia', isCur = S.modo === 'curso';
+  $('#box-materias').hidden = !isMat;
+  $('#box-cursos').hidden = !isCur;
+  if (S.modo === 'geral' && S.qtd < 30) S.qtd = 30;
+  if (S.modo === 'curso') S.qtd = 20;
+  renderChips(); updateSetupInfo();
+  if ($('#setup').scrollIntoView) $('#setup').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+
+$('#btn-limpar-modo').onclick = () => {
+  S.modo = null;
+  $$('.modo').forEach(b => b.setAttribute('aria-pressed', 'false'));
+  $('#setup').hidden = true;
+};
+
+/* ================= MONTAGEM DO SIMULADO ================= */
+function buildPool() {
+  if (S.modo === 'geral') {
+    // distribuição aproximada do exame oficial
+    const pesos = { L: .45, D: .27, P: .13, M: .09, V: .06 };
+    const alvo = Math.min(S.qtd, BASE_CATS.reduce((t, c) => t + QB.filter(q => q.cat === c).length, 0));
+    let sel = [];
+    BASE_CATS.forEach(c => {
+      const n = Math.max(1, Math.round(alvo * pesos[c]));
+      sel = sel.concat(sample(QB.filter(q => q.cat === c), n));
+    });
+    // completa / ajusta
+    const resto = shuffle(QB.filter(q => BASE_CATS.includes(q.cat) && !sel.includes(q)));
+    while (sel.length < alvo && resto.length) sel.push(resto.shift());
+    return shuffle(sel).slice(0, alvo);
+  }
+  if (S.modo === 'materia') {
+    const pool = QB.filter(q => q.cat === S.catSel);
+    return sample(pool, Math.min(S.qtd, pool.length));
+  }
+  if (S.modo === 'curso') {
+    const esp = QB.filter(q => q.cat === S.cursoSel);
+    const base = QB.filter(q => BASE_CATS.includes(q.cat) && ['L', 'D'].includes(q.cat));
+    const nEsp = Math.min(esp.length, Math.max(1, Math.round(S.qtd * .6)));
+    const nBase = Math.min(base.length, S.qtd - nEsp);
+    return shuffle(sample(esp, nEsp).concat(sample(base, nBase)));
+  }
+  return sample(QB, Math.min(S.qtd, QB.length));
+}
+
+function iniciarQuiz(pool, ehRefazer) {
+  const itens = pool.map(q => {
+    const opts = shuffle(q.o.map((t, i) => ({ t, ok: i === q.c })));
+    return { q, opts };
+  });
+  const alvo = itens.length;
+  S.quiz = {
+    itens,
+    respostas: new Array(alvo).fill(null),
+    reveladas: new Array(alvo).fill(false),
+    idx: 0,
+    inicio: Date.now(),
+    tempoLimite: S.ritmo === 'prova' ? alvo * 120 : null,
+    refazer: !!ehRefazer,
+    rotulo: S.modo === 'geral' ? 'Simulado geral'
+      : S.modo === 'materia' ? CATS[S.catSel].nome
+      : CATS[S.cursoSel].nome
+  };
+  show('quiz');
+  renderQuestao();
+  startTimer();
+}
+
+$('#btn-comecar').onclick = () => {
+  if (!S.modo) return;
+  if (!podeIniciar()) { abrirAcesso(); return; }
+  S.nome = ($('#inp-nome').value || '').trim();
+  const st = loadStore(); st.nome = S.nome; saveStore(st);
+  iniciarQuiz(buildPool());
+};
+
+/* ================= TIMER ================= */
+let timerId = null;
+function startTimer() {
+  clearInterval(timerId);
+  const el = $('#quiz-timer');
+  const tick = () => {
+    const q = S.quiz; if (!q) return;
+    const decorrido = (Date.now() - q.inicio) / 1000;
+    if (q.tempoLimite) {
+      const resta = q.tempoLimite - decorrido;
+      el.textContent = fmtTime(resta);
+      el.classList.toggle('warn', resta <= 60);
+      if (resta <= 0) { finalizar(true); return; }
+    } else {
+      el.textContent = fmtTime(decorrido);
+      el.classList.remove('warn');
+    }
+  };
+  tick();
+  timerId = setInterval(tick, 500);
+}
+
+/* ================= RENDER QUESTÃO ================= */
+function renderQuestao() {
+  const qz = S.quiz, i = qz.idx, item = qz.itens[i];
+  const q = item.q;
+  $('#quiz-progress').textContent = `Questão ${i + 1} de ${qz.itens.length}`;
+  $('#quiz-bar').style.width = ((i) / qz.itens.length * 100) + '%';
+  const tag = $('#quiz-tag');
+  tag.textContent = CATS[q.cat].nome;
+  tag.style.color = CATS[q.cat].cor;
+  tag.style.borderColor = CATS[q.cat].cor + '66';
+  tag.style.background = CATS[q.cat].cor + '22';
+  $('#quiz-q').textContent = q.t;
+  $('#quiz-feedback').innerHTML = '';
+
+  const escolha = qz.respostas[i];
+  const revelada = qz.reveladas[i];
+  const box = $('#quiz-opts');
+  box.innerHTML = '';
+  item.opts.forEach((op, k) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.type = 'button';
+    if (escolha === k) b.classList.add('sel');
+    if (revelada) {
+      if (op.ok) b.classList.add('ok');
+      else if (escolha === k) b.classList.add('no');
+    }
+    b.innerHTML = `<span class="k">${'ABCDE'[k]}</span><span>${op.t}</span>`;
+    b.onclick = () => {
+      if (qz.reveladas[i] && S.ritmo === 'estudo') return;
+      qz.respostas[i] = k;
+      if (S.ritmo === 'estudo') { qz.reveladas[i] = true; renderQuestao(); }
+      else { renderQuestao(); }
+    };
+    box.appendChild(b);
+  });
+
+  if (revelada) {
+    const acertou = item.opts[escolha] && item.opts[escolha].ok;
+    const fb = document.createElement('div');
+    fb.className = 'feedback ' + (acertou ? 'ok' : 'no');
+    fb.innerHTML = `<b>${acertou ? '✔ Resposta correta' : '✖ Resposta incorreta'}</b>${q.ex}
+      <span class="ref">Base: ${q.ref}</span>`;
+    $('#quiz-feedback').appendChild(fb);
+  }
+
+  $('#btn-anterior').disabled = i === 0;
+  $('#btn-proxima').textContent = i === qz.itens.length - 1 ? 'Última questão' : 'Próxima →';
+}
+
+$('#btn-proxima').onclick = () => {
+  const qz = S.quiz; if (!qz) return;
+  if (qz.idx < qz.itens.length - 1) { qz.idx++; renderQuestao(); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} }
+  else finalizar();
+};
+$('#btn-anterior').onclick = () => { if (S.quiz && S.quiz.idx > 0) { S.quiz.idx--; renderQuestao(); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} } };
+$('#btn-finalizar').onclick = () => {
+  if (!S.quiz) return;
+  const respondidas = S.quiz.respostas.filter(r => r !== null).length;
+  const faltam = S.quiz.itens.length - respondidas;
+  if (faltam > 0 && !confirm(`Você deixou ${faltam} questão(ões) em branco. Finalizar mesmo assim?`)) return;
+  finalizar();
+};
+
+/* atalhos de teclado */
+document.addEventListener('keydown', e => {
+  if (!$('#view-quiz').classList.contains('active') || !S.quiz) return;
+  if (['1', '2', '3', '4', '5'].includes(e.key)) {
+    const k = Number(e.key) - 1;
+    if (k < S.quiz.itens[S.quiz.idx].opts.length) $('#quiz-opts').children[k].click();
+  }
+  if (e.key === 'ArrowRight') $('#btn-proxima').click();
+  if (e.key === 'ArrowLeft') $('#btn-anterior').click();
+});
+
+/* ================= RESULTADO ================= */
+function finalizar(auto) {
+  if (!S.quiz) return;
+  clearInterval(timerId);
+  const qz = S.quiz;
+  $('#quiz-bar').style.width = '100%';
+  const total = qz.itens.length;
+  let acertos = 0;
+  const porCat = {};
+  qz.itens.forEach((item, i) => {
+    const c = item.q.cat;
+    porCat[c] = porCat[c] || { ok: 0, total: 0 };
+    porCat[c].total++;
+    const r = qz.respostas[i];
+    if (r !== null && item.opts[r].ok) { acertos++; porCat[c].ok++; }
+  });
+  const duracao = Math.round((Date.now() - qz.inicio) / 1000);
+  const need = minAcertos(total);
+  const aprovado = acertos >= need;
+
+  S.ultimoResultado = { total, acertos, duracao, porCat, aprovado, need, rotulo: qz.rotulo, itens: qz.itens, respostas: qz.respostas };
+
+  // histórico
+  const st = loadStore();
+  st.nome = S.nome || st.nome || '';
+  st.hist = st.hist || [];
+  st.hist.unshift({
+    data: new Date().toISOString(), rotulo: qz.rotulo, total, acertos, duracao, aprovado, need,
+    ritmo: S.ritmo, nome: S.nome
+  });
+  st.hist = st.hist.slice(0, 60);
+  saveStore(st);
+
+  if (!qz.refazer) registrarSimulado();
+  renderResultado(auto);
+  show('result');
+}
+
+function renderResultado(auto) {
+  const r = S.ultimoResultado;
+  const p = pct(r.acertos, r.total);
+  $('#res-title').textContent = r.rotulo;
+  $('#res-score').style.setProperty('--p', p);
+  $('#res-score').style.background = `conic-gradient(${r.aprovado ? 'var(--green)' : 'var(--red)'} ${p}%, #26313f 0)`;
+  $('#res-pct').textContent = p + '%';
+  $('#res-frac').textContent = `${r.acertos}/${r.total}`;
+  const v = $('#res-verdict');
+  v.textContent = r.aprovado ? 'Aprovado no simulado 🎉' : 'Ainda não foi dessa vez';
+  v.className = 'verdict ' + (r.aprovado ? 'ok' : 'no');
+  $('#res-msg').innerHTML = r.aprovado
+    ? `Você precisava de <b>${r.need}</b> acertos e fez <b>${r.acertos}</b>. Continue treinando os erros para chegar na prova com folga.`
+    : `A meta é <b>${r.need}</b> acertos (2/3 da prova, como no exame oficial). Você fez <b>${r.acertos}</b>. Revise abaixo e refaça.`;
+  $('#res-hit').textContent = r.acertos;
+  $('#res-miss').textContent = r.total - r.acertos;
+  $('#res-time').textContent = Math.floor(r.duracao / 60) + 'min';
+  $('#res-pct2').textContent = p + '%';
+
+  $('#res-subjects').innerHTML = Object.keys(r.porCat).map(c => {
+    const d = r.porCat[c], pp = pct(d.ok, d.total);
+    return `<div class="subj-row"><span class="nm">${CATS[c] ? CATS[c].curto : c}</span>
+      <span class="track"><i style="width:${pp}%;background:linear-gradient(90deg,${CATS[c] ? CATS[c].cor : '#3b82f6'},#14b8a6)"></i></span>
+      <span class="vl">${d.ok}/${d.total}</span></div>`;
+  }).join('');
+
+  const errados = [];
+  r.itens.forEach((item, i) => {
+    const resp = r.respostas[i];
+    const ok = resp !== null && item.opts[resp].ok;
+    if (!ok) errados.push({ item, resp, i });
+  });
+  const box = $('#res-review');
+  if (!errados.length) {
+    box.innerHTML = `<div class="empty">Nenhuma questão errada. Excelente! 🎯</div>`;
+  } else {
+    box.innerHTML = errados.map(({ item, resp }) => {
+      const correta = item.opts.find(o => o.ok).t;
+      const marcada = resp === null ? '— em branco —' : item.opts[resp].t;
+      return `<div class="rev">
+        <span class="rq">${item.q.t}</span>
+        <span class="rx">Sua resposta: ${marcada}</span>
+        <span class="ra">Correta: ${correta}</span>
+        <span class="rx" style="margin-top:8px;display:block">${item.q.ex}</span>
+        <span class="rx" style="display:block;opacity:.8">Base: ${item.q.ref}</span>
+      </div>`;
+    }).join('');
+  }
+  $('#btn-refazer-erros').disabled = errados.length === 0;
+  S._erros = errados.map(e => e.item.q);
+}
+
+$('#btn-refazer-erros').onclick = () => {
+  if (!S._erros || !S._erros.length) return;
+  iniciarQuiz(S._erros, true);
+};
+$('#btn-novo').onclick = () => { show('home'); S.quiz = null; S.modo = null; $$('.modo').forEach(b => b.setAttribute('aria-pressed', 'false')); $('#setup').hidden = true; };
+$('#btn-ver-hist').onclick = () => { renderHistory(); show('history'); };
+
+/* ================= HISTÓRICO ================= */
+function renderHistory() {
+  const st = loadStore();
+  const nome = S.nome || st.nome || '';
+  if (nome) $('#inp-nome').value = nome;
+  const h = st.hist || [];
+  const stats = $('#hist-stats');
+  if (!h.length) {
+    stats.innerHTML = `<div class="empty">Nenhum simulado registrado ainda. Comece pelo <b>simulado geral</b> na tela inicial.</div>`;
+    $('#hist-list').innerHTML = '';
+    return;
+  }
+  const totQ = h.reduce((s, x) => s + x.total, 0);
+  const totA = h.reduce((s, x) => s + x.acertos, 0);
+  const aprox = h.filter(x => x.aprovado).length;
+  stats.innerHTML = `<div class="kpis">
+      <div class="kpi">Simulados<b>${h.length}</b></div>
+      <div class="kpi">Questões respondidas<b>${totQ}</b></div>
+      <div class="kpi">Aproveitamento geral<b>${pct(totA, totQ)}%</b></div>
+      <div class="kpi">Aprovações<b>${aprox}/${h.length}</b></div>
+    </div>`;
+  $('#hist-list').innerHTML = h.map(x => {
+    const d = new Date(x.data);
+    const data = d.toLocaleDateString('pt-BR') + ' às ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    return `<div class="hist-item">
+      <span class="pill ${x.aprovado ? 'ok' : 'no'}">${x.acertos}/${x.total}</span>
+      <div style="flex:1">
+        <div class="nm">${x.rotulo}</div>
+        <div class="meta">${data} · ${x.ritmo === 'prova' ? 'modo prova' : 'modo estudo'} · ${Math.floor(x.duracao / 60)}min${x.nome ? ' · ' + x.nome : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+$('#btn-limpar-hist').onclick = () => {
+  if (!confirm('Apagar todo o histórico deste navegador?')) return;
+  const st = loadStore(); st.hist = []; saveStore(st); renderHistory();
+};
+
+/* ================= LEGISLAÇÃO ================= */
+const LEGIS = [
+  {
+    t: 'Res. CONTRAN 1.020/2025 — novo processo de habilitação',
+    d: `A maior mudança no processo de habilitação desde o CTB de 1997, publicada em dezembro de 2025 e já em aplicação pelos DETRANs.
+    <ul>
+      <li><strong>Fim da obrigatoriedade da autoescola:</strong> o candidato pode optar por autoescola ou instrutor autônomo credenciado pelo DETRAN (com certidão negativa de antecedentes criminais).</li>
+      <li><strong>Curso teórico sem carga horária fixa:</strong> as 45 horas-aula deixam de existir; o foco passa a ser a aprovação na avaliação de conteúdo. O curso pode ser presencial ou a distância, inclusive pela plataforma oficial gratuita CNH do Brasil.</li>
+      <li><strong>Carga prática mínima de 2 horas-aula</strong> (antes eram 20), podendo ser feita com veículo próprio identificado.</li>
+      <li><strong>Processo sem prazo de validade:</strong> acabou o limite de 12 meses para concluir a habilitação.</li>
+      <li><strong>Etapas flexíveis:</strong> o candidato pode iniciar a parte teórica antes dos exames médico e psicológico.</li>
+      <li><strong>Exame teórico:</strong> 30 questões, mínimo de 20 acertos, com 60 minutos de prova (120 minutos para candidatos com dislexia, TDAH ou TEA).</li>
+      <li><strong>Primeiro reteste gratuito</strong> e opção pela CNH digital sem custo.</li>
+      <li><strong>Incentivo ao bom condutor:</strong> previsão de renovação facilitada para quem não cometeu infrações no ano anterior ao vencimento.</li>
+    </ul>
+    <em>Importante:</em> exames médico, psicológico, toxicológico (categorias C, D, E), prova teórica e prova prática continuam obrigatórios. O cronograma de implantação varia por estado — confirme no DETRAN da sua UF.`
+  },
+  {
+    t: 'Pontuação na CNH: a regra dos 20, 30 e 40 pontos',
+    d: `A Lei 14.071/2020 substituiu o limite único de 20 pontos por limites escalonados, em janela móvel de 12 meses.
+    <ul>
+      <li><strong>20 pontos</strong> — se houver duas ou mais infrações gravíssimas.</li>
+      <li><strong>30 pontos</strong> — se houver uma infração gravíssima.</li>
+      <li><strong>40 pontos</strong> — se não houver infração gravíssima.</li>
+      <li><strong>Motorista profissional (EAR na CNH):</strong> limite fixo de 40 pontos, qualquer que seja a gravidade.</li>
+      <li><strong>PPD (primeiro ano):</strong> qualquer infração gravíssima ou grave, ou reincidência em média, cancela a permissão.</li>
+    </ul>
+    Atingir o limite <em>não</em> suspende automaticamente: é aberto processo administrativo com direito a defesa na JARI e, depois, no CETRAN. A suspensão cumprida exige curso de reciclagem e novo exame teórico.`
+  },
+  {
+    t: 'Cursos especializados: o que mudou em 2025',
+    d: `A Res. CONTRAN 1.020/2025 tratou dos cursos para condutores profissionais.
+    <ul>
+      <li><strong>Fim do prazo geral de validade:</strong> os cursos deixam de vencer automaticamente a cada 5 anos. Quem tinha vencimento anterior a 9/12/2025 ainda precisa regularizar.</li>
+      <li><strong>A capacitação continua obrigatória</strong> e precisa constar no RENACH / CNH Digital.</li>
+      <li><strong>Estrutura de referência:</strong> 50 horas-aula para formação e 16 horas-aula para atualização, nos cursos de coletivo, escolar, MOPP, cargas indivisíveis e emergência.</li>
+      <li><strong>Requisitos comuns:</strong> 21 anos, categoria compatível com o veículo e aptidão física/mental.</li>
+      <li><strong>Aprovação em prova do DETRAN</strong> após o curso, presencial, para registro na CNH Digital.</li>
+    </ul>
+    Mesmo sem validade automática, a atualização técnica periódica continua sendo a melhor prática de segurança — e é cobrada em fiscalizações e auditorias de empresas.`
+  },
+  {
+    t: 'Álcool e direção',
+    d: `<ul>
+      <li><strong>Tolerância zero administrativa:</strong> qualquer concentração de álcool no organismo caracteriza a infração do art. 165.</li>
+      <li><strong>Penalidade:</strong> infração gravíssima, multa multiplicada por dez e suspensão do direito de dirigir por 12 meses, com retenção do veículo.</li>
+      <li><strong>Recusa ao teste:</strong> mesmas penalidades da embriaguez (art. 165-A).</li>
+      <li><strong>Crime de trânsito:</strong> a partir de 0,30 mg/L de ar alveolar (ou 6 dg/L de sangue), ou por sinais evidentes de embriaguez — detenção de 6 meses a 3 anos, multa e suspensão/proibição de obter a habilitação.</li>
+      <li><strong>Sem fiança e sem substituição por penas alternativas</strong> em caso de lesão ou morte.</li>
+    </ul>`
+  },
+  {
+    t: 'Crianças, cinto e dispositivos de retenção',
+    d: `<ul>
+      <li><strong>Menores de 10 anos:</strong> transporte obrigatório no banco traseiro, com o dispositivo adequado — bebê conforto (até 1 ano), cadeirinha (1 a 4 anos), assento de elevação (4 a 7,5 anos) e cinto de segurança (7,5 a 10 anos).</li>
+      <li><strong>Infração gravíssima</strong> com multa e retenção do veículo para quem transportar criança sem o dispositivo correto.</li>
+      <li><strong>Cinto de segurança:</strong> obrigatório para todos os ocupantes, em todos os assentos.</li>
+      <li><strong>Motocicleta:</strong> passageiro só a partir de 10 anos, com capacete e pés apoiados nos pedais.</li>
+    </ul>`
+  },
+  {
+    t: 'Velocidades, faróis e equipamentos',
+    d: `<ul>
+      <li><strong>Vias urbanas sem sinalização:</strong> 80 km/h (trânsito rápido), 60 km/h (arterial), 40 km/h (coletora) e 30 km/h (local).</li>
+      <li><strong>Rodovias:</strong> 110 km/h em pista dupla e 100 km/h em pista simples para automóveis; 60 km/h em estradas não pavimentadas.</li>
+      <li><strong>Farol baixo de dia:</strong> obrigatório em rodovias de pista simples fora do perímetro urbano para veículos sem luz de rodagem diurna, e obrigatório em túneis.</li>
+      <li><strong>Motocicletas:</strong> farol aceso dia e noite.</li>
+      <li><strong>Extintor:</strong> deixou de ser obrigatório para automóveis, mas continua exigido em veículos de transporte coletivo, escolar, de carga e de emergência.</li>
+      <li><strong>Excesso de velocidade:</strong> até 20% é infração média; de 20% a 50%, grave; acima de 50%, gravíssima com multa triplicada e suspensão.</li>
+    </ul>`
+  },
+  {
+    t: 'Documentos digitais e fiscalização',
+    d: `<ul>
+      <li><strong>CNH Digital e CRLV-e</strong> na Carteira Digital de Trânsito (CDT) têm validade jurídica em todo o país.</li>
+      <li><strong>Notificação de autuação:</strong> deve ser expedida em até 30 dias; o proprietário tem 30 dias para indicar o condutor infrator (real infrator), sob pena de assumir a penalidade.</li>
+      <li><strong>Recursos:</strong> primeira instância na JARI, segunda no CETRAN, com defesa prévia antes da penalidade.</li>
+      <li><strong>CNH vencida há mais de 30 dias:</strong> infração gravíssima com multa e retenção do veículo.</li>
+    </ul>`
+  },
+  {
+    t: 'O que ainda está em discussão (não estudar como regra)',
+    d: `Uma comissão especial da Câmara dos Deputados analisa mais de 270 propostas de alteração do CTB — incluindo formação de condutores, fiscalização e endurecimento de penas para crimes de trânsito. Nada disso altera as regras atuais até virar lei.
+    <br><br>Para a prova, vale o que está em vigor: CTB + Lei 14.071/2020 + resoluções do CONTRAN. Fique de olho no site do seu DETRAN para prazos e procedimentos locais.`
+  }
+];
+
+function renderLegis() {
+  $('#legis-acc').innerHTML = LEGIS.map((l, i) =>
+    `<details class="acc"${i === 0 ? ' open' : ''}><summary>${l.t}</summary><div class="body">${l.d}</div></details>`).join('');
+}
+
+
+
+/* ================= CONTROLE DE ACESSO =================
+   Modelo: X simulados grátis; depois, código de liberação válido por N dias.
+   Obs.: é um controle de boa-fé, roda no navegador do aluno (sem servidor).
+   ======================================================= */
+const ACESSO_KEY = 'simulatrafico.acesso.v1';
+
+function cfgAcesso() {
+  const c = typeof CONFIG !== 'undefined' ? CONFIG : {};
+  return {
+    ativo: c.bloqueioAtivo !== false,
+    gratis: Number(c.simuladosGratis || 3),
+    dias: Number(c.diasAcesso || 30),
+    segredo: String(c.segredoAcesso || 'OLAIRSENATRAN-2026-ARACRUZ'),
+    msg: c.mensagemBloqueio || 'Você já utilizou seus simulados gratuitos.'
+  };
+}
+function loadAcesso() {
+  try { return JSON.parse(localStorage.getItem(ACESSO_KEY)) || { usados: 0, expira: 0, nome: '' }; }
+  catch (e) { return { usados: 0, expira: 0, nome: '' }; }
+}
+function saveAcesso(d) { try { localStorage.setItem(ACESSO_KEY, JSON.stringify(d)); } catch (e) {} }
+function acessoLiberado() { const a = loadAcesso(); return a.expira && Date.now() < a.expira; }
+function diasRestantes() { const a = loadAcesso(); return a.expira ? Math.max(0, Math.ceil((a.expira - Date.now()) / 86400000)) : 0; }
+function podeIniciar() {
+  const cfg = cfgAcesso();
+  if (!cfg.ativo) return true;
+  if (acessoLiberado()) return true;
+  const a = loadAcesso();
+  return (cfg.gratis - (a.usados || 0)) > 0;
+}
+function registrarSimulado() {
+  const cfg = cfgAcesso();
+  if (!cfg.ativo || acessoLiberado()) return;
+  const a = loadAcesso(); a.usados = (a.usados || 0) + 1; saveAcesso(a);
+  atualizarSeloAcesso();
+}
+function restamGratis() {
+  const cfg = cfgAcesso(); const a = loadAcesso();
+  return Math.max(0, cfg.gratis - (a.usados || 0));
+}
+
+/* hash simples (FNV-1a) — suficiente para gerar códigos curtos */
+function hash32(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h >>> 0;
+}
+function diasDeCodigo(codigo) {
+  const cfg = cfgAcesso();
+  const c = String(codigo || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  if (c.length < 6) return 0;
+  const limpa = t => String(t).toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const tabela = [7, 15, 30, 60, 90, 180, 365, cfg.dias];
+  for (const d of tabela) {
+    if (String(c).slice(0, 3) === String(d).padStart(3, '0') && limpa(codigoCurto(d, cfg.segredo)) === c) return d;
+  }
+  // tolera o aluno digitar só a assinatura (sem o prefixo de dias)
+  if (limpa(codigoCurto(cfg.dias, cfg.segredo)).slice(3) === c) return cfg.dias;
+  return 0;
+}
+function codigoCurto(dias, segredo) {
+  const base = hash32('STBR|' + segredo + '|' + dias).toString(36).toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 5).padEnd(5, 'X');
+  return String(dias).padStart(3, '0') + '-' + base.slice(0, 2) + base.slice(2);
+}
+function ativarCodigo(codigo) {
+  const dias = diasDeCodigo(codigo);
+  if (!dias) return false;
+  const a = loadAcesso();
+  const base = acessoLiberado() ? a.expira : Date.now();
+  a.expira = base + dias * 86400000;
+  saveAcesso(a);
+  atualizarSeloAcesso();
+  return dias;
+}
+
+/* ---- selo de acesso no cabeçalho ---- */
+function atualizarSeloAcesso() {
+  const el = $('#selo-acesso');
+  if (!el) return;
+  const cfg = cfgAcesso();
+  if (!cfg.ativo) { el.hidden = true; return; }
+  el.hidden = false;
+  if (acessoLiberado()) {
+    el.textContent = '✔ Acesso liberado · ' + diasRestantes() + ' dia(s)';
+    el.className = 'badge b-green';
+    el.style.cursor = 'default';
+  } else {
+    const r = restamGratis();
+    el.textContent = r > 0 ? 'Grátis: ' + r + ' de ' + cfg.gratis + ' simulados' : 'Simulados grátis esgotados';
+    el.className = 'badge ' + (r > 0 ? 'b-blue' : '');
+    el.style.cursor = 'pointer';
+    el.onclick = () => abrirAcesso();
+  }
+}
+
+/* ---- tela de bloqueio / liberação ---- */
+function abrirAcesso() {
+  const cfg = cfgAcesso();
+  // encerra qualquer simulado pendente para não permitir continuar após o bloqueio
+  if (!podeIniciar()) {
+    clearInterval(timerId);
+    S.quiz = null;
+    const box0 = $('#quiz-opts'); if (box0) box0.innerHTML = '';
+    const fb0 = $('#quiz-feedback'); if (fb0) fb0.innerHTML = '';
+  }
+  const box = $('#bloqueio-conteudo');
+  const liberado = acessoLiberado();
+  const apoiar = cfgAcesso().ativo ? (typeof CONFIG !== 'undefined' ? CONFIG : {}) : {};
+  const pix = apoiar.chavePix || '';
+  const valor = apoiar.valorSugerido || '';
+  const link = apoiar.linkPagamento || '';
+  const ig = apoiar.instagram ? igUrl(apoiar.instagram) : '';
+
+  box.innerHTML = `
+    <div class="bloqueio-box">
+      <div class="bloqueio-ico">${liberado ? '✅' : '🔒'}</div>
+      <h2 style="margin:8px 0 6px">${liberado ? 'Acesso liberado' : 'Simulados gratuitos utilizados'}</h2>
+      <p class="hint" style="max-width:520px;margin:0 auto 16px">${liberado
+        ? 'Seu acesso está ativo e você pode fazer quantos simulados quiser até o vencimento: <b>' + new Date(loadAcesso().expira).toLocaleDateString('pt-BR') + '</b> (' + diasRestantes() + ' dia(s) restantes).'
+        : escapeHtml(cfg.msg)}</p>
+
+      ${liberado ? `<button class="btn green" data-fechar>Continuar treinando</button>` : `
+        <div class="passos">
+          <div class="passo"><b>1.</b> Faça a contribuição${valor ? ' de <b>' + escapeHtml(valor) + '</b>' : ''}
+            ${pix ? `<div class="pix-linha"><code>${escapeHtml(pix)}</code><button class="btn ghost sm" id="btn-pix-copia">Copiar Pix</button></div>` : ''}
+            ${link ? `<div style="margin-top:8px"><a class="btn green sm" style="text-decoration:none;display:inline-block" href="${escapeAttr(link)}" target="_blank" rel="noopener">Pagar online</a></div>` : ''}
+          </div>
+          <div class="passo"><b>2.</b> Envie o comprovante${ig ? ` pelo Instagram <a href="${ig}" target="_blank" rel="noopener">@${escapeHtml(igUser(apoiar.instagram))}</a>` : ''}${apoiar.whatsapp ? ' ou pelo WhatsApp' : ''}.</div>
+          <div class="passo"><b>3.</b> Você recebe o <b>código de liberação</b> e digita abaixo.</div>
+        </div>
+        <div class="codigo-box">
+          <label class="field" for="inp-codigo">Código de liberação</label>
+          <div class="row" style="flex-wrap:nowrap">
+            <input type="text" id="inp-codigo" placeholder="Ex.: 030-XXXXX" maxlength="12" autocomplete="off" style="text-transform:uppercase">
+            <button class="btn" id="btn-ativar">Ativar</button>
+          </div>
+          <p class="hint" id="codigo-msg" style="margin:8px 0 0"></p>
+        </div>
+        <div class="row" style="justify-content:center;margin-top:14px">
+          <button class="btn ghost sm" data-fechar>Voltar</button>
+        </div>`}
+    </div>`;
+  show('bloqueio');
+
+  $$('[data-fechar]', box).forEach(b => b.onclick = () => show('home'));
+  const btnPix = $('#btn-pix-copia');
+  if (btnPix) btnPix.onclick = () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(pix).then(() => { btnPix.textContent = '✔ Copiado'; setTimeout(() => btnPix.textContent = 'Copiar Pix', 2000); }).catch(() => prompt('Pix:', pix));
+    else prompt('Pix:', pix);
+  };
+  const btnAtivar = $('#btn-ativar');
+  if (btnAtivar) btnAtivar.onclick = () => {
+    const val = $('#inp-codigo').value;
+    const dias = ativarCodigo(val);
+    const msg = $('#codigo-msg');
+    if (dias) {
+      msg.innerHTML = `<span style="color:#86efac">✔ Código válido! Acesso liberado por ${dias} dias.</span>`;
+      setTimeout(() => { abrirAcesso(); }, 900);
+    } else {
+      msg.innerHTML = `<span style="color:#fca5a5">Código inválido. Confira os caracteres ou fale com o instrutor.</span>`;
+    }
+  };
+  const inp = $('#inp-codigo');
+  if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') $('#btn-ativar').click(); });
+}
+
+/* ================= PERSONALIZAÇÃO (usa CONFIG) ================= */
+function renderPerfil() {
+  const c = typeof CONFIG !== 'undefined' ? CONFIG : {};
+  const nomeApp = (c.nomeApp && c.nomeApp.trim()) || 'Simulado Instrutor Olair';
+  const subtitulo = (c.subtitulo && c.subtitulo.trim()) || '';
+  const autor = (c.nome && c.nome.trim()) || '';
+  const credito = (c.creditoRodape && c.creditoRodape.trim()) || autor;
+
+  /* ---- aba do navegador ---- */
+  document.title = (c.tituloAba && c.tituloAba.trim())
+    ? c.tituloAba.trim()
+    : (nomeApp + (subtitulo ? ' — ' + subtitulo : ''));
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute('content', document.title);
+
+  /* ---- cabeçalho ---- */
+  $('.brand strong').textContent = nomeApp;
+  $('.brand small').textContent = autor ? 'por ' + autor : (subtitulo || '1ª habilitação e cursos especializados');
+  if (c.logo) $('.brand .logo').textContent = c.logo;
+
+  /* ---- rodapé ---- */
+  const partes = ['<strong>' + escapeHtml(nomeApp) + '</strong>'];
+  if (credito) partes.push('Desenvolvido por ' + escapeHtml(credito));
+  const linksFoot = [];
+  if (c.instagram) linksFoot.push(`<a href="${igUrl(c.instagram)}" target="_blank" rel="noopener">@${escapeHtml(igUser(c.instagram))}</a>`);
+  if (c.linkPagamento) linksFoot.push(`<a href="${escapeAttr(c.linkPagamento)}" target="_blank" rel="noopener">${escapeHtml(c.textoBotaoApoio || 'Apoiar o projeto')}</a>`);
+  if (linksFoot.length) partes.push(linksFoot.join(' · '));
+  $('#foot-creditos').innerHTML = partes.join(' · ');
+  if ($('#foot-nome')) $('#foot-nome').textContent = credito || nomeApp;
+  if ($('#foot-versao') && c.bancoVersao) $('#foot-versao').textContent = 'Banco de questões v' + c.bancoVersao + ' · ' + QB.length + ' questões';
+
+  renderCardPerfil(c);
+  renderCardApoio(c);
+}
+
+/* ---- card de perfil: foto, bio, credenciais e referências ---- */
+function renderCardPerfil(c) {
+  const box = $('#card-perfil');
+  if (!box) return;
+  const temAlgo = c.mostrarPerfil !== false && (c.nome || c.bio || c.fotoPerfil || (c.referencias && c.referencias.length));
+  if (!temAlgo) { box.hidden = true; return; }
+  box.hidden = false;
+
+  const nome = (c.nome || '').trim();
+  const iniciais = nome ? nome.split(/\s+/).filter(Boolean).slice(0, 2).map(p => p[0].toUpperCase()).join('') : '🚦';
+  const avatar = c.fotoPerfil
+    ? `<div class="avatar"><img src="${escapeAttr(c.fotoPerfil)}" alt="Foto de ${escapeHtml(nome || 'perfil')}"></div>`
+    : `<div class="avatar" aria-hidden="true">${escapeHtml(iniciais)}</div>`;
+
+  const creds = (c.credenciais || []).filter(Boolean);
+  const refs = (c.referencias || []).filter(r => r && (r.texto || r.aluno));
+
+  let html = `<div class="perfil-info">
+    <p class="nm">${escapeHtml(nome || 'Instrutor')}</p>
+    ${c.funcao ? `<p class="fn">${escapeHtml(c.funcao)}${c.cidade ? ' · ' + escapeHtml(c.cidade) : ''}</p>` : ''}
+    ${c.bio ? `<p class="bio">${rico(c.bio)}</p>` : ''}
+    ${creds.length ? `<div class="cred">${creds.map(x => `<span>${escapeHtml(x)}</span>`).join('')}</div>` : ''}
+    <div class="perfil-links">
+      ${c.instagram ? `<a class="btn ghost sm" style="text-decoration:none;display:inline-block" href="${igUrl(c.instagram)}" target="_blank" rel="noopener">Instagram</a>` : ''}
+      ${c.whatsapp ? `<a class="btn green sm" style="text-decoration:none;display:inline-block" href="https://wa.me/${escapeAttr(String(c.whatsapp).replace(/\D/g, ''))}" target="_blank" rel="noopener">WhatsApp</a>` : ''}
+    </div>
+  </div>`;
+  box.innerHTML = avatar + html;
+
+  /* referências de trabalho (se houver) */
+  if (refs.length) {
+    const bloco = document.createElement('div');
+    bloco.style.cssText = 'width:100%;margin-top:6px';
+    bloco.innerHTML = `<label class="field" style="margin-top:8px">Referências de trabalho</label>
+      <div class="ref-grid">${refs.map(r => `<div class="ref-item">
+        ${r.aluno ? `<div class="rf-aluno">${escapeHtml(r.aluno)}</div>` : ''}
+        ${r.texto ? `“${escapeHtml(r.texto)}”` : ''}
+        ${r.resultado ? `<div><span class="rf-res">${escapeHtml(r.resultado)}</span></div>` : ''}
+      </div>`).join('')}</div>`;
+    box.appendChild(bloco);
+  }
+}
+
+/* ---- card de apoio ---- */
+function renderCardApoio(c) {
+  const box = $('#card-apoio');
+  if (!box) return;
+  const querApoio = c.mostrarApoio !== false && (c.linkPagamento || c.chavePix || c.instagram);
+  if (!querApoio) { box.hidden = true; return; }
+  box.hidden = false;
+
+  let html = `<div class="apoio-in">
+    <span class="ico" style="background:rgba(245,158,11,.18)">☕</span>
+    <div style="flex:1;min-width:200px">
+      <b>Apoie o projeto</b>
+      <p class="hint" style="margin:4px 0 0">${escapeHtml(c.mensagem || 'Se este app te ajudou, você pode apoiar o projeto.')}
+      ${c.valorSugerido ? `<br><span style="color:#fcd34d;font-weight:700">Sugestão de doação: ${escapeHtml(c.valorSugerido)}</span>` : ''}</p>
+    </div>
+    <div class="row">`;
+  if (c.chavePix) html += `<button class="btn ghost sm" id="btn-pix">Copiar chave Pix</button>`;
+  if (c.linkPagamento) html += `<a class="btn green sm" style="text-decoration:none;display:inline-block" href="${escapeAttr(c.linkPagamento)}" target="_blank" rel="noopener">${escapeHtml(c.textoBotaoApoio || 'Apoiar o projeto')}</a>`;
+  if (!c.linkPagamento && c.instagram) html += `<a class="btn green sm" style="text-decoration:none;display:inline-block" href="${igUrl(c.instagram)}" target="_blank" rel="noopener">Chamar no Instagram</a>`;
+  html += `</div></div>`;
+  box.innerHTML = html;
+
+  if (c.chavePix) {
+    $('#btn-pix').onclick = () => {
+      const btn = $('#btn-pix');
+      const feito = () => { btn.textContent = '✔ Chave Pix copiada'; setTimeout(() => btn.textContent = 'Copiar chave Pix', 2200); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(c.chavePix).then(feito).catch(() => prompt('Copie a chave Pix:', c.chavePix));
+      } else { prompt('Copie a chave Pix:', c.chavePix); }
+    };
+  }
+}
+
+/* ---- utilitários ---- */
+/* texto com links: aceita [texto](https://...) e URLs soltas */
+function rico(txt) {
+  let t = escapeHtml(txt);
+  t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+    (m, texto, url) => `<a href="${url}" target="_blank" rel="noopener">${texto}</a>`);
+  t = t.replace(/(^|[^"=>])(https?:\/\/[^\s<]+)/g,
+    (m, pre, url) => `${pre}<a href="${url}" target="_blank" rel="noopener">${url}</a>`);
+  return t;
+}
+function igUser(v) { return String(v).trim().replace(/^@/, '').replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/\/+$/, '').replace(/\/$/, ''); }
+function igUrl(v) { return 'https://instagram.com/' + encodeURIComponent(igUser(v)); }
+function escapeHtml(t) { return String(t).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m])); }
+function escapeAttr(t) { return escapeHtml(t); }
+
+/* ================= INIT ================= */
+(function init() {
+  const st = loadStore();
+  S.nome = st.nome || '';
+  if (S.nome) $('#inp-nome').value = S.nome;
+  $('#badge-total').textContent = `✔ ${QB.length} questões com base legal`;
+  renderChips(); renderLegis(); renderPerfil(); atualizarSeloAcesso();
+  $('#ritmo-hint').textContent = 'Escolha o modo para começar.';
+})();
+
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a59183b01de5ae3c',t:'MTc5NDQ0NDMzMQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a59183b01de5ae3c',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
