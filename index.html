@@ -171,6 +171,28 @@
   .note{font-size:12.5px;color:var(--muted);line-height:1.6;border-left:3px solid var(--amber);padding:10px 14px;
     background:rgba(245,158,11,.08);border-radius:0 12px 12px 0;margin:16px 0}
   .foot{text-align:center;color:#6b7d92;font-size:11.5px;margin-top:36px;line-height:1.7}
+  /* pop-ups / modais */
+  .modal-bg{position:fixed;inset:0;z-index:200;background:rgba(6,10,16,.72);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;padding:18px;animation:fadeIn .2s ease}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+  .modal{background:var(--card);border:1px solid var(--line);border-radius:18px;max-width:470px;width:100%;
+    padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.5);animation:popIn .26s cubic-bezier(.2,.9,.3,1);
+    max-height:88vh;overflow-y:auto}
+  .modal .m-ico{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:26px;
+    background:linear-gradient(140deg,rgba(59,130,246,.25),rgba(20,184,166,.2));margin-bottom:12px}
+  .modal h3{margin:0 0 8px;font-size:19px;line-height:1.3}
+  .modal p{margin:0 0 14px;font-size:14px;line-height:1.65;color:#cddaea}
+  .modal .m-valor{display:inline-block;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.4);
+    color:#fcd34d;font-weight:800;font-size:13px;padding:7px 12px;border-radius:9px;margin-bottom:14px}
+  .modal .m-acoes{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  .modal .m-check{display:flex;gap:9px;align-items:flex-start;margin-top:14px;font-size:12.5px;color:var(--muted);cursor:pointer}
+  .modal .m-check input{width:17px;height:17px;margin:1px 0 0;accent-color:var(--blue);flex:0 0 auto}
+  .modal .m-fechar{position:absolute;top:12px;right:14px;background:transparent;border:0;color:var(--muted);
+    font-size:20px;cursor:pointer;line-height:1;padding:6px}
+  .modal .m-fechar:hover{color:var(--txt)}
+  .modal-rel{position:relative}
+
   /* acesso / bloqueio */
   .bloqueio-wrap{max-width:640px;margin:26px auto 0;text-align:center}
   .bloqueio-ico{font-size:40px;line-height:1}
@@ -408,6 +430,8 @@
     <div class="bloqueio-wrap" id="bloqueio-conteudo"></div>
   </section>
 
+  <div id="modal-root"></div>
+
   <p class="foot">
     <span id="foot-creditos">Simulado Instrutor Olair</span><br>
     <span id="foot-nome">Simulado Instrutor Olair</span> · Conteúdo baseado no CTB (Lei 9.503/1997), na Lei 14.071/2020 e nas resoluções do CONTRAN.<br>
@@ -485,13 +509,13 @@ const CONFIG = {
 
   // Link de pagamento / contribuição — cole o seu aqui.
   // Ex.: "https://mpago.la/xxxxxx" (Mercado Pago, PagSeguro, Stripe, Ko-fi, PicPay...)
-  linkPagamento: "",
+  linkPagamento: "https://link.mercadopago.com.br/simuladoolair",
 
   // Chave Pix para contribuição
   chavePix: "olairjunior@gmail.com",
 
   // Valor sugerido exibido no card de apoio ("" para não exibir)
-  valorSugerido: "R$ 20,00",
+  valorSugerido: "R$ 20,00",   // valor de referência (o aluno pode contribuir com outro valor)
 
   // Texto do botão de contribuição
   textoBotaoApoio: "Apoiar o projeto",
@@ -499,11 +523,31 @@ const CONFIG = {
   // Mensagem do card de apoio
   mensagem: "Este app é gratuito e feito de forma independente. Se ele te ajudou a estudar, você pode apoiar o projeto.",
 
+  // Texto do card de apoio (linha de destaque do valor)
+  textoValor: "Contribuição sugerida: R$ 20,00 — valores abaixo ou acima mantêm o projeto vivo",
+
+  // Texto principal da tela de bloqueio
+  mensagemBloqueio: "Você já utilizou seus simulados gratuitos. Para continuar treinando por mais 30 dias, sugerimos uma contribuição de R$ 20,00. Valores abaixo ou acima da sugestão vão manter o projeto vivo. Depois de pagar, envie o comprovante e receba seu código de liberação.",
+
   // Quando true, mostra o painel "Apoie o projeto" na tela inicial
   mostrarApoio: true,
 
   // Quando true, mostra o card de perfil na tela inicial
   mostrarPerfil: true,
+
+  /* ---------- POP-UPS ---------- */
+  // Pop-up de boas-vindas (aparece uma vez por sessão)
+  boasVindasAtivo: true,
+  boasVindasTitulo: "Olá, aluno(a)! 👋",
+  boasVindasTexto: "Obrigado por acessar meu site — espero que ele te ajude muito na sua habilitação. Lembre-se: sugerimos uma doação de R$ 20,00. Valores abaixo ou acima da sugestão vão manter o projeto vivo. Se for contribuir, envie o comprovante do Pix. Se não puder agora, me manda uma mensagem — será um prazer falar com você!",
+  boasVindasBotao1: "Vou contribuir",
+  boasVindasBotao2: "Agora não, só quero treinar",
+  boasVindasNaoMostrar: "Não mostrar novamente neste dispositivo",
+
+  // Pop-up que aparece depois de copiar o Pix / ir para o pagamento
+  lembreteAtivo: true,
+  lembreteTitulo: "Pix copiado! 📋",
+  lembreteTexto: "Agora envie o comprovante para o Professor Olair para receber seu código de liberação. Sem o comprovante não é possível liberar o acesso.",
 
   /* ---------- CONTROLE DE ACESSO ---------- */
   // Liga o limite de simulados gratuitos e a liberação por código
@@ -518,9 +562,6 @@ const CONFIG = {
   // Chave usada para validar os códigos. NÃO publique nem troque depois de distribuir códigos.
   // Para gerar códigos, use o arquivo gerador-codigos.html (mantenha-o só com você).
   segredoAcesso: "OLAIRSENATRAN-2026-ARACRUZ",
-
-  // Texto da tela de bloqueio
-  mensagemBloqueio: "Você já utilizou seus simulados gratuitos. Para continuar treinando por mais 30 dias, faça uma contribuição via Pix e receba seu código de liberação.",
 
   /* ---------- VERSÃO DO BANCO DE QUESTÕES ---------- */
   // Atualize a cada revisão do conteúdo (aparece no rodapé)
@@ -1972,6 +2013,109 @@ $('#btn-ver-hist').onclick = () => { renderHistory(); show('history'); };
 $('#btn-enviar-resultado').onclick = enviarResultado;
 
 
+
+/* ================= POP-UPS (modais) ================= */
+const MODAL_KEY = 'simulatrafico.modal.v1';
+
+function modalStore() { try { return JSON.parse(localStorage.getItem(MODAL_KEY)) || {}; } catch (e) { return {}; } }
+function modalSave(d) { try { localStorage.setItem(MODAL_KEY, JSON.stringify(d)); } catch (e) {} }
+
+function fecharModal() {
+  const r = $('#modal-root');
+  if (r) r.innerHTML = '';
+}
+function abrirModal({ icone, titulo, texto, valor, acoes, check, checkLabel }) {
+  const root = $('#modal-root');
+  if (!root) return;
+  root.innerHTML = `
+    <div class="modal-bg" id="modal-bg">
+      <div class="modal modal-rel" role="dialog" aria-modal="true">
+        <button class="m-fechar" id="modal-x" aria-label="Fechar">✕</button>
+        ${icone ? `<div class="m-ico">${icone}</div>` : ''}
+        <h3>${titulo}</h3>
+        <p>${texto}</p>
+        ${valor ? `<div class="m-valor">${valor}</div>` : ''}
+        <div class="m-acoes">${(acoes || []).map((a, i) =>
+          `<button class="btn ${a.classe || ''}" data-acao="${i}" style="width:100%">${a.texto}</button>`).join('')}</div>
+        ${check ? `<label class="m-check"><input type="checkbox" id="modal-check"><span>${checkLabel || 'Não mostrar novamente'}</span></label>` : ''}
+      </div>
+    </div>`;
+
+  const fechar = (marcarCheck) => {
+    if (marcarCheck && check) {
+      const c = $('#modal-check');
+      if (c && c.checked) { const st = modalStore(); st[check] = true; modalSave(st); }
+    }
+    fecharModal();
+  };
+  $('#modal-x').onclick = () => fechar(true);
+  $('#modal-bg').onclick = e => { if (e.target.id === 'modal-bg') fechar(true); };
+  (acoes || []).forEach((a, i) => {
+    const b = root.querySelector(`[data-acao="${i}"]`);
+    if (b) b.onclick = () => { fechar(true); if (a.aoClicar) a.aoClicar(); };
+  });
+  document.addEventListener('keydown', function esc(e) {
+    if (e.key === 'Escape') { fechar(true); document.removeEventListener('keydown', esc); }
+  });
+}
+
+/* ---- pop-up de boas-vindas ---- */
+function mostrarBoasVindas() {
+  const c = typeof CONFIG !== 'undefined' ? CONFIG : {};
+  if (c.boasVindasAtivo === false) return;
+  const st = modalStore();
+  if (st.boasVindasOff) return;
+
+  abrirModal({
+    icone: '🚦',
+    titulo: c.boasVindasTitulo || 'Olá, aluno(a)! 👋',
+    texto: c.boasVindasTexto || '',
+    valor: c.valorSugerido ? 'Doação sugerida: ' + c.valorSugerido + ' — valores abaixo ou acima mantêm o projeto vivo' : '',
+    acoes: [
+      {
+        texto: c.boasVindasBotao1 || 'Vou contribuir (enviar comprovante)',
+        classe: 'green',
+        aoClicar: () => {
+          const wa = String(c.whatsappInstrutor || '').replace(/\D/g, '');
+          const msg = 'Olá, Professor Olair! Quero contribuir com o projeto do simulado e vou enviar o comprovante do Pix.';
+          if (wa) window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(msg), '_blank');
+          else abrirAcesso();
+        }
+      },
+      {
+        texto: c.boasVindasBotao2 || 'Agora não, só quero treinar',
+        classe: 'ghost'
+      }
+    ],
+    check: 'boasVindasOff',
+    checkLabel: c.boasVindasNaoMostrar || 'Não mostrar novamente neste dispositivo'
+  });
+}
+
+/* ---- pop-up de lembrete do comprovante ---- */
+function mostrarLembreteComprovante() {
+  const c = typeof CONFIG !== 'undefined' ? CONFIG : {};
+  if (c.lembreteAtivo === false) return;
+  if (modalStore().lembreteOff) return;
+  const wa = String(c.whatsappInstrutor || '').replace(/\D/g, '');
+  const msg = 'Olá, Professor Olair! Fiz o Pix da contribuição e estou enviando o comprovante para receber o código de liberação.';
+  abrirModal({
+    icone: '📋',
+    titulo: c.lembreteTitulo || 'Pix copiado!',
+    texto: c.lembreteTexto || 'Agora envie o comprovante para o Professor Olair.',
+    acoes: [
+      {
+        texto: 'Enviar comprovante no WhatsApp',
+        classe: 'green',
+        aoClicar: () => { if (wa) window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(msg), '_blank'); }
+      },
+      { texto: 'Fechar', classe: 'ghost' }
+    ],
+    check: 'lembreteOff',
+    checkLabel: 'Não mostrar novamente'
+  });
+}
+
 /* ================= BOLETIM ACUMULADO ================= */
 function acumuladoPorMateria() {
   const st = loadStore();
@@ -2338,9 +2482,9 @@ function abrirAcesso() {
 
       ${liberado ? `<button class="btn green" data-fechar>Continuar treinando</button>` : `
         <div class="passos">
-          <div class="passo"><b>1.</b> Faça a contribuição${valor ? ' de <b>' + escapeHtml(valor) + '</b>' : ''}
+          <div class="passo"><b>1.</b> Faça a contribuição${valor ? ' — <b>sugerimos ' + escapeHtml(valor) + '</b> (valores abaixo ou acima mantêm o projeto vivo)' : ''}
             ${pix ? `<div class="pix-linha"><code>${escapeHtml(pix)}</code><button class="btn ghost sm" id="btn-pix-copia">Copiar Pix</button></div>` : ''}
-            ${link ? `<div style="margin-top:8px"><a class="btn green sm" style="text-decoration:none;display:inline-block" href="${escapeAttr(link)}" target="_blank" rel="noopener">Pagar online</a></div>` : ''}
+            ${link ? `<div style="margin-top:8px"><a class="btn green sm" id="btn-pagar-online" style="text-decoration:none;display:inline-block" href="${escapeAttr(link)}" target="_blank" rel="noopener">Pagar online</a></div>` : ''}
           </div>
           <div class="passo"><b>2.</b> Envie o comprovante${ig ? ` pelo Instagram <a href="${ig}" target="_blank" rel="noopener">@${escapeHtml(igUser(apoiar.instagram))}</a>` : ''}${wa ? ' ou pelo WhatsApp' : ''}.
             ${wa ? `<div style="margin-top:9px"><a class="btn green sm" style="text-decoration:none;display:inline-block;background:linear-gradient(135deg,#25d366,#128c7e)" href="${waLink}" target="_blank" rel="noopener">Enviar comprovante no WhatsApp</a></div>` : ''}</div>
@@ -2363,9 +2507,16 @@ function abrirAcesso() {
   $$('[data-fechar]', box).forEach(b => b.onclick = () => show('home'));
   const btnPix = $('#btn-pix-copia');
   if (btnPix) btnPix.onclick = () => {
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(pix).then(() => { btnPix.textContent = '✔ Copiado'; setTimeout(() => btnPix.textContent = 'Copiar Pix', 2000); }).catch(() => prompt('Pix:', pix));
-    else prompt('Pix:', pix);
+    const ok = () => {
+      btnPix.textContent = '✔ Copiado';
+      setTimeout(() => btnPix.textContent = 'Copiar Pix', 2000);
+      setTimeout(mostrarLembreteComprovante, 400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(pix).then(ok).catch(() => { prompt('Pix:', pix); mostrarLembreteComprovante(); });
+    else { prompt('Pix:', pix); mostrarLembreteComprovante(); }
   };
+  const btnPagar = $('#btn-pagar-online');
+  if (btnPagar) btnPagar.addEventListener('click', () => setTimeout(mostrarLembreteComprovante, 1200));
   const btnAtivar = $('#btn-ativar');
   if (btnAtivar) btnAtivar.onclick = () => {
     const val = $('#inp-codigo').value;
@@ -2473,7 +2624,7 @@ function renderCardApoio(c) {
     <div style="flex:1;min-width:200px">
       <b>Apoie o projeto</b>
       <p class="hint" style="margin:4px 0 0">${escapeHtml(c.mensagem || 'Se este app te ajudou, você pode apoiar o projeto.')}
-      ${c.valorSugerido ? `<br><span style="color:#fcd34d;font-weight:700">Sugestão de doação: ${escapeHtml(c.valorSugerido)}</span>` : ''}</p>
+      ${(c.textoValor || c.valorSugerido) ? `<br><span style="color:#fcd34d;font-weight:700">${escapeHtml(c.textoValor || ('Sugestão de doação: ' + c.valorSugerido))}</span>` : ''}</p>
     </div>
     <div class="row">`;
   if (c.chavePix) html += `<button class="btn ghost sm" id="btn-pix">Copiar chave Pix</button>`;
@@ -2485,10 +2636,14 @@ function renderCardApoio(c) {
   if (c.chavePix) {
     $('#btn-pix').onclick = () => {
       const btn = $('#btn-pix');
-      const feito = () => { btn.textContent = '✔ Chave Pix copiada'; setTimeout(() => btn.textContent = 'Copiar chave Pix', 2200); };
+      const feito = () => {
+        btn.textContent = '✔ Chave Pix copiada';
+        setTimeout(() => btn.textContent = 'Copiar chave Pix', 2200);
+        setTimeout(mostrarLembreteComprovante, 400);
+      };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(c.chavePix).then(feito).catch(() => prompt('Copie a chave Pix:', c.chavePix));
-      } else { prompt('Copie a chave Pix:', c.chavePix); }
+        navigator.clipboard.writeText(c.chavePix).then(feito).catch(() => { prompt('Copie a chave Pix:', c.chavePix); mostrarLembreteComprovante(); });
+      } else { prompt('Copie a chave Pix:', c.chavePix); mostrarLembreteComprovante(); }
     };
   }
 }
@@ -2515,9 +2670,10 @@ function escapeAttr(t) { return escapeHtml(t); }
   if (S.nome) $('#inp-nome').value = S.nome;
   $('#badge-total').textContent = `✔ ${QB.length} questões com base legal`;
   renderChips(); renderLegis(); renderPerfil(); atualizarSeloAcesso();
+  setTimeout(mostrarBoasVindas, 700);
   $('#ritmo-hint').textContent = 'Escolha o modo para começar.';
 })();
 
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a59f74f4e806be74',t:'MTc5NDU5MDUyOA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a59f74f4e806be74',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
