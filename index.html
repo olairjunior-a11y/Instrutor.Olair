@@ -501,7 +501,7 @@ const CONFIG = {
   instagram: "@instrutor.olair",
 
   // WhatsApp com DDI+DDD, só números (ex.: "5527999998888"). "" = oculta o botão do perfil.
-  whatsapp: "5527996110148",
+  whatsapp: "",   // vazio = não mostra botão de WhatsApp no perfil (só após o pagamento)
 
   // WhatsApp que RECEBE os resultados dos simulados (DDI+DDD+número, só dígitos).
   // Se ficar "", o botão "Enviar resultado" copia a mensagem para o aluno colar.
@@ -509,7 +509,7 @@ const CONFIG = {
 
   // Link de pagamento / contribuição — cole o seu aqui.
   // Ex.: "https://mpago.la/xxxxxx" (Mercado Pago, PagSeguro, Stripe, Ko-fi, PicPay...)
-  linkPagamento: "https://link.mercadopago.com.br/simuladoolair",
+  linkPagamento: "",   // vazio = sem botão de pagamento online (só Pix)
 
   // Chave Pix para contribuição
   chavePix: "OLAIRJUNIOR@GMAIL.COM",
@@ -518,7 +518,7 @@ const CONFIG = {
   valorSugerido: "R$ 20,00",   // valor de referência (o aluno pode contribuir com outro valor)
 
   // Texto do botão de contribuição
-  textoBotaoApoio: "Apoiar o projeto",
+  textoBotaoApoio: "Apoiar o projeto",   // não usado enquanto o pagamento for só por Pix
 
   // Mensagem do card de apoio
   mensagem: "Este app é gratuito e feito de forma independente. Se ele te ajudou a estudar, você pode apoiar o projeto.",
@@ -540,7 +540,7 @@ const CONFIG = {
   boasVindasAtivo: true,
   boasVindasTitulo: "Olá, aluno(a)! 👋",
   boasVindasTexto: "Obrigado por acessar meu site — espero que ele te ajude muito na sua habilitação. Lembre-se: sugerimos uma doação de R$ 20,00. Valores abaixo ou acima da sugestão vão manter o projeto vivo. Se for contribuir, envie o comprovante do Pix. Se não puder agora, me manda uma mensagem — será um prazer falar com você!",
-  boasVindasBotao1: "Vou contribuir",
+  boasVindasBotao1: "Fazer o Pix agora",
   boasVindasBotao2: "Agora não, só quero treinar",
   boasVindasNaoMostrar: "Não mostrar novamente neste dispositivo",
 
@@ -2070,16 +2070,18 @@ function mostrarBoasVindas() {
     icone: '🚦',
     titulo: c.boasVindasTitulo || 'Olá, aluno(a)! 👋',
     texto: c.boasVindasTexto || '',
-    valor: c.valorSugerido ? 'Doação sugerida: ' + c.valorSugerido + ' — valores abaixo ou acima mantêm o projeto vivo' : '',
+    valor: (c.valorSugerido ? 'Doação sugerida: ' + c.valorSugerido : '') +
+           (c.chavePix ? '<br><span style="font-weight:600;color:#93c5fd">Pix: ' + escapeHtml(c.chavePix) + '</span>' : ''),
     acoes: [
       {
-        texto: c.boasVindasBotao1 || 'Vou contribuir (enviar comprovante)',
+        texto: c.boasVindasBotao1 || 'Fazer o Pix agora',
         classe: 'green',
         aoClicar: () => {
-          const wa = String(c.whatsappInstrutor || '').replace(/\D/g, '');
-          const msg = 'Olá, Professor Olair! Quero contribuir com o projeto do simulado e vou enviar o comprovante do Pix.';
-          if (wa) window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(msg), '_blank');
-          else abrirAcesso();
+          const pix = c.chavePix || '';
+          const ok = () => aviso('Chave Pix copiada! ' + pix);
+          if (pix && navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(pix).then(ok).catch(() => prompt('Chave Pix:', pix));
+          } else if (pix) { prompt('Chave Pix:', pix); }
         }
       },
       {
@@ -2484,9 +2486,9 @@ function abrirAcesso() {
         <div class="passos">
           <div class="passo"><b>1.</b> Faça a contribuição${valor ? ' — <b>sugerimos ' + escapeHtml(valor) + '</b> (valores abaixo ou acima mantêm o projeto vivo)' : ''}
             ${pix ? `<div class="pix-linha"><code>${escapeHtml(pix)}</code><button class="btn ghost sm" id="btn-pix-copia">Copiar Pix</button></div>` : ''}
-            ${link ? `<div style="margin-top:8px"><a class="btn green sm" id="btn-pagar-online" style="text-decoration:none;display:inline-block" href="${escapeAttr(link)}" target="_blank" rel="noopener">Pagar online</a></div>` : ''}
+
           </div>
-          <div class="passo"><b>2.</b> Envie o comprovante${ig ? ` pelo Instagram <a href="${ig}" target="_blank" rel="noopener">@${escapeHtml(igUser(apoiar.instagram))}</a>` : ''}${wa ? ' ou pelo WhatsApp' : ''}.
+          <div class="passo"><b>2.</b> <b>Depois de pagar</b>, envie o comprovante para o Professor Olair${wa ? ' pelo WhatsApp' : ''}${ig ? `${wa ? ' ou' : ''} pelo Instagram <a href="${ig}" target="_blank" rel="noopener">@${escapeHtml(igUser(apoiar.instagram))}</a>` : ''}.
             ${wa ? `<div style="margin-top:9px"><a class="btn green sm" style="text-decoration:none;display:inline-block;background:linear-gradient(135deg,#25d366,#128c7e)" href="${waLink}" target="_blank" rel="noopener">Enviar comprovante no WhatsApp</a></div>` : ''}</div>
           <div class="passo"><b>3.</b> Você recebe o <b>código de liberação</b> e digita abaixo.</div>
         </div>
@@ -2515,8 +2517,6 @@ function abrirAcesso() {
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(pix).then(ok).catch(() => { prompt('Pix:', pix); mostrarLembreteComprovante(); });
     else { prompt('Pix:', pix); mostrarLembreteComprovante(); }
   };
-  const btnPagar = $('#btn-pagar-online');
-  if (btnPagar) btnPagar.addEventListener('click', () => setTimeout(mostrarLembreteComprovante, 1200));
   const btnAtivar = $('#btn-ativar');
   if (btnAtivar) btnAtivar.onclick = () => {
     const val = $('#inp-codigo').value;
@@ -2558,7 +2558,6 @@ function renderPerfil() {
   if (credito) partes.push('Desenvolvido por ' + escapeHtml(credito));
   const linksFoot = [];
   if (c.instagram) linksFoot.push(`<a href="${igUrl(c.instagram)}" target="_blank" rel="noopener">@${escapeHtml(igUser(c.instagram))}</a>`);
-  if (c.linkPagamento) linksFoot.push(`<a href="${escapeAttr(c.linkPagamento)}" target="_blank" rel="noopener">${escapeHtml(c.textoBotaoApoio || 'Apoiar o projeto')}</a>`);
   if (linksFoot.length) partes.push(linksFoot.join(' · '));
   $('#foot-creditos').innerHTML = partes.join(' · ');
   if ($('#foot-nome')) $('#foot-nome').textContent = credito || nomeApp;
@@ -2627,9 +2626,7 @@ function renderCardApoio(c) {
       ${(c.textoValor || c.valorSugerido) ? `<br><span style="color:#fcd34d;font-weight:700">${escapeHtml(c.textoValor || ('Sugestão de doação: ' + c.valorSugerido))}</span>` : ''}</p>
     </div>
     <div class="row">`;
-  if (c.chavePix) html += `<button class="btn ghost sm" id="btn-pix">Copiar chave Pix</button>`;
-  if (c.linkPagamento) html += `<a class="btn green sm" style="text-decoration:none;display:inline-block" href="${escapeAttr(c.linkPagamento)}" target="_blank" rel="noopener">${escapeHtml(c.textoBotaoApoio || 'Apoiar o projeto')}</a>`;
-  if (!c.linkPagamento && c.instagram) html += `<a class="btn green sm" style="text-decoration:none;display:inline-block" href="${igUrl(c.instagram)}" target="_blank" rel="noopener">Chamar no Instagram</a>`;
+  if (c.chavePix) html += `<button class="btn green sm" id="btn-pix">Copiar chave Pix</button>`;
   html += `</div></div>`;
   box.innerHTML = html;
 
