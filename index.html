@@ -1250,17 +1250,17 @@ Q('M', 'A poluição sonora provocada por veículos:',
   'Escapamentos adulterados e o uso abusivo de buzina são infrações e afetam diretamente a qualidade de vida urbana.',
   'art. 227 e art. 230, XI, CTB');
 
-Q('M', 'Cidadania no trânsito significa:',
+Q('C', 'Cidadania no trânsito significa:',
   ['Garantir apenas a própria segurança', 'Reconhecer o direito de todos e priorizar a proteção da vida', 'Ignorar as regras para ganhar tempo', 'Delegar tudo ao poder público'], 1,
   'O CTB define o trânsito como direito de todos, com prioridade absoluta para a vida e responsabilidade compartilhada pela segurança.',
   'art. 1º e art. 2º, CTB');
 
-Q('M', 'Em relação à acessibilidade, o uso da vaga reservada para idosos e pessoas com deficiência é:',
+Q('C', 'Em relação à acessibilidade, o uso da vaga reservada para idosos e pessoas com deficiência é:',
   ['Uma cortesia', 'Um direito garantido por lei, restrito a quem possui credencial', 'Facultativo em horário de pouco movimento', 'Permitido se não houver outro local'], 1,
   'A reserva de vagas é política de inclusão; o uso indevido é infração gravíssima e gera remoção do veículo.',
   'art. 181, XX, CTB / Estatuto da Pessoa com Deficiência');
 
-Q('M', 'Compartilhar a via com ciclistas e pedestres exige do condutor:',
+Q('C', 'Compartilhar a via com ciclistas e pedestres exige do condutor:',
   ['Aumento de velocidade para reduzir a exposição', 'Redução de velocidade, distância lateral e paciência', 'Uso constante de buzina', 'Prioridade absoluta sobre eles'], 1,
   'A convivência segura depende de dividir o espaço, não disputar: o vulnerável tem prioridade e deve ser protegido.',
   'art. 29, § 3º, CTB');
@@ -1633,6 +1633,319 @@ Q('EME', 'É correto afirmar sobre o uso da sirene:',
   'A sirene identifica o serviço urgente; normas locais podem restringir seu uso em horários e locais para reduzir impacto sonoro, mantendo a luz intermitente.',
   'art. 29, VII, CTB');
 /* =========================================================
+   SimulaTrânsito BR — LOTE 2 (ampliação 1ª habilitação)
+   Base temática: 6 provas oficiais DETRAN-ES (2026) enviadas pelo instrutor.
+   As questões são AUTORAIS, escritas a partir dos temas/estilo das provas,
+   com comentário e base legal — não são cópias do Banco Nacional de Questões.
+   Categorias: L, D, P, M, C, V
+   ========================================================= */
+
+/* ---------------- CIDADANIA (C) ---------------- */
+Q('C', 'Em relação à responsabilidade pela segurança no trânsito entre veículos de portes diferentes, é correto afirmar que:',
+  ['O veículo maior sempre tem a preferência de passagem', 'Quanto maior e mais pesado o veículo, maior sua responsabilidade em proteger os usuários mais vulneráveis', 'A responsabilidade é igual para todos, independentemente do porte', 'Motocicletas e bicicletas respondem por qualquer sinistro'], 1,
+  'A ordem de responsabilidade é inversa ao porte: caminhões e ônibus respondem mais, e pedestres, ciclistas e motociclistas são os mais protegidos. Quem causa o maior risco tem o maior dever de cuidado.',
+  'art. 29, § 2º, CTB');
+
+Q('C', 'Arremessar objetos ou substâncias do veículo em movimento, como pontas de cigarro, é:',
+  ['Permitido, se o objeto for biodegradável', 'Infração de trânsito, além de risco de incêndio e poluição', 'Permitido em rodovias, proibido apenas na cidade', 'Falta de educação sem previsão legal'], 1,
+  'Além de sujar a via e poder provocar incêndio em vegetação, o arremesso de objetos é infração prevista no CTB. A bituca acesa é uma das principais causas de fogo às margens de rodovias.',
+  'art. 172, CTB');
+
+Q('C', 'Sobre a destinação dos valores arrecadados com multas de trânsito, a lei determina que parte seja aplicada em:',
+  ['Publicidade dos órgãos de trânsito', 'Educação e segurança de trânsito', 'Compra de viaturas exclusivamente', 'Rateio entre os agentes autuadores'], 1,
+  'O CTB prevê que parte da arrecadação com multas seja destinada a educação e segurança de trânsito. O uso indevido desses recursos é irregularidade grave de gestão.',
+  'art. 320, CTB');
+
+Q('C', 'Uma atitude imprudente de um único condutor pode gerar "efeito em cadeia" no trânsito porque:',
+  ['O trânsito é um sistema, e a reação de um condutor afeta os demais usuários da via', 'Só há consequências quando há vítima', 'A responsabilidade é sempre do poder público', 'Os demais condutores têm obrigação de prever tudo'], 1,
+  'Uma frenagem brusca ou uma ultrapassagem indevida provoca reações em série nos veículos seguintes, ampliando o risco muito além do ponto onde a imprudência aconteceu.',
+  'art. 1º, § 2º, CTB');
+
+Q('C', 'O trânsito é considerado um espaço de relações interpessoais porque:',
+  ['Nele convivem pessoas com interesses, idades e necessidades diferentes, que precisam dividir o mesmo espaço', 'Todos os usuários têm os mesmos objetivos e pressa', 'As regras substituem a necessidade de respeito', 'Cada usuário deve cuidar apenas de si'], 0,
+  'A convivência depende de reconhecer o outro: ceder a passagem, respeitar o tempo do idoso, da criança e da pessoa com deficiência é parte da direção segura, não favor.',
+  'art. 1º e art. 29, CTB');
+
+Q('C', 'A diversidade individual (idade, mobilidade, experiência) no trânsito exige do condutor:',
+  ['Tratar todos como se tivessem o mesmo tempo de reação', 'Adaptar sua condução às limitações dos outros usuários, com paciência e previsibilidade', 'Priorizar sempre quem está com pressa', 'Buzinar para apressar pedestres lentos'], 1,
+  'Pessoas idosas, crianças e pessoas com deficiência precisam de mais tempo e espaço. Previsibilidade e paciência são o que torna a via segura para todos.',
+  'art. 29, § 2º, CTB');
+
+Q('C', 'Um pedestre atravessa a rua olhando o celular. Do ponto de vista da cidadania e da direção defensiva, o condutor deve:',
+  ['Manter a velocidade, pois a culpa será do pedestre', 'Reduzir a velocidade e garantir a segurança dele, mesmo com a distração', 'Buzinar insistentemente', 'Passar o mais próximo possível para assustá-lo'], 1,
+  'O pedestre é a parte mais vulnerável e tem prioridade. Mesmo distraído, ele deve ser protegido: a responsabilidade maior é de quem conduz o veículo.',
+  'art. 29, X, e art. 70, CTB');
+
+Q('C', 'Sobre os grupos sociais e o convívio no trânsito, é correto afirmar:',
+  ['Cada grupo deve se adaptar sozinho às regras', 'O respeito às diferenças é condição para um trânsito seguro e democrático', 'Só motoristas habilitados fazem parte do trânsito', 'Crianças e idosos não são usuários da via'], 1,
+  'O CTB define o trânsito como direito de todos: pedestres, ciclistas, passageiros e condutores, com prioridade absoluta para a vida.',
+  'art. 1º, § 2º, e art. 2º, CTB');
+
+Q('C', 'O uso indevido da faixa ou do corredor exclusivo de ônibus causa impacto social porque:',
+  ['Atrasa o transporte coletivo, que atende a maioria da população', 'Não gera impacto, apenas multa', 'Melhora a fluidez do trânsito', 'Afeta somente quem tem carro'], 0,
+  'A faixa exclusiva existe para dar eficiência ao transporte coletivo, usado por quem mais depende dele para trabalhar e estudar. Invadi-la é prejudicar a maioria.',
+  'art. 184, CTB');
+
+Q('C', 'Sobre o cumprimento das normas de trânsito, a cidadania exige que o condutor:',
+  ['Só obedeça quando houver fiscalização ou câmera', 'Cumpra as regras por convicção e responsabilidade, independentemente de fiscalização', 'Siga as regras apenas em vias movimentadas', 'Decida caso a caso se vale a pena obedecer'], 1,
+  'A regra existe para proteger vidas, não para evitar multa. O comportamento depende de cada um e sustenta a segurança de todos os usuários.',
+  'art. 28 e art. 29, CTB');
+
+/* ---------------- MEIO AMBIENTE (M) ---------------- */
+Q('M', 'O efeito da poluição veicular sobre a saúde das crianças é especialmente grave porque:',
+  ['Elas respiram mais rápido e estão com o sistema respiratório em formação', 'Elas ficam menos tempo na rua', 'A poluição não afeta crianças', 'O corpo infantil filtra melhor os poluentes'], 0,
+  'A maior frequência respiratória e o pulmão em desenvolvimento tornam crianças mais vulneráveis a crises de asma, bronquite e infecções respiratórias.',
+  'Res. CONTRAN 789/2020');
+
+Q('M', 'A manutenção dos dispositivos antipoluição do veículo é importante porque:',
+  ['Reduz a emissão de gases poluentes e o consumo de combustível', 'Aumenta a potência máxima do motor', 'É exigência apenas estética', 'Substitui a necessidade de revisão'], 0,
+  'Catalisador, sondas e injeção eletrônica em ordem mantêm a queima correta, o que reduz emissões e economiza combustível.',
+  'PROCONVE / CONAMA');
+
+Q('M', 'Os óxidos de nitrogênio (NOx) são formados principalmente:',
+  ['Nas altas temperaturas da combustão dentro do motor', 'No escapamento após o motor desligado', 'Pela evaporação do combustível no tanque', 'No contato do pneu com o asfalto'], 0,
+  'As temperaturas elevadas da combustão combinam o nitrogênio do ar com o oxigênio, gerando NOx — que contribui para a chuva ácida e problemas respiratórios.',
+  'PROCONVE / CONAMA');
+
+Q('M', 'Quando diferentes poluentes atmosféricos agem juntos, seus efeitos sobre a saúde:',
+  ['Somam-se exatamente como se estivessem isolados', 'Podem ser potencializados, sendo piores que a soma dos efeitos individuais', 'Anulam-se mutuamente', 'Não têm relação com o trânsito'], 1,
+  'É o chamado efeito sinérgico: a mistura de poluentes pode agravar o quadro respiratório mais do que cada poluente causaria isoladamente.',
+  'CONAMA 03/1990');
+
+Q('M', 'O PROCONVE é o programa que:',
+  ['Regulamenta os limites de emissão de poluentes por veículos automotores', 'Controla o preço dos combustíveis', 'Fiscaliza a velocidade nas rodovias', 'Define as cores das placas de sinalização'], 0,
+  'O Programa de Controle da Poluição do Ar por Veículos Automotores estabelece limites de emissão para veículos novos e é referência para a inspeção ambiental.',
+  'PROCONVE / CONAMA');
+
+Q('M', 'O biodiesel é um combustível produzido a partir de:',
+  ['Óleos vegetais, gorduras animais e óleos residuais', 'Petróleo bruto', 'Carvão mineral', 'Gás natural'], 0,
+  'O biodiesel é renovável e reduz a emissão de alguns poluentes. Sua sustentabilidade depende de fatores como origem da matéria-prima e desmatamento evitado.',
+  'Lei 11.097/2005');
+
+Q('M', 'A sustentabilidade de um biocombustível depende de:',
+  ['Apenas do preço no mercado', 'De aspectos ambientais, sociais e econômicos de toda a cadeia produtiva', 'Somente do rendimento do motor', 'Do tipo de pintura do veículo'], 1,
+  'Chamar um combustível de "limpo" exige avaliar origem da matéria-prima, uso do solo, água, trabalho e transporte: o benefício pode desaparecer se essas etapas forem predatórias.',
+  'Lei 11.097/2005');
+
+Q('M', 'Ao avaliar o impacto ambiental total de um combustível, deve-se considerar:',
+  ['Apenas o que sai do escapamento', 'Todo o ciclo de vida: extração, produção, distribuição, uso e descarte', 'Somente o consumo do veículo', 'Apenas o preço por litro'], 1,
+  'A análise "do poço à roda" considera todas as etapas. Um combustível pode poluir pouco no escapamento e muito na produção ou no transporte.',
+  'Res. CONTRAN 789/2020');
+
+Q('M', 'A condução econômica contribui para o meio ambiente porque:',
+  ['Reduz consumo de combustível e emissão de poluentes', 'Aumenta a velocidade média da via', 'Permite usar qualquer combustível', 'Elimina a necessidade de manutenção'], 0,
+  'Acelerar progressivamente, usar a marcha correta e antecipar frenagens diminui o consumo — e, junto dele, a emissão de gases de efeito estufa.',
+  'Res. CONTRAN 789/2020');
+
+Q('M', 'O descarte de baterias, pneus e óleo lubrificante usado deve ser feito:',
+  ['No lixo comum', 'Em pontos de coleta autorizados, por causa da logística reversa obrigatória', 'Em terrenos baldios', 'Na rede de esgoto'], 1,
+  'Baterias, pneus e óleos são altamente poluentes: a lei exige que fabricantes, comerciantes e consumidores garantam o retorno e destinação adequada.',
+  'Res. CONAMA 257/1999, 362/2005 e 416/2009');
+
+/* ---------------- PRIMEIROS SOCORROS (P) ---------------- */
+Q('P', 'Para verificar o pulso carotídeo de uma vítima, deve-se palpar:',
+  ['No punho, do lado do polegar', 'Ao lado da traqueia, no pescoço, com dois dedos, sem comprimir os dois lados ao mesmo tempo', 'No peito, sobre o esterno', 'Na sola do pé'], 1,
+  'A carótida fica ao lado da traqueia. Nunca se comprimem as duas artérias simultaneamente, pois isso pode reduzir a circulação cerebral.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Em caso de luxação (osso fora do lugar) em vítima de sinistro, NÃO se deve:',
+  ['Imobilizar o membro na posição encontrada', 'Tentar recolocar o osso no lugar', 'Aplicar compressa fria', 'Acalmar a vítima'], 1,
+  'Tentar "encaixar" a articulação pode lesar nervos e vasos. O correto é imobilizar na posição em que está e aguardar o atendimento especializado.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'No atendimento a uma vítima de queimadura elétrica, NÃO se deve:',
+  ['Desligar a fonte de energia antes de tocar na vítima', 'Tocar na vítima antes de desligar a corrente elétrica', 'Cobrir a área queimada com pano limpo', 'Acionar o socorro especializado'], 1,
+  'A corrente pode passar para o socorrista. Primeiro desligue a fonte (ou afaste a vítima com material isolante) e só depois faça o atendimento.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Em uma hemorragia intensa no braço, qual conduta é considerada INCORRETA:',
+  ['Comprimir o ferimento com pano limpo', 'Aplicar torniquete de imediato em qualquer sangramento, mesmo leve', 'Elevar o membro, se não houver fratura', 'Acionar o socorro'], 1,
+  'A compressão direta resolve a maioria dos casos. O torniquete é recurso extremo, para sangramento incontrolável que ameaça a vida, e deve ser anotado o horário de aplicação.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'A sinalização do local de um sinistro tem como finalidade principal:',
+  ['Identificar o culpado', 'Evitar novos sinistros, alertando os demais condutores a tempo', 'Preservar a carga do veículo', 'Acelerar a liberação da via'], 1,
+  'Sinalizar antes de socorrer evita o atropelamento de vítimas e de socorristas — uma das principais causas de mortes em sinistros já ocorridos.',
+  'art. 176, CTB');
+
+Q('P', 'Durante chuva intensa, a sinalização de um sinistro deve ser feita:',
+  ['Na mesma distância do tempo seco', 'A uma distância maior do local, pois a visibilidade e a frenagem pioram', 'Somente com o pisca-alerta', 'Apenas dentro do veículo'], 1,
+  'Com pista molhada, o veículo percorre mais metros até parar. O triângulo e o pisca-alerta devem ser posicionados mais longe para dar tempo de reação.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Em um sinistro com caminhão-tanque de combustível, com vazamento e princípio de incêndio, a sequência correta é:',
+  ['Aproximar-se para tentar fechar o vazamento', 'Afastar-se e isolar a área, acionar Corpo de Bombeiros e Polícia Rodoviária, sem contato com o produto', 'Jogar água em jato forte sobre o vazamento', 'Remover as placas de risco antes da chegada do socorro'], 1,
+  'Produto inflamável exige afastamento e acionamento especializado. Água em jato pode espalhar o combustível, e aproximar-se coloca o socorrista em risco de explosão.',
+  'Res. ANTT 5.947/2021');
+
+Q('P', 'Em rodovia federal, o número para acionar a Polícia Rodoviária Federal é:',
+  ['190', '191', '192', '193'], 1,
+  'A PRF atende pelo 191 nas rodovias federais; o 192 é do SAMU e o 193 do Corpo de Bombeiros. Em trecho urbano, o 190 aciona a Polícia Militar.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Em uma fratura exposta (osso à mostra), o correto é:',
+  ['Tentar recolocar o osso no lugar', 'Cobrir o ferimento com pano limpo, imobilizar sem recolocar o osso e acionar o socorro', 'Lavar com álcool', 'Aplicar pomada e seguir viagem'], 1,
+  'Recolocar o osso causa lesão de tecidos e infecção. A imobilização na posição encontrada e a cobertura limpa protegem até o atendimento médico.',
+  'Res. CONTRAN 789/2020');
+
+Q('P', 'Uma vítima em estado de choque costuma apresentar:',
+  ['Pele quente e avermelhada, pulso lento e forte', 'Pele fria e pálida, suor, pulso rápido e fraco, confusão', 'Somente dor localizada', 'Aumento da pressão e euforia'], 1,
+  'O choque indica falha na circulação: pele fria e úmida, pulso rápido e fraco, agitação ou sonolência. Deve-se manter a vítima aquecida, deitada e acionar socorro.',
+  'Res. CONTRAN 789/2020');
+
+/* ---------------- MECÂNICA BÁSICA (V) ---------------- */
+Q('V', 'Um alinhamento comprometido das rodas pode causar:',
+  ['Apenas desgaste irregular dos pneus', 'Instabilidade na direção, desgaste irregular e maior consumo', 'Aumento da potência do motor', 'Falha no sistema elétrico'], 1,
+  'Alinhamento fora do padrão faz o veículo "puxar" para um lado, aumenta o consumo e desgasta o pneu, comprometendo a estabilidade em curvas e frenagens.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'Sobre estepe, macaco e triângulo, é correto afirmar:',
+  ['São itens opcionais em automóveis', 'Devem estar presentes e em condições de uso, pois são necessários em emergências', 'Substituem o extintor', 'Só são exigidos em veículos de carga'], 1,
+  'Esses itens permitem a troca do pneu e a sinalização em caso de pane. O triângulo é indispensável para evitar colisões traseiras.',
+  'art. 105, CTB');
+
+Q('V', 'O rodízio de pneus tem a função de:',
+  ['Aumentar a velocidade máxima', 'Equalizar o desgaste e prolongar a vida útil dos pneus', 'Reduzir a pressão interna', 'Melhorar o som do motor'], 1,
+  'A troca de posição entre os pneus distribui o desgaste, que é maior nos de tração. Deve ser feito nos intervalos recomendados pelo fabricante.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'O líquido do reservatório do limpador de para-brisa deve ser:',
+  ['Água pura, sempre', 'Água com aditivo próprio para limpador, que ajuda a remover sujeira e gordura', 'Óleo lubrificante', 'Água com sabão em pó'], 1,
+  'O aditivo específico remove gordura e insetos sem danificar as palhetas e as borrachas; nunca se usa óleo ou detergente abrasivo.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'Sobre a bateria do veículo, é correto afirmar:',
+  ['Dura, em média, de 3 a 5 anos, e deve-se verificar terminais e nível de água nos modelos convencionais', 'Dura mais de 10 anos sem manutenção', 'Não precisa de nenhum cuidado', 'Só deve ser verificada quando o carro não liga'], 0,
+  'A vida útil média é de 3 a 5 anos. Terminais oxidados e nível baixo de água comprometem a partida e a carga do sistema elétrico.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'A tampa do radiador tem a função de:',
+  ['Apenas fechar o reservatório', 'Manter a vedação e a pressão correta do sistema de arrefecimento', 'Filtrar a água do motor', 'Medir a temperatura'], 1,
+  'O sistema trabalha pressurizado, o que eleva o ponto de ebulição da água. A tampa com vedação adequada evita perda de líquido e superaquecimento. Nunca se abre com o motor quente.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'A principal função dos para-choques dianteiro e traseiro é:',
+  ['Decorativa', 'Absorver parte da energia em colisões de baixa velocidade, reduzindo danos ao veículo', 'Aumentar a aderência dos pneus', 'Melhorar a aerodinâmica'], 1,
+  'Os para-choques amortecem impactos leves e protegem componentes como radiador e lanternas — não substituem, porém, os itens de segurança do habitáculo.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'Quando a embreagem apresenta desgaste (o motor acelera sem transmitir força), deve-se:',
+  ['Continuar dirigindo até parar de funcionar', 'Procurar a oficina para avaliar a troca do conjunto de embreagem', 'Aumentar a rotação do motor para compensar', 'Usar apenas o freio de mão'], 1,
+  'A patinação da embreagem reduz a resposta do veículo e piora com o tempo. O conjunto (disco, platô e rolamento) deve ser avaliado e substituído.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'Veículos que transitam com frequência em estradas não pavimentadas devem:',
+  ['Fazer a manutenção do filtro de ar com mais frequência, por causa da poeira', 'Trocar o óleo apenas uma vez por ano', 'Eliminar o filtro de ar', 'Usar pneus sempre vazios'], 0,
+  'A poeira entope o filtro de ar, prejudicando a queima e o desempenho do motor. A inspeção deve ser mais frequente nesse tipo de uso.',
+  'Res. CONTRAN 789/2020');
+
+Q('V', 'As lanternas do veículo devem estar funcionando porque servem para:',
+  ['Apenas decorar o veículo', 'Sinalizar presença e posição do veículo aos demais usuários', 'Aumentar a potência do motor', 'Reduzir o consumo de combustível'], 1,
+  'Luz de posição e lanternas traseiras informam aos outros condutores o tamanho, a posição e a presença do veículo, especialmente à noite e com chuva.',
+  'art. 230, XI, CTB');
+
+/* ---------------- LEGISLAÇÃO (L) ---------------- */
+Q('L', 'O prazo para o novo proprietário efetivar a transferência de veículo é de:',
+  ['15 dias', '30 dias', '60 dias', '90 dias'], 1,
+  'A transferência deve ser requerida em até 30 dias, contados da data de preenchimento do recibo de compra e venda. O vendedor também tem 30 dias para comunicar a venda ao órgão.',
+  'art. 123, § 1º, CTB');
+
+Q('L', 'Sobre a comunicação de venda do veículo, é correto afirmar que:',
+  ['Só o comprador precisa comunicar', 'O vendedor deve comunicar a venda ao órgão de trânsito, para não responder por infrações futuras', 'Não existe obrigação legal', 'A comunicação só é exigida se o veículo tiver multas'], 1,
+  'A comunicação da venda livra o antigo proprietário de ser responsabilizado por infrações e taxas posteriores à venda. É obrigatório comunicar em 30 dias.',
+  'art. 123, CTB');
+
+Q('L', 'São documentos de porte obrigatório para conduzir veículo automotor:',
+  ['CNH (ou PPD/ACC) e o documento de registro e licenciamento do veículo (CRLV)', 'Somente a CNH', 'CNH e comprovante de residência', 'Somente o CRLV'], 0,
+  'A CNH demonstra a habilitação do condutor e o CRLV, a regularidade do veículo. Ambos podem ser apresentados na versão digital, com a mesma validade jurídica.',
+  'art. 159, CTB e Res. CONTRAN 754/2018');
+
+Q('L', 'A diferença entre suspensão e cassação do direito de dirigir é que:',
+  ['São a mesma penalidade com nomes diferentes', 'Na suspensão há prazo para retomar o direito; na cassação ele é perdido e o condutor deve reiniciar o processo', 'A cassação dura apenas 30 dias', 'A suspensão exige novo processo de primeira habilitação'], 1,
+  'A suspensão tem prazo definido (6 meses a 1 ano) e, cumprida a exigência do curso de reciclagem, o direito é restabelecido. A cassação implica perda do documento e reinício das etapas.',
+  'art. 256, III e IV, e arts. 263 a 268, CTB');
+
+Q('L', 'O condutor habilitado na categoria B pode conduzir veículo:',
+  ['De até 3.500 kg de peso bruto total e com até 8 lugares, além do motorista', 'De qualquer peso, desde que não seja articulado', 'Somente de até 1.000 kg', 'De transporte coletivo, com até 20 lugares'], 0,
+  'A categoria B abrange veículos de até 3.500 kg de PBT e lotação máxima de 8 lugares. Para mais lugares, exige-se categoria D; para mais peso, categoria C.',
+  'art. 143, II, CTB');
+
+Q('L', 'O candidato à primeira habilitação deve ser aprovado em:',
+  ['Apenas exame médico', 'Exames de aptidão física e mental, avaliação psicológica, exame teórico e exame prático de direção', 'Somente o exame teórico', 'Apenas o exame prático'], 1,
+  'Mesmo após a Res. CONTRAN 1.020/2025, os exames médico e psicológico e as provas teórica e prática continuam obrigatórios. O que mudou foi a flexibilização de carga horária e prazos.',
+  'art. 147, CTB e Res. CONTRAN 1.020/2025');
+
+Q('L', 'O condutor que muda de endereço deve comunicar a alteração ao órgão de trânsito:',
+  ['Em até 30 dias', 'Somente na próxima renovação da CNH', 'Em até 2 anos', 'Não é necessário comunicar'], 0,
+  'A atualização do cadastro é obrigatória em até 30 dias. O endereço desatualizado impede o recebimento de notificações e pode gerar problemas em fiscalizações e processos.',
+  'art. 140, § 1º, CTB e Res. CONTRAN 789/2020');
+
+Q('L', 'A alienação fiduciária registrada no documento do veículo deve ser baixada:',
+  ['Quando o financiamento é quitado, por iniciativa do credor', 'Somente quando o veículo é vendido', 'Automaticamente após 5 anos', 'Pelo comprador, a qualquer momento'], 0,
+  'Com a quitação, o credor deve providenciar a baixa do gravame. Com a restrição ativa, o veículo não pode ser transferido nem licenciado normalmente.',
+  'Res. CONTRAN 807/2020');
+
+Q('L', 'Sobre o transporte de passageiro e de carga em motocicleta, é correto:',
+  ['O passageiro deve usar assento suplementar atrás do condutor, e a carga não pode exceder a capacidade do veículo', 'A carga pode exceder as especificações, se estiver bem amarrada', 'O passageiro pode ir à frente do condutor', 'Não há limite de carga para motocicletas'], 0,
+  'O passageiro deve ser transportado em assento suplementar, e a carga precisa respeitar as especificações técnicas do veículo. Exceder é infração e compromete o equilíbrio.',
+  'art. 230, II, e art. 244, CTB');
+
+Q('L', 'Sobre o estacionamento de veículos de emergência, é correto afirmar:',
+  ['Podem estacionar em qualquer local, em qualquer situação', 'Têm livre estacionamento quando em efetivo serviço de urgência, com a sinalização luminosa e sonora acionada', 'Só podem estacionar em hospitais', 'Precisam pagar estacionamento como os demais'], 1,
+  'A prerrogativa existe apenas durante o serviço urgente e devidamente sinalizado. Fora dessa condição, o veículo se submete às regras comuns de estacionamento.',
+  'art. 29, VII, e art. 181, CTB');
+
+/* ---------------- DIREÇÃO DEFENSIVA (D) ---------------- */
+Q('D', 'Vento forte representa risco à condução principalmente porque:',
+  ['Pode deslocar lateralmente o veículo, sobretudo os altos e leves, e as motocicletas', 'Aumenta a aderência dos pneus', 'Melhora a visibilidade', 'Reduz o consumo de combustível'], 0,
+  'Rajadas laterais desestabilizam o veículo, especialmente ao sair de abrigos como viadutos e túneis. Deve-se reduzir a velocidade e segurar firme o volante.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Ao encontrar uma camada de gelo ou pista muito escorregadia, a atitude defensiva mais adequada é:',
+  ['Frear com força para reduzir logo a velocidade', 'Reduzir a velocidade antes do trecho e evitar manobras bruscas de freio, acelerador e volante', 'Acelerar para atravessar rápido', 'Trocar de faixa rapidamente'], 1,
+  'Em pista de baixa aderência, qualquer movimento brusco provoca derrapagem. Antecipar a redução e manter movimentos suaves é a única forma de manter o controle.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Em trecho de obras com trabalhadores na pista, o condutor deve:',
+  ['Manter a velocidade da via', 'Reduzir a velocidade, respeitar a sinalização temporária e aumentar a atenção', 'Buzinar para avisar', 'Usar o acostamento para desviar'], 1,
+  'Trabalhadores na via estão expostos e frequentemente fora do campo de visão. A sinalização de obras prevalece e a velocidade deve cair.',
+  'art. 29 e Res. CONTRAN 789/2020');
+
+Q('D', 'Manter distância segura do veículo que se pretende ultrapassar é importante porque:',
+  ['Permite avaliar a via, ganhar visibilidade e ter tempo para reagir a imprevistos', 'Aumenta a velocidade da ultrapassagem', 'Obriga o outro condutor a acelerar', 'Reduz o consumo de combustível'], 0,
+  'A distância dá campo de visão à frente e espaço de reação. Ultrapassar colado elimina a visibilidade e a margem para abortar a manobra.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'A verificação dos espelhos retrovisores deve ser feita:',
+  ['Somente antes de estacionar', 'Periodicamente durante a condução e sempre antes de qualquer manobra', 'Apenas em rodovias', 'Somente à noite'], 1,
+  'A checagem periódica (a cada poucos segundos) e obrigatória antes de mudar de faixa, frear ou ultrapassar mantém o condutor ciente do entorno.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Sobre o uso de antidepressivos e outros medicamentos e a condução, é correto afirmar:',
+  ['Não há qualquer interferência na direção', 'Podem causar sonolência e reduzir a atenção, exigindo avaliação médica e leitura da bula', 'Só afetam quem usa dose alta', 'Substituem o efeito do álcool'], 1,
+  'Muitos medicamentos reduzem reflexos e causam sonolência. A bula deve ser consultada e o médico informado de que o paciente conduz veículo.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Quando vários riscos estão presentes ao mesmo tempo (chuva, pista ruim, trânsito intenso), o correto é:',
+  ['Manter o planejamento e compensar com habilidade', 'Reduzir a velocidade e, se necessário, parar em local seguro até as condições melhorarem', 'Acelerar para sair logo do trecho crítico', 'Seguir bem próximo do veículo da frente'], 1,
+  'Riscos simultâneos se somam e reduzem a margem de erro a praticamente zero. Reconhecer o próprio limite e parar é decisão de condutor experiente.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Para reduzir a distância de frenagem, é importante:',
+  ['Aumentar a velocidade para frear por menos tempo', 'Manter pneus calibrados e em bom estado, freios revisados e velocidade compatível', 'Carregar mais peso no porta-malas', 'Frear sempre com o freio de mão'], 1,
+  'A frenagem depende da aderência (pneus e pista), do sistema de freios e da velocidade — que tem efeito ao quadrado na distância percorrida.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Dirigir à noite com os faróis sujos significa:',
+  ['Perda de luminosidade e alcance, reduzindo a visibilidade e a chance de ser visto', 'Aumento do consumo de combustível', 'Melhora na iluminação por dispersão', 'Nenhum efeito prático'], 0,
+  'Sujeira e insetos nos faróis reduzem boa parte da luz emitida. Limpar os faróis integra a checagem antes de qualquer viagem noturna.',
+  'Res. CONTRAN 789/2020');
+
+Q('D', 'Durante uma ultrapassagem, se o condutor do veículo da frente sinaliza com o farol alto ou liga o pisca-alerta, o correto é:',
+  ['Insistir na ultrapassagem, pois a via está livre', 'Abortar ou adiar a ultrapassagem: o sinal costuma indicar perigo ou impossibilidade de passar', 'Buzinar e ultrapassar pela direita', 'Acelerar para concluir mais rápido'], 1,
+  'O pisca-alerta ou o farol alto do veículo à frente avisa que há risco à frente (obstáculo, buraco, veículo parado). Ignorar esse aviso é causa frequente de colisão frontal.',
+  'art. 203 e Res. CONTRAN 789/2020');
+/* =========================================================
    SimulaTrânsito BR — aplicação (SPA, sem dependências)
    ========================================================= */
 
@@ -1640,15 +1953,16 @@ const CATS = {
   L:    { nome: 'Legislação de Trânsito',            curto: 'Legislação',        base: true,  cor: '#3b82f6' },
   D:    { nome: 'Direção Defensiva',                 curto: 'Direção Defensiva', base: true,  cor: '#14b8a6' },
   P:    { nome: 'Primeiros Socorros',                curto: 'Primeiros Socorros',base: true,  cor: '#ef4444' },
-  M:    { nome: 'Meio Ambiente e Cidadania',         curto: 'Meio Ambiente',     base: true,  cor: '#22c55e' },
-  V:    { nome: 'Veículos e Mecânica Básica',        curto: 'Mecânica',          base: true,  cor: '#f59e0b' },
+  M:    { nome: 'Meio Ambiente',                      curto: 'Meio Ambiente',     base: true,  cor: '#22c55e' },
+  C:    { nome: 'Cidadania',                          curto: 'Cidadania',         base: true,  cor: '#84cc16' },
+  V:    { nome: 'Mecânica Básica',                    curto: 'Mecânica Básica',   base: true,  cor: '#f59e0b' },
   COL:  { nome: 'Transporte Coletivo de Passageiros',curto: 'Coletivo',          base: false, cor: '#8b5cf6' },
   ESC:  { nome: 'Transporte Escolar',                curto: 'Escolar',           base: false, cor: '#eab308' },
   MOPP: { nome: 'Produtos Perigosos (MOPP)',         curto: 'MOPP',              base: false, cor: '#f97316' },
   CIN:  { nome: 'Cargas Indivisíveis',               curto: 'Cargas Indivisíveis',base: false, cor: '#0ea5e9' },
   EME:  { nome: 'Veículos de Emergência',            curto: 'Emergência',        base: false, cor: '#f43f5e' }
 };
-const BASE_CATS = ['L', 'D', 'P', 'M', 'V'];
+const BASE_CATS = ['L', 'D', 'P', 'M', 'C', 'V'];   // 6 matérias da 1ª habilitação
 const CURSO_CATS = ['COL', 'ESC', 'MOPP', 'CIN', 'EME'];
 const STORE_KEY = 'simulatrafico.br.v1';
 
@@ -1760,7 +2074,7 @@ $('#btn-limpar-modo').onclick = () => {
 function buildPool() {
   if (S.modo === 'geral') {
     // distribuição aproximada do exame oficial
-    const pesos = { L: .45, D: .27, P: .13, M: .09, V: .06 };
+    const pesos = { L: .45, D: .25, P: .12, M: .08, C: .05, V: .05 };
     const alvo = Math.min(S.qtd, BASE_CATS.reduce((t, c) => t + QB.filter(q => q.cat === c).length, 0));
     let sel = [];
     BASE_CATS.forEach(c => {
