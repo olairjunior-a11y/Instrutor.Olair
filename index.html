@@ -2599,6 +2599,282 @@ Q('COL', 'A Lei de Mobilidade Urbana (Lei 12.587/2012) tem como diretriz:',
   'A Política Nacional de Mobilidade Urbana busca tornar o transporte coletivo mais atrativo, com segurança, tarifa justa e agilidade nos deslocamentos.',
   'Lei 12.587/2012');
 /* =========================================================
+   SimulaTrânsito BR — LOTE 5 (Transporte Escolar)
+   Base: apostila "ESCOLAR" (221 páginas) enviada pelo instrutor.
+   Conteúdo conferido com o CTB (arts. 136 a 139, 145, 329, 105),
+   Res. CONTRAN 285/2008 e 763/2018, LDB (Lei 9.394/1996, art. 11)
+   e as normas de inspeção veicular (DMG / DG / DL).
+   Questões autorais, com comentário e base legal.
+   Categoria: ESC
+   ========================================================= */
+
+/* ---------- 1. AUTORIZAÇÃO E REQUISITOS DO VEÍCULO (ART. 136) ---------- */
+Q('ESC', 'A autorização para o veículo de transporte escolar circular é emitida pelo:',
+  ['Órgão ou entidade executivo de trânsito dos Estados e do Distrito Federal (DETRAN)', 'Ministério da Educação', 'Sindicato das escolas particulares', 'Fabricante do veículo'], 0,
+  'O art. 136 atribui ao órgão executivo estadual de trânsito a emissão da autorização, que fica afixada na parte interna do veículo em local visível.',
+  'art. 136, CTB');
+
+Q('ESC', 'O veículo de transporte escolar deve estar registrado como:',
+  ['Veículo particular', 'Veículo de passageiros', 'Veículo misto', 'Veículo de carga'], 1,
+  'O registro na categoria de passageiros é o primeiro requisito do art. 136 e é o que permite o transporte remunerado de escolares.',
+  'art. 136, I, CTB');
+
+Q('ESC', 'A inspeção do veículo de transporte escolar é feita:',
+  ['A cada dois anos', 'Anualmente', 'Semestralmente', 'Somente na compra do veículo'], 2,
+  'A inspeção semestral verifica equipamentos obrigatórios e de segurança. Na prática, o veículo passa por duas vistorias especiais por ano — em janeiro e em julho.',
+  'art. 136, II, CTB');
+
+Q('ESC', 'A faixa horizontal amarela do veículo escolar deve ter:',
+  ['20 cm de largura, só nas laterais', '40 cm de largura, à meia altura, em toda a extensão das laterais e da traseira, com o dístico ESCOLAR em preto', '60 cm de largura, apenas na traseira', 'Não há medida definida'], 1,
+  'A faixa de 40 cm fica à meia altura nas laterais e na traseira. Se a carroçaria já for amarela, as cores se invertem: faixa preta e dístico amarelo.',
+  'art. 136, III, CTB');
+
+Q('ESC', 'Sobre a lotação do veículo escolar, é correto afirmar:',
+  ['Pode transportar até 10% a mais da capacidade', 'É vedada a condução de escolares em número superior à capacidade estabelecida pelo fabricante', 'A lotação é definida pelo condutor', 'Crianças pequenas não contam na lotação'], 1,
+  'A lotação permitida deve constar na autorização afixada no veículo. Exceder a capacidade é infração de trânsito e multiplica o risco em caso de sinistro.',
+  'art. 137, CTB');
+
+Q('ESC', 'O condutor de veículo escolar deve ter idade:',
+  ['Superior a 18 anos', 'Superior a 21 anos', 'Superior a 25 anos', 'Superior a 30 anos'], 1,
+  'O art. 138 exige idade superior a 21 anos, habilitação na categoria D e aprovação em curso especializado, entre outros requisitos.',
+  'art. 138, I, CTB');
+
+Q('ESC', 'Para conduzir veículo escolar, o condutor deve estar habilitado, no mínimo, na categoria:',
+  ['B', 'C', 'D', 'E'], 2,
+  'A categoria D é exigida pelo art. 138. Alguns Estados e municípios podem aceitar a categoria E para veículos maiores, mas o mínimo legal é a D.',
+  'art. 138, II, CTB');
+
+Q('ESC', 'Além da categoria D, o condutor de transporte escolar não pode ter cometido, nos últimos 12 meses:',
+  ['Nenhuma infração leve', 'Nenhuma infração grave ou gravíssima, nem ser reincidente em média', 'Nenhuma multa de qualquer natureza', 'Nenhuma advertência por escrito'], 1,
+  'O histórico de infrações graves, gravíssimas ou reincidência em médias no período de 12 meses impede a capacitação para o transporte escolar.',
+  'art. 138, IV, CTB');
+
+Q('ESC', 'A certidão negativa de antecedentes criminais exigida do condutor de transporte escolar abrange os crimes de:',
+  ['Qualquer natureza, sem exceção', 'Homicídio, roubo, estupro e corrupção de menores', 'Somente crimes de trânsito', 'Somente crimes ambientais'], 1,
+  'O art. 329 lista esses quatro crimes, e a certidão deve ser renovada a cada cinco anos junto ao órgão responsável pela autorização.',
+  'art. 329, CTB');
+
+Q('ESC', 'Quanto à competência para regular o transporte escolar, é correto afirmar:',
+  ['É exclusiva da União', 'O município pode estabelecer exigências próprias, sem excluir as normas estaduais e federais', 'O Estado não pode legislar sobre o tema', 'Só vale a norma federal'], 1,
+  'O art. 139 preserva a competência municipal para aplicar exigências de seus regulamentos ao transporte de escolares, somando-se às demais normas.',
+  'art. 139, CTB');
+
+/* ---------- 2. EQUIPAMENTOS OBRIGATÓRIOS ---------- */
+Q('ESC', 'São lanternas exigidas no veículo escolar:',
+  ['Somente faróis dianteiros', 'Lanternas de luz branca, fosca ou amarela nas extremidades superiores dianteiras e vermelhas na extremidade superior traseira', 'Apenas luzes internas do salão', 'Nenhuma lanterna especial'], 1,
+  'Essas lanternas superiores dão visibilidade ao veículo escolar a distância e identificam a parte de cima da carroçaria, o que é essencial com crianças ao redor.',
+  'art. 136, V, CTB');
+
+Q('ESC', 'O número de cintos de segurança do veículo escolar deve ser:',
+  ['Igual ao número de adultos a bordo', 'Igual à lotação do veículo', 'Opcional nos bancos traseiros', 'Igual a metade da lotação'], 1,
+  'O art. 136, VI, exige cintos em número igual à lotação: cada escolar deve ter o seu, e cabe ao condutor conferir o ajuste antes de partir.',
+  'art. 136, VI, CTB');
+
+Q('ESC', 'O equipamento registrador instantâneo inalterável de velocidade e tempo (tacógrafo) no veículo escolar é:',
+  ['Facultativo', 'Obrigatório', 'Exigido apenas em viagens interestaduais', 'Substituído pelo GPS'], 1,
+  'O tacógrafo é exigido pelo art. 136, IV, e também pelo art. 105, II, que o estende aos veículos de transporte de passageiros com mais de dez lugares.',
+  'art. 136, IV, e art. 105, II, CTB');
+
+Q('ESC', 'A Resolução CONTRAN 504/2014 tratou de:',
+  ['Espelhos retrovisores, câmera-monitor ou dispositivo equivalente nos veículos de transporte escolar', 'Da cor da faixa lateral', 'Do curso de reciclagem', 'Da lotação do veículo'], 0,
+  'A norma trata da visibilidade ao redor do veículo escolar. Ela foi revogada a partir de 1º de janeiro de 2026 pela Res. CONTRAN 763/2018, que reúne as regras vigentes.',
+  'Res. CONTRAN 504/2014 e 763/2018');
+
+Q('ESC', 'A autorização para conduzir escolares deve ficar:',
+  ['No porta-luvas', 'Afixada na parte interna do veículo, em local visível, com a inscrição da lotação permitida', 'Com o responsável da escola', 'Na casa do proprietário'], 1,
+  'A fixação interna e visível permite à fiscalização conferir a autorização e a lotação sem interromper a viagem por muito tempo.',
+  'art. 137, CTB');
+
+Q('ESC', 'Conduzir veículo escolar sem portar a autorização exigida pelo art. 136 configura infração:',
+  ['Leve, com multa simples', 'Média, com advertência', 'Gravíssima, com multa multiplicada por cinco e remoção do veículo', 'Não é infração'], 2,
+  'O art. 230, XX, classifica como gravíssima, com multa cinco vezes maior e remoção do veículo. A ausência da autorização significa transporte irregular.',
+  'art. 230, XX, CTB');
+
+/* ---------- 3. INSPEÇÃO SEMESTRAL E DEFEITOS ---------- */
+Q('ESC', 'Na inspeção veicular, um defeito que coloca em risco a segurança e proíbe o veículo de circular até o conserto é classificado como:',
+  ['DL — defeito leve', 'DG — defeito grave', 'DMG — defeito muito grave', 'Dispensável'], 2,
+  'O DMG impede a circulação até nova inspeção comprovar o conserto. O DG exige cuidados até nova inspeção em prazo estipulado, e o DL permite circular para consertar.',
+  'Res. CONTRAN 789/2020');
+
+Q('ESC', 'Um defeito classificado como DL (leve) significa que:',
+  ['O veículo é apreendido', 'O veículo não pode circular em hipótese alguma', 'O veículo pode circular para fazer o conserto', 'O veículo é reprovado definitivamente'], 2,
+  'O DL não compromete a segurança imediata e autoriza a circulação apenas para o conserto, devendo ser corrigido no prazo indicado.',
+  'Res. CONTRAN 789/2020');
+
+Q('ESC', 'Entre os itens verificados na inspeção do veículo escolar, o sistema de direção inclui:',
+  ['Apenas o volante', 'Alinhamento das rodas, volante e coluna, mecanismo, barras, braços, articulações e servo direção', 'Somente a calibragem dos pneus', 'Apenas a buzina'], 1,
+  'A inspeção cobre o conjunto inteiro da direção, porque qualquer folga nesses componentes compromete o controle do veículo — crítico com crianças a bordo.',
+  'Res. CONTRAN 789/2020');
+
+Q('ESC', 'No sistema de freios, a inspeção verifica:',
+  ['Apenas o pedal', 'Freio de serviço, de estacionamento, comandos, servo freio, reservatórios e circuito', 'Somente as pastilhas', 'Apenas o freio de mão'], 1,
+  'O sistema é analisado por inteiro, incluindo reservatório de líquido e circuito de ar ou vácuo, pois falha em qualquer ponto anula a frenagem.',
+  'Res. CONTRAN 789/2020');
+
+Q('ESC', 'Na verificação de pneus e rodas, é item inspecionado:',
+  ['Somente a marca do pneu', 'Desgaste da banda de rodagem, tamanho, tipo, simetria e estado geral dos pneus e das rodas', 'Apenas a calibragem', 'Somente os pneus dianteiros'], 1,
+  'A simetria entre pneus e rodas é essencial para a estabilidade. Pneus de medidas diferentes no mesmo eixo podem causar perda de controle.',
+  'Res. CONTRAN 789/2020');
+
+Q('ESC', 'Além das vistorias oficiais, o veículo escolar pode ser submetido a:',
+  ['Nenhuma outra verificação', 'Inspeções eventuais realizadas pelos agentes fiscalizadores, a qualquer momento', 'Vistoria apenas em caso de sinistro', 'Inspeção apenas por ordem judicial'], 1,
+  'A fiscalização pode abordar o veículo a qualquer momento. Por isso, manter o veículo e a documentação sempre em ordem é parte da rotina do condutor.',
+  'art. 136, CTB');
+
+/* ---------- 4. RESPONSABILIDADES DO CONDUTOR ---------- */
+Q('ESC', 'Antes de sair com o veículo escolar, o condutor deve verificar:',
+  ['Apenas o combustível', 'Parte mecânica e elétrica, pneus, estepe, água do radiador, combustível, documentos do veículo e pessoais, além da higiene e conservação', 'Somente os documentos', 'Nada, pois a escola é responsável'], 1,
+  'A checagem diária é responsabilidade do condutor. Veículo limpo e íntegro também evita que a criança se suje ou se machuque.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'A responsabilidade pela criança durante o trajeto escolar é:',
+  ['Dos pais, do portão até a escola', 'Do motorista, desde a porta de casa até a entrega na escola', 'Da escola, em todo o percurso', 'Do município, em qualquer situação'], 1,
+  'Os pais transferem a responsabilidade ao motorista durante o trajeto. Por isso o condutor responde legalmente pela segurança e pelo bem-estar dos escolares.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Em caso de pane durante o transporte de escolares, o condutor deve:',
+  ['Mandar as crianças descerem e esperarem na calçada', 'Reduzir, parar em local seguro com pisca-alerta, conversar com calma e manter as portas fechadas', 'Continuar dirigindo até a escola', 'Deixar o veículo e buscar ajuda'], 1,
+  'Nenhuma criança deve sair do veículo em local inseguro. Manter a porta fechada evita que uma criança desça na via e seja atropelada.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Se uma criança passar mal durante o trajeto, o condutor deve:',
+  ['Continuar a viagem normalmente', 'Avisar o mais rápido possível o responsável e, se for grave, procurar hospital ou posto de saúde', 'Deixá-la na escola e seguir a rota', 'Esperar o fim do trajeto para comunicar'], 1,
+  'O aviso ao responsável é imediato, e o atendimento de saúde tem prioridade sobre o cumprimento do itinerário.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Durante o embarque dos escolares, o condutor deve:',
+  ['Acelerar para cumprir o horário', 'Reduzir a velocidade ao chegar ao ponto, parar junto ao meio-fio e só sair após confirmar que todos embarcaram', 'Parar no meio da pista', 'Deixar as portas abertas durante o trajeto'], 1,
+  'Os pontos de embarque concentram pessoas, muitas vezes crianças correndo. A parada junto ao meio-fio e a conferência final são essenciais.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'O desembarque dos escolares deve ocorrer:',
+  ['Pelo lado da pista, para ser mais rápido', 'Sempre pelo lado da calçada', 'Em qualquer ponto, desde que com pisca-alerta', 'Somente na porta dianteira'], 1,
+  'Desembarcar pelo lado da calçada reduz drasticamente o risco de atropelamento. Além disso, não se deve frear bruscamente com crianças em pé.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Deixar o veículo escolar de manter a porta fechada em movimento é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima, com retenção do veículo até a regularização'], 3,
+  'O art. 250, IV, incluído pela Lei 14.440/2022, classifica como gravíssima. Porta aberta em movimento pode provocar queda de criança.',
+  'art. 250, IV, CTB');
+
+Q('ESC', 'Transportar escolares em número superior à lotação autorizada configura:',
+  ['Infração leve', 'Infração com lotação excedente, sujeita a multa e remoção do veículo', 'Falta de cortesia', 'Situação permitida se as crianças forem pequenas'], 1,
+  'O art. 231, VII, pune o trânsito com lotação excedente. Além da multa, o excesso compromete cintos, saídas de emergência e estabilidade do veículo.',
+  'art. 231, VII, CTB');
+
+Q('ESC', 'Ultrapassar pela direita um veículo escolar parado para embarque ou desembarque é:',
+  ['Permitido, se não houver crianças na calçada', 'Infração gravíssima, salvo quando houver refúgio de segurança para o pedestre', 'Infração leve', 'Permitido com pisca-alerta'], 1,
+  'Crianças podem atravessar na frente do veículo escolar. O art. 200 classifica a ultrapassagem pela direita como gravíssima exatamente por esse risco.',
+  'art. 200, CTB');
+
+Q('ESC', 'Transitar com o veículo escolar com equipamento obrigatório ineficiente ou inoperante é infração:',
+  ['Leve, com advertência', 'Média, sem medida administrativa', 'Grave, com retenção do veículo para regularização', 'Gravíssima, com cassação da CNH'], 2,
+  'O art. 230, IX, é grave com retenção. Equipamento obrigatório inoperante no transporte escolar é risco direto à vida das crianças.',
+  'art. 230, IX, CTB');
+
+Q('ESC', 'Deixar de usar o cinto de segurança no transporte escolar configura infração:',
+  ['Leve', 'Média', 'Grave, com retenção do veículo até a colocação do cinto', 'Não é infração para passageiros'], 2,
+  'O art. 167 é grave e prevê retenção até que o cinto seja colocado. O condutor é responsável por conferir o uso por todos os ocupantes.',
+  'art. 167, CTB');
+
+Q('ESC', 'Transportar crianças sem observar as normas de segurança especiais (como o dispositivo de retenção adequado) é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima, com retenção do veículo até sanar a irregularidade'], 3,
+  'O art. 168 é gravíssimo. O dispositivo de retenção deve ser compatível com peso e altura da criança, conforme a Res. CONTRAN 819/2021.',
+  'art. 168, CTB e Res. CONTRAN 819/2021');
+
+Q('ESC', 'Conduzir o veículo escolar sem os documentos de porte obrigatório é infração:',
+  ['Leve, com retenção do veículo até a apresentação do documento', 'Gravíssima, com apreensão', 'Média, somente multa', 'Não é infração'], 0,
+  'O art. 232 é leve, mas prevê retenção até a apresentação. No caso do escolar, a autorização do art. 136 tem tratamento próprio e mais severo (art. 230, XX).',
+  'art. 232, CTB');
+
+Q('ESC', 'Transitar com veículo em desacordo com as especificações e simbologia de identificação exigidas (como a faixa e o dístico ESCOLAR) é infração:',
+  ['Leve', 'Média', 'Grave, com retenção para regularização', 'Não há previsão'], 2,
+  'O art. 237 pune a falta de inscrição e simbologia necessárias à identificação com infração grave e retenção do veículo.',
+  'art. 237, CTB');
+
+Q('ESC', 'Quanto ao descanso do condutor de transporte escolar, o CTB determina que:',
+  ['Não há regra de descanso', 'Aplica-se o art. 67-C, com 30 minutos a cada 4 horas e 11 horas de descanso em 24 horas', 'O descanso é de 1 hora a cada 8 horas', 'O descanso depende da escola'], 1,
+  'O art. 230, XXIII, pune o descumprimento dos intervalos do art. 67-C com infração média, que se converte em grave na reincidência em 12 meses.',
+  'art. 67-C e art. 230, XXIII, CTB');
+
+/* ---------- 5. COMPETÊNCIA E ORGANIZAÇÃO ---------- */
+Q('ESC', 'A responsabilidade por oferecer transporte escolar aos alunos da rede municipal é:',
+  ['Do Estado', 'Do Município', 'Da União', 'Da escola particular'], 1,
+  'A Lei 10.709/2003 alterou a LDB (art. 11, VI) e atribuiu ao município o transporte dos alunos de sua rede, e ao Estado o dos alunos da rede estadual.',
+  'Lei 9.394/1996, art. 11, VI');
+
+Q('ESC', 'O curso especializado para condutores de transporte escolar tem validade de:',
+  ['2 anos', '3 anos', '5 anos', 'Não expira'], 2,
+  'Os cursos especializados têm validade de cinco anos, quando o condutor deve fazer a atualização. A ideia é que coincida com a validade do exame de aptidão física e mental.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'A finalidade da fila única de veículos escolares no ponto de embarque é:',
+  ['Economizar combustível', 'Organizar o embarque e reduzir o risco de atropelamento dos escolares', 'Aumentar a velocidade da via', 'Facilitar a fiscalização'], 1,
+  'A organização no ponto evita que crianças atravessem entre veículos e dá tempo para o condutor conferir o embarque de cada uma.',
+  'Res. CONTRAN 285/2008');
+
+/* ---------- 6. FAIXAS ETÁRIAS E RELACIONAMENTO ---------- */
+Q('ESC', 'Com crianças de 2 a 6 anos, o condutor deve:',
+  ['Tratar como adultos, para incentivar a autonomia', 'Ter paciência e atenção redobrada, ajustar o cinto, falar baixo e com calma', 'Gritar para ser obedecido', 'Deixar que se acomodem sozinhas'], 1,
+  'Nessa faixa etária a criança é muito dependente e chora com facilidade. Falar baixo evita assustá-la, e o ajuste do cinto é obrigação do adulto.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Com crianças de 7 a 12 anos, uma estratégia recomendada para manter a disciplina é:',
+  ['Deixar que resolvam tudo sozinhas', 'Separar os mais agitados, colocando-os junto dos mais calmos, e comunicar conflitos aos pais ou à escola', 'Ameaçar com punição física', 'Ignorar as brigas'], 1,
+  'Nessa fase as crianças são inquietas e falam alto. Separar os agitados e manter postura exemplar reduz conflitos sem autoritarismo.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Com adolescentes a partir de 13 anos, a melhor ferramenta de relacionamento é:',
+  ['A imposição de autoridade', 'O diálogo, sabendo ouvir e compreendendo as ideias deles', 'A punição imediata', 'O silêncio total'], 1,
+  'O adolescente precisa se afirmar e detesta ser tratado como criança. Manter disciplina sem autoritarismo e fazer o jovem refletir é mais eficaz que impor.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Sobre elogios e críticas ao escolar, o condutor deve:',
+  ['Elogiar exageradamente para motivar', 'Evitar elogios e críticas exageradas, com crianças de todas as idades', 'Criticar em público para servir de exemplo', 'Elogiar apenas os mais velhos'], 1,
+  'Elogios e críticas exagerados desestabilizam a criança e comprometem a relação. O condutor educa mais pelo exemplo do que pela fala.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Ao perceber qualquer irregularidade envolvendo o escolar, o condutor deve:',
+  ['Guardar para si', 'Comunicar-se com as famílias, educadores ou responsáveis', 'Resolver sem informar ninguém', 'Avisar apenas outros motoristas'], 1,
+  'O condutor é o elo entre família e escola. A comunicação com pais, educadores e responsáveis é parte da função, não uma intromissão.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'Sobre a atitude do condutor escolar com os alunos, é correto afirmar:',
+  ['Deve manter distância total e não conversar', 'Deve ser exemplo de comportamento, porque os alunos reproduzem o que observam', 'Deve usar o tom mais alto possível', 'Deve ignorar o que acontece no salão'], 1,
+  'O comportamento do condutor é referência. A criança aprende mais pelo que vê do que pelo que ouve — e o veículo escolar é espaço de formação.',
+  'Res. CONTRAN 285/2008');
+
+Q('ESC', 'O condutor de transporte escolar deve transmitir tranquilidade aos pais e responsáveis porque:',
+  ['É exigência comercial', 'A confiança das famílias é parte da segurança: pais informados evitam situações de risco', 'Não há relação com a segurança', 'É tarefa exclusiva da escola'], 1,
+  'Famílias que conhecem a rotina e o condutor colaboram com o cumprimento de horários e com a segurança no embarque e desembarque.',
+  'Res. CONTRAN 285/2008');
+
+/* ---------- 7. SITUAÇÕES ESPECÍFICAS ---------- */
+Q('ESC', 'A proximidade de uma escola exige do condutor:',
+  ['Manter a velocidade da via', 'Reduzir a velocidade e redobrar a atenção, pois há intensa movimentação de crianças', 'Buzinar para avisar', 'Usar o acostamento'], 1,
+  'Deixar de reduzir a velocidade próximo a escolas é infração gravíssima (art. 220, XV). Crianças podem surgir de trás de veículos parados.',
+  'art. 220, XV, CTB');
+
+Q('ESC', 'Ao transportar escolares, o condutor deve garantir que:',
+  ['As janelas fiquem sempre abertas', 'Todos permaneçam sentados e com o cinto afivelado durante o trajeto', 'As crianças possam trocar de lugar livremente', 'Os alunos usem o corredor para conversar'], 1,
+  'Criança em pé no corredor é a principal causa de queda e lesão dentro do veículo escolar, especialmente em frenagens.',
+  'art. 65 e art. 168, CTB');
+
+Q('ESC', 'É permitido transportar escolares em veículo de carga ou misto?',
+  ['Sim, sempre', 'Somente onde não houver linha regular e com autorização precária da autoridade, atendidas as condições de segurança', 'Somente em vias rurais sem fiscalização', 'Sim, se as crianças ficarem na carroceria'], 1,
+  'O art. 108 permite autorização precária onde não houver linha regular de ônibus, desde que obedecidas as condições de segurança do CTB e do CONTRAN.',
+  'art. 108, CTB');
+
+Q('ESC', 'A LDB, ao atribuir o transporte escolar ao município, teve como objetivo principal:',
+  ['Reduzir custos', 'Evitar dúvidas sobre a competência e universalizar o serviço', 'Transferir a fiscalização ao DETRAN', 'Eliminar o transporte estadual'], 1,
+  'A mudança de 2003 encerrou a disputa de competência: cada ente assume o transporte dos alunos da sua rede, o que amplia o acesso à escola.',
+  'Lei 9.394/1996, art. 11, VI');
+
+Q('ESC', 'Sobre a higiene e a conservação do veículo escolar, é correto afirmar:',
+  ['É responsabilidade exclusiva da escola', 'É responsabilidade do condutor, e interfere diretamente na segurança e no conforto das crianças', 'Só importa em viagens longas', 'Não há exigência legal'], 1,
+  'Veículo limpo evita que a criança se suje ou se machuque com objetos soltos, e integra as condições de conforto e segurança exigidas do serviço.',
+  'Res. CONTRAN 285/2008');
+/* =========================================================
    SimulaTrânsito BR — aplicação (SPA, sem dependências)
    ========================================================= */
 
@@ -3639,5 +3915,5 @@ function escapeAttr(t) { return escapeHtml(t); }
 })();
 
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a608ca1a4d67255e',t:'MTc5NTY5NTAyMQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a608ca1a4d67255e',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
