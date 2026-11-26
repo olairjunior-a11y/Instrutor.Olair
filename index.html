@@ -297,6 +297,16 @@
         <b>Cursos especializados</b>
         <span>Coletivo, escolar, MOPP, cargas indivisíveis e veículos de emergência.</span>
       </button>
+      <button class="card modo" data-modo="reciclagem" aria-pressed="false">
+        <span class="ico" style="background:rgba(244,63,94,.18)">🔄</span>
+        <b>Reciclagem · CNH suspensa</b>
+        <span>Aulas e conteúdo do curso de reciclagem para condutor com CNH suspensa, cassada ou que quer zerar pontos.</span>
+      </button>
+      <button class="card modo" data-modo="simulado" aria-pressed="false">
+        <span class="ico" style="background:rgba(234,179,8,.18)">📝</span>
+        <b>Simulado de reciclagem</b>
+        <span>Treino no formato do curso: legislação, direção defensiva, primeiros socorros, meio ambiente e cidadania.</span>
+      </button>
     </div>
 
     <div id="setup" hidden>
@@ -312,8 +322,14 @@
       </div>
 
       <div class="setup-box" id="box-cursos" hidden>
-        <label class="field">Curso especializado</label>
+        <label class="field" id="lbl-cursos">Curso especializado</label>
         <div class="chips" id="chips-cursos"></div>
+      </div>
+
+      <div class="setup-box" id="box-reciclagem" hidden>
+        <label class="field">Matéria do simulado de reciclagem</label>
+        <div class="chips" id="chips-reciclagem"></div>
+        <p class="hint" style="margin-top:10px">O curso de reciclagem cobra as cinco matérias da formação: legislação, direção defensiva, primeiros socorros, meio ambiente e cidadania.</p>
       </div>
 
       <div class="setup-box">
@@ -3492,6 +3508,307 @@ Q('CIN', 'Nos veículos pesados, a frenagem e as reduções de marcha devem ser 
   'Quanto mais pesado o conjunto, maior a distância de frenagem e menor a capacidade de manobra. Manobras graduais e sinalizadas são obrigatórias.',
   'art. 43, CTB');
 /* =========================================================
+   SimulaTrânsito BR — LOTE 8 (Curso de Reciclagem · CNH suspensa)
+   Base: apostila "RECICLAGEM" (181 páginas) do instrutor,
+   conferida com o CTB na redação atual (Lei 14.071/2020 e
+   Lei 14.599/2023) e com a Res. CONTRAN 789/2020, que
+   regulamenta o Curso de Reciclagem para Condutor Infrator.
+   Questões autorais, com comentário e base legal.
+   Categoria: REC
+   ========================================================= */
+
+/* ---------- 1. PONTUAÇÃO E LIMITES (Lei 14.071/2020) ---------- */
+Q('REC', 'Um condutor acumulou, em 12 meses, duas infrações gravíssimas e somou 20 pontos. Nesse caso:',
+  ['Nada acontece, pois o limite é sempre 40 pontos', 'O direito de dirigir é suspenso, porque com duas ou mais gravíssimas o limite cai para 20 pontos', 'Ele recebe apenas uma advertência por escrito', 'Perde a CNH definitivamente'], 1,
+  'A Lei 14.071/2020 criou limites móveis de pontos: 20 pontos com duas ou mais gravíssimas, 30 pontos com uma gravíssima e 40 pontos sem nenhuma gravíssima, sempre no período de 12 meses.',
+  'art. 261, I, CTB');
+
+Q('REC', 'Um condutor tem uma única infração gravíssima no prontuário. A suspensão por pontos ocorre ao atingir:',
+  ['20 pontos', '30 pontos', '40 pontos', '50 pontos'], 1,
+  'Com apenas uma infração gravíssima no período de 12 meses, o limite é de 30 pontos. Quanto mais grave o histórico, menor o número de pontos necessário para suspender.',
+  'art. 261, I, CTB');
+
+Q('REC', 'Um condutor não tem nenhuma infração gravíssima no período. O limite de pontos para suspensão é de:',
+  ['20 pontos', '30 pontos', '40 pontos', '60 pontos'], 2,
+  'Sem nenhuma infração gravíssima, o limite é de 40 pontos em 12 meses. É o caso mais favorável da tabela de pontuação.',
+  'art. 261, I, CTB');
+
+Q('REC', 'O período de contagem de pontos para fins de suspensão é de:',
+  ['6 meses', '12 meses', '24 meses', '36 meses'], 1,
+  'A contagem é sempre dos últimos 12 meses. Pontos mais antigos que isso não entram na soma que leva à suspensão.',
+  'art. 261, I, CTB');
+
+Q('REC', 'A pontuação das infrações, conforme a gravidade, é:',
+  ['Leve 2, média 3, grave 4, gravíssima 5', 'Leve 3, média 4, grave 5, gravíssima 7', 'Leve 4, média 5, grave 6, gravíssima 7', 'Leve 3, média 4, grave 6, gravíssima 10'], 1,
+  'Leve = 3 pontos, média = 4, grave = 5 e gravíssima = 7. A gravíssima ainda pode ter a multa multiplicada por 2, 3, 5, 10, 20 ou 60 vezes.',
+  'art. 259, CTB');
+
+Q('REC', 'A infração de natureza leve corresponde a quantos pontos no prontuário?',
+  ['3 pontos', '4 pontos', '5 pontos', '7 pontos'], 0,
+  'A leve vale 3 pontos. É o menor peso da tabela do art. 259, mas ainda assim entra na soma que pode levar à suspensão.',
+  'art. 259, CTB');
+
+Q('REC', 'Dirigir sob a influência de álcool é infração gravíssima com multa multiplicada por:',
+  ['2 vezes', '5 vezes', '10 vezes', '60 vezes'], 2,
+  'A multa é de 10 vezes (R$ 2.934,70 na tabela vigente), com suspensão do direito de dirigir por 12 meses e recolhimento do documento de habilitação.',
+  'art. 165, CTB');
+
+Q('REC', 'Recusar-se a fazer o teste do bafômetro (art. 165-A) gera:',
+  ['Apenas advertência', 'As mesmas penalidades de dirigir embriagado: multa gravíssima 10x e suspensão por 12 meses', 'Multa leve', 'Nada, pois ninguém é obrigado a fazer o teste'], 1,
+  'A recusa tem penalidade idêntica à da embriaguez. É infração gravíssima com multa de 10 vezes, suspensão por 12 meses e recolhimento da CNH.',
+  'art. 165-A, CTB');
+
+Q('REC', 'Deixar de usar o cinto de segurança é infração:',
+  ['Leve, 3 pontos', 'Média, 4 pontos', 'Grave, 5 pontos', 'Gravíssima, 7 pontos'], 2,
+  'O art. 167 classifica como grave, com 5 pontos e retenção do veículo até a colocação do cinto pelo infrator.',
+  'art. 167, CTB');
+
+Q('REC', 'Dirigir veículo com CNH de categoria diferente da do veículo é infração:',
+  ['Média', 'Grave', 'Gravíssima com multa 3 vezes, e gera cassação em caso de reincidência em 12 meses', 'Leve'], 2,
+  'O art. 162, III, prevê gravíssima com multa 3x e retenção do veículo. A reincidência em 12 meses leva à cassação da CNH.',
+  'art. 162, III, CTB');
+
+Q('REC', 'Ultrapassar a velocidade máxima em mais de 50% gera:',
+  ['Multa média e 4 pontos', 'Multa grave e 5 pontos', 'Multa gravíssima 3x, 7 pontos e suspensão direta do direito de dirigir', 'Somente advertência'], 2,
+  'Acima de 50% do limite a infração é gravíssima com multa multiplicada por 3 e suspensão direta, independente da pontuação.',
+  'art. 218, III, CTB');
+
+Q('REC', 'Disputar corrida (racha) é infração gravíssima com multa de:',
+  ['3 vezes', '5 vezes', '10 vezes, com suspensão do direito de dirigir e apreensão do veículo', '20 vezes apenas'], 2,
+  'A multa é de 10 vezes, com suspensão do direito de dirigir, apreensão e remoção do veículo e recolhimento da CNH.',
+  'art. 173, CTB');
+
+/* ---------- 2. SUSPENSÃO, CASSAÇÃO E CURSO DE RECICLAGEM ---------- */
+Q('REC', 'A penalidade de suspensão do direito de dirigir, quando decorre da pontuação, tem prazo de:',
+  ['1 a 3 meses', '6 meses a 1 ano, e de 8 meses a 2 anos em caso de reincidência em 12 meses', '2 a 5 anos', 'Sempre 12 meses'], 1,
+  'O art. 261, § 1º, I, fixa 6 meses a 1 ano na primeira vez e 8 meses a 2 anos na reincidência dentro de 12 meses.',
+  'art. 261, § 1º, I, CTB');
+
+Q('REC', 'Quando a suspensão decorre de infração que já prevê a penalidade específica, o prazo é de:',
+  ['2 a 8 meses, e de 8 a 18 meses na reincidência em 12 meses', '6 meses a 1 ano', '1 mês a 6 meses', '12 meses fixos'], 0,
+  'O art. 261, § 1º, II, estabelece 2 a 8 meses, salvo quando o próprio dispositivo da infração fixa outro prazo, e 8 a 18 meses na reincidência.',
+  'art. 261, § 1º, II, CTB');
+
+Q('REC', 'O curso de reciclagem para condutor infrator tem carga horária de:',
+  ['15 horas-aula', '20 horas-aula', '30 horas-aula', '50 horas-aula'], 2,
+  'São 30 horas-aula de 50 minutos: 12 de legislação de trânsito, 8 de direção defensiva, 6 de relacionamento interpessoal e 4 de primeiros socorros.',
+  'Res. CONTRAN 789/2020');
+
+Q('REC', 'A distribuição das 30 horas-aula do curso de reciclagem é:',
+  ['Legislação 12 h, direção defensiva 8 h, relacionamento interpessoal 6 h e primeiros socorros 4 h', 'Legislação 20 h e direção defensiva 10 h', 'Primeiros socorros 15 h e legislação 15 h', 'Todas as matérias com 7,5 h'], 0,
+  'A legislação concentra a maior carga por ser o módulo que trata das infrações, penalidades e medidas administrativas — o foco de quem está em reciclagem.',
+  'Res. CONTRAN 789/2020');
+
+Q('REC', 'A aprovação na prova do curso de reciclagem exige, em regra:',
+  ['50% de acertos', '60% de acertos', '70% de acertos (nota 7,0)', '100% de acertos'], 2,
+  'A prova teórica tem 30 questões de múltipla escolha e exige 21 acertos (70%), ou seja, nota 7,0. A exigência é definida na regulamentação do curso.',
+  'Res. CONTRAN 789/2020');
+
+Q('REC', 'Quem é reprovado na prova do curso de reciclagem:',
+  ['Perde o direito ao curso', 'Pode repetir a prova após 5 dias; reprovando novamente, precisa refazer o curso completo', 'Faz nova prova no mesmo dia', 'É cassado automaticamente'], 1,
+  'Há uma segunda chance após 5 dias. Na segunda reprovação, o condutor precisa refazer as 30 horas-aula do curso.',
+  'Res. CONTRAN 789/2020');
+
+Q('REC', 'A cassação da CNH obriga o condutor a:',
+  ['Apenas fazer o curso de reciclagem', 'Reiniciar todo o processo de habilitação, após 2 anos', 'Esperar 30 dias e retirar a CNH', 'Nada, pois a cassação é temporária'], 1,
+  'Na cassação o condutor torna-se inabilitado e só pode requerer a reabilitação depois de 2 anos, submetendo-se a todos os exames de habilitação.',
+  'art. 263, CTB');
+
+Q('REC', 'A cassação da Permissão para Dirigir (PPD) ocorre quando o condutor, no prazo de validade da permissão, comete:',
+  ['Qualquer infração leve', 'Qualquer infração gravíssima, grave ou é reincidente em média', 'Apenas infração de estacionamento', 'Nenhuma infração'], 1,
+  'A PPD é o período de teste do novo condutor. Uma gravíssima, uma grave ou reincidência em média já cassam a permissão, obrigando a reiniciar a habilitação.',
+  'art. 148, § 3º, CTB');
+
+Q('REC', 'O condutor que teve a CNH cassada e é flagrado dirigindo comete:',
+  ['Infração leve', 'Infração grave', 'Infração gravíssima com multa 5x, recolhimento do documento e retenção do veículo', 'Apenas advertência'], 2,
+  'O art. 162, II, prevê gravíssima com multa multiplicada por 5. Além disso, pode responder pelo crime do art. 309 do CTB, que prevê detenção.',
+  'art. 162, II, CTB');
+
+Q('REC', 'Concluir o curso de reciclagem e ser aprovado na prova significa que a CNH é devolvida:',
+  ['Imediatamente após a prova', 'Somente depois de cumprido integralmente o prazo da suspensão', 'Depois de 2 anos', 'Só com autorização judicial'], 1,
+  'O curso e o prazo são requisitos cumulativos. Sem o certificado a CNH não volta; mas com o certificado e o prazo ainda em curso, também não.',
+  'art. 261, CTB / Res. CONTRAN 789/2020');
+
+Q('REC', 'Cumprir o prazo da suspensão sem fazer o curso de reciclagem significa que o condutor:',
+  ['Volta a dirigir normalmente', 'Continua impedido de dirigir, pois falta um requisito legal', 'Precisa apenas pagar as multas', 'Pode dirigir por 30 dias'], 1,
+  'A devolução da CNH exige os dois requisitos: prazo cumprido e curso concluído com aprovação. Faltando um deles, o direito de dirigir permanece suspenso.',
+  'art. 256, parágrafo único, CTB');
+
+Q('REC', 'Dirigir durante o período de suspensão do direito de dirigir configura:',
+  ['Infração média', 'Infração gravíssima e crime de trânsito, com possibilidade de detenção', 'Apenas advertência', 'Nada, porque a CNH está no órgão'], 1,
+  'Além da infração gravíssima, o art. 307 do CTB tipifica como crime violar a suspensão, com pena de detenção de 6 meses a 1 ano.',
+  'arts. 162, II, e 307, CTB');
+
+Q('REC', 'O curso de reciclagem preventivo, previsto no art. 261, § 5º, pode ser feito por:',
+  ['Qualquer condutor, a qualquer momento', 'Condutor com atividade remunerada habilitado nas categorias C, D ou E que atingiu 30 pontos', 'Somente quem já foi cassado', 'Somente motociclistas'], 1,
+  'É um benefício do condutor profissional: ao chegar a 30 pontos, ele pode fazer o curso antes de atingir o limite de 40 e zerar a pontuação, evitando a suspensão.',
+  'art. 261, § 5º, CTB');
+
+Q('REC', 'A suspensão do direito de dirigir é aplicada:',
+  ['Automaticamente, assim que o condutor atinge a pontuação', 'Somente após processo administrativo, com direito a defesa prévia e recurso', 'Por decisão do Detran, sem direito a defesa', 'Pela empresa onde o condutor trabalha'], 1,
+  'A suspensão exige processo administrativo com contraditório e ampla defesa. Os pontos só contam após o julgamento dos recursos das multas.',
+  'art. 261, § 2º, CTB');
+
+Q('REC', 'O condutor que teve a suspensão aplicada deve entregar sua CNH:',
+  ['Em até 5 dias após receber a notificação, salvo prazo diferente fixado pelo órgão', 'Somente ao final da suspensão', 'A qualquer momento, sem prazo', 'Nunca, pois o documento fica suspenso no sistema'], 0,
+  'A entrega do documento é parte do cumprimento da penalidade. Deixar de entregar pode gerar novas consequências administrativas.',
+  'art. 261, § 3º, CTB');
+
+Q('REC', 'A diferença central entre suspensão e cassação é que:',
+  ['A suspensão é temporária e devolve o mesmo documento; a cassação torna o condutor inabilitado e exige novo processo de habilitação', 'As duas são definitivas', 'A cassação dura 30 dias', 'A suspensão exige refazer todos os exames'], 0,
+  'Na suspensão o condutor recupera a mesma CNH ao cumprir prazo e curso. Na cassação, ele volta à condição de candidato e precisa refazer todo o processo.',
+  'arts. 261 e 263, CTB');
+
+/* ---------- 3. HABILITAÇÃO, CATEGORIAS E DOCUMENTOS ---------- */
+Q('REC', 'A Permissão para Dirigir (PPD) tem validade de:',
+  ['6 meses', '1 ano', '2 anos', '5 anos'], 1,
+  'A PPD vale 1 ano. Ao final, o condutor recebe a CNH definitiva se não tiver cometido infração gravíssima, grave ou reincidência em média.',
+  'art. 148, § 2º, CTB');
+
+Q('REC', 'A CNH de condutor com menos de 50 anos deve ser renovada a cada:',
+  ['5 anos', '10 anos', '15 anos', '20 anos'], 1,
+  'A renovação é a cada 10 anos para quem tem menos de 50; a cada 5 anos entre 50 e 70; e a cada 3 anos a partir de 70 anos.',
+  'art. 147, § 2º, CTB');
+
+Q('REC', 'Dirigir com a CNH vencida há mais de 30 dias é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima, com recolhimento da CNH e retenção do veículo'], 3,
+  'O art. 162, V, classifica como gravíssima, com 7 pontos, recolhimento do documento de habilitação e retenção do veículo até a apresentação de condutor habilitado.',
+  'art. 162, V, CTB');
+
+Q('REC', 'Para dirigir veículo de transporte coletivo de passageiros, o condutor precisa, além da categoria D:',
+  ['Nada além da CNH', 'Ser maior de 21 anos, ter curso especializado aprovado e não ter cometido infração grave ou gravíssima nos últimos 12 meses', 'Apenas ter 5 anos de CNH', 'Ter categoria E'], 1,
+  'As categorias D e E exigem 21 anos, curso especializado, aprovação em exames e histórico limpo nos últimos 12 meses.',
+  'art. 145, CTB');
+
+Q('REC', 'O exame toxicológico é exigido para condutores das categorias:',
+  ['A e B', 'C, D e E', 'Apenas D', 'Somente para quem tem EAR'], 1,
+  'O art. 148-A exige o exame toxicológico de larga janela para as categorias C, D e E, com renovação periódica. Dirigir sem o exame é infração gravíssima.',
+  'art. 148-A, CTB');
+
+Q('REC', 'A CNH que registra o exercício de atividade remunerada é identificada pela sigla:',
+  ['PPD', 'EAR', 'AET', 'CRLV'], 1,
+  'EAR significa Exercício de Atividade Remunerada. É obrigatório para quem dirige como profissão e é pré-requisito para cursos como o de transporte coletivo e escolar.',
+  'art. 148, § 1º, CTB');
+
+Q('REC', 'O documento que comprova o licenciamento anual do veículo é o:',
+  ['CRV', 'CRLV', 'ATP', 'CNH'], 1,
+  'O CRV é o certificado de registro (propriedade) e o CRLV é o certificado de registro e licenciamento, que comprova que o veículo está licenciado para circular naquele ano.',
+  'art. 130, CTB');
+
+Q('REC', 'Transitar com o veículo sem o licenciamento anual é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima, com remoção do veículo'], 3,
+  'É infração gravíssima, com aplicação de multa e remoção do veículo ao depósito, conforme o art. 230, V.',
+  'art. 230, V, CTB');
+
+/* ---------- 4. SINALIZAÇÃO ---------- */
+Q('REC', 'A placa em forma de octógono, com fundo vermelho e a palavra PARE, é uma placa de:',
+  ['Advertência', 'Regulamentação, cuja desobediência é infração gravíssima', 'Indicação', 'Obras'], 1,
+  'Placas de regulamentação impõem obrigações. Desobedecer a uma delas é infração, e não parar no PARE é infração gravíssima com 7 pontos.',
+  'Manual Brasileiro de Sinalização de Trânsito — Vol. I');
+
+Q('REC', 'As placas de advertência têm por objetivo:',
+  ['Proibir comportamentos', 'Alertar o condutor sobre condições potencialmente perigosas na via', 'Indicar destinos e serviços', 'Informar obras temporárias'], 1,
+  'São placas amarelas (ou laranja, no caso de obras) que advertem sobre curvas, lombadas, animais, escolas e outras situações de risco à frente.',
+  'Manual Brasileiro de Sinalização de Trânsito — Vol. II');
+
+Q('REC', 'A linha amarela contínua dupla no centro da pista indica:',
+  ['Ultrapassagem permitida nos dois sentidos', 'Proibição de ultrapassagem e de transposição para ambos os sentidos', 'Faixa exclusiva de ônibus', 'Estacionamento permitido'], 1,
+  'A marcação amarela contínua dupla proíbe a transposição nos dois sentidos. Ultrapassar pela contramão nessa situação é infração gravíssima com multa 5x.',
+  'Manual Brasileiro de Sinalização de Trânsito — Vol. IV');
+
+Q('REC', 'A luz amarela do semáforo significa:',
+  ['Acelerar para atravessar', 'Parar, se isso puder ser feito com segurança; se já estiver na interseção, prosseguir', 'Livre passagem', 'Parada obrigatória por 30 segundos'], 1,
+  'O amarelo é sinal de atenção: indica que o verde está terminando. Avançar no sinal vermelho é infração gravíssima com 7 pontos.',
+  'art. 208, CTB');
+
+Q('REC', 'O gesto do agente de trânsito com o braço levantado verticalmente significa:',
+  ['Siga', 'Pare para todos os veículos', 'Diminua a velocidade', 'Sinal de advertência'], 1,
+  'A ordem do agente prevalece sobre a sinalização e sobre as normas de circulação. Braço levantado verticalmente significa parada obrigatória para todos.',
+  'art. 89, CTB');
+
+/* ---------- 5. DIREÇÃO DEFENSIVA ---------- */
+Q('REC', 'São considerados elementos da direção defensiva:',
+  ['Conhecimento, atenção, previsão, habilidade e decisão/ação', 'Velocidade, freio, embreagem e câmbio', 'Multa, recurso, defesa e julgamento', 'Apenas atenção e reflexo'], 0,
+  'Esses são os cinco elementos. A direção defensiva é, antes de tudo, uma atitude: antecipar o risco e estar preparado para contorná-lo.',
+  'apostila, módulo Direção Defensiva');
+
+Q('REC', 'A previsão mediata, na direção defensiva, é aquela feita:',
+  ['Durante a viagem, com base no que se vê à frente', 'Antes de iniciar a viagem, verificando condições do veículo, do condutor e dos passageiros', 'Depois do acidente', 'Somente em dias de chuva'], 1,
+  'A previsão mediata é o planejamento prévio. A imediata acontece durante a condução, como ao ver uma bola rolando e prever que uma criança virá atrás.',
+  'apostila, módulo Direção Defensiva');
+
+Q('REC', 'São os três princípios básicos da prevenção de acidentes:',
+  ['Ver, pensar e agir', 'Acelerar, frear e buzinar', 'Parar, olhar e seguir', 'Dirigir, falar e ouvir'], 0,
+  'Ver (atento à frente, atrás e aos lados), pensar (decidir corretamente diante do imprevisto) e agir (executar a manobra prontamente e com segurança).',
+  'apostila, módulo Direção Defensiva');
+
+Q('REC', 'A distância de seguimento segura, expressa na regra dos dois segundos, serve para:',
+  ['Economizar combustível', 'Garantir tempo de reação e frenagem diante de uma parada súbita do veículo da frente', 'Manter a faixa livre', 'Evitar multas de velocidade'], 1,
+  'A regra dos dois segundos garante espaço para reagir e frear. Em chuva ou pista escorregadia, o intervalo deve ser aumentado.',
+  'apostila, módulo Direção Defensiva');
+
+Q('REC', 'À noite, em via não iluminada, o condutor deve usar:',
+  ['Luz alta, exceto ao cruzar com outro veículo ou ao segui-lo', 'Sempre luz baixa', 'Apenas as luzes de posição', 'Pisca-alerta'], 0,
+  'O art. 40, II, exige luz alta em vias não iluminadas, trocando para baixa ao cruzar ou seguir outro veículo, para não ofuscar.',
+  'art. 40, II, CTB');
+
+Q('REC', 'Sob chuva forte, neblina ou cerração, o condutor deve manter acesas:',
+  ['A luz alta', 'Pelo menos as luzes de posição', 'Apenas o pisca-alerta', 'Nenhuma luz'], 1,
+  'O art. 40, IV, determina manter acesas pelo menos as luzes de posição nessas condições, aumentando a visibilidade do veículo para os demais.',
+  'art. 40, IV, CTB');
+
+Q('REC', 'Em situação de aquaplanagem, a conduta correta é:',
+  ['Frear com força e virar o volante', 'Tirar o pé do acelerador, manter o volante firme e não frear bruscamente', 'Acelerar para sair mais rápido', 'Puxar o freio de estacionamento'], 1,
+  'Na aquaplanagem os pneus perdem contato com o asfalto. Frear ou virar bruscamente provoca perda total de controle; o correto é reduzir suavemente.',
+  'apostila, módulo Direção Defensiva');
+
+Q('REC', 'O condutor que percebe sono deve:',
+  ['Abrir a janela e continuar', 'Parar em local seguro e descansar antes de prosseguir', 'Aumentar a velocidade para chegar logo', 'Tomar café e seguir sem parar'], 1,
+  'Sono não se resolve com ar frio ou café. A única conduta segura é parar em local apropriado e descansar — sono é uma das principais causas de acidente grave.',
+  'apostila, módulo Direção Defensiva');
+
+/* ---------- 6. PRIMEIROS SOCORROS ---------- */
+Q('REC', 'A primeira providência ao chegar a um local de acidente é:',
+  ['Remover as vítimas', 'Sinalizar o local para evitar novos acidentes', 'Fotografar a cena', 'Oferecer água às vítimas'], 1,
+  'Sinalizar vem antes de tudo: protege as vítimas e quem socorre. Só depois se aciona o socorro especializado (192 SAMU, 193 Bombeiros, 191 PRF).',
+  'apostila, módulo Primeiros Socorros');
+
+Q('REC', 'Diante de uma vítima de acidente de trânsito, o socorrista leigo deve:',
+  ['Remover a vítima do veículo imediatamente', 'Não movimentar a vítima, salvo risco iminente, e acionar o socorro especializado', 'Dar líquidos para reanimar', 'Retirar o capacete de motociclista sem técnica'], 1,
+  'Movimentar a vítima sem técnica pode agravar lesões na coluna. A remoção só é feita em risco iminente, como incêndio ou afogamento.',
+  'apostila, módulo Primeiros Socorros');
+
+Q('REC', 'Em caso de hemorragia externa em um membro, a conduta indicada é:',
+  ['Aplicar torniquete imediatamente em todos os casos', 'Comprimir o local com pano limpo e, se possível, elevar o membro', 'Lavar com álcool', 'Deixar sangrar para limpar o ferimento'], 1,
+  'A compressão direta controla a hemorragia na maioria dos casos. O torniquete é recurso extremo, para sangramento intenso que não cessa.',
+  'apostila, módulo Primeiros Socorros');
+
+Q('REC', 'Em uma parada cardiorrespiratória, a sequência correta é:',
+  ['Verificar consciência e respiração, acionar o socorro e iniciar compressões torácicas', 'Dar água e esperar', 'Aplicar respiração boca a boca por 10 minutos antes de comprimir', 'Colocar a vítima sentada'], 0,
+  'O reconhecimento precoce e o início imediato das compressões, com o acionamento do socorro, aumentam muito a chance de sobrevida.',
+  'apostila, módulo Primeiros Socorros');
+
+/* ---------- 7. MEIO AMBIENTE E CIDADANIA ---------- */
+Q('REC', 'O monóxido de carbono (CO), emitido pelos veículos, é um gás:',
+  ['Inofensivo à saúde', 'Asfixiante, que reduz a oxigenação do sangue e pode causar tontura e até morte', 'Que só polui o solo', 'Responsável apenas pelo mau odor'], 1,
+  'O CO diminui a oxigenação no sangue, agravando problemas cardíacos e respiratórios. Em concentrações elevadas leva à morte.',
+  'apostila, módulo Meio Ambiente');
+
+Q('REC', 'O gás emitido em maior quantidade pelos veículos e principal causador do efeito estufa é o:',
+  ['Monóxido de carbono', 'Dióxido de carbono (CO2)', 'Ozônio', 'Óxido de enxofre'], 1,
+  'O CO2 não é nocivo à saúde, mas é o principal gás de efeito estufa. Reduzir seu volume exige reduzir o consumo de combustível.',
+  'apostila, módulo Meio Ambiente');
+
+Q('REC', 'A manutenção preventiva do veículo contribui para o meio ambiente porque:',
+  ['Aumenta o consumo', 'Reduz a emissão de poluentes e o consumo de combustível', 'Não tem relação com emissões', 'Só serve para evitar multas'], 1,
+  'Motor regulado, pneus calibrados e filtros em ordem reduzem a emissão de gases e o consumo — economia para o condutor e menos poluição.',
+  'apostila, módulo Meio Ambiente');
+
+Q('REC', 'Jogar lixo pela janela do veículo é infração e atitude que contraria o princípio de:',
+  ['Prioridade de passagem', 'Respeito ao espaço público e corresponsabilidade pela vida social', 'Preferência de mão', 'Hierarquia das vias'], 1,
+  'Atirar objetos na via é infração média (art. 172) e traduz desrespeito ao espaço coletivo. Cidadania no trânsito é corresponsabilidade.',
+  'art. 172, CTB');
+/* =========================================================
    SimulaTrânsito BR — aplicação (SPA, sem dependências)
    ========================================================= */
 
@@ -3506,10 +3823,13 @@ const CATS = {
   ESC:  { nome: 'Transporte Escolar',                curto: 'Escolar',           base: false, cor: '#eab308' },
   MOPP: { nome: 'Produtos Perigosos (MOPP)',         curto: 'MOPP',              base: false, cor: '#f97316' },
   CIN:  { nome: 'Cargas Indivisíveis',               curto: 'Cargas Indivisíveis',base: false, cor: '#0ea5e9' },
-  EME:  { nome: 'Veículos de Emergência',            curto: 'Emergência',        base: false, cor: '#f43f5e' }
+  EME:  { nome: 'Veículos de Emergência',            curto: 'Emergência',        base: false, cor: '#f43f5e' },
+  REC:  { nome: 'Curso de Reciclagem — CNH suspensa', curto: 'Reciclagem',       base: false, cor: '#a855f7' }
 };
 const BASE_CATS = ['L', 'D', 'P', 'M', 'C', 'V'];   // 6 matérias da 1ª habilitação
 const CURSO_CATS = ['COL', 'ESC', 'MOPP', 'CIN', 'EME'];
+const RECIC_CATS = ['REC'];                       // conteúdo do curso de reciclagem
+const RECIC_TREINO = ['L', 'D', 'P', 'M', 'C'];   // matérias do simulado de reciclagem
 const STORE_KEY = 'simulatrafico.br.v1';
 
 /* -------- estado -------- */
@@ -3518,6 +3838,7 @@ const S = {
   modo: null,          // 'geral' | 'materia' | 'curso'
   catSel: 'L',
   cursoSel: 'COL',
+  recicSel: 'TODAS',
   qtd: 30,
   ritmo: 'prova',
   quiz: null,          // { itens:[], respostas:[], idx, fim, inicio, tempoLimite, duracao }
@@ -3531,7 +3852,7 @@ const shuffle = a => { const r = a.slice(); for (let i = r.length - 1; i > 0; i-
 const sample = (arr, n) => shuffle(arr).slice(0, n);
 const fmtTime = s => { s = Math.max(0, Math.round(s)); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); };
 const pct = (a, b) => b ? Math.round((a / b) * 100) : 0;
-const minAcertos = qtd => Math.ceil((qtd * 2) / 3);
+const minAcertos = qtd => Math.ceil(qtd * 0.7);   // 70% de acertos: 21 de 30, como no DETRAN e na reciclagem
 
 function loadStore() {
   try { return JSON.parse(localStorage.getItem(STORE_KEY)) || { nome: '', hist: [] }; }
@@ -3564,8 +3885,13 @@ function renderChips() {
   $('#chips-cursos').innerHTML = CURSO_CATS.map(c =>
     `<button class="chip" data-curso="${c}" aria-pressed="${S.cursoSel === c}">${CATS[c].nome}</button>`).join('');
 
+  const boxRec = $('#chips-reciclagem');
+  if (boxRec) boxRec.innerHTML = ['TODAS'].concat(RECIC_TREINO).map(c =>
+    `<button class="chip" data-recic="${c}" aria-pressed="${S.recicSel === c}">${c === 'TODAS' ? 'Todas as matérias' : CATS[c].nome}</button>`).join('');
+
   $$('#chips-materias .chip').forEach(b => b.onclick = () => { S.catSel = b.dataset.cat; renderChips(); updateSetupInfo(); });
   $$('#chips-cursos .chip').forEach(b => b.onclick = () => { S.cursoSel = b.dataset.curso; renderChips(); updateSetupInfo(); });
+  if (boxRec) $$('#chips-reciclagem .chip').forEach(b => b.onclick = () => { S.recicSel = b.dataset.recic; renderChips(); updateSetupInfo(); });
   $$('#chips-qtd .chip').forEach(b => {
     b.setAttribute('aria-pressed', String(Number(b.dataset.qtd) === S.qtd));
     b.onclick = () => { S.qtd = Number(b.dataset.qtd); renderChips(); updateSetupInfo(); };
@@ -3574,6 +3900,11 @@ function renderChips() {
     b.setAttribute('aria-pressed', String(b.dataset.ritmo === S.ritmo));
     b.onclick = () => { S.ritmo = b.dataset.ritmo; renderChips(); updateSetupInfo(); };
   });
+}
+
+function alvoQuestoes() {
+  const pool = poolSize();
+  return Math.min(S.qtd, pool);
 }
 
 function updateSetupInfo() {
@@ -3586,6 +3917,8 @@ function updateSetupInfo() {
   $('#setup-info').textContent = `${alvo} questões disponíveis · aprovação a partir de ${need} acertos`;
   const label = S.modo === 'geral' ? 'Simulado geral'
     : S.modo === 'materia' ? 'Simulado · ' + CATS[S.catSel].nome
+    : S.modo === 'reciclagem' ? CATS.REC.nome
+    : S.modo === 'simulado' ? (S.recicSel === 'TODAS' ? 'Simulado de reciclagem · todas as matérias' : 'Simulado de reciclagem · ' + CATS[S.recicSel].nome)
     : 'Simulado · ' + CATS[S.cursoSel].nome;
   $('#setup-title').textContent = label;
 }
@@ -3594,6 +3927,8 @@ function poolSize() {
   if (S.modo === 'geral') return QB.filter(q => BASE_CATS.includes(q.cat)).length;
   if (S.modo === 'materia') return QB.filter(q => q.cat === S.catSel).length;
   if (S.modo === 'curso') { const c = QB.filter(q => q.cat === S.cursoSel).length; const b = QB.filter(q => BASE_CATS.includes(q.cat)).length; return c + b; }
+  if (S.modo === 'reciclagem') return QB.filter(q => q.cat === 'REC').length;
+  if (S.modo === 'simulado') { const cats = S.recicSel === 'TODAS' ? RECIC_TREINO : [S.recicSel]; return QB.filter(q => cats.includes(q.cat)).length; }
   return QB.length;
 }
 
@@ -3601,11 +3936,13 @@ $$('.modo').forEach(btn => btn.onclick = () => {
   S.modo = btn.dataset.modo;
   $$('.modo').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
   $('#setup').hidden = false;
-  const isMat = S.modo === 'materia', isCur = S.modo === 'curso';
+  const isMat = S.modo === 'materia', isCur = S.modo === 'curso', isSim = S.modo === 'simulado';
   $('#box-materias').hidden = !isMat;
   $('#box-cursos').hidden = !isCur;
+  if ($('#box-reciclagem')) $('#box-reciclagem').hidden = !isSim;
   if (S.modo === 'geral' && S.qtd < 30) S.qtd = 30;
   if (S.modo === 'curso') S.qtd = 20;
+  if (S.modo === 'simulado') S.qtd = 30;
   renderChips(); updateSetupInfo();
   if ($('#setup').scrollIntoView) $('#setup').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });
@@ -3635,6 +3972,23 @@ function buildPool() {
   if (S.modo === 'materia') {
     const pool = QB.filter(q => q.cat === S.catSel);
     return sample(pool, Math.min(S.qtd, pool.length));
+  }
+  if (S.modo === 'reciclagem') {
+    const pool = QB.filter(q => q.cat === 'REC');
+    const n = Math.min(S.qtd, pool.length);
+    if (n < 30) return sample(pool, n);
+    // 30 questões no formato da prova de reciclagem (21 para aprovação)
+    const corte = Math.max(1, Math.round(n * (21 / 30)));
+    const p1 = sample(QB.filter(q => q.cat === 'REC'), corte);
+    const resto = QB.filter(q => BASE_CATS.includes(q.cat) && !p1.includes(q));
+    return shuffle(p1.concat(sample(resto, Math.min(n - p1.length, resto.length))));
+  }
+  if (S.modo === 'simulado') {
+    const todas = S.recicSel === 'TODAS';
+    const cats = todas ? RECIC_TREINO : [S.recicSel];
+    const pool = QB.filter(q => cats.includes(q.cat));
+    const n = Math.min(S.qtd, pool.length);
+    return sample(pool, n);
   }
   if (S.modo === 'curso') {
     const esp = QB.filter(q => q.cat === S.cursoSel);
@@ -4532,5 +4886,5 @@ function escapeAttr(t) { return escapeHtml(t); }
 })();
 
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a609027a881cebd8',t:'MTc5NTY5NzMzMA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a609027a881cebd8',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a60911605b08a44b',t:'MTc5NTY5Nzk0MA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a60911605b08a44b',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
