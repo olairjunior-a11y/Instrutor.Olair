@@ -280,32 +280,27 @@
       <div id="card-apoio" hidden></div>
     </div>
 
-    <h2><span class="dot"></span>Escolha o tipo de simulado</h2>
-    <div class="grid c3">
+    <h2><span class="dot"></span>Escolha a categoria do simulado</h2>
+    <div class="grid c2">
       <button class="card modo" data-modo="geral" aria-pressed="false">
         <span class="ico" style="background:rgba(59,130,246,.18)">🎯</span>
-        <b>Simulado geral</b>
-        <span>Questões variadas das 5 matérias do curso teórico, como no exame oficial.</span>
+        <b>1 · Primeira habilitação — questões variadas</b>
+        <span>Prova completa com as matérias misturadas, na proporção do exame do DETRAN: legislação, direção defensiva, primeiros socorros, meio ambiente, cidadania e mecânica básica.</span>
       </button>
       <button class="card modo" data-modo="materia" aria-pressed="false">
         <span class="ico" style="background:rgba(34,197,94,.18)">📚</span>
-        <b>Por matéria</b>
-        <span>Foque em Legislação, Direção Defensiva, Primeiros Socorros, Meio Ambiente ou Mecânica.</span>
+        <b>2 · Primeira habilitação — por matéria</b>
+        <span>Estude uma matéria de cada vez: legislação, direção defensiva, primeiros socorros, meio ambiente, cidadania ou mecânica básica.</span>
+      </button>
+      <button class="card modo" data-modo="reciclagem" aria-pressed="false">
+        <span class="ico" style="background:rgba(168,85,247,.18)">🔄</span>
+        <b>3 · Reciclagem — CNH suspensa ou cassada</b>
+        <span>Curso de reciclagem do condutor infrator: pontos, suspensão, cassação, prazo, 30 horas-aula e a prova de 30 questões com nota 7,0.</span>
       </button>
       <button class="card modo" data-modo="curso" aria-pressed="false">
         <span class="ico" style="background:rgba(139,92,246,.18)">🚌</span>
-        <b>Cursos especializados</b>
-        <span>Coletivo, escolar, MOPP, cargas indivisíveis e veículos de emergência.</span>
-      </button>
-      <button class="card modo" data-modo="reciclagem" aria-pressed="false">
-        <span class="ico" style="background:rgba(244,63,94,.18)">🔄</span>
-        <b>Reciclagem · CNH suspensa</b>
-        <span>Aulas e conteúdo do curso de reciclagem para condutor com CNH suspensa, cassada ou que quer zerar pontos.</span>
-      </button>
-      <button class="card modo" data-modo="simulado" aria-pressed="false">
-        <span class="ico" style="background:rgba(234,179,8,.18)">📝</span>
-        <b>Simulado de reciclagem</b>
-        <span>Treino no formato do curso: legislação, direção defensiva, primeiros socorros, meio ambiente e cidadania.</span>
+        <b>4 · Cursos especializados</b>
+        <span>MOPP (produtos perigosos), cargas indivisíveis, transporte escolar, transporte coletivo e veículos de emergência.</span>
       </button>
     </div>
 
@@ -327,9 +322,9 @@
       </div>
 
       <div class="setup-box" id="box-reciclagem" hidden>
-        <label class="field">Matéria do simulado de reciclagem</label>
+        <label class="field">Formato do simulado de reciclagem</label>
         <div class="chips" id="chips-reciclagem"></div>
-        <p class="hint" style="margin-top:10px">O curso de reciclagem cobra as cinco matérias da formação: legislação, direção defensiva, primeiros socorros, meio ambiente e cidadania.</p>
+        <p class="hint" style="margin-top:10px">A prova do curso tem 30 questões e exige 21 acertos (70%). As matérias seguem as 30 h/a: legislação 12 h, direção defensiva 8 h, relacionamento interpessoal 6 h e primeiros socorros 4 h.</p>
       </div>
 
       <div class="setup-box">
@@ -3887,7 +3882,7 @@ function renderChips() {
 
   const boxRec = $('#chips-reciclagem');
   if (boxRec) boxRec.innerHTML = ['TODAS'].concat(RECIC_TREINO).map(c =>
-    `<button class="chip" data-recic="${c}" aria-pressed="${S.recicSel === c}">${c === 'TODAS' ? 'Todas as matérias' : CATS[c].nome}</button>`).join('');
+    `<button class="chip" data-recic="${c}" aria-pressed="${S.recicSel === c}">${c === 'TODAS' ? 'Prova completa (30)' : CATS[c].nome}</button>`).join('');
 
   $$('#chips-materias .chip').forEach(b => b.onclick = () => { S.catSel = b.dataset.cat; renderChips(); updateSetupInfo(); });
   $$('#chips-cursos .chip').forEach(b => b.onclick = () => { S.cursoSel = b.dataset.curso; renderChips(); updateSetupInfo(); });
@@ -3915,11 +3910,10 @@ function updateSetupInfo() {
     ? `Modo prova: cronômetro de ${alvo * 2} minutos, alternativas podem ser revistas e a correção sai no final — como no DETRAN.`
     : 'Modo estudo: a resposta é corrigida na hora, com comentário e base legal. Cronômetro conta o tempo, sem pressão.';
   $('#setup-info').textContent = `${alvo} questões disponíveis · aprovação a partir de ${need} acertos`;
-  const label = S.modo === 'geral' ? 'Simulado geral'
-    : S.modo === 'materia' ? 'Simulado · ' + CATS[S.catSel].nome
-    : S.modo === 'reciclagem' ? CATS.REC.nome
-    : S.modo === 'simulado' ? (S.recicSel === 'TODAS' ? 'Simulado de reciclagem · todas as matérias' : 'Simulado de reciclagem · ' + CATS[S.recicSel].nome)
-    : 'Simulado · ' + CATS[S.cursoSel].nome;
+  const label = S.modo === 'geral' ? '1ª habilitação · questões variadas'
+    : S.modo === 'materia' ? '1ª habilitação · ' + CATS[S.catSel].nome
+    : S.modo === 'reciclagem' ? (S.recicSel === 'TODAS' ? 'Reciclagem · prova completa' : 'Reciclagem · ' + CATS[S.recicSel].nome)
+    : 'Curso especializado · ' + CATS[S.cursoSel].nome;
   $('#setup-title').textContent = label;
 }
 
@@ -3927,8 +3921,10 @@ function poolSize() {
   if (S.modo === 'geral') return QB.filter(q => BASE_CATS.includes(q.cat)).length;
   if (S.modo === 'materia') return QB.filter(q => q.cat === S.catSel).length;
   if (S.modo === 'curso') { const c = QB.filter(q => q.cat === S.cursoSel).length; const b = QB.filter(q => BASE_CATS.includes(q.cat)).length; return c + b; }
-  if (S.modo === 'reciclagem') return QB.filter(q => q.cat === 'REC').length;
-  if (S.modo === 'simulado') { const cats = S.recicSel === 'TODAS' ? RECIC_TREINO : [S.recicSel]; return QB.filter(q => cats.includes(q.cat)).length; }
+  if (S.modo === 'reciclagem') {
+    if (S.recicSel === 'TODAS') return QB.filter(q => q.cat === 'REC').length + QB.filter(q => BASE_CATS.includes(q.cat)).length;
+    return QB.filter(q => q.cat === S.recicSel).length;
+  }
   return QB.length;
 }
 
@@ -3936,13 +3932,13 @@ $$('.modo').forEach(btn => btn.onclick = () => {
   S.modo = btn.dataset.modo;
   $$('.modo').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
   $('#setup').hidden = false;
-  const isMat = S.modo === 'materia', isCur = S.modo === 'curso', isSim = S.modo === 'simulado';
+  const isMat = S.modo === 'materia', isCur = S.modo === 'curso', isRec = S.modo === 'reciclagem';
   $('#box-materias').hidden = !isMat;
   $('#box-cursos').hidden = !isCur;
-  if ($('#box-reciclagem')) $('#box-reciclagem').hidden = !isSim;
+  if ($('#box-reciclagem')) $('#box-reciclagem').hidden = !isRec;
   if (S.modo === 'geral' && S.qtd < 30) S.qtd = 30;
   if (S.modo === 'curso') S.qtd = 20;
-  if (S.modo === 'simulado') S.qtd = 30;
+  if (S.modo === 'reciclagem') S.qtd = S.recicSel === 'TODAS' ? 30 : 20;
   renderChips(); updateSetupInfo();
   if ($('#setup').scrollIntoView) $('#setup').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });
@@ -3974,21 +3970,17 @@ function buildPool() {
     return sample(pool, Math.min(S.qtd, pool.length));
   }
   if (S.modo === 'reciclagem') {
+    if (S.recicSel !== 'TODAS') {
+      const pool = QB.filter(q => q.cat === S.recicSel);
+      return sample(pool, Math.min(S.qtd, pool.length));
+    }
     const pool = QB.filter(q => q.cat === 'REC');
     const n = Math.min(S.qtd, pool.length);
     if (n < 30) return sample(pool, n);
-    // 30 questões no formato da prova de reciclagem (21 para aprovação)
-    const corte = Math.max(1, Math.round(n * (21 / 30)));
-    const p1 = sample(QB.filter(q => q.cat === 'REC'), corte);
+    // prova de reciclagem: 30 questões, 21 do conteúdo do curso (70%)
+    const p1 = sample(pool, Math.round(n * 0.7));
     const resto = QB.filter(q => BASE_CATS.includes(q.cat) && !p1.includes(q));
     return shuffle(p1.concat(sample(resto, Math.min(n - p1.length, resto.length))));
-  }
-  if (S.modo === 'simulado') {
-    const todas = S.recicSel === 'TODAS';
-    const cats = todas ? RECIC_TREINO : [S.recicSel];
-    const pool = QB.filter(q => cats.includes(q.cat));
-    const n = Math.min(S.qtd, pool.length);
-    return sample(pool, n);
   }
   if (S.modo === 'curso') {
     const esp = QB.filter(q => q.cat === S.cursoSel);
@@ -4886,5 +4878,5 @@ function escapeAttr(t) { return escapeHtml(t); }
 })();
 
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a60911605b08a44b',t:'MTc5NTY5Nzk0MA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a60911605b08a44b',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a60918ebbdfaa8d4',t:'MTc5NTY5ODI0OQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a60918ebbdfaa8d4',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
