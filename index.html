@@ -2875,6 +2875,623 @@ Q('ESC', 'Sobre a higiene e a conservação do veículo escolar, é correto afir
   'Veículo limpo evita que a criança se suje ou se machuque com objetos soltos, e integra as condições de conforto e segurança exigidas do serviço.',
   'Res. CONTRAN 285/2008');
 /* =========================================================
+   SimulaTrânsito BR — LOTE 6 (Condutor de Veículos de Emergência)
+   Base: apostila "CVE" (208 páginas) enviada pelo instrutor.
+   Conteúdo conferido com o CTB (arts. 29, VII, 46, 189, 190),
+   Res. CONTRAN 168/2004, 285/2008, 268/2008, Portaria 2048/GM
+   e o Regulamento Técnico dos Sistemas Estaduais de Urgência.
+   Questões autorais, com comentário e base legal.
+   Categoria: EME
+   ========================================================= */
+
+/* ---------- 1. REQUISITOS E CURSO ---------- */
+Q('EME', 'Para exercer a profissão de condutor de veículo de transporte de emergência, é exigido:',
+  ['Ser maior de 18 anos e ter categoria B', 'Ser maior de 21 anos e estar habilitado em categoria compatível com o veículo', 'Ser maior de 25 anos e ter categoria E', 'Não há idade mínima'], 1,
+  'Além da idade superior a 21 anos, o condutor não pode estar cumprindo suspensão do direito de dirigir nem cassação da CNH. A categoria depende do veículo: uma ambulância do SAMU exige a D.',
+  'Res. CONTRAN 168/2004 e art. 145, CTB');
+
+Q('EME', 'O curso para condutor de veículo de transporte de emergência está previsto na:',
+  ['Res. CONTRAN 285/2008', 'Res. ANTT 5.947/2021', 'Lei 8.080/1990', 'Portaria 2048/GM'], 0,
+  'A Res. 285/2008 do CONTRAN trata dos cursos especializados, incluindo o de transporte de emergência, com carga horária e módulos definidos.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'A aprovação no curso de condutor de emergência exige nota mínima de:',
+  ['5,0 por disciplina', '6,0 por disciplina', '7,0 por disciplina', '8,0 por disciplina'], 2,
+  'A nota mínima é 7,0 por disciplina, nos termos do art. 145-A do CTB. É um critério mais rigoroso que o dos demais cursos especializados.',
+  'art. 145-A, CTB');
+
+Q('EME', 'A reciclagem do curso de condutor de emergência deve ser feita:',
+  ['A cada 2 anos', 'A cada 5 anos', 'A cada 10 anos', 'Uma única vez'], 1,
+  'A atualização é exigida a cada cinco anos. O requisito vale especialmente para quem conduz ambulâncias, conforme a normatização do CONTRAN.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'Sobre a distribuição dos módulos do curso de emergência, é correto afirmar que:',
+  ['Todos os módulos têm a mesma carga', 'Direção Defensiva e Relacionamento Interpessoal têm a maior carga horária', 'Não há módulo de primeiros socorros', 'O curso é apenas prático'], 1,
+  'Os módulos de Direção Defensiva e Relacionamento Interpessoal têm 15 horas-aula cada, contra 10 de Legislação e 10 de Primeiros Socorros, Meio Ambiente e Convívio Social.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'Estar habilitado nas categorias A, B, C, D ou E, por si só:',
+  ['Garante o direito de conduzir qualquer veículo de emergência', 'Não basta: é preciso o curso especializado e, dependendo do veículo, a categoria específica', 'É suficiente para ambulâncias', 'Dispensa o curso'], 1,
+  'A habilitação é o primeiro requisito. O curso especializado e a categoria compatível com o veículo (por exemplo, D para ambulância do SAMU) completam a exigência.',
+  'art. 145, CTB');
+
+/* ---------- 2. EMERGÊNCIA X URGÊNCIA ---------- */
+Q('EME', 'A diferença entre emergência e urgência é que:',
+  ['São sinônimos', 'Na emergência há risco iminente de morte e necessidade de intervenção imediata; na urgência não existe risco grave inicial', 'A urgência é sempre mais grave', 'A emergência só existe em hospitais'], 1,
+  'Na emergência o risco de morte é iminente. Na urgência ainda não há risco grave, mas a falta de atendimento adequado pode transformá-la em emergência.',
+  'Portaria 2048/GM e Res. CONTRAN 268/2008');
+
+Q('EME', 'Uma urgência sem atendimento adequado:',
+  ['Permanece igual', 'Pode evoluir para emergência, aumentando o risco ao paciente', 'Sempre se resolve sozinha', 'Deixa de ser um problema de saúde'], 1,
+  'A evolução é o motivo pelo qual a urgência exige agilidade. Esperar o quadro piorar transforma um atendimento simples em risco de vida.',
+  'Portaria 2048/GM');
+
+Q('EME', 'A palavra que consta na ambulância, indicando a natureza do serviço, é:',
+  ['URGÊNCIA', 'EMERGÊNCIA', 'SOCORRO', 'RESGATE'], 1,
+  'A ambulância traz a inscrição EMERGÊNCIA justamente por lidar com situações críticas, em que há risco de morte e necessidade de intervenção imediata.',
+  'Portaria 2048/GM');
+
+/* ---------- 3. PRERROGATIVAS E LIMITES ---------- */
+Q('EME', 'As prerrogativas dos veículos de emergência previstas no art. 29, VII, do CTB são:',
+  ['Absolutas, em qualquer circunstância', 'Prioridade de trânsito e liberdade de deslocamento e imobilização, desde que em serviço de urgência e identificados', 'Válidas mesmo sem sirene', 'Limitadas a rodovias federais'], 1,
+  'A prerrogativa é condicionada: só vale em efetivo serviço de urgência e com o veículo identificado por alarme sonoro e iluminação vermelha intermitente.',
+  'art. 29, VII, CTB');
+
+Q('EME', 'Para que o veículo de emergência tenha prioridade de passagem, é indispensável:',
+  ['Estar em serviço de urgência e identificado com sirene e luz vermelha intermitente', 'Apenas estar pintado de branco', 'Apenas circular acima da velocidade', 'Portar a CNH categoria D'], 0,
+  'Sem os dois dispositivos acionados, o veículo deixa de ter prerrogativa e passa a se submeter às regras comuns de circulação.',
+  'art. 29, VII, CTB e Res. CONTRAN 268/2008');
+
+Q('EME', 'Ao ser ultrapassado por veículo de emergência com sirene ligada, o condutor deve:',
+  ['Acelerar para não atrapalhar', 'Deixar livre a passagem pela faixa da esquerda, deslocando-se para a direita e parando se necessário', 'Frear bruscamente no meio da pista', 'Seguir atrás do veículo para aproveitar a passagem'], 1,
+  'A manobra correta é sair da faixa da esquerda com antecedência e segurança. Frear de repente no meio da pista provoca colisões.',
+  'art. 29, VII, "a", CTB');
+
+Q('EME', 'Deixar de dar passagem a veículo de emergência em serviço de urgência é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima, com 7 pontos na CNH'], 3,
+  'O art. 189 classifica como gravíssima. Também se aplica a veículos precedidos de batedores e aos de socorro de incêndio, salvamento, polícia e fiscalização de trânsito.',
+  'art. 189, CTB');
+
+Q('EME', 'Seguir atrás do veículo de emergência para aproveitar a passagem aberta é infração:',
+  ['Leve', 'Média', 'Grave, com 5 pontos na CNH', 'Não é infração'], 2,
+  'O art. 190 pune com infração grave quem usa a passagem aberta pelo veículo de emergência em benefício próprio, expondo-se ao risco da operação.',
+  'art. 190, CTB');
+
+Q('EME', 'Mesmo com prerrogativa de prioridade, o condutor de emergência que ultrapassar em local proibido ou exceder a velocidade:',
+  ['Está isento de qualquer penalidade', 'Responde nas esferas administrativa, civil e penal', 'Só responde se houver sinistro', 'Só pode ser advertido'], 1,
+  'A prerrogativa de prioridade não elimina a responsabilidade. O condutor responde administrativamente, civilmente e penalmente, e pode até ser demitido por justa causa.',
+  'art. 29, VII, "d", CTB');
+
+Q('EME', 'A prioridade de passagem do veículo de emergência em cruzamento deve ser exercida:',
+  ['Acelerando ao máximo', 'Com velocidade reduzida e os devidos cuidados de segurança, obedecidas as demais normas', 'Sem observar o trânsito transversal', 'Somente com apoio de batedores'], 1,
+  'O próprio art. 29, VII, "d", exige velocidade reduzida e cuidado no cruzamento. Sirene não blindam o veículo contra colisão.',
+  'art. 29, VII, "d", CTB');
+
+Q('EME', 'O uso dos dispositivos de alarme sonoro e luz vermelha intermitente só pode ocorrer:',
+  ['Em qualquer deslocamento do veículo', 'Durante a efetiva prestação de serviço de urgência', 'No trajeto de volta à base', 'Em manutenção preventiva'], 1,
+  'O uso indevido dos dispositivos é infração. A prerrogativa existe para salvar vidas, não para ganhar tempo no trânsito.',
+  'art. 29, VII, "c", CTB');
+
+Q('EME', 'Ao imobilizar temporariamente o veículo na via em situação de emergência, é obrigatório:',
+  ['Deixar o veículo como está', 'Providenciar imediata sinalização de advertência', 'Acender apenas o farol alto', 'Aguardar a chegada da polícia'], 1,
+  'O art. 46 exige sinalização imediata de advertência. O veículo de emergência parado também é obstáculo e pode provocar colisões traseiras.',
+  'art. 46, CTB');
+
+/* ---------- 4. CLASSIFICAÇÃO DAS AMBULÂNCIAS ---------- */
+Q('EME', 'A ambulância Tipo A (branca) destina-se a:',
+  ['Atendimento de alto risco', 'Transporte em decúbito horizontal de pacientes sem risco de vida, em remoções eletivas', 'Resgate em locais de difícil acesso', 'Transporte aéreo'], 1,
+  'O Tipo A é a ambulância de transporte, para remoções eletivas. A tripulação é de dois profissionais: um motorista e um técnico ou auxiliar de enfermagem.',
+  'Portaria 2048/GM');
+
+Q('EME', 'A ambulância Tipo B (Suporte Básico) tem tripulação mínima de:',
+  ['Um motorista apenas', 'Dois profissionais: um motorista com treinamento em APH (socorrista) e um técnico ou auxiliar de enfermagem', 'Um médico e um enfermeiro', 'Três socorristas'], 1,
+  'O Tipo B atende tanto o transporte inter-hospitalar de pacientes com risco conhecido quanto o atendimento pré-hospitalar de risco desconhecido.',
+  'Portaria 2048/GM');
+
+Q('EME', 'A ambulância Tipo C é a de:',
+  ['Transporte eletivo', 'Resgate, com equipamentos de salvamento terrestre, aquático e em alturas', 'Suporte básico', 'Suporte avançado'], 1,
+  'O Tipo C atende vítimas de acidentes e pacientes em locais de difícil acesso, com tripulação capacitada em salvamento e suporte básico de vida.',
+  'Portaria 2048/GM');
+
+Q('EME', 'A ambulância Tipo D (UTI móvel) exige tripulação de:',
+  ['Dois socorristas', 'Três profissionais: motorista, enfermeiro e médico', 'Apenas o motorista', 'Um médico e dois motoristas'], 1,
+  'O Tipo D é o suporte avançado, para pacientes de alto risco que precisam de cuidados médicos intensivos durante o transporte.',
+  'Portaria 2048/GM');
+
+Q('EME', 'Sobre os veículos de transporte de emergência, é correto afirmar que incluem:',
+  ['Apenas ambulâncias', 'Ambulâncias, UTIs móveis, veículos de bombeiros, de salvamento, da Defesa Civil e viaturas de segurança pública', 'Somente veículos do SAMU', 'Apenas veículos com sirene'], 1,
+  'A Res. CONTRAN 268/2008 inclui os veículos da Defesa Civil, e a lista alcança bombeiros, salvamento, polícia (inclusive motos em atendimento) e ambulâncias.',
+  'Res. CONTRAN 268/2008');
+
+Q('EME', 'Segundo a Constituição Federal, integram os órgãos de segurança pública (art. 144):',
+  ['Polícia Federal, Polícia Rodoviária Federal, Polícias Civis e Polícias Militares, entre outros', 'Apenas a Polícia Militar', 'Somente a Polícia Federal', 'Apenas as Guardas Municipais'], 0,
+  'O art. 144 lista Polícia Federal, Polícia Ferroviária Federal, Polícia Rodoviária Federal, Polícias Civis e Polícias Militares. As Guardas Municipais aparecem no § 8º.',
+  'Constituição Federal, art. 144');
+
+Q('EME', 'O Vir (veículo de intervenção rápida) é usado para:',
+  ['Transporte de pacientes crônicos', 'Chegar mais rápido ou a locais de difícil acesso, com primeiros suportes à vítima', 'Transporte inter-hospitalar de longo percurso', 'Remoção eletiva'], 1,
+  'Geralmente são veículos 4x4 e motolâncias, com condutor socorrista e médico. Chegam antes da ambulância nos locais de difícil acesso.',
+  'Portaria 2048/GM');
+
+Q('EME', 'Veículos habituais adaptados para transporte de pacientes de baixo risco, sentados:',
+  ['Não existem na classificação', 'Podem ser usados, mas só com anuência médica e sem se caracterizarem como veículos de lotação', 'Substituem qualquer ambulância', 'Dispensam condutor capacitado'], 1,
+  'Esse transporte é admitido para pacientes crônicos e de baixo risco, sempre com autorização médica e fora da categoria de lotação (ônibus, peruas).',
+  'Portaria 2048/GM');
+
+/* ---------- 5. EQUIPAMENTOS ---------- */
+Q('EME', 'Entre os equipamentos obrigatórios de um veículo de emergência, estão:',
+  ['Guedel, oxigênio, AMBÚ, oxímetro, KED, desfibrilador, bolsa de emergência e maca com rodas', 'Somente oxigênio e maca', 'Apenas desfibrilador', 'Somente a bolsa de emergência'], 0,
+  'O conjunto permite suporte básico e avançado de vida. O KED é usado na imobilização de coluna, e o Guedel, na permeabilização das vias aéreas.',
+  'Portaria 2048/GM');
+
+Q('EME', 'O equipamento KED é utilizado para:',
+  ['Medir a saturação de oxigênio', 'Imobilização da coluna e do tórax da vítima', 'Aplicar medicação', 'Aquecer o paciente'], 1,
+  'O KED (Extricador de Kendrick) imobiliza a coluna durante a retirada da vítima de dentro do veículo, reduzindo o risco de lesão medular.',
+  'Portaria 2048/GM');
+
+Q('EME', 'O oxímetro tem a função de:',
+  ['Medir a pressão arterial', 'Verificar a saturação de oxigênio no sangue', 'Aplicar oxigênio', 'Aquecer o paciente'], 1,
+  'A saturação indica a oxigenação do paciente e orienta a necessidade de suporte respiratório durante o transporte.',
+  'Portaria 2048/GM');
+
+/* ---------- 6. LEGISLAÇÃO DO SUS E DO ATENDIMENTO ---------- */
+Q('EME', 'A lei que regula, em todo o território nacional, as ações e serviços de saúde é a:',
+  ['Lei 9.503/1997', 'Lei 8.080/1990', 'Lei 8.987/1995', 'Lei 13.146/2015'], 1,
+  'A Lei 8.080/1990 é a Lei Orgânica da Saúde. Ela alcança as ações e serviços executados por pessoas naturais ou jurídicas de direito público ou privado.',
+  'Lei 8.080/1990');
+
+Q('EME', 'O número único nacional para urgências médicas, sob regulação médica, é:',
+  ['190', '191', '192', '193'], 2,
+  'O 192 corresponde ao SAMU — Serviço de Atendimento Móvel de Urgências. O 193 é dos Bombeiros e o 191 da Polícia Rodoviária Federal.',
+  'Portaria 2048/GM');
+
+Q('EME', 'A Política Nacional de Atenção às Urgências foi instituída pela:',
+  ['Portaria 2048/GM', 'Portaria 1863/GM de 2003', 'Lei 8.080/1990', 'Res. CONTRAN 268/2008'], 1,
+  'A Portaria 1863/GM de 2003 instituiu a Política Nacional de Atenção às Urgências, que trata do atendimento pré-hospitalar móvel e busca chegar precocemente à vítima.',
+  'Portaria 1863/GM de 2003');
+
+Q('EME', 'O atendimento pré-hospitalar móvel caracteriza-se por:',
+  ['Atender apenas dentro do hospital', 'Chegar precocemente à vítima após o agravo à saúde, prestando atendimento e transporte adequado a um serviço de saúde', 'Realizar cirurgias no local', 'Transportar apenas pacientes crônicos'], 1,
+  'Alcança agravos clínicos, cirúrgicos, traumáticos e psiquiátricos, buscando evitar sofrimento, sequelas e morte, com transporte hierarquizado no SUS.',
+  'Portaria 1863/GM de 2003');
+
+Q('EME', 'O Regulamento Técnico dos Sistemas Estaduais de Urgência e Emergência, que trata da regulação médica das urgências, foi instituído pela:',
+  ['Portaria 737/GM', 'Portaria 2048/GM de 2002', 'Portaria 373/GM', 'Portaria 50/2002 da ANVISA'], 1,
+  'A Portaria 2048/GM de 2002 definiu as normas e critérios de funcionamento, classificação e cadastramento dos serviços de urgência e emergência.',
+  'Portaria 2048/GM de 2002');
+
+Q('EME', 'Conduzir veículo de emergência exige do profissional, principalmente:',
+  ['Apenas habilidade na direção', 'Equilíbrio emocional, raciocínio, habilidade e paciência, com segurança mesmo sob pressão', 'Apenas conhecimento de mecânica', 'Somente obediência às ordens da empresa'], 1,
+  'O condutor trabalha em ambiente hostil, com pacientes com dor, pessoas com o psicológico alterado e profissionais estressados — e ainda assim deve conduzir com segurança.',
+  'Res. CONTRAN 285/2008');
+
+/* ---------- 7. RESPONSABILIDADE E INFRAÇÕES ---------- */
+Q('EME', 'Sobre a responsabilidade dos veículos de emergência, é correto afirmar que:',
+  ['Estão isentos de multas por serem serviços públicos', 'Estão sujeitos às mesmas consequências legais que os demais condutores e podem ser multados', 'Só respondem em caso de sinistro grave', 'São fiscalizados apenas pelo órgão de origem'], 1,
+  'O art. 3º do CTB aplica o Código a qualquer veículo, inclusive os de serviço público. A existência do art. 222, que pune o veículo de emergência, comprova que ele é multável.',
+  'art. 3º e art. 222, CTB');
+
+Q('EME', 'Deixar de manter ligado o sistema de iluminação vermelha intermitente durante o atendimento de emergência, ainda que parado, é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima'], 1,
+  'O art. 222 é infração média. Sem a sinalização luminosa, os demais condutores não reconhecem o veículo em serviço e o risco de colisão cresce muito.',
+  'art. 222, CTB');
+
+Q('EME', 'Conduzir veículo com o sistema de iluminação e sinalização alterados é infração:',
+  ['Leve, sem medida administrativa', 'Média, somente multa', 'Grave, com retenção do veículo para regularização', 'Gravíssima'], 2,
+  'O art. 230, XIII, é grave com retenção. Alterações no sistema luminoso comprometem a identificação do veículo e a comunicação com os outros usuários.',
+  'art. 230, XIII, CTB');
+
+Q('EME', 'A prerrogativa de livre estacionamento do veículo de emergência vale:',
+  ['Em qualquer momento, mesmo fora do serviço', 'Somente quando em serviço de urgência e devidamente identificado', 'Apenas em hospitais', 'Apenas durante o dia'], 1,
+  'Trafegar ou estacionar com os dispositivos luminosos acionados fora de atendimento emergencial não é a conduta correta e pode caracterizar uso indevido da prerrogativa.',
+  'art. 29, VII, CTB');
+
+/* ---------- 8. COMPORTAMENTO DO CONDUTOR ---------- */
+Q('EME', 'Antes de iniciar o serviço, o condutor de emergência deve fazer uma autoavaliação porque:',
+  ['É exigência apenas formal', 'Problemas pessoais não podem interferir no atendimento, dada a responsabilidade da função', 'Só serve para preencher relatório', 'A empresa exige, mas não tem efeito prático'], 1,
+  'Irritabilidade, nervosismo ou desmotivação geram comportamentos impróprios à profissão e comprometem a segurança do paciente e da guarnição.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'O primeiro contato do condutor com o paciente é decisivo porque:',
+  ['Define o valor a ser cobrado', 'Estabelece a relação de confiança com o paciente e a família, que sustenta todo o atendimento', 'É apenas protocolar', 'Não influencia o serviço'], 1,
+  'A confiança transmitida no primeiro contato melhora a colaboração do paciente e reduz a tensão da família durante o atendimento e o transporte.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'Empatia, para o condutor de emergência, significa:',
+  ['Sentir pena do paciente', 'Colocar-se no lugar do outro para compreender melhor a vítima, o acompanhante e a família', 'Envolver-se emocionalmente com o caso', 'Tratar todos da mesma forma, sem distinção'], 1,
+  'A empatia é uma habilidade profissional: aproxima o condutor do ponto de vista do outro sem que ele se envolva emocionalmente a ponto de perder o controle da situação.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'Se a família do paciente fizer comentários ou críticas infundadas, o condutor deve:',
+  ['Responder à altura', 'Não encarar como pessoais, filtrar as queixas e manter a calma em respeito a quem precisa de ajuda', 'Deixar o atendimento para outro', 'Registrar boletim de ocorrência imediatamente'], 1,
+  'A família está fragilizada. Envolver-se emocionalmente compromete o trabalho. Respirar fundo e controlar o emocional é parte da competência do profissional.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'Entre as atitudes esperadas do condutor de emergência, está o respeito à vida, que significa:',
+  ['Cuidar primeiro do paciente, sempre', 'Cuidar primeiro da própria segurança e da guarnição, para então poder atender o próximo', 'Priorizar o patrimônio', 'Seguir o protocolo sem avaliar riscos'], 1,
+  'Socorrista ferido deixa de socorrer. A segurança da própria equipe é a condição para que o atendimento à vítima aconteça com qualidade.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'A prudência na condução do veículo de emergência é responsabilidade:',
+  ['Da central de regulação', 'Do condutor, no deslocamento até o local, no translado da vítima e no retorno à base', 'Do médico da equipe', 'Do gestor do serviço'], 1,
+  'A responsabilidade pela condução em todas as etapas é do condutor. A pressa do atendimento não autoriza manobras que coloquem em risco a guarnição e terceiros.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'O condutor de emergência deve tratar as pessoas:',
+  ['Com formalidade distante', 'Pelo nome, com contato visual, respeito independentemente de idade, sexo ou raça, e cortesia incondicional', 'Somente quando solicitado', 'Conforme a gravidade do caso'], 1,
+  'São detalhes que fazem diferença no atendimento a pessoas fragilizadas pelo estado de saúde, e valem para o paciente, o acompanhante e a família.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'A agilidade exigida na condução de emergência deve vir acompanhada de:',
+  ['Excesso de velocidade autorizado', 'Cautela e prudência, evitando que o deslocamento gere novas ocorrências', 'Uso de sirene em qualquer situação', 'Desrespeito à sinalização'], 1,
+  'A missão é chegar rápido e em condições de atender. Um sinistro no caminho transforma a equipe de socorro em nova vítima.',
+  'Res. CONTRAN 285/2008');
+
+Q('EME', 'Usuários com dificuldade de locomoção, necessidades especiais, idosos, gestantes e crianças exigem do condutor de emergência:',
+  ['O mesmo tratamento de todos, sem adaptações', 'Cuidados especiais, com adaptação do atendimento às características de cada um', 'Atendimento apenas se houver acompanhante', 'Encaminhamento a outro serviço'], 1,
+  'O art. 29, § 2º, do CTB dá prioridade aos mais vulneráveis. No atendimento de emergência, isso se traduz em tempo, cuidado e comunicação adequados.',
+  'art. 29, § 2º, CTB');
+
+Q('EME', 'O estresse do condutor de emergência é fator de risco porque:',
+  ['Afeta apenas o humor da equipe', 'Provoca alterações no comportamento e no metabolismo, prejudicando a atenção e a decisão', 'Só importa em jornadas longas', 'Não tem relação com sinistros'], 1,
+  'A rotina automatizada e a pressão constante exigem esforço físico e psíquico maior. Reconhecer o próprio limite é parte da segurança do serviço.',
+  'Res. CONTRAN 285/2008');
+/* =========================================================
+   SimulaTrânsito BR — LOTE 7 (Transporte de Carga Indivisível)
+   Base: apostila "CARGAS INDIVISÍVEIS" (228 páginas, digitalizada —
+   lida por OCR página a página) enviada pelo instrutor.
+   Conteúdo conferido com CTB (arts. 99, 101, 231, IV e VI),
+   Res. CONTRAN 210/2006, 211/2006, 246/2007, 354/2010, 520/2015,
+   701/2017, Res. DNIT 1/2016, Lei 11.442/2007 e Res. ANTT 4.799/2015.
+   Questões autorais, com comentário e base legal.
+   Categoria: CIN
+   ========================================================= */
+
+/* ---------- 1. DEFINIÇÃO E LEGISLAÇÃO ---------- */
+Q('CIN', 'Carga indivisível é aquela que:',
+  ['Pode ser fracionada, mas não pode ser pesada', 'Constitui uma unidade com peso e/ou dimensões acima dos limites regulamentares, exigindo veículo especial', 'Só pode ser transportada em rodovias federais', 'Tem peso máximo de 10 toneladas'], 1,
+  'Segundo o DNIT, é a carga unitária com peso ou dimensões excedentes aos limites legais, cujo transporte exige veículo com capacidade, estrutura, suspensão e direção apropriadas.',
+  'DNIT (2016) / Res. CONTRAN 211/2006');
+
+Q('CIN', 'São exemplos de cargas indivisíveis:',
+  ['Caixas de papelão e sacos de cimento', 'Blocos de rocha, máquinas e equipamentos de grandes dimensões, toras, tubos, transformadores e pás eólicas', 'Somente toras de madeira', 'Apenas contêineres'], 1,
+  'A Res. 285 do CONTRAN cita blocos de rocha, máquinas ou equipamentos de grandes dimensões, toras e tubos. O DNIT acrescenta pás eólicas, vagões, transformadores e silos.',
+  'Res. CONTRAN 285/2008 / DNIT (2016)');
+
+Q('CIN', 'Segundo o art. 99 do CTB, somente poderá transitar pelas vias terrestres o veículo cujo peso e dimensões:',
+  ['Atenderem aos limites estabelecidos pelo CONTRAN', 'Não excederem 80 toneladas', 'Foremm aprovados pelo fabricante apenas', 'Dependam de autorização do município'], 0,
+  'O art. 99 fixa a regra geral: peso e dimensões dentro dos limites do CONTRAN. Quem excede precisa de autorização especial, conforme o art. 101.',
+  'art. 99, CTB');
+
+Q('CIN', 'A autorização que permite o trânsito de veículo com peso ou dimensões excedentes é a:',
+  ['AET — Autorização Especial de Trânsito', 'CRLV', 'CITV', 'RNTRC'], 0,
+  'A AET está prevista no art. 101 do CTB e é concedida pelo órgão executivo rodoviário da União, dos Estados, dos Municípios ou do DF, com percurso definido.',
+  'art. 101, CTB');
+
+Q('CIN', 'Transitar com veículo com dimensões excedentes aos limites regulamentares sem AET, ou em desacordo com ela, é infração prevista:',
+  ['No art. 181 do CTB', 'Nos incisos IV e VI do art. 231 do CTB', 'No art. 167 do CTB', 'Não há previsão legal'], 1,
+  'O art. 231, IV e VI, tipifica a conduta. O CTB aplica a penalidade mesmo ao veículo vazio, pois a irregularidade está na dimensão do conjunto.',
+  'art. 231, IV e VI, CTB');
+
+Q('CIN', 'A lei que define o transporte rodoviário de cargas como atividade econômica de natureza comercial é a:',
+  ['Lei 11.442/2007', 'Lei 9.503/1997', 'Lei 8.080/1990', 'Lei 12.587/2012'], 0,
+  'A Lei 11.442/2007 trata do transporte rodoviário de cargas exercido por pessoa física ou jurídica mediante remuneração, e foi regulamentada pela Res. ANTT 3.658/2011.',
+  'Lei 11.442/2007');
+
+Q('CIN', 'A Resolução do DNIT que regulamenta o uso de rodovias federais por veículos com cargas indivisíveis e excedentes é a:',
+  ['Res. DNIT 1/2016', 'Res. CONTRAN 210/2006', 'Res. ANTT 4.799/2015', 'Res. CONTRAN 354/2010'], 0,
+  'A Res. DNIT 1/2016 regulamenta o trânsito desses conjuntos nas rodovias federais, com base nos arts. 21 e 101 do CTB, e fixa limites de circulação e sinalização.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'A AET não exime o beneficiário de responsabilidade por:',
+  ['Danos que o veículo ou a combinação causar à via ou a terceiros', 'Multas de velocidade', 'Obrigações trabalhistas', 'Impostos da empresa'], 0,
+  'A autorização apenas permite o trânsito. Os danos ao pavimento, a pontes e a terceiros continuam sob responsabilidade do transportador.',
+  'art. 101, § 2º, CTB');
+
+/* ---------- 2. LIMITES DE CIRCULAÇÃO ---------- */
+Q('CIN', 'Segundo a Res. DNIT 1/2016, o trânsito normal de veículos especiais com AET ocorre:',
+  ['Somente à noite', 'Do amanhecer ao pôr do sol, inclusive sábados, domingos e feriados', '24 horas por dia, sem restrição', 'Apenas em dias úteis, das 8h às 18h'], 1,
+  'O horário normal é do amanhecer ao pôr do sol, condicionado a boas condições de trânsito e visibilidade. Circulação noturna exige hipóteses específicas.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'O trânsito noturno é permitido em trechos de pistas múltiplas com separação física para conjuntos que não excedam:',
+  ['Largura 2,60 m, comprimento 20 m, altura 4,00 m e PBTC 45 t', 'Largura 3,20 m, comprimento 30 m, altura 4,40 m e PBTC 57 t', 'Largura 4,00 m, comprimento 40 m, altura 5,00 m e PBTC 74 t', 'Não há limite definido'], 1,
+  'Esses são os limites que autorizam o trânsito noturno em pistas múltiplas separadas fisicamente: 3,20 m de largura, 30 m de comprimento, 4,40 m de altura e 57 t de PBTC.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'Em veículo com AET para carga indivisível, a velocidade máxima em rodovias federais é de:',
+  ['60 km/h', '70 km/h', '80 km/h', '110 km/h'], 2,
+  'A autorização de até um ano permite transitar do amanhecer ao pôr do sol com velocidade máxima de 80 km/h nas rodovias federais, respeitados os limites da via.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'Os limites usuais autorizados para carga indivisível em rodovia federal são:',
+  ['Comprimento 30 m, largura 3,20 m, altura 4,40 m e PBTC 57 t', 'Comprimento 20 m, largura 2,60 m, altura 3,50 m e PBTC 40 t', 'Comprimento 45 m, largura 4,00 m, altura 5,00 m e PBTC 91 t', 'Sem limite de altura'], 0,
+  'Esses são os parâmetros de referência da autorização de até um ano. Acima deles, a análise é caso a caso e pode exigir escolta.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'Combinações de Veículos de Carga (CVC) com mais de duas unidades, peso acima de 57 t ou comprimento acima de 19,80 m só podem circular:',
+  ['Com autorização do fabricante', 'Portando Autorização Especial de Trânsito (AET)', 'Com pisca-alerta ligado', 'Em rodovias estaduais apenas'], 1,
+  'A AET é obrigatória nesses casos. O conjunto passa por análise técnica de estabilidade, frenagem e capacidade da unidade tratora.',
+  'Res. CONTRAN 210/2006 e 211/2006');
+
+Q('CIN', 'Para uma CVC, o Peso Bruto Total Combinado (PBTC) máximo admitido na AET é de:',
+  ['57 toneladas', '74 toneladas', '91 toneladas', '120 toneladas'], 2,
+  'A Res. CONTRAN 640/2016 fixou o PBTC em até 91 toneladas. Acima disso, o transporte depende de autorização específica e escolta.',
+  'Res. CONTRAN 640/2016');
+
+Q('CIN', 'Conjuntos com PBT igual ou superior a 100 t, largura igual ou superior a 6 m ou altura igual ou superior a 5,50 m exigem:',
+  ['Apenas a AET comum', 'Autorização específica com indicação de engenheiro responsável técnico pelo transporte', 'Somente pisca-alerta', 'Nada além do CRLV'], 1,
+  'Nesses casos é exigida a indicação de engenheiro responsável técnico, que assina o requerimento da AET, dada a complexidade e o risco do conjunto.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'A unidade tratora das combinações com AET deve ser dotada de:',
+  ['Tração simples 4x2, sempre', 'Tração dupla, capaz de vencer aclives de 6% quando carregada', 'Tração 4x4 obrigatória', 'Motor a diesel de no mínimo 500 cv'], 1,
+  'Exige-se tração dupla e capacidade de vencer rampa de 6% com coeficiente de atrito pneu/solo de 0,45. Só com a CVC vazia pode-se suspender um eixo trator, passando a 4x2.',
+  'Res. CONTRAN 211/2006');
+
+Q('CIN', 'Nas combinações com PBTC inferior a 57 toneladas, o caminhão-trator pode ser de:',
+  ['Tração dupla obrigatoriamente', 'Tração simples (4x2)', 'Tração animal', 'Qualquer configuração, sem análise'], 1,
+  'A exigência de tração dupla vale para os conjuntos mais pesados. Abaixo de 57 t de PBTC, admite-se o cavalo mecânico 4x2.',
+  'Res. CONTRAN 211/2006');
+
+/* ---------- 3. AET — REQUISITOS E DOCUMENTOS ---------- */
+Q('CIN', 'Ao requerer a AET, o interessado deve apresentar preliminarmente:',
+  ['Somente o CRLV', 'Projeto técnico da CVC assinado por engenheiro mecânico, com planta dimensional, cálculo de rampa de 6%, gráfico de velocidades, capacidade de frenagem e laudo com ART', 'Apenas a CNH do condutor', 'Nada além do requerimento'], 1,
+  'O projeto técnico comprova que o conjunto tem estabilidade e segurança. O laudo de inspeção veicular deve vir acompanhado da ART do engenheiro responsável.',
+  'Res. CONTRAN 211/2006');
+
+Q('CIN', 'A AET deve conter, obrigatoriamente:',
+  ['Apenas o nome da empresa', 'Identificação do órgão emissor, número, características do veículo, peso e dimensões autorizadas, prazo de validade, percurso e identificação de carga indivisível', 'Somente o percurso', 'Apenas a data de emissão'], 1,
+  'Esses dados permitem à fiscalização conferir se o conjunto está dentro do que foi autorizado. Circular fora do percurso autorizado é irregularidade.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'A AET concedida ao veículo de transporte de carga indivisível tem validade de até:',
+  ['30 dias', '6 meses', '1 ano', '5 anos'], 2,
+  'A autorização é de até um ano, com percurso definido. A AET referente a excesso de altura e centro de gravidade excêntrico exige comprovação de equilíbrio do conjunto.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'A AET para excesso de altura e centro de gravidade (CG) excêntrico somente é fornecida quando:',
+  ['O condutor tem mais de 5 anos de categoria E', 'Fica comprovado que a combinação é adequada em relação ao seu equilíbrio no solo', 'O veículo é novo', 'Há escolta da PRF'], 1,
+  'Carga alta e com CG fora do centro tende a tombar. A comprovação de equilíbrio é acondição para liberar o trânsito com segurança.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'O percurso da AET é estabelecido e aprovado:',
+  ['Pelo próprio transportador', 'Pelo órgão com circunscrição sobre a via', 'Pelo fabricante do veículo', 'Pela seguradora da carga'], 1,
+  'O órgão que tem jurisdição sobre a via define o percurso, considerando pontes, viadutos, curvas e obras que possam inviabilizar a passagem do conjunto.',
+  'art. 101, CTB');
+
+Q('CIN', 'Cabe à Polícia Rodoviária Federal, aos órgãos e às entidades executivas de trânsito dos Estados e Municípios:',
+  ['Credenciar os serviços de escolta e fiscalizar o transporte de carga indivisível', 'Emitir a nota fiscal da carga', 'Contratar o engenheiro responsável', 'Pagar a TUV'], 0,
+  'O art. 2º, III, do CTB atribui a esses órgãos o credenciamento das escoltas e a fiscalização do transporte de carga indivisível na sua circunscrição.',
+  'art. 2º, III, CTB');
+
+Q('CIN', 'Para obter a licença de motorista de escolta, o candidato deve, entre outros requisitos:',
+  ['Ser maior de 18 anos e ter categoria A', 'Ser maior de 21 anos, ter no mínimo categoria B e não ter cometido infração gravíssima nos últimos 12 meses', 'Ter categoria E e 10 anos de experiência', 'Não há requisitos'], 1,
+  'O Manual de Procedimentos Operacionais da PRF exige ainda CNH com atividade remunerada registrada, vínculo com empresa de escolta credenciada e aprovação em teste de conhecimento.',
+  'MPO/PRF (2016)');
+
+/* ---------- 4. SINALIZAÇÃO, COMBOIO E TUV ---------- */
+Q('CIN', 'Conjuntos cujas dimensões excedam os limites de trânsito normal devem ser sinalizados com:',
+  ['Apenas o pisca-alerta', 'Placa traseira especial de advertência, conforme a Res. CONTRAN 520/2015', 'Uma bandeira branca', 'Nenhuma sinalização especial'], 1,
+  'A placa traseira especial de advertência alerta os demais condutores sobre a largura ou o comprimento excedente, evitando colisões por ultrapassagem.',
+  'Res. DNIT 1/2016 e Res. CONTRAN 520/2015');
+
+Q('CIN', 'No transporte em comboio de cargas indivisíveis, a distância entre os veículos deve ser:',
+  ['De 10 a 50 metros', 'De 30 a 150 metros', 'De 200 a 500 metros', 'Não há regra definida'], 1,
+  'O intervalo mínimo de 30 m e máximo de 150 m mantém o comboio coeso sem que um veículo se torne obstáculo para a manobra do outro.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'A Taxa de Utilização da Via (TUV) é devida por:',
+  ['Todos os caminhões', 'Veículos com cargas excedentes ou indivisíveis e especiais com PBTC superior a 74 toneladas', 'Apenas veículos de passeio', 'Somente veículos com AET vencida'], 1,
+  'A TUV é calculada pela distância percorrida, incluindo a volta — mesmo que o caminhão volte vazio, porque o desgaste da via já ocorreu.',
+  'Res. DNIT 1/2016');
+
+/* ---------- 5. CENTRO DE GRAVIDADE E AMARRAÇÃO ---------- */
+Q('CIN', 'O Centro de Gravidade (CG) de uma carga é:',
+  ['O ponto mais pesado da peça', 'O ponto de equilíbrio, onde está a resultante total das massas do objeto', 'A base de apoio do veículo', 'O centro geométrico da carroceria'], 1,
+  'Dependendo da geometria, o CG pode ficar fora do objeto. Quando o veículo está carregado, o conjunto passa a ter um único Centro de Gravidade total (CGT).',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'A estabilidade da carga está condicionada principalmente:',
+  ['Ao peso total da carga', 'À distância entre o centro de gravidade da carga e o centro de gravidade do veículo', 'Ao número de eixos do veículo', 'À cor da carroceria'], 1,
+  'Quanto maior a distância entre os centros de gravidade, maior o risco de tombamento. Buracos e desníveis deslocam o CGT e podem desequilibrar o conjunto.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'A base do veículo apresenta uma marcação do seu centro de gravidade para:',
+  ['Indicar onde colocar o estepe', 'Indicar a posição que deve ser respeitada durante o carregamento', 'Mostrar o peso máximo por eixo', 'Servir de referência para o tacógrafo'], 1,
+  'Carregar fora dessa marcação desloca o CGT e compromete a estabilidade. É uma informação técnica que o condutor deve conhecer e respeitar.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'Sobre o peso da carga, a recomendação técnica é:',
+  ['Concentrar tudo sobre o eixo traseiro', 'Distribuir o peso por igual entre todos os eixos, respeitando as especificações do fabricante', 'Carregar sempre no lado direito', 'Deixar o eixo dianteiro aliviado'], 1,
+  'A distribuição uniforme respeita os limites por eixo. Sobrecarregar um eixo causa danos ao veículo, à via e aumenta o risco de perda de controle.',
+  'art. 231, CTB / Res. CONTRAN 701/2017');
+
+Q('CIN', 'A norma que regulamenta a amarração de cargas no transporte rodoviário é a:',
+  ['Res. CONTRAN 701/2017', 'Res. CONTRAN 246/2007', 'Res. CONTRAN 354/2010', 'Res. DNIT 1/2016'], 0,
+  'A Res. 701/2017 trata da amarração de cargas, incluindo sistemas longitudinais e transversais, com resistência mínima e dispositivos adequados por tipo de carga.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'A amarração de cargas deve ser feita, em geral, por meio de:',
+  ['Cordas de náilon simples', 'Fixações longitudinais e transversais, com resistência compatível com o peso da carga', 'Apenas travas manuais', 'Somente a lona de cobertura'], 1,
+  'A fixação combina esforços longitudinais e transversais. A resistência dos dispositivos deve ser compatível com o peso e a inércia da carga.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'Nunca se deve:',
+  ['Usar cintas de poliéster', 'Improvisar a amarração ou usar material incompatível com o peso da carga', 'Verificar a integridade das cintas', 'Usar catracas adequadas'], 1,
+  'A improvisação é a principal causa de queda de carga. Os equipamentos não devem trabalhar acima da carga máxima e devem ser mantidos em boas condições.',
+  'Res. CONTRAN 701/2017');
+
+/* ---------- 6. BOBINAS ---------- */
+Q('CIN', 'As bobinas devem ser amarradas com resistência total à ruptura de, no mínimo:',
+  ['Igual ao peso da bobina', 'O dobro do peso da bobina', 'Um terço do peso da bobina', 'Não há exigência de resistência'], 1,
+  'A resistência mínima é o dobro do peso da bobina. O fator de segurança evita o rompimento em frenagens bruscas e curvas.',
+  'Res. CONTRAN 354/2010 e 701/2017');
+
+Q('CIN', 'O número mínimo de dispositivos de amarração é:',
+  ['Um dispositivo para qualquer bobina', 'Dois para bobinas de até 20 t e três para bobinas acima de 20 t', 'Três para qualquer bobina', 'Quatro para bobinas acima de 10 t'], 1,
+  'Acima de 20 t, o terceiro dispositivo é obrigatório. Em bobinas com eixo vertical e mais de 20 t, o terceiro dispositivo deve passar no centro da bobina.',
+  'Res. CONTRAN 354/2010');
+
+Q('CIN', 'As catracas e os ganchos de fixação das bobinas devem ser afixados:',
+  ['Na guarda lateral, por cima', 'Nas longarinas ou no chassi da carreta, com as cintas passando por baixo da guarda lateral', 'Na carroceria, sobre a lona', 'Em qualquer ponto visível'], 1,
+  'Afixar no chassi garante que o esforço seja transmitido à estrutura do veículo. Passar a cinta por cima da guarda lateral compromete a fixação.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'No transporte de bobina com eixo na posição horizontal, a cinta ou cabo de aço deve estar:',
+  ['No centro da bobina', 'Entre 10 e 20 cm da extremidade da bobina', 'A 50 cm da extremidade', 'Em qualquer posição'], 1,
+  'A posição entre 10 e 20 cm da extremidade mantém o equilíbrio. No eixo vertical, com mais de 20 t, o terceiro dispositivo vai no centro.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'Bobinas com peso superior a 20 toneladas devem ser acomodadas:',
+  ['Diretamente no piso da carreta', 'Obrigatoriamente sobre berço apropriado', 'Sobre paletes de papelão', 'Em pé, sobre a guarda lateral'], 1,
+  'O berço distribui o peso e impede o deslocamento. Sem paletes, usa-se manta de neoprene ou poliuretano de alta densidade de 15 mm entre a bobina e o piso.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'A carroceria bobineira deve ser forrada com:',
+  ['Lona plástica', 'Lençol de borracha antideslizante, com dispositivo de travamento das bobinas no cocho', 'Chapa de madeira lisa', 'Nada, apenas o metal'], 1,
+  'O forro antideslizante e o travamento no cocho impedem o giro da bobina. Mesmo assim, a amarração com cintas ou cabos continua obrigatória.',
+  'Res. CONTRAN 701/2017');
+
+/* ---------- 7. BLOCOS DE ROCHA ---------- */
+Q('CIN', 'O transporte de blocos de rocha ornamental é regulamentado pela:',
+  ['Res. CONTRAN 354/2010', 'Res. CONTRAN 246/2007', 'Res. DNIT 1/2016', 'Res. CONTRAN 520/2015'], 0,
+  'A Res. 354/2010 trata da amarração de blocos de rocha ornamental, criada para reduzir acidentes por queda de blocos e preservar o pavimento de rodovias e pontes.',
+  'Res. CONTRAN 354/2010');
+
+Q('CIN', 'Na amarração longitudinal e transversal do bloco de rocha, deve ser usado um conjunto mínimo de:',
+  ['Duas travas de segurança', 'Quatro travas de segurança', 'Oito travas de segurança', 'Dez travas de segurança'], 2,
+  'São oito travas: duas em cada lateral da carroceria, duas frontais e duas traseiras, cada uma tangenciando o bloco em pelo menos um ponto.',
+  'Res. CONTRAN 354/2010, art. 4º');
+
+Q('CIN', 'O bloco de rocha que não permite a amarração prevista na norma deve ser transportado:',
+  ['Sem amarração', 'Em caçamba metálica, desde que devidamente travado', 'Sobre a carroceria, com lona', 'Somente em rodovias estaduais'], 1,
+  'Quando a geometria do bloco impede a amarração padrão, a caçamba metálica travada é a solução exigida pela norma.',
+  'Res. CONTRAN 354/2010');
+
+Q('CIN', 'As correntes de amarração de bloco de rocha devem ser de grau 8, com diâmetro nominal de 13 mm e capacidade de trabalho de:',
+  ['1.000 kgf', '5.000 kgf', '10.000 kgf', '20.000 kgf'], 2,
+  'A capacidade é de 10.000 kgf, com fator de segurança 2:1. As lingas devem atender à norma EN 12195-3 e trazer plaquetas com fabricante e rastreabilidade.',
+  'Res. CONTRAN 354/2010');
+
+Q('CIN', 'A utilização de tensionadores de alavanca na amarração de blocos de rocha é:',
+  ['Permitida', 'Proibida, devendo ser usado tensionador tipo catraca', 'Permitida apenas à noite', 'Obrigatória'], 1,
+  'A norma proíbe o tensionador de alavanca, que oferece risco de afrouxamento e acidente, e exige o tipo catraca com gancho encurtador.',
+  'Res. CONTRAN 354/2010');
+
+Q('CIN', 'O peso específico médio de um bloco de rocha "fechado" é de aproximadamente:',
+  ['1.500 kg/m³', '2.900 kg/m³', '4.500 kg/m³', '800 kg/m³'], 1,
+  'Rochas fechadas ficam em torno de 2.900 kg/m³; abertas, 2.650 kg/m³; mármore, cerca de 2.800 kg/m³. Blocos variam de 1,70 m a 2,10 m de altura.',
+  'Res. CONTRAN 354/2010');
+
+Q('CIN', 'No transporte de blocos de rocha, recomendam-se:',
+  ['Movimentos bruscos de direção', 'Evitar movimentos bruscos de direção e frenagens, reduzindo a velocidade gradualmente até a parada total', 'Acelerar para atravessar rápido', 'Frear de uma vez ao parar'], 1,
+  'A carga viaja apoiada apenas pelo próprio peso, com CG alto. Qualquer movimento brusco pode deslocar o bloco e tombar o conjunto.',
+  'Res. CONTRAN 354/2010');
+
+/* ---------- 8. TORAS E TUBOS ---------- */
+Q('CIN', 'O transporte de toras de madeira bruta é regulamentado pela:',
+  ['Res. CONTRAN 246/2007', 'Res. CONTRAN 354/2010', 'Res. CONTRAN 701/2017', 'Res. DNIT 1/2016'], 0,
+  'A Res. 246/2007 fixa os requisitos técnicos de segurança para o transporte de toras de madeira bruta, como escoras (fueiros) e cabos de fixação.',
+  'Res. CONTRAN 246/2007');
+
+Q('CIN', 'São consideradas toras de grandes dimensões as peças de madeira bruta com comprimento superior a:',
+  ['1,50 m', '2,50 m', '4,00 m', '6,00 m'], 1,
+  'Acima de 2,50 m aplicam-se os requisitos de escoras metálicas e fixação com cabo de aço ou cinta de poliéster com capacidade mínima de ruptura de 3.000 kgf.',
+  'Res. CONTRAN 246/2007');
+
+Q('CIN', 'Na disposição vertical das toras, exigem-se:',
+  ['Nenhuma escora', 'No mínimo duas escoras metálicas (fueiros) de cada lado, por tora ou pacote', 'Uma escora por carroceria', 'Apenas cintas de poliéster'], 1,
+  'As escoras são perpendiculares ao assoalho e impedem o deslocamento lateral. Além delas, cabos de aço ou cintas de poliéster tensionadas por catracas.',
+  'Res. CONTRAN 246/2007');
+
+Q('CIN', 'Na disposição piramidal (triangular) das toras, é correto afirmar que:',
+  ['As toras de maior diâmetro ficam nas camadas superiores', 'As toras de maior diâmetro ficam nas camadas inferiores e cada tora superior deve se encaixar entre duas da camada inferior', 'As toras ficam soltas, sem encaixe', 'A camada superior fica desalinhada'], 1,
+  'A base com as toras mais grossas e o encaixe entre toras dão estabilidade ao conjunto. A camada superior deve ser simétrica em relação à largura.',
+  'Res. CONTRAN 246/2007');
+
+Q('CIN', 'As escoras laterais na disposição piramidal devem ter altura mínima de:',
+  ['25 cm', '50 cm', '80 cm', '1,20 m'], 1,
+  'A altura mínima é de 50 cm, reforçadas por salva-vidas, com no mínimo dois conjuntos de fueiros/salva-vidas por tora inferior externa, de cada lado.',
+  'Res. CONTRAN 246/2007');
+
+Q('CIN', 'O transporte de tubos soltos e não unitizados exige:',
+  ['Apenas a lona de cobertura', 'Sistema de proteção frontal, ou redes de poliéster, ou redes metálicas fixadas corretamente', 'Nenhuma proteção', 'Apenas o pisca-alerta'], 1,
+  'Tubos soltos podem avançar longitudinalmente em uma frenagem. A proteção frontal contém esse deslocamento e evita que atinjam a cabine.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'Tubos com diâmetro superior a 0,40 m, transportados em pilha, devem ser:',
+  ['Empilhados sem separação', 'Separados individualmente na horizontal por berços ou pontaletes com cunhas nas laterais', 'Amarrados apenas nas pontas', 'Transportados em pé'], 1,
+  'A separação impede que os tubos rolem uns sobre os outros. Admite-se encaixe em pirâmide apenas em condições específicas de diâmetro e dimensões da carga.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'A resistência total à ruptura das amarrações de tubos deve corresponder a:',
+  ['Metade do peso da carga', 'Uma vez o peso da carga', 'Duas vezes o peso da carga', 'Não há exigência'], 2,
+  'A resistência é de duas vezes o peso da carga, com travamento no chassi do veículo, o que garante margem de segurança em manobras de emergência.',
+  'Res. CONTRAN 701/2017');
+
+/* ---------- 9. RISCOS E COMPORTAMENTO PREVENTIVO ---------- */
+Q('CIN', 'A queda de carga de grandes dimensões em uma curva pode causar:',
+  ['Apenas danos à carga', 'Danos à carroceria e à suspensão, atingir pedestres e outros veículos, ou ainda a cabine, em caso de frenagem brusca', 'Nenhum dano relevante', 'Só prejuízo financeiro'], 1,
+  'Na curva, a carga é arremessada para fora; na frenagem brusca, desliza sobre a carroceria e atinge a cabine, podendo esmagar o motorista.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'Em caso de queda de carga, o condutor deve, antes de qualquer coisa:',
+  ['Ir embora para não ser responsabilizado', 'Sinalizar a área para evitar novos acidentes', 'Tentar remover a carga sozinho', 'Ligar para a empresa e esperar'], 1,
+  'A sinalização precede tudo: evita que outros usuários colidam com a carga caída. Depois se providencia socorro, autoridade de trânsito e remoção.',
+  'art. 176, CTB');
+
+Q('CIN', 'Em acidente com carga indivisível, a empresa responsável deve isolar a carga e retirá-la da via pública no prazo de:',
+  ['6 horas', '12 horas', '24 horas', '72 horas'], 2,
+  'O prazo de 24 horas está na regulamentação do transporte de cargas indivisíveis e é essencial para restabelecer a segurança e a fluidez da via.',
+  'Res. DNIT 1/2016');
+
+Q('CIN', 'Em acidente sem vítimas, apenas com danos à carga, o condutor:',
+  ['Está dispensado de sinalizar', 'Deve obrigatoriamente sinalizar, remover o veículo e procurar o Plantão de Acidentes para o Boletim de Ocorrência', 'Deve aguardar a polícia sem remover o veículo', 'Pode seguir viagem sem registro'], 1,
+  'A sinalização é obrigatória mesmo sem vítimas. O BO tem efeito legal, inclusive para seguros e ações judiciais.',
+  'art. 176 e art. 178, CTB');
+
+Q('CIN', 'Antes da viagem com carga indivisível, o condutor deve:',
+  ['Apenas conferir o combustível', 'Fazer vistoria rigorosa no veículo, conferir documentação e verificar extintor, triângulo e equipamentos de emergência', 'Seguir direto, pois a empresa é responsável', 'Verificar somente os pneus'], 1,
+  'A vistoria e a documentação são responsabilidade do condutor. Com AET, a conferência do percurso autorizado também integra o checklist.',
+  'art. 27, CTB');
+
+Q('CIN', 'Durante a viagem, o condutor deve:',
+  ['Usar o acostamento quando quiser', 'Cumprir o planejamento de itinerário feito com o transportador e verificar frequentemente pneus e itens de segurança', 'Alterar o percurso conforme o trânsito', 'Dirigir no horário que preferir'], 1,
+  'O percurso da AET é vinculante. O acostamento é só para emergências, e a verificação constante evita que um pneu comprometa o conjunto.',
+  'art. 101, CTB');
+
+Q('CIN', 'O condutor só deve participar das operações de carga, descarga e transbordo quando:',
+  ['For solicitado verbalmente', 'Tiver sido especialmente treinado e designado pelo expedidor, com concordância do transportador', 'O veículo estiver vazio', 'Houver fiscalização'], 1,
+  'A movimentação de carga indivisível envolve riscos específicos. Participar sem treinamento e sem designação é expor-se a acidente grave.',
+  'Res. ANTT 5.947/2021');
+
+Q('CIN', 'Em relação a acidente com outro veículo transportando produto perigoso, o condutor deve:',
+  ['Aproximar-se para identificar o produto', 'Afastar-se, manter distância e acionar o socorro especializado, sem tocar na carga', 'Jogar água sobre o vazamento', 'Remover os rótulos de risco'], 1,
+  'Quem não tem EPI e treinamento não combate emergência com produto perigoso. Isolar e acionar Bombeiros e Polícia Rodoviária é a conduta correta.',
+  'Res. ANTT 5.947/2021');
+
+/* ---------- 10. MÁQUINAS E EQUIPAMENTOS ---------- */
+Q('CIN', 'Máquinas e equipamentos de grandes dimensões são considerados indivisíveis porque:',
+  ['Não podem ser pesados', 'Devem ser soldados ou rebitados no local de produção, exigindo local e equipamentos apropriados', 'São sempre importados', 'Têm garantia de fábrica'], 1,
+  'A montagem exige estrutura industrial. Por isso a peça viaja pronta: rotores de turbinas, transformadores, hélices, reservatórios metálicos e colheitadeiras.',
+  'Res. CONTRAN 285/2008');
+
+Q('CIN', 'No transporte de máquinas e equipamentos, é obrigatório o uso de:',
+  ['Apenas cintas de poliéster', 'Travas frontais e laterais reguláveis ao comprimento e à largura da carga', 'Somente a lona', 'Nenhum dispositivo especial'], 1,
+  'As travas frontais e laterais impedem o deslocamento da peça em acelerações e frenagens, protegendo carga, veículo e terceiros.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'A peça de grandes dimensões deve ser inicialmente posicionada de forma que:',
+  ['Fique o mais à frente possível', 'O centro de massa da carga coincida com o centro de massa do veículo', 'Fique toda sobre o eixo traseiro', 'Fique inclinada para facilitar a descida'], 1,
+  'Coincidir os centros de massa mantém o CGT próximo do centro do conjunto. Qualquer excentricidade aumenta o risco de tombamento em curvas.',
+  'Res. CONTRAN 701/2017');
+
+Q('CIN', 'Nos veículos pesados, a frenagem e as reduções de marcha devem ser feitas:',
+  ['De forma brusca, para economizar tempo', 'Gradualmente, pois quanto mais pesado o veículo, menor a capacidade de manobra', 'Somente com o freio de mão', 'Sem sinalizar'], 1,
+  'Quanto mais pesado o conjunto, maior a distância de frenagem e menor a capacidade de manobra. Manobras graduais e sinalizadas são obrigatórias.',
+  'art. 43, CTB');
+/* =========================================================
    SimulaTrânsito BR — aplicação (SPA, sem dependências)
    ========================================================= */
 
@@ -3915,5 +4532,5 @@ function escapeAttr(t) { return escapeHtml(t); }
 })();
 
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a608ca1a4d67255e',t:'MTc5NTY5NTAyMQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a608ca1a4d67255e',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a609027a881cebd8',t:'MTc5NTY5NzMzMA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a609027a881cebd8',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
