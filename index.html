@@ -1946,6 +1946,326 @@ Q('D', 'Durante uma ultrapassagem, se o condutor do veículo da frente sinaliza 
   'O pisca-alerta ou o farol alto do veículo à frente avisa que há risco à frente (obstáculo, buraco, veículo parado). Ignorar esse aviso é causa frequente de colisão frontal.',
   'art. 203 e Res. CONTRAN 789/2020');
 /* =========================================================
+   SimulaTrânsito BR — LOTE 3 (MOPP / produtos perigosos)
+   Base: apostila "MOPP" (227 páginas) enviada pelo instrutor.
+   Conteúdo conferido com o RTPP (Res. ANTT 5.947/2021),
+   NBR 7500 / 9735 / 7503, CTB e Res. CONTRAN 92/99.
+   Questões autorais, com comentário e base legal.
+   Categoria: MOPP
+   ========================================================= */
+
+/* ---------- 1. LEGISLAÇÃO DO TRANSPORTE DE PRODUTOS PERIGOSOS ---------- */
+Q('MOPP', 'O transporte rodoviário de produtos perigosos no Brasil é regulamentado pelo:',
+  ['Decreto 96.044/1988, atualizado pela Resolução ANTT 5.947/2021', 'Código de Defesa do Consumidor', 'Decreto 5.904/2006, que trata apenas de bafômetros', 'Regulamento de trânsito de cada município'], 0,
+  'O Decreto 96.044/88 aprovou o Regulamento do Transporte Rodoviário de Produtos Perigosos; a Resolução ANTT 5.947/2021 é a versão vigente das instruções complementares.',
+  'Decreto 96.044/88 e Res. ANTT 5.947/2021');
+
+Q('MOPP', 'A competência para regulamentar o transporte de cargas e produtos perigosos nas rodovias e ferrovias brasileiras é da:',
+  ['ANTT — Agência Nacional de Transportes Terrestres', 'ANVISA', 'Polícia Federal', 'Confederação Nacional do Transporte'], 0,
+  'A Lei 10.233/2001 atribuiu à ANTT a regulamentação do transporte de cargas e produtos perigosos em rodovias e ferrovias.',
+  'Lei 10.233/2001, art. 22');
+
+Q('MOPP', 'Sobre as operações de carga e descarga no transporte de produtos perigosos, é correto afirmar:',
+  ['O condutor é responsável por carregar e descarregar a carga', 'As operações de carga são de responsabilidade do expedidor e as de descarga, do destinatário; o condutor não participa dessas manobras', 'O destinatário é responsável pela carga e pela descarga', 'A responsabilidade é sempre do transportador'], 1,
+  'O condutor não participa das manobras de carga e descarga. Cabe ao expedidor a carga e ao destinatário a descarga, cada um respondendo pela segurança da sua etapa.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Entre as proibições previstas no regulamento de produtos perigosos está:',
+  ['Transportar pessoas no veículo, além dos auxiliares', 'Transportar apenas um produto por viagem', 'Usar calçado fechado durante a viagem', 'Levar o conjunto de equipamentos de emergência'], 0,
+  'Transportar pessoas no veículo, além dos auxiliares, é proibido. Também é vedado transportar produtos perigosos junto com alimentos, medicamentos ou animais.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'É expressamente proibido transportar produtos perigosos no mesmo veículo junto com:',
+  ['Peças metálicas', 'Alimentos, medicamentos e produtos de uso humano ou animal', 'Ferramentas', 'Material de sinalização'], 1,
+  'A proibição existe para evitar contaminação química de alimentos e medicamentos. A restrição também vale para animais e para embalagens destinadas a esses fins.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Quanto ao uso de cigarro e dispositivos de ignição no transporte de produtos perigosos, o correto é:',
+  ['Pode fumar, se estiver fora do baú', 'É proibido fumar e adentrar as áreas de carga com dispositivos capazes de produzir ignição', 'Pode fumar durante as paradas', 'Só é proibido quando a carga é explosiva'], 1,
+  'Gases e vapores de combustível podem estar presentes e qualquer faísca provoca ignição. A proibição alcança toda a operação: carga, transporte, descarga e transbordo.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Um veículo que transporta produtos incompatíveis entre si pode fazê-lo quando:',
+  ['A carga estiver bem amarrada', 'Os produtos estiverem segregados em cofres de carga que assegurem estanqueidade', 'O condutor tiver mais de 5 anos de MOPP', 'Houver autorização verbal do expedidor'], 1,
+  'A segregação em cofres de carga estanques é a única forma admitida de transportar produtos incompatíveis no mesmo veículo, conforme as instruções complementares.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'As infrações do regulamento da ANTT para produtos perigosos classificam-se em:',
+  ['Dois grupos, com multas de R$ 1.000,00 e R$ 5.000,00', 'Quatro grupos, com multas que vão de R$ 600,00 a R$ 5.000,00', 'Três grupos, com advertência por escrito', 'Cinco grupos, sem aplicação de multa'], 1,
+  'São quatro grupos: primeiro (R$ 5.000,00), segundo (R$ 1.400,00), terceiro (R$ 1.000,00) e quarto (R$ 600,00). Na reincidência em 12 meses, a multa é acrescida de 25%.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Durante a viagem, o condutor deve interromper o transporte quando:',
+  ['Atrasar 15 minutos do cronograma', 'Ocorrerem alterações nas condições de transporte capazes de colocar em risco vidas, bens ou o meio ambiente', 'Chover', 'O veículo atinge 80 km/h'], 1,
+  'A decisão de parar é do condutor sempre que houver risco. A carga perigosa não admite improviso: interromper a viagem é medida de segurança prevista em regulamento.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Durante o transporte de produtos perigosos, o condutor e os auxiliares devem usar:',
+  ['Roupas leves e chinelo, para maior conforto', 'Calça comprida, camisa ou camiseta e calçado fechado', 'Apenas o uniforme da empresa', 'Somente o EPI no momento da descarga'], 1,
+  'Mesmo minimamente, a vestimenta deve proteger o corpo: calça comprida, camisa ou camiseta e calçado fechado. É a primeira barreira contra contato com o produto.',
+  'Res. ANTT 5.947/2021');
+
+/* ---------- 2. CLASSES DE RISCO ---------- */
+Q('MOPP', 'Para fins de transporte, os produtos perigosos são classificados em:',
+  ['Cinco classes de risco', 'Nove classes de risco', 'Doze classes de risco', 'Não há classificação por risco'], 1,
+  'São nove classes, identificadas por rótulos de risco e painéis de segurança, cada uma com subclasses e procedimentos próprios.',
+  'NBR 7500 / Res. ANTT 5.947/2021');
+
+Q('MOPP', 'A classe de risco 1 corresponde a:',
+  ['Gases', 'Explosivos', 'Líquidos inflamáveis', 'Substâncias corrosivas'], 1,
+  'A classe 1 reúne explosivos, divididos em seis subclasses — a 1.1 é a de maior gravidade, com risco de explosão em massa.',
+  'NBR 7500');
+
+Q('MOPP', 'Um produto identificado na subclasse 1.1 apresenta:',
+  ['Risco de projeção, sem explosão em massa', 'Risco de explosão em massa', 'Pequeno risco de explosão', 'Ausência de risco significativo'], 1,
+  'As subclasses vão de 1.1 (explosão em massa) a 1.6 (extremamente insensível, sem risco de explosão em massa), em ordem decrescente de perigo.',
+  'NBR 7500');
+
+Q('MOPP', 'A classe 2 dos produtos perigosos é dividida em:',
+  ['2.1 inflamáveis, 2.2 não inflamáveis e não tóxicos, 2.3 tóxicos', '2.1 oxidantes e 2.2 corrosivos', '2.1 explosivos e 2.2 radioativos', '2.1 sólidos e 2.2 líquidos'], 0,
+  'A classe 2 (gases) tem três subclasses conforme o risco dominante: inflamável, não inflamável e não tóxico, e tóxico.',
+  'NBR 7500');
+
+Q('MOPP', 'Os líquidos inflamáveis (classe 3) são assim classificados quando produzem vapor inflamável a temperaturas de até:',
+  ['30 °C em vaso fechado', '60,5 °C em ensaio de vaso fechado (ou 65,6 °C em vaso aberto)', '100 °C em qualquer ensaio', '150 °C em vaso aberto'], 1,
+  'O critério é o ponto de fulgor: até 60,5 °C em vaso fechado ou 65,6 °C em vaso aberto. A gasolina, com fulgor muito baixo, é exemplo típico da classe 3.',
+  'NBR 7500');
+
+Q('MOPP', 'O carbureto de cálcio, que em contato com a água libera gás inflamável, pertence à subclasse:',
+  ['4.1 — sólidos inflamáveis', '4.2 — combustão espontânea', '4.3 — substâncias que, em contato com a água, emitem gases inflamáveis', '5.1 — oxidantes'], 2,
+  'A subclasse 4.3 é exatamente a dos produtos que reagem com a água gerando gás inflamável — por isso nunca se joga água sobre esse tipo de carga.',
+  'NBR 7500');
+
+Q('MOPP', 'As substâncias oxidantes (classe 5.1) representam perigo porque:',
+  ['São sempre combustíveis', 'Podem liberar oxigênio e intensificar a combustão de outros materiais, mesmo sem fonte de ignição', 'Apagam incêndios com facilidade', 'São inertes ao calor'], 1,
+  'Oxidantes não são necessariamente combustíveis, mas liberam oxigênio e alimentam o fogo. Por isso agravam qualquer incêndio nas proximidades.',
+  'NBR 7500');
+
+Q('MOPP', 'Resíduos de lixo hospitalar, que podem conter micro-organismos causadores de doenças, pertencem à:',
+  ['Classe 6.2 — substâncias infectantes', 'Classe 8 — corrosivas', 'Classe 9 — perigosos diversos', 'Classe 4.1 — sólidos inflamáveis'], 0,
+  'A subclasse 6.2 abrange substâncias infectantes, que contêm patógenos capazes de provocar doenças em seres humanos ou animais.',
+  'NBR 7500');
+
+Q('MOPP', 'Um carregamento de material radioativo (classe 7) tem seu risco detectado por aparelhos como o:',
+  ['Manômetro', 'Contador Geiger', 'Explosímetro', 'Termômetro infravermelho'], 1,
+  'A radiação é invisível e não tem odor: o contador Geiger é o instrumento que detecta e mede sua presença.',
+  'NBR 7500');
+
+Q('MOPP', 'Substâncias que destroem tecidos vivos por contato químico, como ácidos e bases fortes, integram a:',
+  ['Classe 3 — líquidos inflamáveis', 'Classe 6.1 — tóxicas', 'Classe 8 — substâncias corrosivas', 'Classe 9 — perigosos diversos'], 2,
+  'A classe 8 é a das corrosivas: provocam lesões graves na pele, nos olhos e nas vias respiratórias, além de atacar metais e embalagens.',
+  'NBR 7500');
+
+Q('MOPP', 'A classe 9 abrange:',
+  ['Apenas explosivos', 'Substâncias e artigos perigosos diversos, inclusive os que apresentam risco ao meio ambiente', 'Somente gases tóxicos', 'Somente materiais radioativos'], 1,
+  'A classe 9 é a "caixa" dos perigos não enquadrados nas demais, incluindo as substâncias com risco ambiental (números ONU 3077 e 3082).',
+  'NBR 7500');
+
+Q('MOPP', 'No transporte de explosivos em comboio, a distância mínima recomendada é de:',
+  ['30 metros em movimento e 15 metros parados', '80 metros em movimento e 50 metros quando estacionados', '150 metros em qualquer situação', 'Não há distância definida'], 1,
+  'A distância evita que uma eventual detonação atinja os demais veículos do comboio. O comboio também deve contar com batedores.',
+  'Res. ANTT 5.947/2021 / R-105');
+
+Q('MOPP', 'O cabo-terra (cabo antiestático) é usado no carregamento e na descarga de líquidos inflamáveis para:',
+  ['Aumentar a pressão do tanque', 'Eliminar a eletricidade estática, que pode gerar centelhas e inflamar os vapores', 'Medir a temperatura do produto', 'Filtrar impurezas do combustível'], 1,
+  'O atrito do produto em movimento gera eletricidade estática. O cabo-terra liga o chassi ao terminal e descarrega essa energia, evitando a centelha.',
+  'Res. ANTT 5.947/2021');
+
+/* ---------- 3. RÓTULOS E PAINÉIS DE SEGURANÇA ---------- */
+Q('MOPP', 'No rótulo de risco principal, a metade superior e a metade inferior exibem, respectivamente:',
+  ['O número da ONU e o nome do produto', 'O pictograma do risco e o número da classe ou subclasse', 'O nome do expedidor e a data', 'A tara e o peso bruto'], 1,
+  'O pictograma identifica o tipo de risco e a metade inferior traz o número da classe, com o texto descritivo quando aplicável.',
+  'NBR 7500');
+
+Q('MOPP', 'As dimensões do rótulo de risco são:',
+  ['30 x 30 cm para caminhões e reboques e 25 x 25 cm para os demais veículos', '20 x 20 cm para todos os veículos', '40 x 40 cm para todos', '50 x 50 cm para caminhões tanque'], 0,
+  'O tamanho maior é exigido para caminhões e reboques por causa da altura e da distância de leitura; os demais veículos usam 25 x 25 cm.',
+  'NBR 7500');
+
+Q('MOPP', 'No painel de segurança, o número da parte superior e o da parte inferior indicam, respectivamente:',
+  ['O número de risco e o número da ONU', 'O peso da carga e a data', 'O código da empresa e do motorista', 'O número da classe e a quantidade'], 0,
+  'O número de risco (parte superior) informa a natureza e a intensidade do perigo; o número ONU (parte inferior) identifica a substância.',
+  'NBR 7500');
+
+Q('MOPP', 'O rótulo de risco subsidiário:',
+  ['Substitui o rótulo principal', 'Tem o mesmo formato do principal, mas sem o texto, e indica um risco secundário', 'Só é usado em veículos vazios', 'Indica apenas a quantidade transportada'], 1,
+  'Muitos produtos têm mais de um risco. O rótulo subsidiário avisa sobre o perigo adicional sem trazer o texto descritivo.',
+  'NBR 7500');
+
+Q('MOPP', 'O rótulo especial de risco ao meio ambiente é obrigatório, exceto para:',
+  ['Cargas a granel', 'Embalagens simples ou combinadas com capacidade igual ou inferior a 5 litros ou 5 kg', 'Veículos-tanque', 'Cargas com mais de 1.000 kg'], 1,
+  'A dispensa vale para volumes pequenos. Acima de 5 L ou 5 kg, o rótulo ambiental é obrigatório nas substâncias dos números ONU 3077 e 3082.',
+  'NBR 7500');
+
+Q('MOPP', 'Numa carga a granel, os painéis de segurança e rótulos de risco devem ser posicionados:',
+  ['Somente na traseira', 'Painel na frente (lado esquerdo), painel e rótulo na traseira e, nas laterais, do centro para a traseira', 'Apenas nas laterais', 'No para-brisa e no para-choque'], 1,
+  'O objetivo é que o risco seja visível de todos os ângulos por quem se aproxima do veículo, especialmente em caso de sinistro.',
+  'NBR 7500 / Portaria 204/97');
+
+Q('MOPP', 'Um veículo que descarregou a carga, mas ainda está contaminado, deve:',
+  ['Retirar imediatamente todos os rótulos', 'Manter os painéis e rótulos até ser descontaminado', 'Trafegar apenas à noite', 'Ser rebocado'], 1,
+  'Enquanto houver resíduo ou contaminação, o risco continua. Somente após a descontaminação é que painéis e rótulos podem ser retirados.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Um veículo carregado com dois ou mais produtos de classes diferentes deve portar:',
+  ['O rótulo do produto mais perigoso', 'Apenas os painéis de segurança, sem inscrição', 'Todos os rótulos de todos os produtos', 'Nenhuma identificação'], 1,
+  'Quando há mais de uma classe no mesmo carregamento, usam-se apenas os painéis sem inscrição — não é possível identificar um único produto.',
+  'NBR 7500 / Portaria 204/97');
+
+Q('MOPP', 'Cargas transportadas a temperatura elevada — líquido a 100 °C ou mais, ou sólido a 240 °C ou mais — exigem:',
+  ['Rótulo de risco comum', 'Símbolo triangular vermelho com no mínimo 250 mm de lado, nas extremidades e nos dois lados', 'Apenas o pisca-alerta ligado', 'Nenhuma sinalização especial'], 1,
+  'O calor é o risco principal nesse caso. O símbolo triangular vermelho alerta que o contato provoca queimaduras graves.',
+  'NBR 7500');
+
+Q('MOPP', 'A obrigação de exibir rótulos de risco e painéis de segurança vale:',
+  ['Para qualquer quantidade transportada', 'Quando a quantidade transportada estiver acima da quantidade isenta', 'Somente em rodovias federais', 'Somente para cargas acima de 5 toneladas'], 1,
+  'Existe uma quantidade isenta, prevista nas instruções complementares, abaixo da qual a sinalização não é exigida. Acima dela, a identificação é obrigatória.',
+  'Res. ANTT 5.947/2021');
+
+/* ---------- 4. EPI E CONJUNTO DE EMERGÊNCIA ---------- */
+Q('MOPP', 'A norma que estabelece o conjunto de equipamentos para emergências no transporte terrestre de produtos perigosos é a:',
+  ['NBR 7500', 'NBR 9735', 'NBR 10004', 'NBR 12235'], 1,
+  'A NBR 9735 define o kit mínimo: EPI para o condutor e auxiliares, equipamentos de sinalização da área e extintor portátil para a carga.',
+  'NBR 9735');
+
+Q('MOPP', 'De acordo com a NBR 9735, o Grupo 1 de equipamentos de proteção é composto por:',
+  ['Capacete de segurança, luvas compatíveis com o produto e óculos de segurança tipo ampla visão', 'Apenas máscara facial', 'Somente botas de borracha', 'Capacete e protetor solar'], 0,
+  'O Grupo 1 é o conjunto básico, usado quando não há exigência de proteção respiratória específica. Os grupos seguintes acrescentam filtros conforme o gás.',
+  'NBR 9735');
+
+Q('MOPP', 'No transporte de explosivos (classe 1), o EPI do Grupo 10 exige:',
+  ['Somente óculos', 'Peça facial inteira com filtro polivalente ou multigases combinado com filtro mecânico P2', 'Apenas luvas', 'Nenhuma proteção respiratória'], 1,
+  'Explosivos podem gerar gases tóxicos em caso de incêndio, o que justifica a proteção respiratória do Grupo 10.',
+  'NBR 9735');
+
+Q('MOPP', 'Os calços do conjunto de emergência devem ter, no mínimo:',
+  ['100 x 100 x 100 mm', '150 x 200 x 150 mm', '250 x 250 x 250 mm', 'Não há medida definida'], 1,
+  'Os calços estabilizam o veículo e travam a carga. Para produtos inflamáveis, devem ser de material antifaiscante.',
+  'NBR 9735');
+
+Q('MOPP', 'A ficha de emergência e o envelope para transporte estão previstos na:',
+  ['NBR 7503', 'NBR 7501', 'NBR 14619', 'NBR 13221'], 0,
+  'A NBR 7503 define características, dimensões e preenchimento da ficha de emergência e do envelope. A partir da Res. ANTT 5.848/2019 (hoje 5.947/2021), o porte deixou de ser obrigatório.',
+  'NBR 7503 / Res. ANTT 5.947/2021');
+
+Q('MOPP', 'A NBR 7500 trata:',
+  ['Da identificação para o transporte, manuseio, movimentação e armazenamento de produtos perigosos', 'Do transporte de resíduos sólidos', 'Da classificação de resíduos', 'Da desvaporização de tanques'], 0,
+  'É a norma que padroniza rótulos de risco, painéis de segurança e toda a identificação visual da carga perigosa.',
+  'NBR 7500');
+
+Q('MOPP', 'A NBR 14064 especifica:',
+  ['O atendimento a emergências no transporte rodoviário de produtos perigosos', 'Os limites de emissão de poluentes', 'As dimensões dos pneus', 'O uso do cinto de segurança'], 0,
+  'A norma orienta como estruturar e executar o atendimento a emergências com produtos perigosos na rodovia.',
+  'NBR 14064');
+
+Q('MOPP', 'A NBR 14619 tem por objeto:',
+  ['A incompatibilidade química entre produtos perigosos', 'O peso máximo por eixo', 'A sinalização semafórica', 'O transporte de passageiros'], 0,
+  'A norma define critérios para identificar produtos que não podem ser transportados juntos por risco de reação química.',
+  'NBR 14619');
+
+/* ---------- 5. TACÓGRAFO ---------- */
+Q('MOPP', 'O uso do tacógrafo no transporte de produtos perigosos a granel é:',
+  ['Obrigatório, independentemente do ano de fabricação e da capacidade do veículo', 'Facultativo', 'Exigido apenas para veículos acima de 10 toneladas', 'Exigido apenas em viagens interestaduais'], 0,
+  'Para carga a granel a exigência é ampla: alcança qualquer ano de fabricação e qualquer capacidade de tração.',
+  'art. 105, CTB');
+
+Q('MOPP', 'No transporte de carga fracionada, o tacógrafo é obrigatório para veículos de carga com peso superior a:',
+  ['1.000 kg', '2.000 kg', '4.536 kg', '10.000 kg'], 2,
+  'O limite de 4.536 kg está no art. 105 do CTB e corresponde ao peso bruto total do veículo.',
+  'art. 105, CTB');
+
+Q('MOPP', 'Quanto à duração, o disco de tacógrafo pode ser:',
+  ['Diário (24 h) ou semanal (168 h)', 'Mensal ou anual', 'Apenas diário', 'Apenas semanal'], 0,
+  'O disco diário cobre 24 horas ininterruptas; o semanal, 168 horas, com sete discos numerados para controle do fiscal.',
+  'Res. CONTRAN 92/99');
+
+Q('MOPP', 'A principal característica do tacógrafo digital é:',
+  ['Usar disco diagrama de papel', 'Registrar as informações em memória eletrônica e cartão inteligente (chip)', 'Não registrar velocidade', 'Só funcionar com o veículo parado'], 1,
+  'O digital dispensa o disco de papel: grava em memória e permite transferir os dados para outros meios, com muito mais segurança na fiscalização.',
+  'Res. CONTRAN 92/99');
+
+Q('MOPP', 'Um traço vertical no disco do tacógrafo, do centro à borda, indica que:',
+  ['O veículo atingiu velocidade máxima', 'O aparelho foi aberto em determinado horário', 'Houve pane elétrica', 'O disco está vencido'], 1,
+  'A abertura do aparelho fica registrada no disco. Violar o lacre do tacógrafo é infração e compromete a credibilidade de todo o registro.',
+  'Res. CONTRAN 92/99');
+
+/* ---------- 6. PREVENÇÃO E COMBATE A INCÊNDIO ---------- */
+Q('MOPP', 'Os três componentes do fogo, segundo o triângulo do fogo, são:',
+  ['Combustível, comburente e calor', 'Fumaça, chama e brasa', 'Oxigênio, nitrogênio e vapor', 'Gasolina, fósforo e ar'], 0,
+  'Só há combustão quando os três estão presentes e combinados. Todo método de extinção age retirando pelo menos um deles.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'O tetraedro do fogo acrescenta ao triângulo:',
+  ['A reação em cadeia', 'A pressão atmosférica', 'A umidade do ar', 'O vento'], 0,
+  'O quarto elemento é a reação em cadeia, alvo dos agentes extintores químicos, que interrompem a propagação da combustão.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'A propagação do calor por meio de uma massa de ar aquecida, levando o fogo a outro ambiente, chama-se:',
+  ['Condução', 'Convecção', 'Irradiação', 'Ablação'], 1,
+  'Na convecção, o ar quente sobe e desloca o calor para outros compartimentos — motivo pelo qual o fogo sobe e se espalha por andares.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'A transmissão de calor por ondas, através do espaço, como o sol aquecendo a terra, é:',
+  ['Condução', 'Convecção', 'Irradiação', 'Dilatação'], 2,
+  'A irradiação ocorre sem contato nem meio material. É por isso que se sente o calor de um incêndio mesmo a distância.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'O incêndio em madeira, papel, tecido e borracha é de classe A e deve ser combatido preferencialmente por:',
+  ['Abafamento', 'Resfriamento, com água', 'Isolamento químico', 'Extintor de pó classe D'], 1,
+  'Materiais sólidos queimam em profundidade e deixam resíduos (cinzas e brasas). A água resfria e atinge o interior do material.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'Incêndio em gasolina ou GLP — classe B — exige extinção por:',
+  ['Resfriamento com jato de água', 'Abafamento, para impedir o contato do vapor com o oxigênio', 'Retirada do calor com espuma de água', 'Areia seca em qualquer caso'], 1,
+  'Líquidos e gases queimam na superfície e não deixam resíduos. O jato de água espalha o produto e agrava o incêndio.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'Incêndio em equipamento elétrico energizado — classe C — deve ser combatido com:',
+  ['Água pressurizada', 'Espuma mecânica', 'Agente extintor que não conduza eletricidade, como pó químico seco', 'Jato de água em neblina'], 2,
+  'Água conduz eletricidade e expõe o operador a choque. Após desligar a fonte de energia, o incêndio pode ser tratado como classe A ou B.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'Incêndio em metais pirofóricos, como magnésio e sódio — classe D —:',
+  ['Deve ser apagado com água em abundância', 'Nunca deve receber água ou espuma; a extinção é por abafamento com agente especial', 'É apagado com extintor de CO2', 'Não oferece risco'], 1,
+  'Metais pirofóricos reagem violentamente com a água, liberando hidrogênio e calor. Exige pó químico especial para classe D.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'Incêndio em óleo ou gordura de cozinha — classe K —:',
+  ['É apagado com água fria', 'Nunca deve ser combatido com água; o método indicado é o abafamento', 'É tratado como classe A', 'Exige extintor de espuma'], 1,
+  'A água, ao entrar em contato com o óleo aquecido, vaporiza instantaneamente e projeta o líquido em chamas, provocando explosão e queimaduras.',
+  'ABNT / NBR 12693');
+
+Q('MOPP', 'Entre as regras de manutenção de extintores, é correto afirmar que:',
+  ['Só precisam ser recarregados quando falham no uso', 'Devem ser inspecionados com frequência e recarregados imediatamente após o uso', 'Podem ficar sem lacre', 'A validade é indeterminada'], 1,
+  'A recarga após o uso é obrigatória, mesmo que o extintor pareça cheio. A inspeção periódica garante que o equipamento funcione no momento crítico.',
+  'ABNT / NBR 12962');
+
+/* ---------- 7. EMERGÊNCIAS COM PRODUTOS PERIGOSOS ---------- */
+Q('MOPP', 'Em vazamento de gás inflamável num cilindro, se não for possível fechar a válvula, o procedimento recomendado é:',
+  ['Tentar tampar com pano', 'Afastar o cilindro de fontes de ignição e deixar o gás queimar, resfriando o cilindro com água em local protegido', 'Jogar água no jato do gás', 'Deitar o cilindro no chão'], 1,
+  'Deixar queimar controladamente evita o acúmulo de gás e uma explosão maior. O resfriamento impede que o cilindro se rompa pela pressão.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Para conter um vazamento de produto oxidante, o material absorvente indicado é:',
+  ['Serragem', 'Terra seca', 'Areia ou outro material inerte e umedecido', 'Estopa'], 2,
+  'Oxidantes reagem com matéria orgânica: serragem, terra e estopa podem inflamar. Usam-se materiais inertes e umedecidos.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Em atmosfera confinada, desconhecida ou com alta concentração de poluente, a proteção respiratória adequada é:',
+  ['Máscara de pano', 'Filtro químico simples', 'Conjunto autônomo de respiração a ar comprimido', 'Nenhuma, se o tempo for curto'], 2,
+  'Filtros químicos dependem do oxigênio do ambiente e saturam. Em ambiente confinado ou com produto não identificado, só o conjunto autônomo protege.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Gases mais densos que o ar, em caso de vazamento:',
+  ['Dispersam-se rapidamente para cima', 'Tendem a se acumular ao nível do solo, com difícil dispersão', 'Não oferecem risco', 'Só se acumulam em ambientes fechados'], 1,
+  'Por serem mais pesados, se acumulam nas partes baixas, valas e depressões — e podem atingir quem se aproxima agachado ou deitado.',
+  'Res. ANTT 5.947/2021');
+
+Q('MOPP', 'Ao chegar primeiro a um sinistro com carga perigosa, o condutor deve:',
+  ['Aproximar-se para avaliar o produto de perto', 'Isolar a área, afastar-se do local e acionar Bombeiros e Polícia Rodoviária, informando o produto transportado', 'Tentar remover a carga', 'Lavar o produto com água'], 1,
+  'Quem não tem EPI e treinamento específico não combate a emergência: isola, afasta e aciona quem tem. A identificação está nos rótulos e painéis.',
+  'Res. ANTT 5.947/2021 / NBR 14064');
+/* =========================================================
    SimulaTrânsito BR — aplicação (SPA, sem dependências)
    ========================================================= */
 
