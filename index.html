@@ -2266,6 +2266,339 @@ Q('MOPP', 'Ao chegar primeiro a um sinistro com carga perigosa, o condutor deve:
   'Quem não tem EPI e treinamento específico não combate a emergência: isola, afasta e aciona quem tem. A identificação está nos rótulos e painéis.',
   'Res. ANTT 5.947/2021 / NBR 14064');
 /* =========================================================
+   SimulaTrânsito BR — LOTE 4 (Curso de Transporte Coletivo)
+   Base: apostila "COLETIVO" (241 páginas) enviada pelo instrutor.
+   Conteúdo conferido com CTB, Res. CONTRAN 168/2004 (alterada pela
+   285/2008 e 685/2017), Res. ANTT 1.383/2016, Lei 12.587/2012,
+   Lei 13.146/2015 (LBI), ECA e Estatuto do Idoso.
+   Questões autorais, com comentário e base legal.
+   Categoria: COL
+   ========================================================= */
+
+/* ---------- 1. LEGISLAÇÃO E REQUISITOS DO CURSO ---------- */
+Q('COL', 'A legislação específica do transporte coletivo de passageiros no Brasil apoia-se, entre outras normas, na:',
+  ['Lei 10.233/2001, na Lei 8.987/1995 e na Lei 9.074/1995, além de resoluções do CONTRAN e da ANTT', 'Apenas no Código de Defesa do Consumidor', 'Somente em leis municipais', 'No Regulamento de Trânsito Militar'], 0,
+  'A exploração do serviço é regida pela Lei 10.233/2001 (ANTT), pela Lei 8.987/1995 (concessões e permissões) e pela Lei 9.074/1995, além das resoluções do CONTRAN e da ANTT e da legislação estadual e municipal.',
+  'Leis 10.233/2001, 8.987/1995 e 9.074/1995');
+
+Q('COL', 'As normas gerais do curso de capacitação para condutores de transporte coletivo de passageiros estão na:',
+  ['Res. CONTRAN 168/2004, alterada e complementada pelas Res. 285/2008 e 685/2017', 'Res. CONTRAN 789/2020', 'Res. ANTT 5.947/2021', 'Portaria 204/97'], 0,
+  'A Res. 168/2004 trata do curso e foi alterada e complementada pelas Res. 285/2008 e 685/2017. A empresa ministrante precisa ser credenciada pelo DETRAN.',
+  'Res. CONTRAN 168/2004, 285/2008 e 685/2017');
+
+Q('COL', 'Entre os requisitos para se habilitar como condutor de transporte coletivo de passageiros está:',
+  ['Ser maior de 21 anos e estar habilitado na categoria D', 'Ter 18 anos e categoria B', 'Ter 25 anos e categoria E', 'Não há idade mínima'], 0,
+  'Além da idade mínima de 21 anos e da categoria D, exige-se aprovação em avaliação psicológica para atividade remunerada (EAR) e o curso especializado.',
+  'Res. CONTRAN 168/2004 e art. 145, CTB');
+
+Q('COL', 'Para obter a capacitação de transporte coletivo, o candidato não pode ter sido multado por:',
+  ['Falta leve nos últimos 6 meses', 'Falta grave ou gravíssima, nem ser reincidente em média nos últimos 12 meses', 'Qualquer multa nos últimos 5 anos', 'Excesso de velocidade em qualquer época'], 1,
+  'O histórico de infrações é analisado: faltas graves e gravíssimas e reincidência em média nos últimos 12 meses impedem a capacitação.',
+  'Res. CONTRAN 168/2004');
+
+Q('COL', 'A certidão negativa de distribuição criminal exigida para exercer a atividade de condutor de transporte coletivo deve ser renovada:',
+  ['A cada ano', 'A cada dois anos', 'A cada cinco anos', 'Não precisa ser renovada'], 2,
+  'A certidão abrange crimes de homicídio, roubo, estupro e corrupção de menores e tem validade de cinco anos, conforme o art. 329 do CTB.',
+  'art. 329, CTB');
+
+Q('COL', 'O exame toxicológico é exigido para os condutores das categorias:',
+  ['A e B', 'B e C', 'C, D e E', 'Somente E'], 2,
+  'O art. 148-A do CTB determina o exame toxicológico para habilitação e renovação das categorias C, D e E, com janela de detecção mínima de 90 dias.',
+  'art. 148-A, CTB');
+
+Q('COL', 'O condutor de veículo rodoviário de passageiros deve observar, a cada 4 horas de condução, descanso de:',
+  ['15 minutos', '30 minutos', '1 hora', '2 horas'], 1,
+  'São 30 minutos a cada 4 horas, podendo ser fracionados. Em 24 horas, é obrigatório um mínimo de 11 horas de descanso, com 8 horas ininterruptas no primeiro período.',
+  'art. 67-C, § 1º-A, CTB');
+
+Q('COL', 'O condutor somente deve iniciar uma viagem após:',
+  ['Tomar um café', 'Cumprir integralmente o intervalo de descanso de 11 horas previsto em lei', 'Receber autorização verbal da empresa', 'Calibrar os pneus'], 1,
+  'A exigência do art. 67-C, § 6º, evita que o condutor comece a viagem já cansado. É uma das principais medidas de prevenção de sinistros com coletivo.',
+  'art. 67-C, § 6º, CTB');
+
+Q('COL', 'Sobre a guarda e a exatidão das informações do registrador instantâneo (tacógrafo), a responsabilidade é:',
+  ['Da empresa', 'Do condutor', 'Do fabricante do aparelho', 'Do órgão de trânsito'], 1,
+  'O CTB atribui ao condutor a guarda, a preservação e a exatidão das informações do registrador, que deve funcionar sem interferência de quem conduz.',
+  'art. 67-E, §§ 3º e 4º, CTB');
+
+Q('COL', 'Conduzir veículo com tacógrafo viciado ou defeituoso, quando sua instalação é exigida, configura infração:',
+  ['Leve, com advertência', 'Grave, com retenção do veículo para regularização', 'Gravíssima, com cassação', 'Média, apenas com multa'], 1,
+  'É infração grave, com multa e retenção do veículo até a regularização do aparelho (art. 230, XIV).',
+  'art. 230, XIV, CTB');
+
+/* ---------- 2. CLASSIFICAÇÃO DOS VEÍCULOS ---------- */
+Q('COL', 'Segundo o CTB, o ônibus é o veículo automotor de transporte coletivo com capacidade para:',
+  ['Até 20 passageiros', 'Mais de 20 passageiros', 'Mais de 40 passageiros', 'Mais de 60 passageiros'], 1,
+  'A definição legal usa o limite de 20 passageiros: acima disso é ônibus; até 20, é micro-ônibus — ainda que adaptações reduzam o número transportado.',
+  'art. 96, CTB');
+
+Q('COL', 'O micro-ônibus é o veículo com capacidade para:',
+  ['Até 20 passageiros', 'Até 10 passageiros', 'Até 32 passageiros', 'Mais de 20 passageiros'], 0,
+  'Pode ser usado no transporte urbano, intermunicipal ou rodoviário, com uma ou duas portas, e é muito usado em linhas de baixa demanda.',
+  'art. 96, CTB');
+
+Q('COL', 'O ônibus do tipo urbano caracteriza-se por:',
+  ['Duas ou mais portas, corredor interno largo e bancos sem reclinação', 'Uma única porta e poltronas leito', 'Sanitário e ar-condicionado obrigatórios', 'Dois pisos e escadas internas'], 0,
+  'O urbano prioriza a rapidez no embarque e desembarque: várias portas, corredor amplo e bancos rígidos, podendo ter piso baixo e sistema de ajoelhamento.',
+  'NBR 15570 / Res. CONTRAN 168/2004');
+
+Q('COL', 'O sistema de ajoelhamento do ônibus urbano serve para:',
+  ['Aumentar a velocidade em curvas', 'Rebaixar a frente do veículo, facilitando o embarque e desembarque', 'Nivelar o piso em declives', 'Reduzir o consumo de combustível'], 1,
+  'Sob comando do motorista, a suspensão rebaixa a frente do veículo alguns centímetros, o que é essencial para idosos, gestantes e pessoas com mobilidade reduzida.',
+  'NBR 15570');
+
+Q('COL', 'Um ônibus composto por duas unidades rígidas acopladas, com comunicação entre elas, é classificado como:',
+  ['Simples', 'Articulado', 'Piso duplo', 'Rodoviário leito'], 1,
+  'O articulado (e o biarticulado, com duas articulações) amplia a capacidade em corredores de grande demanda. Pelo menos uma unidade deve ter tração.',
+  'Res. CONTRAN 168/2004');
+
+Q('COL', 'O ônibus rodoviário do serviço "leito" diferencia-se por:',
+  ['Poltronas com reclinação de 180°, apoio de pernas, toalete e ar-condicionado', 'Não ter banheiro', 'Ter bancos rígidos e corredor largo', 'Ser sempre articulado'], 0,
+  'O leito é a categoria mais confortável do serviço rodoviário. O semi-leito já tem poltronas bem reclináveis, mas não chega aos 180°.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Para viagens de até 150 km, o ônibus rodoviário convencional:',
+  ['Precisa obrigatoriamente de ar-condicionado e toalete', 'Não tem exigência de ar-condicionado e toalete', 'Precisa ser articulado', 'Não pode transportar bagagem'], 1,
+  'Na categoria convencional, ar-condicionado e toalete só passam a ser exigidos em percursos acima de 150 km.',
+  'Res. ANTT 1.383/2016');
+
+/* ---------- 3. RESPONSABILIDADES ANTES DE LIGAR O VEÍCULO ---------- */
+Q('COL', 'O extintor de incêndio é item obrigatório para veículos acima de:',
+  ['1.500 kg', '2.000 kg', '3.500 kg', '10.000 kg'], 2,
+  'Acima de 3.500 kg o extintor é exigido. Deve-se conferir o manômetro (nunca na faixa vermelha), o lacre, o selo do INMETRO e a validade do teste hidrostático.',
+  'art. 105, CTB / Res. CONTRAN 789/2020');
+
+Q('COL', 'Antes de sair com o coletivo, a verificação dos pneus inclui:',
+  ['Apenas a pressão dos pneus dianteiros', 'Condições de uso, ausência de objetos estranhos e calibragem correta, inclusive do estepe', 'Somente o desenho dos sulcos', 'Nada, pois a empresa é responsável'], 1,
+  'A checagem diária de pneus, freios, luzes, óleo e arrefecimento é responsabilidade do condutor e integra o checklist obrigatório antes da partida.',
+  'art. 105 e art. 230, CTB');
+
+Q('COL', 'Sobre a pane seca (falta de combustível), é correto afirmar:',
+  ['É apenas um transtorno, sem previsão legal', 'É infração de trânsito, e não é permitido abastecer com passageiros embarcados', 'É permitida em rodovias', 'Só é infração em via urbana'], 1,
+  'Parar na via por falta de combustível é infração. Além disso, o abastecimento com passageiros a bordo é proibido por risco de incêndio.',
+  'art. 180, CTB');
+
+Q('COL', 'O sistema de iluminação do coletivo deve ser verificado:',
+  ['Apenas antes de viagens noturnas', 'Diariamente: setas, luz de posição, luz baixa, luz alta, luz de freio, luz de ré e luzes do salão', 'Somente na revisão anual', 'Apenas os faróis dianteiros'], 1,
+  'Luzes do salão e de ré também fazem parte da segurança dos passageiros. Lâmpada queimada em veículo de transporte coletivo é infração.',
+  'art. 230, CTB');
+
+Q('COL', 'Sobre a higiene pessoal do condutor em serviço, é correto:',
+  ['É permitido fumar no posto de trabalho', 'É proibido fumar, mascar chiclete ao atender passageiros e ingerir bebida alcoólica em serviço ou nas 12 horas anteriores', 'Só não pode ingerir álcool depois da viagem', 'Não há regra sobre apresentação pessoal'], 1,
+  'A apresentação e a conduta do condutor fazem parte do serviço prestado. A restrição de álcool nas 12 horas anteriores é uma regra de segurança, não só de etiqueta.',
+  'Res. ANTT 1.383/2016');
+
+/* ---------- 4. DOCUMENTOS ---------- */
+Q('COL', 'O certificado que comprova a capacitação do condutor de transporte coletivo chama-se:',
+  ['CETCP — Certificado de Especialização de Transporte Coletivo de Passageiros', 'CRLV', 'CITV', 'FISPQ'], 0,
+  'O CETCP deve constar na habilitação. Tanto a CNH quanto o certificado têm validade de cinco anos — para condutores acima de 65 anos, a CNH vale três anos.',
+  'Res. CONTRAN 168/2004');
+
+Q('COL', 'Nas viagens interestaduais, além do CRLV, o condutor deve portar:',
+  ['Licença de viagem, relação de passageiros e formulário de reclamação de dano ou extravio de bagagem', 'Apenas a CNH', 'Somente a licença de viagem', 'Nada além do CRLV'], 0,
+  'A documentação da viagem interestadual comprova a autorização do serviço e protege o passageiro em caso de dano ou extravio de bagagem.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Nas viagens internacionais, além da documentação da viagem, exige-se:',
+  ['Certificado de Inspeção Técnica Veicular (CITV) e seguro de responsabilidade civil internacional', 'Apenas o passaporte do condutor', 'Nada além do CRLV', 'Somente a relação de passageiros'], 0,
+  'O CITV e o seguro internacional são obrigatórios, e o roteiro deve informar os pontos de fronteira usados na ida e na volta.',
+  'Res. ANTT 1.383/2016');
+
+/* ---------- 5. EMBARQUE, DESEMBARQUE E CONDUÇÃO ---------- */
+Q('COL', 'É proibido ao condutor de transporte coletivo:',
+  ['Ajudar idosos a embarcar', 'Movimentar o veículo com as portas abertas, com passageiros nos degraus ou com o corpo fora do veículo', 'Parar junto ao meio-fio', 'Informar o itinerário ao passageiro'], 1,
+  'Também é vedado movimentar o veículo sem que todas as portas e saídas de emergência estejam fechadas. Passageiro nos degraus é a causa clássica de queda grave.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Quanto ao itinerário e ao horário da viagem, o condutor deve:',
+  ['Alterar o trajeto para atender pedidos individuais', 'Cumprir o itinerário aprovado, alterando-o só em caso de imprevisto ou força maior, sem adiantar ou atrasar a partida sem justificativa', 'Adiantar a saída quando o veículo estiver cheio', 'Recusar passageiros para manter a pontualidade'], 1,
+  'O itinerário e o horário fazem parte do contrato com o usuário. Mudança sem motivo é infração e quebra a confiança no serviço.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'A cobrança de valores por transporte de volumes ou bagagens:',
+  ['É livre', 'Só pode ocorrer nos limites da regulamentação; cobrança indevida é proibida', 'É sempre permitida acima de 5 kg', 'Depende do humor do fiscal'], 1,
+  'O passageiro tem direito de transportar gratuitamente até 30 kg no bagageiro e 5 kg no porta-embrulhos. Cobrar fora dessas regras é irregularidade.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Ao embarcar e desembarcar passageiros, o condutor deve:',
+  ['Parar o mais próximo possível do meio-fio e usar apenas os pontos determinados', 'Parar no meio da pista para ganhar tempo', 'Estacionar em fila dupla nos terminais', 'Parar em qualquer lugar, desde que com pisca-alerta'], 0,
+  'Parar junto ao meio-fio reduz o risco de atropelamento; nos terminais, a fila dupla é proibida, salvo quando o estacionamento na via for vedado.',
+  'art. 47, CTB');
+
+Q('COL', 'O condutor deve garantir segurança e conforto aos passageiros, o que significa:',
+  ['Acelerar forte para cumprir o horário', 'Evitar freadas e arrancadas bruscas e conduzir com atenção e urbanidade', 'Usar apenas a velocidade máxima da via', 'Frear tarde para economizar combustível'], 1,
+  'Passageiro em pé não tem apoio e qualquer frenagem brusca pode provocar queda dentro do veículo. Suavidade na condução é obrigação do motorista profissional.',
+  'art. 29 e Res. ANTT 1.383/2016');
+
+Q('COL', 'Ultrapassar pela direita um veículo de transporte coletivo parado para embarque ou desembarque é infração:',
+  ['Leve', 'Média', 'Grave', 'Gravíssima'], 3,
+  'É infração gravíssima (art. 200), salvo quando houver refúgio de segurança para o pedestre. Passageiros podem atravessar na frente do ônibus.',
+  'art. 200, CTB');
+
+Q('COL', 'Estacionar em ponto de embarque e desembarque de transporte coletivo é infração:',
+  ['Leve, com advertência', 'Média, com remoção do veículo', 'Grave, com apreensão da CNH', 'Não é infração'], 1,
+  'A infração é média e cabe remoção do veículo. Na falta de sinalização horizontal, considera-se ponto o intervalo de 10 metros antes e depois do marco.',
+  'art. 181, XIII, CTB');
+
+Q('COL', 'Ônibus de transporte coletivo regular que circula em faixa própria deve manter acesa a luz baixa:',
+  ['Apenas à noite', 'De dia e de noite', 'Apenas em rodovias', 'Apenas com neblina'], 1,
+  'Em faixa exclusiva, a luz baixa é obrigatória dia e noite para dar visibilidade ao veículo. Descumprir gera infração média (art. 250, I).',
+  'art. 40, parágrafo único, CTB');
+
+/* ---------- 6. INTERRUPÇÃO, EMERGÊNCIAS E FISCALIZAÇÃO ---------- */
+Q('COL', 'Quando a viagem precisar ser interrompida por força maior, a primeira medida é:',
+  ['Mandar todos os passageiros descerem na hora', 'Não permitir que os passageiros desçam, para evitar atropelamentos', 'Seguir viagem mesmo assim', 'Deixar o veículo e procurar ajuda'], 1,
+  'A pista é um local perigoso para pedestres. O condutor deve manter os passageiros a bordo, providenciar transporte e, se necessário, alimentação e pernoite.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Em caso de problema mecânico com passageiros a bordo, o condutor deve:',
+  ['Deixar todos descerem e aglomerarem na via', 'Evitar o desembarque na via, comunicar a empresa e providenciar outro veículo com conforto equivalente', 'Abandonar o veículo', 'Continuar a viagem em baixa velocidade'], 1,
+  'O desembarque em via aumenta o risco de atropelamento. Se a demora for longa, o condutor deve providenciar alimentação e pernoite aos passageiros.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Durante uma fiscalização, o condutor deve:',
+  ['Recusar-se a mostrar os documentos sem ordem judicial', 'Prestar os esclarecimentos solicitados, exibir documentos e apresentar o registro do tacógrafo quando pedido', 'Entregar documentos originais sem recibo', 'Só apresentar documento se houver multa'], 1,
+  'A colaboração com a fiscalização é obrigatória. Quando os documentos forem entregues, deve ser dado recibo ao condutor.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Sobre a retenção do veículo de transporte coletivo que transporta passageiros, o CTB determina que:',
+  ['A retenção é sempre imediata', 'A critério do agente, não se dará a retenção imediata, desde que o veículo ofereça condições de segurança para circular', 'O veículo é sempre apreendido', 'Não há previsão legal'], 1,
+  'O art. 270, § 5º, evita deixar passageiros na mão: o mesmo tratamento é dado a veículo com produto perigoso ou perecível, se houver segurança de circulação.',
+  'art. 270, § 5º, CTB');
+
+Q('COL', 'Homicídio culposo na direção de veículo automotor tem a pena aumentada quando o agente:',
+  ['Está em viagem de férias', 'Está no exercício da profissão conduzindo veículo de transporte de passageiros', 'Dirige veículo próprio', 'Está acompanhado de adultos'], 1,
+  'O aumento de 1/3 à metade (art. 302, § 1º, IV) reconhece a responsabilidade maior de quem transporta vidas profissionalmente.',
+  'art. 302, § 1º, IV, CTB');
+
+/* ---------- 7. DIREITOS DOS PASSAGEIROS ---------- */
+Q('COL', 'O passageiro pode transportar gratuitamente, no bagageiro do ônibus rodoviário, até:',
+  ['10 kg', '20 kg', '30 kg', '50 kg'], 2,
+  'São até 30 kg no bagageiro e 5 kg no porta-embrulhos, respeitados os limites de dimensão. Também tem direito ao comprovante da bagagem.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Em caso de extravio ou dano à bagagem, a reclamação deve ser feita:',
+  ['Somente por processo judicial', 'Ao término da viagem, em formulário próprio fornecido pela transportadora', 'Antes de embarcar', 'Em até 30 dias, por e-mail'], 1,
+  'O formulário próprio é um direito do passageiro e o primeiro passo para a indenização. O condutor deve tê-lo disponível na viagem.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Quando a viagem sofre interrupção ou atraso superior a 3 horas por falha da transportadora, o passageiro tem direito a:',
+  ['Apenas um pedido de desculpas', 'Alimentação e pousada, por conta da transportadora, enquanto durar a situação', 'Reembolso parcial de 50%', 'Nada, se comprou a passagem promocional'], 1,
+  'O art. 6º, XV, da Res. ANTT 1.383/2016 garante alimentação e pousada a cargo da transportadora. É uma proteção ao consumidor em serviço essencial.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Em caso de atraso na partida superior a 1 hora, o passageiro pode optar por:',
+  ['Continuar a viagem em outra empresa equivalente, às custas da transportadora', 'Somente esperar', 'Pagar uma taxa adicional', 'Perder o direito à passagem'], 0,
+  'Além de seguir em outra empresa, o passageiro pode receber de imediato o valor do bilhete ou continuar a viagem pela mesma transportadora.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Pode ser recusado o embarque de passageiro que:',
+  ['Está acompanhado de criança', 'Esteja em estado de embriaguez, porte arma sem autorização ou transporte produtos perigosos', 'Leve bagagem de mão de 3 kg', 'Peça informação ao condutor'], 1,
+  'A restrição de embarque protege a coletividade. Também se aplica a quem comprometer a segurança, o conforto ou a tranquilidade dos demais.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Quanto à gratuidade para crianças no transporte rodoviário, é correto afirmar:',
+  ['Toda criança até 12 anos viaja grátis', 'O responsável pode transportar gratuitamente uma criança de até seis anos incompletos, desde que não ocupe poltrona', 'A gratuidade vale para duas crianças por adulto', 'Não existe gratuidade'], 1,
+  'A regra é uma criança por responsável, sem ocupar poltrona. Acima disso, paga-se passagem. Para viagens interestaduais há ainda regras de gratuidade do idoso.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'O Estatuto do Idoso assegura gratuidade nos transportes coletivos públicos urbanos e semi-urbanos aos maiores de:',
+  ['60 anos', '65 anos', '70 anos', '75 anos'], 1,
+  'A gratuidade do art. 39 do Estatuto do Idoso alcança os maiores de 65 anos, exceto nos serviços seletivos e especiais.',
+  'Lei 10.741/2003, art. 39');
+
+Q('COL', 'Criança ou adolescente menor de 16 anos não pode viajar para fora da comarca onde reside desacompanhada dos pais ou responsáveis sem:',
+  ['Autorização da empresa de ônibus', 'Expressa autorização judicial', 'Autorização do condutor', 'Nada, pode viajar livremente'], 1,
+  'A exigência está no art. 83 do ECA, com dispensa quando o destino é comarca contígua ou quando há acompanhante ascendente ou autorizado.',
+  'Lei 8.069/1990, art. 83');
+
+/* ---------- 8. ACESSIBILIDADE E ATENDIMENTO ---------- */
+Q('COL', 'A Lei Brasileira de Inclusão (Lei 13.146/2015) determina que os veículos de transporte coletivo e os terminais:',
+  ['Podem ser adaptados se houver verba', 'Devem ser acessíveis, garantindo seu uso por todas as pessoas', 'Só precisam de acessibilidade em capitais', 'Dependem de decisão da empresa'], 1,
+  'A LBI assegura transporte e mobilidade em igualdade de oportunidades, com eliminação de barreiras e prioridade no embarque e desembarque da pessoa com deficiência.',
+  'Lei 13.146/2015, arts. 46 e 48');
+
+Q('COL', 'Ao auxiliar uma pessoa com deficiência visual a subir no ônibus, a posição correta é:',
+  ['Empurrá-la pela cintura', 'A pessoa com deficiência visual deve ficar um degrau atrás do guia', 'Guiá-la pela frente, de costas', 'Não se deve ajudar'], 1,
+  'A pessoa se apoia no guia e mantém o controle do próprio corpo. Também se deve dar pista sonora, oferecer o braço e avisar sobre degraus e obstáculos.',
+  'Lei 13.146/2015 / Res. CONTRAN 168/2004');
+
+Q('COL', 'Ao ajudar uma pessoa em cadeira de rodas a descer uma rampa, o correto é:',
+  ['Descer de frente, com a cadeira inclinada para frente', 'Usar a posição de marcha ré, para que a pessoa não tombe do assento', 'Levantar a cadeira pelas rodas', 'Não usar o elevador'], 1,
+  'O desembarque de ré dá estabilidade e evita que o usuário seja projetado para frente. Nos veículos com elevador, ele deve estar em perfeito funcionamento.',
+  'Lei 13.146/2015');
+
+Q('COL', 'Ao auxiliar uma pessoa com deficiência auditiva, o condutor deve:',
+  ['Gritar para ser ouvido', 'Falar de forma clara e pausada, olhando para a pessoa, e usar gestos se necessário', 'Falar apenas com o acompanhante', 'Fingir que entendeu'], 1,
+  'Gritar não ajuda e pode constranger. Jamais se deve fingir que entendeu: a pessoa está acostumada a repetir e se fazer entender.',
+  'Lei 13.146/2015');
+
+Q('COL', 'Em relação à gestante que embarca no coletivo, o condutor deve:',
+  ['Fazer perguntas sobre a gravidez', 'Oferecer ajuda com educação, sem tocar nela, ficando próximo caso precise de apoio', 'Aguardar que outro passageiro ajude', 'Pedir que desça pela porta traseira'], 1,
+  'A gestante tem mobilidade reduzida e pode perder o equilíbrio. O apoio deve ser oferecido, nunca imposto, e sem comentários pessoais.',
+  'Lei 13.146/2015 / Estatuto da Mulher');
+
+Q('COL', 'Sobre o passageiro idoso, é correto afirmar:',
+  ['Deve embarcar por último, sempre', 'Deve-se ter paciência, garantir que os assentos reservados sejam respeitados e informar o destino quando houver dificuldade de leitura', 'Não pode viajar em pé', 'Perde o direito ao passe livre aos 70 anos'], 1,
+  'Em muitos municípios a lei permite embarque e desembarque do idoso fora do ponto, mediante comprovação de idade acima de 65 anos.',
+  'Lei 10.741/2003');
+
+Q('COL', 'Sobre o cão-guia, é correto afirmar:',
+  ['Só pode entrar se o ônibus estiver vazio', 'A lei garante entrada e permanência nos meios de transporte', 'Precisa pagar passagem', 'Deve ir no bagageiro'], 1,
+  'O cão-guia é instrumento de acessibilidade da pessoa com deficiência visual e seu acesso é garantido por lei em todos os meios de transporte.',
+  'Lei 11.126/2005');
+
+/* ---------- 9. RELACIONAMENTO INTERPESSOAL E CONFLITOS ---------- */
+Q('COL', 'Diante de uma briga entre passageiros, a atitude correta do condutor é:',
+  ['Reagir à altura', 'Manter a calma, agir com bom senso, não responder a provocações e, em caso extremo, pedir ajuda policial', 'Parar o veículo e sair', 'Acelerar para assustar os envolvidos'], 1,
+  'O condutor precisa preservar a segurança de todos. Envolver-se na discussão amplia o conflito e desvia a atenção da direção.',
+  'Res. CONTRAN 168/2004');
+
+Q('COL', 'Se um passageiro embriagado causar transtorno no interior do ônibus, o condutor deve:',
+  ['Usar de força física', 'Solicitar educadamente que desça, não reagir a provocações e, se necessário, buscar apoio policial', 'Deixá-lo no ponto seguinte sem aviso', 'Continuar como se nada acontecesse'], 1,
+  'A abordagem deve ser educada e firme. Se o veículo estiver em estação de embarque, informa-se o pessoal de tráfego da empresa.',
+  'Res. CONTRAN 168/2004');
+
+Q('COL', 'Quando passageiros reclamam de aparelho sonoro em volume alto, o condutor deve:',
+  ['Desligar o aparelho à força', 'Solicitar o uso de fone de ouvido com educação e, em caso extremo, pedir que o aparelho seja desligado', 'Ignorar as reclamações', 'Expulsar o passageiro imediatamente'], 1,
+  'A mediação começa pela conversa. A recusa em atender, após advertência da tripulação, é motivo de restrição de embarque.',
+  'Res. ANTT 1.383/2016');
+
+Q('COL', 'Em caso de assalto dentro do ônibus, a recomendação é:',
+  ['Reagir para proteger o dinheiro', 'Não reagir, preservar a vida de todos, aguardar a polícia e, quando possível, comunicar a empresa', 'Acelerar o veículo', 'Abandonar o veículo'], 1,
+  'Reagir a assalto é uma das principais causas de morte em ocorrências com transporte. A prioridade é a vida dos passageiros e da tripulação.',
+  'Res. CONTRAN 168/2004');
+
+Q('COL', 'Se um passageiro passar mal durante a viagem, o condutor deve:',
+  ['Continuar a viagem até o destino', 'Prestar os primeiros socorros que souber, pedir ajuda a profissionais presentes, buscar atendimento e acalmar os demais', 'Mandar o passageiro descer no próximo ponto', 'Esperar a polícia chegar'], 1,
+  'Além do atendimento, o condutor deve avisar o representante da empresa o mais rápido possível e manter a calma dos demais passageiros.',
+  'Res. CONTRAN 168/2004');
+
+Q('COL', 'O estresse no trânsito, para o condutor profissional, deve ser administrado porque:',
+  ['Afeta apenas o humor', 'Reduz a atenção e a capacidade de decisão, comprometendo a segurança de todos a bordo', 'Só importa em viagens longas', 'Não tem relação com sinistros'], 1,
+  'Cansaço e estresse aumentam o tempo de reação e favorecem atitudes agressivas. O condutor profissional precisa reconhecer seus limites e fazer pausas.',
+  'Res. CONTRAN 168/2004');
+
+Q('COL', 'Quanto ao papel do agente de fiscalização, é correto afirmar:',
+  ['Sua atuação é apenas punitiva', 'Além de fiscalizar, ele orienta e educa os usuários da via', 'Ele não pode aplicar multas', 'Só age em rodovias federais'], 1,
+  'O agente exerce função educativa e fiscalizadora. A comunicação entre agente, condutores e pedestres é parte do funcionamento seguro do trânsito.',
+  'art. 87, VI, CTB');
+
+Q('COL', 'Sobre a competência dos agentes de trânsito, é correto afirmar:',
+  ['Todos os agentes podem aplicar qualquer infração', 'Há infrações de competência exclusiva do Estado, outras do Município e outras de ambos', 'Só a União aplica multas', 'O município aplica multas em rodovias federais'], 1,
+  'A Tabela de Distribuição de Competência define o que cabe a cada ente. Aplicar infração fora da competência torna o auto de infração nulo.',
+  'Res. CONTRAN 789/2020');
+
+Q('COL', 'O direito ao transporte e à mobilidade da pessoa com deficiência, previsto na LBI, inclui:',
+  ['Apenas o transporte urbano', 'Identificação e eliminação de todos os obstáculos e barreiras ao acesso', 'Somente transporte por aplicativo', 'Acesso apenas em dias úteis'], 1,
+  'A acessibilidade alcança terminais, pontos de parada, sistema viário e prestação do serviço, em igualdade de oportunidades.',
+  'Lei 13.146/2015, art. 46');
+
+Q('COL', 'A Lei de Mobilidade Urbana (Lei 12.587/2012) tem como diretriz:',
+  ['Priorizar o transporte individual motorizado', 'Incentivar o uso do transporte público coletivo em relação ao transporte individual', 'Eliminar o transporte coletivo', 'Restringir a circulação de pedestres'], 1,
+  'A Política Nacional de Mobilidade Urbana busca tornar o transporte coletivo mais atrativo, com segurança, tarifa justa e agilidade nos deslocamentos.',
+  'Lei 12.587/2012');
+/* =========================================================
    SimulaTrânsito BR — aplicação (SPA, sem dependências)
    ========================================================= */
 
